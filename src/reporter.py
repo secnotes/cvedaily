@@ -647,7 +647,6 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 25px;
-            border-left: 5px solid var(--secondary-color);
             transition: background 0.3s ease;
         }
 
