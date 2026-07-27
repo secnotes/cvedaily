@@ -1,83 +1,64 @@
 {
-  "analysis_date": "2026-07-26",
-  "total_analyzed": 31,
+  "analysis_date": "2026-07-27",
+  "total_analyzed": 23,
   "model": "MiniMax-M3",
   "categories": {
     "桌面操作系统": [
       {
         "id": "CVE-2025-6020",
-        "reason": "linux-pam本地权限提升至root，利用符号链接攻击和竞态条件，影响所有Linux系统认证安全"
+        "reason": "linux-pam pam_namespace模块本地权限提升至root，通过符号链接攻击和竞争条件实现，影响所有Linux发行版"
       },
       {
-        "id": "CVE-2025-5914",
-        "reason": "libarchive是广泛使用的归档库，rar_seek_data整数溢出导致双重释放，触发内存破坏可执行任意代码"
+        "id": "CVE-2025-49794",
+        "reason": "libxml2 XPath解析UAF漏洞(CVSS 9.1)，恶意XML可导致内存破坏，libxml2广泛使用影响面极大"
+      },
+      {
+        "id": "CVE-2025-49796",
+        "reason": "libxml2 sch:name元素处理内存破坏(CVSS 9.1)，精心构造的XML输入可触发崩溃或未定义行为"
+      },
+      {
+        "id": "CVE-2026-17497",
+        "reason": "NoteGen桌面应用通过Tauri shell插件允许任意shell命令执行(CVSS 8.3)，Webview中JS即可触发RCE"
       }
     ],
     "移动安全": [],
-    "IoT安全": [
-      {
-        "id": "CVE-2026-66013",
-        "reason": "OpenRemote IoT管理平台控制台注册API存在未认证绕过，攻击者可覆盖推送令牌和设备元数据，影响物联网设备管控安全"
-      }
-    ],
+    "IoT安全": [],
     "云安全": [
       {
         "id": "CVE-2026-7374",
-        "reason": "KubeVirt virt-handler符号链接验证缺陷（CVSS 9.9），普通命名空间用户可逃逸至宿主机，对云原生虚拟化平台危害极大"
+        "reason": "KubeVirt virt-handler符号链接验证缺陷(CVSS 9.9)，命名空间级权限即可逃逸至宿主机，Kubernetes虚拟化场景危害极高"
       },
       {
-        "id": "CVE-2025-2843",
-        "reason": "Observability Operator为命名空间级资源创建ClusterRole，租户级账户可越权提升至集群管理员"
+        "id": "CVE-2026-1784",
+        "reason": "OpenShift Route HAProxy配置注入(CVSS 8.8)，通过spec.path路径绕过校验实现HAProxy配置污染"
       },
       {
-        "id": "CVE-2026-22049",
-        "reason": "NetApp ONTAP WebAuthn MFA存在Relying Party ID缺陷，拥有合法凭证即可绕过多因素认证"
+        "id": "CVE-2026-9804",
+        "reason": "KubeVirt virt-exportserver路径遍历漏洞(CVSS 7.7)，结合符号链接可读取宿主机任意文件"
       }
     ],
     "网络设备": [],
     "工业控制": [],
     "Web安全": [
       {
-        "id": "CVE-2026-66012",
-        "reason": "SiYuan MCP端点完全缺失授权（CVSS 10），未认证攻击者可利用31个工具读取、写入、删除任意文件"
+        "id": "CVE-2026-4601",
+        "reason": "jsrsasign DSA签名实现缺少密码学步骤(CVSS 9.4)，攻击者可恢复私钥，影响JWT/证书签名验证安全"
       },
       {
-        "id": "CVE-2026-10818",
-        "reason": "WPForms Pro分块上传在文件类型校验前已写入磁盘，可实现WordPress任意文件上传获取Webshell"
+        "id": "CVE-2026-1615",
+        "reason": "jsonpath库任意代码注入(CVSS 9.2)，使用unsafe static-eval处理用户输入的JSON Path表达式，可直接RCE"
       },
       {
-        "id": "CVE-2025-5273",
-        "reason": "mcp-markdownify-server通过构造提示词可读取主机任意文件，影响MCP生态安全"
+        "id": "CVE-2025-12613",
+        "reason": "cloudinary参数解析缺陷导致任意参数注入(CVSS 8.8)，可绕过安全控制实现多种恶意后果"
       },
       {
-        "id": "CVE-2026-10697",
-        "reason": "Progress MOVEit Transfer认证缺陷，该产品历史上多次被勒索组织利用，新漏洞需重点关注"
+        "id": "CVE-2026-15962",
+        "reason": "WordPress Fluent Forms Pro插件PHP对象注入(CVSS 8.8)，订阅者级别权限即可触发反序列化漏洞"
       }
     ],
-    "数据库与中间件": [
-      {
-        "id": "CVE-2026-15967",
-        "reason": "MOVEit Transfer会话过期不足，结合CORS策略过宽，可导致会话劫持与跨域攻击"
-      },
-      {
-        "id": "CVE-2026-15966",
-        "reason": "MOVEit Transfer跨域策略允许不受信任域访问，是文件传输中间件的高危配置缺陷"
-      }
-    ],
-    "其他": [
-      {
-        "id": "CVE-2026-66032",
-        "reason": "libssh2 sftp_open双重释放（CVSS 8.8），恶意SSH服务器可破坏客户端堆内存，影响大量SSH客户端"
-      },
-      {
-        "id": "CVE-2026-66041",
-        "reason": "FFmpeg vf_quirc过滤器堆越界写入，恶意字幕文件可触发任意代码执行，多媒体处理通用风险"
-      },
-      {
-        "id": "CVE-2026-14172",
-        "reason": "Rapid7 InsightVM扫描引擎未验证可执行文件属主，本地低权用户可借此以SYSTEM权限执行代码"
-      }
-    ]
+    "数据库与中间件": [],
+    "其他": []
   },
-  "summary": "本批次高危漏洞集中于云平台K8s生态与Web应用，需重点关注KubeVirt逃逸及SiYuan满分未授权漏洞"
+  "summary": "本批次高危漏洞聚焦云原生(KubeVirt/OpenShift)、密码学库(jsrsasign)及Web应用RCE链，需优先处置。"
 }
