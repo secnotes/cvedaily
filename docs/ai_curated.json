@@ -1,142 +1,930 @@
 {
-  "analysis_date": "2026-07-30",
-  "total_analyzed": 298,
+  "analysis_date": "2026-07-31",
+  "total_analyzed": 1335,
   "model": "MiniMax-M3",
   "categories": {
     "桌面操作系统": [
       {
-        "id": "CVE-2026-57850",
-        "reason": "RustDesk 8.3分高危漏洞，远程认证用户可通过控制消息绕过会话授权范围执行任意操作，影响广泛使用的远程桌面工具，实际攻击价值极高。"
+        "id": "CVE-2023-3609",
+        "reason": "Linux内核net/sched cls_u32组件UAF漏洞，本地权限提升风险高，影响范围广。"
       },
       {
-        "id": "CVE-2026-12703",
-        "reason": "TeamViewer macOS 2FA业务逻辑缺陷，认证攻击者可绕过2FA通过Unattended Access建立远程连接，影响企业远程运维安全"
+        "id": "CVE-2026-41703",
+        "reason": "VMware ESX/Workstation/Fusion越界读取漏洞，拥有VM部署权限的攻击者可触发主机进程DoS或信息泄露。"
       },
       {
-        "id": "CVE-2023-1829",
-        "reason": "Linux内核tcindex过滤器Use-After-Free漏洞，可被本地低权限用户用于权限提升，影响广泛部署的Linux系统"
+        "id": "CVE-2026-47876",
+        "reason": "VMware ESX VMXNET3虚拟网卡越界写漏洞，CVSS 9.3，本地虚机逃逸至宿主机执行代码，威胁虚拟化基础设施"
+      },
+      {
+        "id": "CVE-2026-43329",
+        "reason": "Linux内核netfilter flowtable对IPv6硬件卸载action数量校验不严，可导致内核崩溃或权限提升"
+      },
+      {
+        "id": "CVE-2026-16727",
+        "reason": "ASUS Armoury Crate竞争条件漏洞，本地低权限用户可通过文件替换执行任意代码"
+      },
+      {
+        "id": "CVE-2026-64541",
+        "reason": "Linux内核SMC协议存在释放后重用(UAF)漏洞，CVSS 9.8，网络可达即可触发内核崩溃或远程代码执行，影响范围广。"
+      },
+      {
+        "id": "CVE-2026-64535",
+        "reason": "NVMe/TCP数据摘要校验路径存在UAF漏洞，CVSS 9.8，远程攻击者可触发内核崩溃，影响关键存储基础设施。"
+      },
+      {
+        "id": "CVE-2026-71159",
+        "reason": "btrfs文件系统get_or_create_delayed_node存在UAF，CVSS 9.8，本地用户可能借此提权或破坏文件系统完整性。"
+      },
+      {
+        "id": "CVE-2026-46316",
+        "reason": "KVM/arm64 vgic-its翻译缓存引用计数处理错误，CVSS 9.3，威胁虚拟化平台稳定性，存在虚拟机逃逸风险。"
+      },
+      {
+        "id": "CVE-2025-71093",
+        "reason": "Intel e1000网卡驱动OOB读取漏洞，影响所有使用Intel网卡的Linux系统，CVSS 9.1高危"
+      },
+      {
+        "id": "CVE-2025-68726",
+        "reason": "内核crypto子系统的AEAD reqsize处理缺陷，影响所有加密操作，CVSS 9.8极高危"
+      },
+      {
+        "id": "CVE-2025-68359",
+        "reason": "btrfs文件系统双重释放漏洞，可导致数据损坏或权限提升，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68315",
+        "reason": "f2fs文件系统NID损坏检测缺陷，可被用于触发内核异常，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68192",
+        "reason": "qmi_wwan驱动MAC header未初始化，可导致ARM64内核崩溃，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-40350",
+        "reason": "CVSS 9.8，mlx5e网卡驱动XDP调整导致skb数据损坏，影响广泛使用的Mellanox网络硬件"
+      },
+      {
+        "id": "CVE-2025-40258",
+        "reason": "CVSS 9.8，MPTCP调度work存在UAF竞争条件，可导致远程内核崩溃"
+      },
+      {
+        "id": "CVE-2025-40176",
+        "reason": "CVSS 9.8，TLS异步解密路径中skb克隆失败时未等待挂起的解密，可能导致数据损坏"
+      },
+      {
+        "id": "CVE-2025-40252",
+        "reason": "CVSS 9.8，qede驱动tpa路径中cqe->len_list遍历越界读取，可造成信息泄露"
+      },
+      {
+        "id": "CVE-2025-40212",
+        "reason": "CVSS 9.8，nfsd伪根文件系统LOOKUP处理存在引用计数泄漏，影响所有NFS服务端"
+      },
+      {
+        "id": "CVE-2025-40074",
+        "reason": "CVSS 9.8，IPv4网络栈关键UAF漏洞，影响icmpv4、ipmr等核心路径，可能导致远程代码执行"
+      },
+      {
+        "id": "CVE-2025-39975",
+        "reason": "CVSS 9.8，SMB客户端响应缓冲区索引错误，可被恶意SMB服务器利用导致信息泄露或权限提升"
+      },
+      {
+        "id": "CVE-2025-40099",
+        "reason": "CVSS 9.4，CIFS DFS referrals解析存在越界读取，恶意SMB服务器可触发内核OOB，攻击场景明确"
+      },
+      {
+        "id": "CVE-2025-40058",
+        "reason": "CVSS 8.8，Intel VT-d IOMMU脏页跟踪逻辑缺陷，影响虚拟机内存隔离安全性"
+      },
+      {
+        "id": "CVE-2025-40039",
+        "reason": "CVSS 8.8，ksmbd RPC句柄列表竞态条件，SMB服务端远程可利用，影响NAS设备安全"
+      },
+      {
+        "id": "CVE-2025-40043",
+        "reason": "CVSS 8.8，NFC NCI驱动数据包参数校验缺失，可通过恶意NFC数据触发内核UAF"
+      },
+      {
+        "id": "CVE-2025-39983",
+        "reason": "CVSS 8.8，蓝牙HCI连接处理UAF漏洞，远程攻击者通过蓝牙协议即可触发内核崩溃"
+      },
+      {
+        "id": "CVE-2025-39982",
+        "reason": "CVSS 8.8，蓝牙ACL连接同步UAF，远程无需认证即可利用，影响所有Linux蓝牙设备"
+      },
+      {
+        "id": "CVE-2025-40140",
+        "reason": "CVSS 8.8，rtl8150 USB网卡驱动队列唤醒逻辑缺陷，可导致内核警告及系统不稳定"
+      },
+      {
+        "id": "CVE-2025-40046",
+        "reason": "CVSS 8.6，io_uring zcrx接收限制越界，可导致数据泄露或缓冲区溢出"
+      },
+      {
+        "id": "CVE-2025-40068",
+        "reason": "CVSS 8.4，ntfs3文件系统整数溢出漏洞，恶意NTFS镜像可触发内核代码执行"
+      },
+      {
+        "id": "CVE-2025-40168",
+        "reason": "CVSS 8.1，SMC协议RCU保护缺失导致的UAF，影响共享内存通信的稳定性"
+      },
+      {
+        "id": "CVE-2025-39948",
+        "reason": "Intel ice网卡驱动Rx页泄漏漏洞，CVSS 9.8，可导致内存耗尽或数据丢失，影响广泛的服务器平台。"
+      },
+      {
+        "id": "CVE-2025-39932",
+        "reason": "SMB客户端smbd_destroy存在竞争条件导致UAF，CVSS 9.8，可远程触发内核崩溃。"
+      },
+      {
+        "id": "CVE-2025-39841",
+        "reason": "lpfc SCSI驱动存在UAF漏洞，CVSS 9.8，影响企业存储与虚拟化平台。"
+      },
+      {
+        "id": "CVE-2025-39758",
+        "reason": "RDMA/siw发送字节数计算错误导致内存破坏，CVSS 9.8，影响数据中心高速网络。"
+      },
+      {
+        "id": "CVE-2025-39702",
+        "reason": "IPv6段路由MAC比较非恒定时间，可被用于时序侧信道攻击，CVSS 9.8。"
+      },
+      {
+        "id": "CVE-2025-39943",
+        "reason": "ksmbd smbdirect协议data_offset/data_length校验缺失，CVSS 9.4，远程可触发越界访问。"
+      },
+      {
+        "id": "CVE-2025-38560",
+        "reason": "x86 SEV SNP缓存一致性漏洞修复，涉及机密计算安全缓解措施，CVSS 9.3，安全级别高"
+      },
+      {
+        "id": "CVE-2025-38554",
+        "reason": "VMA引用计数UAF，可被利用导致内存破坏，已由安全研究人员构造利用路径"
+      },
+      {
+        "id": "CVE-2025-39673",
+        "reason": "ppp转发路径双重竞争条件，CVSS 9.8，影响网络数据完整性"
+      },
+      {
+        "id": "CVE-2025-38734",
+        "reason": "SMC协议smc_listen_out后UAF，可远程触发内核空指针解引用"
+      },
+      {
+        "id": "CVE-2025-38352",
+        "reason": "已被CISA KEV收录，在野利用中，posix-cpu-timers处理与进程退出之间的竞争可导致UAF，需立即修补"
+      },
+      {
+        "id": "CVE-2025-38502",
+        "reason": "BPF cgroup本地存储越界访问，可通过tail call构造，BPF提权风险显著"
+      },
+      {
+        "id": "CVE-2025-38466",
+        "reason": "恢复uprobes需CAP_SYS_ADMIN权限，防止无特权用户在指令中间插入探测点造成破坏"
+      },
+      {
+        "id": "CVE-2025-38365",
+        "reason": "btrfs重命名与目录日志记录之间的竞争可能导致文件系统元数据损坏（CVSS 9.1）"
+      },
+      {
+        "id": "CVE-2025-38396",
+        "reason": "修复secretmem LSM绕过漏洞，安全上下文不正确可绕过Linux安全模块策略"
+      },
+      {
+        "id": "CVE-2025-38089",
+        "reason": "sunrpc远程可触发的内核崩溃漏洞(CVSS 9.8)，攻击者通过特制RPC包可使NFS等内核RPC服务端崩溃，属高危远程DoS。"
+      },
+      {
+        "id": "CVE-2025-38211",
+        "reason": "RDMA/iwcm cm_id销毁后工作对象UAF漏洞(CVSS 9.8)，影响RDMA高性能网络场景，可致内核崩溃。"
+      },
+      {
+        "id": "CVE-2025-38246",
+        "reason": "bnxt网卡XDP重定向链表损坏漏洞(CVSS 9.8)，生产环境曾复现内核崩溃，影响Broadcom NetXtreme服务器。"
+      },
+      {
+        "id": "CVE-2025-38139",
+        "reason": "netfs写重试子请求迭代器重置错误(CVSS 9.8)，影响网络文件系统写入路径，可导致内核Oops。"
+      },
+      {
+        "id": "CVE-2025-38075",
+        "reason": "iSCSI target在已删除连接上NOPIN超时漏洞(CVSS 9.8)，可远程触发target崩溃，影响存储服务可用性。"
+      },
+      {
+        "id": "CVE-2025-38146",
+        "reason": "openvswitch MPLS解析死循环漏洞(CVSS 9.4)，恶意MPLS包可导致软锁up/拒绝服务。"
+      },
+      {
+        "id": "CVE-2025-37894",
+        "reason": "CVSS 9.8，TCP TIME_WAIT sock类型混淆导致UAF/崩溃，影响所有Linux桌面系统"
+      },
+      {
+        "id": "CVE-2025-37959",
+        "reason": "CVSS 9.4，BPF redirect_peer未清理skb导致跨网络命名空间数据泄露，权限提升风险高"
+      },
+      {
+        "id": "CVE-2025-22037",
+        "reason": "ksmbd空指针解引用，EPSS高达0.6574，远超其他漏洞，强烈提示存在在野利用，需优先修复"
+      },
+      {
+        "id": "CVE-2025-22021",
+        "reason": "netfilter IPv6 SNAT原始元组查找缺陷，CVSS满分10.0，可导致内核数据泄露或远程攻击"
+      },
+      {
+        "id": "CVE-2025-22110",
+        "reason": "netfilter nfnetlink_queue未初始化ctx导致内存分配错误，CVSS 9.8，影响所有使用conntrack的系统"
+      },
+      {
+        "id": "CVE-2025-22088",
+        "reason": "RDMA erdma在erdma_accept_newconn()中存在UAF漏洞，CVSS 9.8，可被远程触发内核崩溃"
+      },
+      {
+        "id": "CVE-2025-21954",
+        "reason": "netmem防止TX路径传输不可读skb，CVSS 9.8，影响devmem RX功能的网络转发安全"
+      },
+      {
+        "id": "CVE-2025-21988",
+        "reason": "netfs/read_collect数据捐赠prev_donated覆盖导致数据损坏，CVSS 9.8，影响网络文件系统数据完整性"
+      },
+      {
+        "id": "CVE-2025-22124",
+        "reason": "md-bitmap集群MD写超级块时bitmap_limit错误，CVSS 7.8，影响集群存储稳定性"
+      },
+      {
+        "id": "CVE-2025-21663",
+        "reason": "CVSS满分10.0，Nvidia Tegra MGBE控制器IOMMU Stream ID硬编码错误，可导致内存安全问题，影响嵌入式和边缘设备"
+      },
+      {
+        "id": "CVE-2025-21748",
+        "reason": "CVSS 9.8，ksmbd SMB服务器在32位系统上存在整数溢出，可导致内存 corruption，影响文件共享服务安全"
+      },
+      {
+        "id": "CVE-2025-21850",
+        "reason": "CVSS 9.8，nvmet命名空间禁用时存在崩溃缺陷，I/O未完成时禁用将导致内核崩溃，影响NVMe存储服务"
+      },
+      {
+        "id": "CVE-2025-21796",
+        "reason": "CVSS 9.8，nfsd释放ACL后未清零指针导致UAF，影响NFS文件服务器稳定性和安全"
+      },
+      {
+        "id": "CVE-2025-21673",
+        "reason": "CVSS 9.8，SMB客户端TCP_Server_Info::hostname双重释放，可能导致远程代码执行"
+      },
+      {
+        "id": "CVE-2025-21805",
+        "reason": "CVSS 9.8，RDMA/rtrs缺少deinit()调用导致链表损坏，频繁连接断开时可能引发内核崩溃"
+      },
+      {
+        "id": "CVE-2025-21707",
+        "reason": "CVSS 9.8，MPTCP子选项状态合并缺陷，可能导致协议处理异常和信息泄露"
+      },
+      {
+        "id": "CVE-2025-21876",
+        "reason": "CVSS 8.8，Intel VT-d IOMMU RCU使用不当，存在潜在UAF和稳定性问题"
+      },
+      {
+        "id": "CVE-2025-21735",
+        "reason": "CVSS 8.8，NFC NCI驱动缺少边界检查，恶意网络数据可导致内存 corruption"
+      },
+      {
+        "id": "CVE-2025-21631",
+        "reason": "Linux内核BFQ调度器UAF漏洞(CVSS 7.8)，可导致本地权限提升，内核级漏洞影响广泛"
+      },
+      {
+        "id": "CVE-2025-21629",
+        "reason": "Linux内核网络IPv6校验和卸载逻辑缺陷(CVSS 8.2)，影响BIG TCP数据包处理，可能造成网络数据完整性问题"
+      },
+      {
+        "id": "CVE-2026-16463",
+        "reason": "AutoCAD解析恶意DXF文件触发堆溢出(CVSS 7.8)，可实现RCE，影响大量工程设计用户"
+      },
+      {
+        "id": "CVE-2026-14266",
+        "reason": "7-Zip XZ解压堆缓冲区溢出RCE(CVSS 7.0)，攻击者可通过诱导用户解压恶意文件执行任意代码"
       }
     ],
     "移动安全": [
       {
-        "id": "CVE-2026-21047",
-        "reason": "Samsung ImsService 8.3分越界写漏洞，远程攻击者无需认证即可在Samsung设备上执行任意代码，威胁大量Android终端安全。"
+        "id": "CVE-2025-40282",
+        "reason": "CVSS 8.8，Bluetooth 6lowpan缺少link-local header重置，通过AF_PACKET触发内核崩溃"
+      },
+      {
+        "id": "CVE-2025-40309",
+        "reason": "CVSS 8.0，Bluetooth SCO连接释放路径存在UAF，影响移动设备蓝牙功能稳定性"
+      },
+      {
+        "id": "CVE-2025-37918",
+        "reason": "CVSS 8.8，Qualcomm WCN7851蓝牙固件崩溃转储处理导致NULL指针解引用，影响移动设备蓝牙子系统"
       }
     ],
     "IoT安全": [
       {
-        "id": "CVE-2026-13385",
-        "reason": "华硕路由器9.5分严重漏洞，MITM攻击者可伪造服务器使路由器下载执行任意命令，影响多款消费级路由器，网络边界风险极高。"
+        "id": "CVE-2026-13308",
+        "reason": "Autel MaxiCharger AC Elite Home EV充电器WebSocket整数下溢漏洞，无需认证即可远程执行任意代码。"
       },
       {
-        "id": "CVE-2026-18191",
-        "reason": "Vacron VIN-DS783E-E6监控系统隐藏功能漏洞，未认证远程攻击者可获取管理员凭证，CVSS 9.8分高危且面向公网的物联网设备"
+        "id": "CVE-2026-5846",
+        "reason": "Watchfire Controller软件使用硬编码自签名RSA私钥及X.509证书，攻击者可解密/伪造TLS通信。"
+      },
+      {
+        "id": "CVE-2026-67248",
+        "reason": "ASUSTOR NAS ADM文件管理器栈缓冲区溢出（CVSS 8.7），认证攻击者可触发拒绝服务或代码执行"
+      },
+      {
+        "id": "CVE-2026-22620",
+        "reason": "Eaton Tripp Lite PADM固件认证组件输入校验缺陷，未认证远程攻击者可绕过认证获取特权访问"
+      },
+      {
+        "id": "CVE-2026-44101",
+        "reason": "Phoenix Contact CHARX OCPP Agent服务缺失认证(CVSS 9.8)，未认证远程攻击者可重配后端连接，导致拒绝服务和充电数据泄露，威胁电动车充电基础设施。"
+      },
+      {
+        "id": "CVE-2026-44091",
+        "reason": "Phoenix Contact MQTT Broker接受未认证恶意ID写入配置(CVSS 9.1)，可破坏设备完整性和可用性，影响工业IoT设备群。"
+      },
+      {
+        "id": "CVE-2026-44096",
+        "reason": "Phoenix Contact udhcpc本地提权漏洞(CVSS 7.8)，低权限用户可获取root执行，影响CHARX系列工业设备。"
+      },
+      {
+        "id": "CVE-2026-21639",
+        "reason": "CVSS 8.8，Ubiquiti airMAX无线协议RCE漏洞，Wi-Fi范围内的攻击者可远程执行代码，影响大量部署的物联网设备"
+      },
+      {
+        "id": "CVE-2025-39952",
+        "reason": "Microchip WILC1000 WiFi驱动WID字符串配置缓冲区溢出，CVSS 8.8，该芯片广泛用于IoT与嵌入式设备。"
+      },
+      {
+        "id": "CVE-2025-39806",
+        "reason": "HID multitouch驱动slab越界访问，CVSS 8.8，恶意USB HID设备可触发本地提权或内核崩溃。"
+      },
+      {
+        "id": "CVE-2025-38429",
+        "reason": "MHI Endpoint总线读指针更新与缓冲区写入存在竞争，CVSS 10.0严重等级，影响嵌入式/移动基带"
+      },
+      {
+        "id": "CVE-2025-38293",
+        "reason": "ath11k WLAN恢复流程中arvifs链表节点损坏，影响IoT/嵌入式WiFi设备稳定性"
+      },
+      {
+        "id": "CVE-2025-38317",
+        "reason": "ath12k debugfs写入超过32字节触发内存破坏，影响WiFi 7嵌入式平台"
+      },
+      {
+        "id": "CVE-2026-12935",
+        "reason": "TP-Link TL-WR940N路由器RTSP连接跟踪模块栈缓冲区溢出(CVSS 8.7)，LAN客户端访问恶意RTSP服务器即可触发，影响大量家用路由器用户"
       }
     ],
     "云安全": [
       {
-        "id": "CVE-2026-16326",
-        "reason": "HashiCorp consul-mcp-server CVSS满分10.0，会话状态隔离缺陷导致一个客户端的Consul认证token可被其他客户端复用，云环境横向移动风险极大。"
+        "id": "CVE-2026-59309",
+        "reason": "VMware vCenter身份验证绕过漏洞，远程攻击者无需凭证即可完全控制vCenter系统，CVSS 9.8。"
       },
       {
-        "id": "CVE-2025-41115",
-        "reason": "Grafana SCIM配置用户身份混淆漏洞，CVSS满分10且EPSS达0.1691，云环境Grafana实例面临大规模账户劫持风险"
+        "id": "CVE-2026-12946",
+        "reason": "IBM Langflow OSS远程代码执行漏洞，攻击者可注入任意代码，CVSS高达9.9。"
       },
       {
-        "id": "CVE-2026-27876",
-        "reason": "Grafana SQL表达式与Enterprise插件链式攻击导致RCE，CVSS 9.1分，OSS版本亦受影响需紧急修复"
+        "id": "CVE-2026-67594",
+        "reason": "Spikster未挂载CipiAuth中间件导致API路由完全无认证，可访问所有API接口。"
       },
       {
-        "id": "CVE-2025-4318",
-        "reason": "AWS Amplify Studio UI组件缺乏输入验证，认证用户可在组件渲染/构建时执行任意JavaScript代码"
+        "id": "CVE-2026-68502",
+        "reason": "LazyOwn RedTeam C2框架Socket.IO事件处理器无认证，远程可执行任意OS命令。"
+      },
+      {
+        "id": "CVE-2026-59310",
+        "reason": "VMware vCenter Syslog目录遍历（CVSS 9.8），网络可达攻击者可执行任意代码，影响核心虚拟化管理平台"
+      },
+      {
+        "id": "CVE-2026-58046",
+        "reason": "Plesk XML-RPC API SQL注入（CVSS 9.9），低权限用户可读取数据库并完全控制面板"
+      },
+      {
+        "id": "CVE-2026-54680",
+        "reason": "kube-logging FluentRender未转义CRD字符串（CVSS 9.9），可在Kubernetes Fluentd配置中注入任意配置"
+      },
+      {
+        "id": "CVE-2026-41939",
+        "reason": "Care Everywhere Gateway硬编码默认凭证（CVSS 9.8），未认证攻击者可获取WildFly管理权限"
+      },
+      {
+        "id": "CVE-2026-60113",
+        "reason": "NASA AMMOS DSN接口缺失认证（CVSS 9.8），未认证攻击者可访问7个未保护API路由"
+      },
+      {
+        "id": "CVE-2026-42151",
+        "reason": "Prometheus将Azure AD client_secret字段类型错误暴露(CVSS 7.5)，通过metrics端点可泄露云访问凭证，影响监控数据保密性。"
+      },
+      {
+        "id": "CVE-2026-18378",
+        "reason": "Red Hat koku-metrics-operator CostManagementMetricsConfig可被恶意编辑指定任意上传URL(CVSS 7.6)，默认配置下泄露集群全局pull-secret令牌。"
+      },
+      {
+        "id": "CVE-2026-41567",
+        "reason": "Docker/Moby容器解压路径使用未受控的外部解压二进制(CVSS 7.2)，容器上传流程可触发容器逃逸。"
+      },
+      {
+        "id": "CVE-2025-68775",
+        "reason": "TLS握手子系统套接字泄漏漏洞，影响云环境安全通信，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68794",
+        "reason": "iomap存储子系统的非块对齐读取范围处理缺陷，影响云存储基础设施，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68285",
+        "reason": "Ceph分布式存储客户端UAF漏洞，影响云存储集群，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68736",
+        "reason": "Landlock沙箱机制处理断开目录的缺陷，可绕过沙箱限制，CVSS 8.8"
+      },
+      {
+        "id": "CVE-2025-40292",
+        "reason": "CVSS 8.4，virtio-net大包接收长度校验错误，在虚拟化云环境中可被恶意guest触发越界访问"
+      },
+      {
+        "id": "CVE-2025-40266",
+        "reason": "CVSS 8.2，KVM arm64 FF-A内存共享未验证偏移量，云端arm64虚拟机可触发hypervisor越界访问"
+      },
+      {
+        "id": "CVE-2025-39726",
+        "reason": "s390 ISM设备并发管理缺陷，CVSS 9.8，IBM Z系列主机虚机隔离相关的关键漏洞。"
+      },
+      {
+        "id": "CVE-2025-38264",
+        "reason": "nvme-tcp请求列表处理缺乏校验，恶意R2T PDU可注入循环导致存储后端拒绝服务"
+      },
+      {
+        "id": "CVE-2025-38472",
+        "reason": "netfilter conntrack删除未初始化条目引发内核崩溃，影响云环境网络安全栈"
+      },
+      {
+        "id": "CVE-2025-38490",
+        "reason": "libwx网络驱动page_pool重复释放，可能导致云网卡Rx路径UAF"
+      },
+      {
+        "id": "CVE-2025-38283",
+        "reason": "hisi_acc VFIO PCI设备在Guest无VF驱动时迁移指针为NULL，影响云端加密加速器热迁移"
+      },
+      {
+        "id": "CVE-2025-38216",
+        "reason": "Intel VT-d IOMMU上下文恢复顺序漏洞(CVSS 8.8)，可破坏别名设备的DMA隔离，影响虚拟机安全边界。"
+      },
+      {
+        "id": "CVE-2025-38064",
+        "reason": "virtio设备关闭路径未正确break/reset(CVSS 7.8)，kexec或VM关闭时触发QEMU非法内存访问，威胁虚拟化平台。"
+      },
+      {
+        "id": "CVE-2025-37996",
+        "reason": "CVSS 8.8，KVM arm64 user_mem_abort未初始化memcache指针，虚拟机逃逸隐患"
+      },
+      {
+        "id": "CVE-2025-37885",
+        "reason": "CVSS 8.8，KVM x86 IRTE路由处理缺陷，可影响虚拟化中断投递安全"
+      },
+      {
+        "id": "CVE-2025-37849",
+        "reason": "CVSS 8.8，KVM arm64 vCPU创建失败时未拆除vGIC，存在资源泄露与安全问题"
+      },
+      {
+        "id": "CVE-2026-16242",
+        "reason": "Red Hat Konnectivity代理服务端未验证客户端证书(CVSS 9.4)，远程攻击者可未认证访问集群API并执行任意操作"
+      },
+      {
+        "id": "CVE-2026-17107",
+        "reason": "Red Hat ACM/MCE集群代理服务权限提升(CVSS 8.5)，未正确清理用户提供的身份模拟组头，可跨集群越权"
       }
     ],
     "网络设备": [
       {
-        "id": "CVE-2026-20079",
-        "reason": "Cisco Secure FMC软件CVSS 10.0且EPSS高达0.387（极高在野利用概率），未认证攻击者可绕过认证获取root权限，企业网络核心设备需立即处置。"
+        "id": "CVE-2026-12943",
+        "reason": "IBM HMC管理控制台未授权命令执行漏洞，Power环境HMC/Novalink受影响，CVSS 9.8极高危。"
       },
       {
-        "id": "CVE-2026-16347",
-        "reason": "MikroTik RouterOS API认证缺乏速率限制/账户锁定机制，攻击者可无限暴力破解管理接口凭据"
+        "id": "CVE-2026-56428",
+        "reason": "Bosch BSH电子平台模块SSH服务固件中预置不可撤销的root SSH公钥，存在持久后门风险。"
+      },
+      {
+        "id": "CVE-2026-11885",
+        "reason": "IBM PowerVM Hypervisor精心构造的系统调用可导致虚拟机监控器崩溃或OS内存完整性破坏。"
+      },
+      {
+        "id": "CVE-2026-8631",
+        "reason": "HP Linux成像与打印软件整数溢出（CVSS 9.3），可导致权限提升或任意代码执行"
+      },
+      {
+        "id": "CVE-2026-16526",
+        "reason": "Red Hat PCP linux_sockets模块暴露未保护内部连接，攻击者可从已执行代码提权至root"
+      },
+      {
+        "id": "CVE-2025-68745",
+        "reason": "qla2xxx FC HBA驱动芯片重置后命令卡死漏洞，影响存储区域网络，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68741",
+        "reason": "qla2xxx驱动purex项释放缺陷，影响FC SAN基础设施，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68818",
+        "reason": "qla2xxx驱动锁中止路径缺陷，影响FC HBA稳定性，CVSS 8.8"
+      },
+      {
+        "id": "CVE-2025-68304",
+        "reason": "蓝牙hci_conn并发处理缺陷，影响蓝牙设备连接稳定性，CVSS 8.8"
+      },
+      {
+        "id": "CVE-2025-40342",
+        "reason": "CVSS 8.8，nvme-fc远程端口注销与重连逻辑存在竞争，影响基于FC的存储网络设备"
+      },
+      {
+        "id": "CVE-2025-39839",
+        "reason": "batman-adv网状网络协议网络编码解码OOB读写，CVSS 8.8，攻击者通过恶意数据包可远程执行任意代码。"
+      },
+      {
+        "id": "CVE-2025-39848",
+        "reason": "AX.25协议KISS接收路径skb共享不当导致崩溃，CVSS 8.8，影响业余无线电及嵌入式网络。"
+      },
+      {
+        "id": "CVE-2025-39827",
+        "reason": "ROSE协议邻居节点引用计数管理缺陷，CVSS 8.8，可触发UAF造成内核崩溃。"
+      },
+      {
+        "id": "CVE-2025-38533",
+        "reason": "libwx网卡驱动Rx缓冲区DMA地址未初始化错误，CVSS 9.8，可能导致硬件描述符损坏"
+      },
+      {
+        "id": "CVE-2025-38643",
+        "reason": "cfg80211 CAC检查缺少wiphy锁，竞争条件下触发警告/崩溃"
+      },
+      {
+        "id": "CVE-2025-38592",
+        "reason": "蓝牙devcd_dump越界写入，可通过HCI命令触发内核OOB访问"
+      },
+      {
+        "id": "CVE-2025-38570",
+        "reason": "fbnic网卡驱动在打开失败路径上的NAPI UAF，影响云和容器网络"
+      },
+      {
+        "id": "CVE-2025-38512",
+        "reason": "WiFi A-MSDU欺骗攻击针对mesh网络，是FragAttacks后续重要漏洞，影响无线基础设施"
+      },
+      {
+        "id": "CVE-2025-38439",
+        "reason": "Broadcom NetXtreme-C/NetXtreme-E网卡XDP_REDIRECT路径DMA未映射长度错误，可能内存损坏"
+      },
+      {
+        "id": "CVE-2025-38343",
+        "reason": "mt76驱动丢弃组播/广播分片帧，修复IEEE 802.11分片注入漏洞"
+      },
+      {
+        "id": "CVE-2025-38123",
+        "reason": "wwan t7xx蜂窝网卡驱动NAPI轮询竞态漏洞(CVSS 9.8)，netdev释放后仍被访问导致内核崩溃，影响移动宽带设备。"
+      },
+      {
+        "id": "CVE-2025-38174",
+        "reason": "Thunderbolt配置请求双重出队漏洞(CVSS 8.8)，可导致雷电接口设备内核崩溃，威胁外设连接安全。"
+      },
+      {
+        "id": "CVE-2025-38052",
+        "reason": "TIPC内核协议slab UAF读取漏洞(CVSS 8.8)，影响集群节点间通信，可致内核崩溃。"
+      },
+      {
+        "id": "CVE-2025-37935",
+        "reason": "CVSS 9.8，MTK以太网驱动SER触发panic，4GB+ RAM设备直接崩溃，影响嵌入式与网络设备"
+      },
+      {
+        "id": "CVE-2025-37973",
+        "reason": "CVSS 8.1，cfg80211多链路元素分片重组越界访问，可被恶意WiFi帧触发"
+      },
+      {
+        "id": "CVE-2025-22077",
+        "reason": "smb客户端TCP定时器rmmod后死锁问题，CVSS 9.8，影响所有使用SMB/CIFS的网络文件共享场景"
+      },
+      {
+        "id": "CVE-2025-22074",
+        "reason": "ksmbd oplock break r_count增减不匹配导致计数变负，CVSS 8.8，影响SMB服务器安全"
+      },
+      {
+        "id": "CVE-2025-22039",
+        "reason": "ksmbd dacloffset边界检查整数溢出，CVSS 8.8，可绕过权限检查"
+      },
+      {
+        "id": "CVE-2025-21946",
+        "reason": "ksmbd parse_sec_desc越界访问漏洞，CVSS 8.8，多个偏移字段缺少校验"
+      },
+      {
+        "id": "CVE-2025-21760",
+        "reason": "CVSS 8.1且EPSS高达0.33，ndisc_send_skb缺少RCU保护，存在UAF风险，实际被利用概率极高"
+      },
+      {
+        "id": "CVE-2025-21758",
+        "reason": "CVSS 7.8且EPSS 0.14，IPv6组播mld_newpack缺少RCU保护，存在UAF且利用可能性较高"
+      },
+      {
+        "id": "CVE-2025-21759",
+        "reason": "CVSS 7.8且EPSS 0.074，igmp6_send缺少RCU保护，IPv6组播UAF漏洞"
+      },
+      {
+        "id": "CVE-2025-21828",
+        "reason": "CVSS 8.8，wifi mac80211驱动在STA未上传时误刷，可能导致内核状态异常影响无线设备"
+      },
+      {
+        "id": "CVE-2025-21692",
+        "reason": "CVSS 7.8，ets qdisc分类OOB索引缺陷，clid为0时可越界访问，可能导致本地权限提升"
+      },
+      {
+        "id": "CVE-2026-58179",
+        "reason": "Apache Traffic Server regex_remap插件栈/整数溢出(CVSS 9.2)，影响8.0至10.1多个版本，可被远程利用"
+      },
+      {
+        "id": "CVE-2026-58150",
+        "reason": "Apache Traffic Server HTTP/2请求走私漏洞(CVSS 7.8)，允许Transfer-Encoding降级攻击绕过安全控制"
       }
     ],
     "工业控制": [
       {
-        "id": "CVE-2026-60112",
-        "reason": "NASA AMMOS AIT航天器指令接口9.8分漏洞，缺乏认证机制使未授权攻击者可发送任意航天器命令，深空探测基础设施面临严重威胁。"
+        "id": "CVE-2026-12562",
+        "reason": "Toptech RCU II+/Multiload II+存在未认证调试接口，直接暴露根级访问，属关键基础设施高危漏洞。"
       },
       {
-        "id": "CVE-2026-0667",
-        "reason": "Schneider Electric产品Modbus TCP协议异常条件检查不当，可导致任意代码执行和DoS，威胁工控系统可用性"
+        "id": "CVE-2026-5433",
+        "reason": "Honeywell控制网络模块Web接口命令注入漏洞，攻击者可远程执行任意代码（RCE）。"
       },
       {
-        "id": "CVE-2026-12927",
-        "reason": "Schneider Electric IGSS导入恶意CGF文件触发越界写入，可造成数据丢失或远程代码执行"
+        "id": "CVE-2026-44092",
+        "reason": "Phoenix Contact ModbusServer未验证MQTT输入，未授权攻击者可注入恶意数据导致完整性与可用性丧失。"
+      },
+      {
+        "id": "CVE-2026-15435",
+        "reason": "Phoenix Contact充电控制器目录遍历漏洞（CVSS 9.8），远程攻击者可通过../写入任意文件"
+      },
+      {
+        "id": "CVE-2026-44104",
+        "reason": "Phoenix Contact充电控制器固件更新仅校验CRC32无签名验证，攻击者可安装恶意固件完全控制设备"
+      },
+      {
+        "id": "CVE-2026-7849",
+        "reason": "Phoenix Contact充电控制器命令注入漏洞（CVSS 9.8），未认证远程攻击者可注入并以root执行命令"
+      },
+      {
+        "id": "CVE-2026-13584",
+        "reason": "三菱MELSEC MX Controller等PLC通信消息完整性校验缺陷，可被中间人篡改控制指令"
       }
     ],
     "Web安全": [
       {
-        "id": "CVE-2026-61511",
-        "reason": "vBulletin 9.8分eval注入漏洞，未认证攻击者可通过pagenav参数执行任意PHP代码，该平台历史多次被大规模利用，社区论坛需紧急修复。"
+        "id": "CVE-2026-28323",
+        "reason": "SolarWinds Web Help Desk存在SAML身份验证绕过漏洞，启用SAML 2.0即可被绕过。"
+      },
+      {
+        "id": "CVE-2026-16610",
+        "reason": "WordPress ASE Pro插件recursive_html函数存在远程代码执行，无需认证即可利用。"
+      },
+      {
+        "id": "CVE-2026-67208",
+        "reason": "Juggle暴露H2数据库Web控制台且使用默认凭证，未授权攻击者可远程执行OS命令。"
+      },
+      {
+        "id": "CVE-2026-54367",
+        "reason": "CentreStack认证绕过漏洞，未授权攻击者可读写任意账户设置，影响托管文件服务。"
+      },
+      {
+        "id": "CVE-2026-66421",
+        "reason": "OpenClaw Dashboard存储型XSS漏洞，未授权攻击者可在管理员浏览器会话中执行任意JS。"
+      },
+      {
+        "id": "CVE-2026-48449",
+        "reason": "Adobe Campaign Classic错误授权漏洞（CVSS 10.0），无需用户交互即可在当前用户上下文执行任意代码"
+      },
+      {
+        "id": "CVE-2026-58066",
+        "reason": "Rocket.Chat SAML SSO签名验证不绑定Response/Assertion（CVSS 9.8），攻击者可伪造身份属性绕过认证"
+      },
+      {
+        "id": "CVE-2026-33186",
+        "reason": "gRPC-Go HTTP/2 :path伪头验证不严（CVSS 9.1），导致授权绕过和路由处理异常"
+      },
+      {
+        "id": "CVE-2026-54363",
+        "reason": "Gladinet CentreStack硬编码加密密钥（CVSS 9.1），未认证攻击者可伪造任意加密令牌"
+      },
+      {
+        "id": "CVE-2026-18363",
+        "reason": "osTicket密码重置令牌校验逻辑缺陷（CVSS 9.1），攻击者可绕过有效期验证重置任意用户密码"
+      },
+      {
+        "id": "CVE-2026-17543",
+        "reason": "PHP反斜杠转义缺陷导致SQL注入（CVSS 8.1），影响8.2-8.5多个版本，大量Web应用受波及"
+      },
+      {
+        "id": "CVE-2026-54513",
+        "reason": "jackson-databind BasicPolymorphicTypeValidator allowIfSubTypeIsArray校验缺陷，可绕过类型校验触发反序列化"
+      },
+      {
+        "id": "CVE-2026-27962",
+        "reason": "Authlib JWS实现存在JWK Header注入漏洞(CVSS 9.1)，未认证攻击者可伪造任意JWT令牌通过签名验证，威胁OAuth/OIDC身份体系。"
+      },
+      {
+        "id": "CVE-2026-44990",
+        "reason": "sanitize-html默认配置下xmp元素过滤绕过可导致存储型XSS(CVSS 9.3)，影响ApostropheCMS等众多集成该库的应用。"
+      },
+      {
+        "id": "CVE-2026-9800",
+        "reason": "Keycloak Policy Enforcer授权完全绕过(CVSS 8.1)，任何认证用户可绕过角色/作用域/UMA所有检查，对企业身份认证构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-47691",
+        "reason": "Netty DNS解析器对NS记录的bailiwick校验不足(CVSS 8.7)，可触发DNS缓存投毒，影响基于Netty的DNS服务安全。"
+      },
+      {
+        "id": "CVE-2025-40320",
+        "reason": "CVSS 9.8，SMB客户端查询复合重试时cfid未重置导致UAF，影响文件共享服务的稳定性与安全性"
+      },
+      {
+        "id": "CVE-2025-40328",
+        "reason": "CVSS 8.8，SMB客户端smb2_close_cached_fid中cached fid存在UAF竞争条件"
+      },
+      {
+        "id": "CVE-2025-38488",
+        "reason": "SMB客户端crypt_message异步加密场景UAF，修复CVE-2024-50047不当修补引发的回归"
+      },
+      {
+        "id": "CVE-2025-38325",
+        "reason": "ksmbd free_transport可从smbdirect错误调用引发内核oops，SMB服务端高危"
+      },
+      {
+        "id": "CVE-2025-38437",
+        "reason": "ksmbd oplock/lease break ack路径存在UAF，远程SMB攻击可触发双重释放"
+      },
+      {
+        "id": "CVE-2025-38092",
+        "reason": "ksmbd内核SMB服务列表宏误用漏洞(CVSS 8.8)，可造成smbd进程异常，影响Linux SMB文件共享。"
+      },
+      {
+        "id": "CVE-2025-38191",
+        "reason": "ksmbd Kerberos会话建立阶段空指针解引用(CVSS 7.5)，未授权请求即可触发拒绝服务。"
+      },
+      {
+        "id": "CVE-2025-38179",
+        "reason": "CIFS客户端max_sge溢出漏洞(CVSS 7.8)，影响SMB挂载场景的内核稳定性。"
+      },
+      {
+        "id": "CVE-2025-37899",
+        "reason": "CVSS 8.8，ksmbd会话注销存在UAF，远程攻击者通过精心构造SMB请求可触发内核崩溃"
+      },
+      {
+        "id": "CVE-2025-37956",
+        "reason": "CVSS 8.8，ksmbd空字符串rename导致内核oops，远程无认证即可触发拒绝服务"
+      },
+      {
+        "id": "CVE-2026-65888",
+        "reason": "Joomla Gridbox社交登录账号接管(CVSS 10.0)，未认证攻击者可登录任意用户，CVSS满分极为严重"
+      },
+      {
+        "id": "CVE-2026-65887",
+        "reason": "Joomla Gridbox未认证任意密码重置(CVSS 10.0)，可接管除超管外所有用户账户"
       },
       {
         "id": "CVE-2026-65884",
-        "reason": "Joomla Gridbox组件未认证权限提升漏洞，攻击者可注册用户并指定usergroup为管理员组，CVSS满分"
+        "reason": "Joomla Gridbox注册时权限提升(CVSS 10.0)，可注册为管理员账户，与其他漏洞组合可完全控制站点"
       },
       {
-        "id": "CVE-2026-63227",
-        "reason": "Koollab LMS认证模块设计者可上传含PHP webshell的SCORM包至公开目录实现RCE，预身份认证风险叠加"
+        "id": "CVE-2026-14512",
+        "reason": "IBM WebSphere预认证不安全反序列化(CVSS 9.8)，可远程绕过认证或执行任意代码，影响大量企业级应用"
       },
       {
-        "id": "CVE-2026-14900",
-        "reason": "WordPress Cost Calculator Builder PRO插件js_to_php函数缺乏过滤，未认证攻击者可注入公式执行任意代码"
-      },
-      {
-        "id": "CVE-2025-10656",
-        "reason": "WordPress Spreadsheet Price Changer插件缺失授权，未认证攻击者可创建管理员账户接管站点"
-      },
-      {
-        "id": "CVE-2026-18072",
-        "reason": "WordPress Advanced Responsive Video Embedder插件10.8.7版本存在硬编码后门，未认证即可绕过身份验证"
-      },
-      {
-        "id": "CVE-2026-63230",
-        "reason": "Koollab LMS预认证SQL注入，攻击者无需凭证即可读取数据库含JWT令牌等敏感信息实现账户接管"
-      },
-      {
-        "id": "CVE-2026-6881",
-        "reason": "Ellucian Advance教育系统Giving Reports功能SQL注入，认证攻击者可提取数据库敏感信息"
+        "id": "CVE-2026-14446",
+        "reason": "IBM WebSphere管理控制台权限提升(CVSS 9.8)，可获取管理员权限，威胁企业核心系统"
       }
     ],
     "数据库与中间件": [
       {
-        "id": "CVE-2026-18022",
-        "reason": "pgvector 8.8分整数回绕漏洞，数据库用户可触发越界写入并可能导致RCE，影响PostgreSQL生态广泛使用的向量扩展，权限提升危害严重。"
+        "id": "CVE-2026-12118",
+        "reason": "IBM webMethods Integration反序列化不可信数据，未授权远程攻击者可执行任意代码。"
       },
       {
-        "id": "CVE-2026-14446",
-        "reason": "IBM WebSphere Application Server管理控制台访问控制失效，远程攻击者可提权至管理员权限"
+        "id": "CVE-2026-10535",
+        "reason": "IBM Db2 setgid辅助进程db2flacc存在缓冲区溢出，可被利用获取特权。"
       },
       {
-        "id": "CVE-2026-14973",
-        "reason": "IBM Aspera Desktop App路径穿越漏洞，可将文件写入用户选定下载目录之外的位置，CVSS 9.3分"
+        "id": "CVE-2026-11536",
+        "reason": "IBM WebSphere Application Server SOAP/JMX连接器存在远程代码执行漏洞。"
       },
       {
-        "id": "CVE-2026-9177",
-        "reason": "Axway SecureTransport邮件模板功能SSTI漏洞，管理员权限攻击者可注入Java表达式实现服务端代码执行"
+        "id": "CVE-2026-47882",
+        "reason": "Spring Tools Boot Dashboard DevTools共享密钥未绑定项目，攻击者可上传恶意代码触发远程重启RCE"
+      },
+      {
+        "id": "CVE-2026-2395",
+        "reason": "Xpoda无代码平台存在SQL注入(CVSS 9.8)，未认证攻击者可完全操控数据库，威胁业务数据完整性。"
+      },
+      {
+        "id": "CVE-2025-68817",
+        "reason": "ksmbd SMB服务器高并发UAF漏洞，影响Linux文件服务器，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68809",
+        "reason": "ksmbd vfs缓存m_flags竞争条件，影响SMB文件共享服务，CVSS 9.1"
+      },
+      {
+        "id": "CVE-2025-71068",
+        "reason": "svcrdma NFS-over-RDMA服务OOB写入漏洞，影响高性能NFS服务，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68811",
+        "reason": "svcrdma页偏移计算错误导致数据损坏，影响RDMA NFS服务，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-68284",
+        "reason": "Ceph客户端认证会话密钥处理OOB写入，来自不可信网络数据，CVSS 9.8"
+      },
+      {
+        "id": "CVE-2025-39942",
+        "reason": "ksmbd未验证remaining_data_length遵守max_fragmented_recv_size，CVSS 7.5，配合前者形成完整攻击链。"
+      },
+      {
+        "id": "CVE-2025-39720",
+        "reason": "ksmbd引用计数泄漏致资源无法释放，CVSS 7.5，可造成拒绝服务。"
+      },
+      {
+        "id": "CVE-2025-38566",
+        "reason": "NFS over TLS服务端已发现安全漏洞利用（tls_alert_recv数据读取），CVSS 9.8，性质严重"
+      },
+      {
+        "id": "CVE-2025-38571",
+        "reason": "NFS over TLS客户端同类TLS alert处理漏洞，CVSS 8.2，与服务端漏洞配合可形成完整攻击链"
+      },
+      {
+        "id": "CVE-2025-38561",
+        "reason": "ksmbd Preauh_HashValue竞争条件，CVSS 9.8，可触发SMB会话认证绕过"
+      },
+      {
+        "id": "CVE-2025-38527",
+        "reason": "cifs客户端oplock中断UAF，卸载时易触发内核UAF崩溃"
+      },
+      {
+        "id": "CVE-2025-38430",
+        "reason": "NFSv4服务spo_must_allow未校验compound请求类型，可能导致内存越界访问"
+      },
+      {
+        "id": "CVE-2025-38393",
+        "reason": "NFSv4/pNFS布局唤醒竞争致任务挂起，影响分布式存储系统可用性"
+      },
+      {
+        "id": "CVE-2025-37750",
+        "reason": "CVSS 9.8，SMB客户端多通道解密场景UAF，影响所有挂载SMB共享的Linux系统"
+      },
+      {
+        "id": "CVE-2025-21927",
+        "reason": "nvme-tcp接收PDU时未校验header length导致内存损坏，CVSS 9.8，影响NVMe-oF存储网络"
+      },
+      {
+        "id": "CVE-2025-22043",
+        "reason": "ksmbd durable handle上下文缺失边界检查，CVSS 8.1，影响SMB文件服务器中间件"
+      },
+      {
+        "id": "CVE-2025-22042",
+        "reason": "ksmbd create lease上下文缺失边界检查，CVSS 8.1，影响SMB文件服务器中间件"
+      },
+      {
+        "id": "CVE-2025-22045",
+        "reason": "ksmbd smb2_lock UAF漏洞，CVSS 8.8，影响文件锁定功能的安全性"
+      },
+      {
+        "id": "CVE-2025-22067",
+        "reason": "ksmbd ksmbd_free_work_struct中interim_entry UAF，CVSS 8.8，影响oplock通知机制"
+      },
+      {
+        "id": "CVE-2026-14959",
+        "reason": "IBM Aspera Faspex 5命令注入RCE(CVSS 9.1)，认证远程攻击者可执行任意系统命令"
+      },
+      {
+        "id": "CVE-2026-14958",
+        "reason": "IBM Aspera Faspex 5未引号Shell插值导致RCE(CVSS 9.1)，影响文件传输中间件核心安全"
+      },
+      {
+        "id": "CVE-2026-16527",
+        "reason": "Red Hat PCP pmproxy未认证RCE(CVSS 7.3)，可通过/store端点覆盖任意PMDA指标实现系统接管"
       }
     ],
     "其他": [
       {
-        "id": "CVE-2026-53633",
-        "reason": "Vitest测试框架9.8分漏洞，浏览器模式下CDP API缺少权限校验，远程客户端可调用任意DevTools方法执行命令，CI/CD流水线面临RCE风险。"
+        "id": "CVE-2026-4601",
+        "reason": "jsrsasign库DSA签名实现缺失关键密码学步骤，攻击者可恢复私钥，影响广泛JS加密应用。"
       },
       {
-        "id": "CVE-2026-9800",
-        "reason": "Red Hat Keycloak策略执行器授权绕过漏洞，认证用户可通过构造URL绕过所有角色/作用域/UMA权限检查"
+        "id": "CVE-2026-58222",
+        "reason": "Samba AD DC处理LDAP Compare请求时未正确验证属性名，导致LDAP注入与权限绕过。"
+      },
+      {
+        "id": "CVE-2026-12940",
+        "reason": "IBM Langflow MCP stdio启动器环境变量注入导致未认证RCE，CVSS 9.8。"
+      },
+      {
+        "id": "CVE-2026-59247",
+        "reason": "Gleam包管理器依赖解析存在中间人伪造风险(CVSS 7.6)，可注入恶意Hex包内容，影响软件供应链安全"
       }
     ]
   },
-  "summary": "本批次涵盖Cisco FMC CVSS10极高危漏洞及多个云原生、AI工具链严重RCE，需优先处置。 | 本批次涵盖Joomla Gridbox/Grafana大规模RCE链、WordPress插件多个满分漏洞，IoT及工控高危风险并存"
+  "summary": "本批次涵盖多个高危RCE与认证绕过漏洞，重点关注vCenter、IBM Langflow及工控领域。 | 本批次VMware/Phoenix Contact/Plesk/Adobe等多款产品出现CVSS 9.0+高危漏洞，工控与云安全风险突出 | Linux内核高频UAF漏洞、Netty DNS投毒、Phoenix Contact工控漏洞及JWT/Keycloak认证绕过为主流高危威胁。"
 }
