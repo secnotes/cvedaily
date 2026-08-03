@@ -1,132 +1,80 @@
 {
-  "analysis_date": "2026-08-02",
-  "total_analyzed": 69,
+  "analysis_date": "2026-08-03",
+  "total_analyzed": 34,
   "model": "MiniMax-M3",
   "categories": {
     "桌面操作系统": [
       {
-        "id": "CVE-2026-66402",
-        "reason": "FreeRDP自定义TLS证书校验存在弱点，未使用OpenSSL标准校验，可导致中间人攻击，影响所有RDP客户端（CVSS 9.8）"
+        "id": "CVE-2026-68579",
+        "reason": "FreeRDP剪贴板通道堆缓冲区溢出（CVSS 9.6），攻击者通过恶意RDP服务器即可在客户端执行任意代码，影响广泛的远程桌面场景"
       },
       {
-        "id": "CVE-2026-67305",
-        "reason": "FreeRDP Windows客户端剪贴板虚拟通道存在堆缓冲区溢出，恶意RDP服务器可触发远程代码执行（CVSS 9.4）"
-      },
-      {
-        "id": "CVE-2026-64531",
-        "reason": "Linux内核Open vSwitch拒绝超大嵌套action属性，影响Linux服务器网络数据面安全"
+        "id": "CVE-2025-49796",
+        "reason": "libxml2解析sch:name元素时存在内存损坏（CVSS 9.1），作为被众多桌面及服务端程序广泛依赖的基础库，影响面极大"
       }
     ],
     "移动安全": [],
     "IoT安全": [
       {
-        "id": "CVE-2026-67352",
-        "reason": "OpenWRT luci-app-https-dns-proxy存在存储型XSS，管理员查看状态页时触发，可窃取管理员凭据控制路由器"
+        "id": "CVE-2026-10848",
+        "reason": "Zephyr RTOS OCPP 1.6客户端协议解析存在栈缓冲区溢出，可被恶意充电桩远程攻击，影响电动汽车充电基础设施"
       }
     ],
     "云安全": [
       {
-        "id": "CVE-2026-67308",
-        "reason": "Wazuh workflows存在Shell注入漏洞，攻击者通过特制PR执行任意命令，影响CI/CD安全监控基础设施（CVSS 10）"
+        "id": "CVE-2026-7374",
+        "reason": "KubeVirt virt-handler符号链接校验缺陷（CVSS 9.9），普通命名空间用户可借此访问宿主机任意资源，是高危的容器/虚拟化逃逸路径"
       },
       {
-        "id": "CVE-2025-2843",
-        "reason": "Observability Operator创建ServiceAccount绑定ClusterRole，租户可越权提升至集群管理员（CVSS 8.8）"
+        "id": "CVE-2026-16242",
+        "reason": "OpenShift Konnectivity代理未校验客户端证书（CVSS 9.4），远程攻击者可未授权访问托管控制平面组件"
       },
       {
-        "id": "CVE-2025-11393",
-        "reason": "runtimes-inventory-rhel8-operator内部代理错误附加集群管理员凭据给所有命令，可导致集群完全沦陷（CVSS 8.7）"
-      },
-      {
-        "id": "CVE-2026-67309",
-        "reason": "Traefik Kubernetes Ingress NGINX RewriteTarget中间件存在路径遍历漏洞，影响云原生流量管理（CVSS 7.8）"
-      },
-      {
-        "id": "CVE-2026-10840",
-        "reason": "OpenShift Pipelines tekton-scheduler角色绑定错误授予authenticated组对Kueue/cert-manager CRD的写权限"
+        "id": "CVE-2026-1784",
+        "reason": "OpenShift Route资源spec.path校验不充分（CVSS 8.8），可向HAProxy注入恶意配置，影响所有基于该路由的流量"
       }
     ],
     "网络设备": [
       {
-        "id": "CVE-2026-67289",
-        "reason": "FreeRDP未校验TargetNetAddress中的CRLF字符，恶意服务器可通过HTTP代理发起CRLF注入劫持连接（CVSS 9.8）"
-      },
-      {
-        "id": "CVE-2025-52936",
-        "reason": "sslh多协议复用器存在链接跟随漏洞（CVSS 9.3），影响网络边界协议分流安全"
+        "id": "CVE-2026-16232",
+        "reason": "Check Point SmartConsole认证绕过（CVSS 9.3），已被CISA KEV收录证实存在在野利用，攻击者可获取完整管理员权限、修改安全策略，后果极其严重"
       }
     ],
-    "工业控制": [
-      {
-        "id": "CVE-2026-12569",
-        "reason": "PTC Windchill/FlexPLM反序列化RCE漏洞已被CISA KEV收录在野利用，影响PLM/MES工业系统"
-      }
-    ],
+    "工业控制": [],
     "Web安全": [
       {
-        "id": "CVE-2021-22205",
-        "reason": "GitLab CE/EE图像解析RCE已被CISA KEV收录且EPSS达0.9973，历史在野利用极为广泛，需立即排查"
+        "id": "CVE-2026-1615",
+        "reason": "jsonpath库使用unsafe static-eval处理用户输入（CVSS 9.2），远程未授权攻击者可执行任意代码，影响大量Node.js应用"
       },
       {
-        "id": "CVE-2026-65888",
-        "reason": "Joomla Gridbox socialLogin方法允许未授权登录任意用户账号，实现完全账户接管（CVSS 10）"
+        "id": "CVE-2026-68581",
+        "reason": "Vikunja任务平台API令牌鉴权缺陷（CVSS 8.1），链接共享JWT可冒充任意用户身份，实现账户接管"
       },
       {
-        "id": "CVE-2026-65887",
-        "reason": "Joomla Gridbox resetPassword方法允许未授权重置任意用户密码（CVSS 10）"
-      },
-      {
-        "id": "CVE-2026-8457",
-        "reason": "WooCommerce Social Login插件Apple登录处理器不验证JWT签名，攻击者可伪造身份绕过认证（CVSS 9.8）"
-      },
-      {
-        "id": "CVE-2026-67330",
-        "reason": "better-auth SCIM插件授权绕过，攻击者可签发SCIM令牌冒充任意SSO/OIDC用户（CVSS 9.9）"
-      },
-      {
-        "id": "CVE-2026-15964",
-        "reason": "WordPress TNG SSO插件未鉴权密码重置，可远程完全接管站点（CVSS 9.8）"
-      },
-      {
-        "id": "CVE-2026-66066",
-        "reason": "Rails Active Storage未禁用libvips不安全操作，恶意上传可触发RCE（CVSS 9.5）"
-      },
-      {
-        "id": "CVE-2026-3141",
-        "reason": "FormGent WordPress插件REST端点无鉴权可删除任意附件文件（CVSS 9.1）"
+        "id": "CVE-2025-71399",
+        "reason": "Better Auth依赖的rou3路由器路径规范化缺陷（CVSS 8.6），可绕过认证路由引发未授权访问"
       }
     ],
     "数据库与中间件": [
       {
-        "id": "CVE-2026-67340",
-        "reason": "ArcadeDB触发器脚本可调用java.lang.Runtime，认证用户即可执行任意Java代码实现RCE（CVSS 9.8）"
+        "id": "CVE-2026-65321",
+        "reason": "PyAthena参数格式化器引号转义不当（CVSS 9.8），未认证攻击者可注入任意SQL语句，风险极高"
       },
       {
-        "id": "CVE-2026-67341",
-        "reason": "ArcadeDB未对SQL DEFINE FUNCTION js实施脚本授权检查，可绕过限制执行任意JS（CVSS 9.8）"
-      },
-      {
-        "id": "CVE-2026-67342",
-        "reason": "ArcadeDB时序/Prometheus等HTTP处理器缺少数据库权限校验，可越权访问修改数据库（CVSS 9.8）"
-      },
-      {
-        "id": "CVE-2026-17566",
-        "reason": "pgAdmin 4导入导出工具通过psql命令行模板构造，攻击者可逃逸括号注入命令（CVSS 9.4）"
-      },
-      {
-        "id": "CVE-2026-17351",
-        "reason": "pgAdmin 4 AI Assistant sqlparse解析存在绕过，可突破只读事务执行多语句SQL注入（CVSS 9.4）"
-      },
-      {
-        "id": "CVE-2026-58048",
-        "reason": "cPanel重命名数据库时未保留SQL模式，可在root上下文执行任意SQL（CVSS 9.4）"
-      },
-      {
-        "id": "CVE-2026-17349",
-        "reason": "pgAdmin 4 Workspaces adhoc_connect_server克隆服务器时复制存储的凭据字段（CVSS 9.3）"
+        "id": "CVE-2026-67356",
+        "reason": "ArcadeDB将实际数据库对象绑定到JS触发器上下文（CVSS 8.8），拥有schema更新权限的攻击者可创建用户执行任意代码"
       }
     ],
-    "其他": []
+    "其他": [
+      {
+        "id": "CVE-2026-67308",
+        "reason": "Wazuh工作流GitHub Actions存在shell注入（CVSS 9.3），攻击者通过提交含恶意VERSION.json的PR即可在CI环境执行任意命令"
+      },
+      {
+        "id": "CVE-2026-18577",
+        "reason": "N-able N-central RMM平台补丁修复不完整（CVSS 8.2），仍可认证绕过并接管账户，影响大量托管服务提供商"
+      }
+    ]
   },
-  "summary": "本批次含2个KEV漏洞，FreeRDP/Wazuh/ArcadeDB/pgAdmin高危集中爆发"
+  "summary": "本批次含1个CISA KEV在野利用漏洞，高危漏洞覆盖云、网络、桌面、Web及数据库等多领域"
 }
