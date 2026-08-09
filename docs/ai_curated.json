@@ -1,185 +1,112 @@
 {
-  "analysis_date": "2026-08-08",
-  "total_analyzed": 221,
+  "analysis_date": "2026-08-09",
+  "total_analyzed": 91,
   "model": "MiniMax-M3",
   "categories": {
     "桌面操作系统": [
       {
-        "id": "CVE-2026-18367",
-        "reason": "Sophos macOS端点防护本地提权至root，影响企业级macOS安全防护"
+        "id": "CVE-2026-64597",
+        "reason": "Linux内核SMB客户端double-free漏洞，CVSS 9.8，可通过恶意SMB响应触发，影响广泛"
       },
       {
-        "id": "CVE-2026-9169",
-        "reason": "LUCID Vision Labs Arena SDK DLL搜索顺序劫持，Windows本地权限提升"
+        "id": "CVE-2026-1289",
+        "reason": "Autodesk Revit PDF解析Use-After-Free漏洞，CVSS 7.8，可通过恶意PDF实现RCE"
       },
       {
-        "id": "CVE-2026-46273",
-        "reason": "Linux内核ibmveth适配器在低MSS时冻结，影响Power系统稳定性"
-      },
-      {
-        "id": "CVE-2026-16527",
-        "reason": "Red Hat PCP pmproxy未授权远程访问绕过访问控制后可覆盖任意PMDA指标，实现任意代码执行和系统接管，影响Linux服务器管理组件"
-      },
-      {
-        "id": "CVE-2026-58016",
-        "reason": "GLib D-Bus内省XML解析状态混乱漏洞，影响大量使用GLib的Linux桌面及服务器系统"
+        "id": "CVE-2026-7867",
+        "reason": "udisks2 D-Bus方法鉴权缺陷，本地攻击者可冒用as-user参数挂载文件系统提权"
       }
     ],
     "移动安全": [],
     "IoT安全": [
       {
-        "id": "CVE-2026-5855",
-        "reason": "Contiki-NG LwM2M TLV解析器越界读取，可通过恶意CoAP消息触发，影响大量IoT设备"
-      },
-      {
-        "id": "CVE-2026-15570",
-        "reason": "Vestel智能电视SmartCenter命令SSRF，攻击者控制浏览器发起任意请求"
+        "id": "CVE-2026-5857",
+        "reason": "Contiki-NG物联网操作系统MQTT客户端存在协议解析缺陷，CVSS 9.2，可导致远程代码执行"
       }
     ],
     "云安全": [
       {
-        "id": "CVE-2026-49980",
-        "reason": "Rclone rcd服务接受未认证GET/HEAD请求，可读取云存储远程对象，影响多云环境"
+        "id": "CVE-2026-16242",
+        "reason": "Red Hat托管控制面Konnectivity代理配置错误，CVSS 9.4，客户端证书未校验即可未授权访问"
       },
       {
-        "id": "CVE-2025-12543",
-        "reason": "Undertow未正确校验Host头，影响WildFly/JBoss EAP等关键云应用"
+        "id": "CVE-2026-17107",
+        "reason": "RHACM/MCE集群代理未清理调用方组头部，CVSS 8.5，可被利用实现权限提升"
       },
       {
-        "id": "CVE-2026-9203",
-        "reason": "Progress MarkLogic Server SSRF漏洞可绕过云元数据端点防护，窃取云凭证并入侵云资源，对云部署企业危害严重"
-      },
-      {
-        "id": "CVE-2026-71312",
-        "reason": "rclone在PowerShell命令拼接时对SFTP路径转义不充分，可导致Windows环境下远程命令注入，影响多云同步场景"
+        "id": "CVE-2026-67620",
+        "reason": "Flowise SSRF防护列表缺失Oracle和阿里云元数据端点，CVSS 7.7，可窃取云凭据"
       }
     ],
     "网络设备": [
       {
-        "id": "CVE-2026-71327",
-        "reason": "Traefik Kubernetes Gateway API提供者路由处理存在缺陷，可绕过服务配置"
+        "id": "CVE-2026-8037",
+        "reason": "Progress LoadMaster命令注入RCE，CVSS 9.6且已被CISA KEV收录在野利用，属最高优先级"
       },
       {
-        "id": "CVE-2026-71324",
-        "reason": "Traefik反向代理HTTP/2 CONNECT请求处理不当，可导致请求走私"
+        "id": "CVE-2026-71956",
+        "reason": "D-Link DWR-M961路由器app.cgi命令注入，CVSS 9.8，可远程获取root权限"
       },
       {
-        "id": "CVE-2026-49007",
-        "reason": "ZTE设备固件未加密存储初始登录凭证，攻击者可获取管理权限"
+        "id": "CVE-2026-71987",
+        "reason": "MSI Radix AXE6600路由器alg函数命令注入，CVSS 9.8，路由器大量同类高危漏洞"
       },
       {
-        "id": "CVE-2023-46847",
-        "reason": "Squid代理服务器HTTP Digest认证存在缓冲区溢出漏洞，EPSS高达0.8835表明在野利用概率极高，代理基础设施面临严重DoS风险"
+        "id": "CVE-2025-4106",
+        "reason": "WatchGuard Firebox诊断调试shell启用漏洞，CVSS 8.9，认证管理员可获取设备底层访问"
       }
     ],
-    "工业控制": [
-      {
-        "id": "CVE-2026-67863",
-        "reason": "open62541 OPC UA服务器Use-After-Free，影响工业自动化通信协议"
-      },
-      {
-        "id": "CVE-2026-44673",
-        "reason": "libyang LYB解析器整数溢出导致堆缓冲区溢出，影响NETCONF服务器"
-      }
-    ],
+    "工业控制": [],
     "Web安全": [
       {
-        "id": "CVE-2026-14812",
-        "reason": "Premium SEO WordPress插件内置未认证后门，CVSS满分，可创建管理员账号及RCE"
+        "id": "CVE-2026-14526",
+        "reason": "WordPress AI Copilot插件未授权访问漏洞，CVSS 9.8，未认证攻击者可创建高权限账户"
       },
       {
-        "id": "CVE-2026-11976",
-        "reason": "MonsterInsights Pro官方更新分发桶被入侵，影响百万级WordPress站点"
+        "id": "CVE-2026-70558",
+        "reason": "Dinky任意文件下载覆盖漏洞，CVSS 9.3，@SaIgnore路由完全无鉴权可任意写入"
       },
       {
-        "id": "CVE-2026-65880",
-        "reason": "Joomla Balbooa Forms签名字段可未认证RCE，CVSS满分"
+        "id": "CVE-2026-66494",
+        "reason": "Joomla SP Page Builder未认证存储型XSS，CVSS 8.7，管理员打开编辑器即触发"
       },
       {
-        "id": "CVE-2026-48086",
-        "reason": "OpenReception租户管理员通过单次PUT请求提权至全局管理员"
-      },
-      {
-        "id": "CVE-2026-17032",
-        "reason": "Supsystic多个Pro插件通过被入侵的更新服务器分发恶意代码"
-      },
-      {
-        "id": "CVE-2026-14364",
-        "reason": "TrueBooker WordPress插件账户接管漏洞，无需认证即可重置任意用户密码"
-      },
-      {
-        "id": "CVE-2026-54210",
-        "reason": "TeamDavid Webbox文件上传缓冲区溢出，未认证攻击者可导致服务器崩溃"
-      },
-      {
-        "id": "CVE-2026-66914",
-        "reason": "Joomla SEBLOD未认证路径遍历，可下载Web根目录以外文件"
-      },
-      {
-        "id": "CVE-2026-44990",
-        "reason": "sanitize-html默认配置下xmp元素绕过，可实现存储型XSS"
-      },
-      {
-        "id": "CVE-2026-61511",
-        "reason": "vBulletin模板运行时eval注入漏洞允许未认证远程攻击者执行任意PHP代码，vBulletin历来是攻击者重点目标"
-      },
-      {
-        "id": "CVE-2026-15013",
-        "reason": "WordPress SAML SSO插件存在签名算法混淆导致认证绕过，未认证攻击者可冒充任意用户，影响大量企业SSO部署"
-      },
-      {
-        "id": "CVE-2026-71319",
-        "reason": "Nuxt DevTools的WebSocket RPC通道无认证控制，未认证客户端可直接执行任意命令，影响开发环境安全"
+        "id": "CVE-2026-19263",
+        "reason": "INQUIRELAB mcp-bridge-api命令注入，CVSS 7.5，影响AI代理服务端点"
       }
     ],
     "数据库与中间件": [
       {
-        "id": "CVE-2026-63637",
-        "reason": "Dgraph GraphQL数据库正则过滤参数注入DQL操作符，可绕过查询限制"
+        "id": "CVE-2025-49796",
+        "reason": "libxml2 sch:name元素处理内存破坏，CVSS 9.1，恶意XML输入可致拒绝服务或更深危害"
       },
       {
-        "id": "CVE-2026-9196",
-        "reason": "IBM Langflow Agent验证阶段执行LLM生成Python代码，已认证RCE"
+        "id": "CVE-2025-49794",
+        "reason": "libxml2 XPath解析Use-After-Free，CVSS 9.1，影响大量依赖XML解析的应用"
       },
       {
-        "id": "CVE-2026-9192",
-        "reason": "MarkLogic ODBC App Server认证绕过漏洞允许未认证攻击者以任意用户身份执行查询，CVSS 9.8极具危害"
-      },
-      {
-        "id": "CVE-2026-7557",
-        "reason": "MarkLogic SAML模块加密签名验证缺陷可导致未认证攻击者冒充任意管理员用户"
-      },
-      {
-        "id": "CVE-2026-9193",
-        "reason": "MarkLogic Hadoop集成低权限用户可提权至安全数据库管理权限，CVSS 9.9严重等级"
-      },
-      {
-        "id": "CVE-2026-9190",
-        "reason": "MarkLogic HTTP请求走私可绕过认证授权、会话劫持及凭据捕获，CVSS 9.1"
+        "id": "CVE-2026-14644",
+        "reason": "Nexus Repository 3 REST权限API类型混淆提权漏洞，CVSS 8.6，可获取管理员权限"
       }
     ],
     "其他": [
       {
-        "id": "CVE-2026-33186",
-        "reason": "gRPC-Go HTTP/2 :path伪头验证不严导致授权绕过，影响大量微服务通信"
+        "id": "CVE-2026-71851",
+        "reason": "crypto-js使用不安全PRNG生成随机数，CVSS 9，所有依赖该库的应用加密强度受损"
       },
       {
-        "id": "CVE-2026-25896",
-        "reason": "fast-xml-parser DOCTYPE实体名中点号被视为正则通配符，可实现XXE攻击"
+        "id": "CVE-2026-13505",
+        "reason": "Bouncy Castle FIPS敏感密钥材料未及时清零，CVSS 8.7，影响FIPS合规环境"
       },
       {
-        "id": "CVE-2026-58049",
-        "reason": "FFmpeg RASC解码器越界读写，恶意视频文件可触发代码执行"
+        "id": "CVE-2026-43632",
+        "reason": "llama.cpp服务器tokenize端点Use-After-Free，CVSS 8.1，远程可触发RCE"
       },
       {
-        "id": "CVE-2026-71556",
-        "reason": "go-git worktree操作未限制符号链接解析范围，恶意仓库可越界访问文件系统"
-      },
-      {
-        "id": "CVE-2026-64827",
-        "reason": "Telenia TVox电话语音系统认证绕过漏洞CVSS 9.8，威胁企业通信系统安全"
+        "id": "CVE-2026-71476",
+        "reason": "Nx远程缓存解压无路径限制，CVSS 8.7，恶意缓存服务器可写入任意文件"
       }
     ]
   },
-  "summary": "本批次以WordPress/Joomla插件漏洞和供应链攻击为主，含多个CVSS满分漏洞。 | 本批次含大量MarkLogic严重漏洞集群及vBulletin、WordPress SAML等高危Web漏洞，需优先处置"
+  "summary": "本批次含大量路由器RCE及Progress LoadMaster在野利用漏洞，需优先处置网络设备风险。"
 }
