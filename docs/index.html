@@ -1242,7 +1242,7 @@
 
             <div class="summary-box">
                 <h2>📊 Summary</h2>
-                <p><strong>Report Generated:</strong> 2026-08-10 03:07:55</p>
+                <p><strong>Report Generated:</strong> 2026-08-10 07:42:52</p>
 
                 <div class="summary-stats">
                     <div class="stat-card" onclick="applySingleFilter('all')">
@@ -2146,7 +2146,7 @@
                          data-epss="0.00202"
                          data-cisa="false"
                          data-modified="True"
-                         data-vendors="red hat,keycloak">
+                         data-vendors="keycloak,red hat">
                         <div class="cve-header">
                             <div class="cve-id">CVE-2025-12150</div>
                             <div class="cve-severity severity-low">Low</div>
@@ -2181,9 +2181,9 @@
                                 <div class="cve-vendors">
                                     <strong>/vendors/:</strong>
                                     
-                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
-                                    
                                     <span class="cve-vendor-tag" onclick="toggleVendorFilter('keycloak')">keycloak</span>
+                                    
+                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
                                     
                                 </div>
                                 
@@ -3959,7 +3959,7 @@ This issue affects ash: from 1.17.0 before 3.31.1.
                          data-epss="0.0022"
                          data-cisa="false"
                          data-modified="True"
-                         data-vendors="red hat,operator-framework">
+                         data-vendors="operator-framework,red hat">
                         <div class="cve-header">
                             <div class="cve-id">CVE-2025-7195</div>
                             <div class="cve-severity severity-medium">Medium</div>
@@ -3996,9 +3996,9 @@ In affected images, the /etc/passwd file is created during build time with group
                                 <div class="cve-vendors">
                                     <strong>/vendors/:</strong>
                                     
-                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
-                                    
                                     <span class="cve-vendor-tag" onclick="toggleVendorFilter('operator-framework')">operator-framework</span>
+                                    
+                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
                                     
                                 </div>
                                 
@@ -6658,7 +6658,7 @@ In affected images, the /etc/passwd file is created during build time with group
                          data-epss="0.00339"
                          data-cisa="false"
                          data-modified="True"
-                         data-vendors="red hat,gnome">
+                         data-vendors="gnome,red hat">
                         <div class="cve-header">
                             <div class="cve-id">CVE-2025-7425</div>
                             <div class="cve-severity severity-high">High</div>
@@ -6693,9 +6693,9 @@ In affected images, the /etc/passwd file is created during build time with group
                                 <div class="cve-vendors">
                                     <strong>/vendors/:</strong>
                                     
-                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
-                                    
                                     <span class="cve-vendor-tag" onclick="toggleVendorFilter('gnome')">gnome</span>
+                                    
+                                    <span class="cve-vendor-tag" onclick="toggleVendorFilter('red hat')">red hat</span>
                                     
                                 </div>
                                 
@@ -7593,15 +7593,139 @@ far from ideal; that flaw will be addressed separately.
             <div class="ai-view" id="ai-view">
                 
     <div class="ai-summary">
-        <h3>🤖 AI智能分析摘要 <span class="model-badge" title="本批次 AI 精选所用模型">MiniMax-M3</span></h3>
-        <div class="ai-summary-text">AI分析完成，已筛选重要漏洞并分类</div>
+        <h3>🤖 AI智能分析摘要 <span class="model-badge" title="本批次 AI 精选所用模型">qwen3.7-max</span></h3>
+        <div class="ai-summary-text">本批次聚焦Linux内核高危漏洞、KubeVirt容器逃逸及多款IoT设备远程RCE，云原生与供应链安全风险突出。</div>
         <div class="ai-summary-meta">
             <span>分析日期: 2026-08-10</span>
-            <span>精选漏洞: 0</span>
+            <span>精选漏洞: 7</span>
             <span>候选漏洞: 33</span>
         </div>
     </div>
     
+        <div class="ai-category" id="ai-category-f0fdd6d1ac">
+            <h3 class="ai-category-title">💻 桌面操作系统 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64523" target="_blank" class="ai-cve-id">CVE-2026-64523</a>
+                    <span class="cve-severity severity-critical">Critical (9.8)</span>
+                </div>
+                <div class="ai-cve-description">In the Linux kernel, the following vulnerability has been resolved:
+
+net/handshake: Take a long-lived file reference at submit
+
+handshake_nl_accept_doit() needs the file pointer backing
+req-&gt;hr_sk-&gt;sk...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 linux</span>
+                    
+                    <span>📈 EPSS: 0.0035</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: Linux内核网络握手组件存在严重引用计数漏洞，可能导致Use-After-Free，影响系统底层稳定性与安全。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-IoT">
+            <h3 class="ai-category-title">📡 IoT安全 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19348" target="_blank" class="ai-cve-id">CVE-2026-19348</a>
+                    <span class="cve-severity severity-critical">Critical (10.0)</span>
+                </div>
+                <div class="ai-cve-description">A security flaw has been discovered in Shenzhen Aitemi M300 Wi-Fi Repeater r0-ea7890a. Impacted is the function sprintf of the file /protocol.csp?fname=net&amp;opt=smacfilter_conf&amp;function=set&amp;act=add&amp;nam...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 shenzhen aitemi</span>
+                    
+                    
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: Wi-Fi中继器存在未授权远程命令注入漏洞，CVSS满分，极易被批量利用组建僵尸网络。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-75ca279fb7">
+            <h3 class="ai-category-title">☁️ 云安全 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-7374" target="_blank" class="ai-cve-id">CVE-2026-7374</a>
+                    <span class="cve-severity severity-critical">Critical (9.9)</span>
+                </div>
+                <div class="ai-cve-description">A flaw was found in KubeVirt&#x27;s virt-handler component. This vulnerability allows an authenticated OpenShift user with edit permissions in a single namespace to exploit improper symlink validation when...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 red hat</span>
+                    
+                    <span>📈 EPSS: 0.0060</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: KubeVirt组件存在符号链接验证不当漏洞，允许攻击者突破命名空间隔离，获取集群更高权限。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-8d4aa7a82d">
+            <h3 class="ai-category-title">🌐 网络设备 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19341" target="_blank" class="ai-cve-id">CVE-2026-19341</a>
+                    <span class="cve-severity severity-critical">Critical (9.0)</span>
+                </div>
+                <div class="ai-cve-description">A security vulnerability has been detected in UTT HiPER 1200GW up to 2.5.3-170306. This impacts the function strcpy of the file /goform/pptpSrvGlobalConfig. Such manipulation of the argument Encryptio...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 utt</span>
+                    
+                    <span>📈 EPSS: 0.0044</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: UTT企业级网关设备存在远程栈溢出漏洞，可能导致设备崩溃或被远程执行代码，影响网络边界安全。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-Web">
+            <h3 class="ai-category-title">🔐 Web安全 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-12866" target="_blank" class="ai-cve-id">CVE-2026-12866</a>
+                    <span class="cve-severity severity-critical">Critical (9.2)</span>
+                </div>
+                <div class="ai-cve-description">All versions of the package expr-eval are vulnerable to Code Execution via the toJSFunction() API. An attacker can execute arbitrary JavaScript by supplying crafted expressions that are compiled into ...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 n/a</span>
+                    
+                    <span>📈 EPSS: 0.0050</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: 广泛使用的npm包expr-eval存在代码执行漏洞，攻击者可通过构造恶意表达式直接在服务端执行任意代码。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-b0478f3e9e">
+            <h3 class="ai-category-title">🗄️ 数据库与中间件 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-14041" target="_blank" class="ai-cve-id">CVE-2024-14041</a>
+                    <span class="cve-severity severity-high">High (8.2)</span>
+                </div>
+                <div class="ai-cve-description">In Bouncy Castle for Java from 1.73 to before 1.78, three ML-KEM (CRYSTALS-Kyber) routines divided secret-derived polynomial coefficients by the modulus q: Poly.toMsg, which decodes the decrypted mess...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 legion of the bouncy castle inc., all</span>
+                    
+                    <span>📈 EPSS: 0.0027</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: Java核心密码库Bouncy Castle的后量子密码算法实现存在缺陷，可能导致敏感密钥信息泄露或密码学绕过。</div>
+            </div>
+        </div>
+        <div class="ai-category" id="ai-category-1a26edf94a">
+            <h3 class="ai-category-title">📌 其他 (1)</h3>
+            
+            <div class="ai-cve-card">
+                <div class="ai-cve-header">
+                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-5914" target="_blank" class="ai-cve-id">CVE-2025-5914</a>
+                    <span class="cve-severity severity-high">High (7.8)</span>
+                </div>
+                <div class="ai-cve-description">A vulnerability has been identified in the libarchive library, specifically within the archive_read_format_rar_seek_data() function. This flaw involves an integer overflow that can ultimately lead to ...</div>
+                <div class="ai-cve-meta">
+                    <span>🏢 red hat</span>
+                    
+                    <span>📈 EPSS: 0.0034</span>
+                </div>
+                <div class="ai-cve-reason">💡 推荐理由: 广泛使用的libarchive库存在整数溢出导致的双重释放漏洞，处理恶意压缩包时可能引发内存损坏和代码执行。</div>
+            </div>
+        </div>
             </div>
         </div>
 
@@ -7794,15 +7918,15 @@ far from ideal; that flaw will be addressed separately.
                 <div class="ai-category-nav">
                     <h4>📋 分类目录</h4>
                     <ul>
-                        <li style="color:var(--meta-text)">暂无分类数据</li>
+                        <li onclick="scrollToCategory('f0fdd6d1ac')">💻 桌面操作系统 (1)</li><li onclick="scrollToCategory('IoT')">📡 IoT安全 (1)</li><li onclick="scrollToCategory('75ca279fb7')">☁️ 云安全 (1)</li><li onclick="scrollToCategory('8d4aa7a82d')">🌐 网络设备 (1)</li><li onclick="scrollToCategory('Web')">🔐 Web安全 (1)</li><li onclick="scrollToCategory('b0478f3e9e')">🗄️ 数据库与中间件 (1)</li><li onclick="scrollToCategory('1a26edf94a')">📌 其他 (1)</li>
                     </ul>
                 </div>
                 <div class="ai-sidebar-stats">
                     <p>🤖 AI智能分析</p>
                     <p>分析日期: 2026-08-10</p>
-                    <p>精选漏洞: 0</p>
+                    <p>精选漏洞: 7</p>
                     <p>候选漏洞: 33</p>
-                    <p>模型来源: MiniMax-M3</p>
+                    <p>模型来源: qwen3.7-max</p>
                 </div>
             </div>
             
@@ -8293,7 +8417,7 @@ far from ideal; that flaw will be addressed separately.
                 📄 Markdown Report
             </a>
         </p>
-        <p>Generated on 2026-08-10 03:07:55</p>
+        <p>Generated on 2026-08-10 07:42:52</p>
     </div>
 </body>
 </html>
