@@ -1,334 +1,238 @@
 {
-  "analysis_date": "2026-08-14",
-  "total_analyzed": 708,
+  "analysis_date": "2026-08-15",
+  "total_analyzed": 497,
   "model": "qwen3.7-max",
   "categories": {
     "桌面操作系统": [
       {
-        "id": "CVE-2026-59692",
-        "reason": "GStreamer DTLS插件栈缓冲区溢出，远程未授权攻击者可触发，影响广泛的桌面多媒体应用。"
+        "id": "CVE-2026-17485",
+        "reason": "IBM i 操作系统存在整数下溢漏洞，可导致拒绝服务及敏感信息泄露，影响企业级核心服务器环境。"
       },
       {
-        "id": "CVE-2026-72693",
-        "reason": "openvt权限校验缺陷，攻击者可利用符号链接绕过虚拟终端所有者验证，实现本地提权。"
-      },
-      {
-        "id": "CVE-2026-68083",
-        "reason": "Linux kernel ksmbd路径解析漏洞，可导致严重的文件系统越权访问，影响SMB共享安全。"
-      },
-      {
-        "id": "CVE-2026-15816",
-        "reason": "dracut命令注入漏洞，攻击者可通过DHCP选项在initramfs阶段执行任意代码，威胁系统启动安全。"
+        "id": "CVE-2026-69085",
+        "reason": "思源笔记满分SQL注入漏洞，攻击者可通过发布接口直接执行任意SQL语句，导致严重数据泄露。"
       },
       {
         "id": "CVE-2026-18193",
-        "reason": "IBM i操作系统远程安全限制绕过漏洞，CVSS高达8.9，可能导致系统被完全控制。"
+        "reason": "IBM i操作系统地址验证不当导致安全限制绕过，CVSS高达8.9，影响企业级核心服务器。"
       },
       {
-        "id": "CVE-2024-12085",
-        "reason": "rsync校验和比较时的内存泄漏漏洞，EPSS评分较高，影响广泛的Linux/Unix系统。"
+        "id": "CVE-2026-53790",
+        "reason": "rsync是Linux/Unix系统核心组件，该命令注入漏洞允许攻击者通过环境变量或守护进程钩子执行任意命令，影响极其广泛。"
       },
       {
-        "id": "CVE-2026-6387",
-        "reason": "Lenovo System Update存在身份验证绕过漏洞，允许本地攻击者提升权限并执行任意代码，影响大量联想PC用户。"
+        "id": "CVE-2021-47781",
+        "reason": "Cmder终端模拟器存在缓冲区溢出漏洞，攻击者可通过恶意构造的.cmd文件触发崩溃或潜在代码执行，影响Windows桌面开发环境。"
       },
       {
-        "id": "CVE-2026-73072",
-        "reason": "Vim是广泛使用的跨平台文本编辑器，该漏洞通过构造恶意的spell文件可导致内存破坏和潜在代码执行，对桌面和服务器用户威胁大。"
-      },
-      {
-        "id": "CVE-2026-73218",
-        "reason": "Cursor IDE沙箱逃逸漏洞允许AI代理挂载宿主机文件系统，对开发者桌面环境构成严重威胁。"
-      },
-      {
-        "id": "CVE-2025-6020",
-        "reason": "linux-pam模块存在符号链接攻击和竞争条件，允许本地用户提权至root，影响广泛的Linux发行版。"
-      },
-      {
-        "id": "CVE-2026-3298",
-        "reason": "仅限Windows平台的asyncio越界写漏洞，可导致内存破坏，直接影响Windows环境下的Python应用安全。"
-      },
-      {
-        "id": "CVE-2026-4786",
-        "reason": "webbrowser.open()命令注入绕过漏洞，攻击者可通过构造恶意URL在桌面环境中执行任意系统命令。"
+        "id": "CVE-2026-53175",
+        "reason": "Linux内核网络片段处理存在UAF漏洞，CVSS高达9.8，可导致本地提权或拒绝服务，影响广泛。"
       }
     ],
     "移动安全": [
       {
-        "id": "CVE-2026-68389",
-        "reason": "高通蓝牙芯片(hci_qca)内存转储状态处理缺陷，可能导致UAF或内存损坏，直接影响移动设备安全。"
+        "id": "CVE-2026-70638",
+        "reason": "llama.cpp Android JNI包装器存在整数溢出，可能导致堆缓冲区分配异常及潜在的代码执行。"
       },
       {
-        "id": "CVE-2026-16101",
-        "reason": "Silicon Labs蓝牙协议栈存在缺陷，攻击者可欺骗已绑定设备并强制重新配对，严重影响移动与可穿戴设备安全。"
+        "id": "CVE-2026-43622",
+        "reason": "影响llama.cpp的Android JNI包装器，双重释放漏洞可导致堆元数据损坏，对移动端本地大模型部署有潜在威胁。"
       },
       {
-        "id": "CVE-2026-61984",
-        "reason": "WPMobile.App插件存在未授权访问控制漏洞，可能被利用来非法访问或篡改通过该插件生成的移动应用数据。"
-      },
-      {
-        "id": "CVE-2026-73296",
-        "reason": "Microsoft UFO框架在移动设备上暴露无认证的MCP HTTP服务，允许远程执行数据收集与操作指令。"
-      },
-      {
-        "id": "CVE-2026-53415",
-        "reason": "Zoom客户端注释功能存在释放后使用漏洞，允许会议参与者通过网络远程执行代码，影响iOS和Android等多平台。"
+        "id": "CVE-2026-18164",
+        "reason": "Flow Neuroscience脑刺激设备存在蓝牙硬编码凭证漏洞，攻击者可在近距离内绕过认证并恶意篡改设备参数，威胁可穿戴医疗安全。"
       }
     ],
     "IoT安全": [
       {
-        "id": "CVE-2026-68330",
-        "reason": "Airoha NPU邮箱缓冲区DMA方向配置错误，可能导致IoT设备内存数据被意外覆盖或泄露。"
+        "id": "CVE-2026-19910",
+        "reason": "PAX Technology Q80 支付终端存在签名验证绕过导致的远程代码执行漏洞，对线下支付物联网设备构成严重威胁。"
       },
       {
-        "id": "CVE-2026-68124",
-        "reason": "Linux kernel MCTP串口协议零长度帧处理漏洞，可导致接收缓冲区溢出，影响物联网设备通信安全。"
-      },
-      {
-        "id": "CVE-2026-68125",
-        "reason": "mac802154链路层安全认证标签长度校验缺失，可能导致物联网无线网络数据包处理异常或内存越界。"
+        "id": "CVE-2025-14300",
+        "reason": "TP-Link Tapo智能摄像头暴露未授权接口，局域网攻击者可篡改WiFi配置导致设备拒绝服务。"
       },
       {
         "id": "CVE-2026-5857",
-        "reason": "Contiki-NG物联网操作系统MQTT客户端解析漏洞，CVSS 9.2，可导致远程代码执行。"
+        "reason": "Contiki-NG是主流IoT操作系统，其MQTT客户端解析漏洞可导致缓冲区溢出和代码执行，严重威胁物联网设备安全。"
       },
       {
-        "id": "CVE-2026-18164",
-        "reason": "Flow Neuroscience医疗脑刺激设备存在硬编码凭证，攻击者可通过蓝牙篡改治疗参数。"
+        "id": "CVE-2025-34256",
+        "reason": "研华设备管理平台使用硬编码JWT密钥，允许未授权攻击者伪造令牌获取完全控制权，影响大量工业IoT设备。"
       },
       {
-        "id": "CVE-2026-49481",
-        "reason": "UpSnap局域网唤醒工具存在OS命令注入漏洞，攻击者可通过设备管理功能在IoT网关或服务器上执行任意命令。"
+        "id": "CVE-2021-47942",
+        "reason": "Home Assistant智能家居平台存在路径遍历漏洞，未授权攻击者可读取包含用户凭证的敏感文件，从而完全接管智能家居系统。"
       },
       {
-        "id": "CVE-2026-49819",
-        "reason": "UpSnap网络唤醒应用存在初始化超级用户接口未授权访问漏洞，易被攻击者接管IoT及家庭网络设备。"
-      },
-      {
-        "id": "CVE-2018-19943",
-        "reason": "已被CISA KEV收录的在野利用漏洞，QNAP NAS设备的XSS漏洞可导致远程代码注入，严重威胁IoT设备安全。"
+        "id": "CVE-2026-19815",
+        "reason": "TOTOLINK路由器防火墙组件存在栈溢出漏洞，CVSS 9.0，攻击者可远程执行代码直接控制IoT设备。"
       }
     ],
     "云安全": [
       {
-        "id": "CVE-2026-68381",
-        "reason": "Linux内核ksmbd(SMB服务器)异步通知中的UAF漏洞，CVSS 9.8，严重威胁云环境文件共享服务稳定性。"
+        "id": "CVE-2026-73499",
+        "reason": "云原生核心组件 etcd 存在权限校验缺陷，低权限用户可越权监听全局键值事件，可能导致集群敏感配置泄露。"
       },
       {
         "id": "CVE-2026-73843",
-        "reason": "OpenChoreo集群网关未授权访问漏洞，允许攻击者无需认证即可调用管理API代理和执行命令，严重危及云原生环境。"
-      },
-      {
-        "id": "CVE-2026-9165",
-        "reason": "Red Hat ACS (RHACS) GraphQL API深度查询DoS漏洞，可导致云原生安全控制台资源耗尽。"
-      },
-      {
-        "id": "CVE-2026-8715",
-        "reason": "Vault Secrets Operator任意文件读取与凭证泄露漏洞，CVSS 9.6，严重威胁K8s集群安全。"
+        "reason": "OpenChoreo K8s平台管理API缺乏认证，网络可达的攻击者可调用代理接口接管集群资源。"
       },
       {
         "id": "CVE-2026-73656",
-        "reason": "Trigger.dev AI工作流平台部署接口存在严重RCE漏洞，CVSS高达9.9。"
+        "reason": "Trigger.dev AI代理平台后台Worker服务存在严重漏洞，CVSS 9.9，可能导致云端工作流被恶意接管。"
       },
       {
-        "id": "CVE-2026-7374",
-        "reason": "KubeVirt virt-handler组件存在符号链接验证不当漏洞，允许低权限用户逃逸虚拟机容器并在宿主机执行任意代码。"
+        "id": "CVE-2026-63727",
+        "reason": "容器安全平台Anchore Enterprise存在权限提升漏洞，攻击者可修改用户权限获取管理员访问，危及云原生环境安全。"
       },
       {
-        "id": "CVE-2026-19311",
-        "reason": "Amazon OpenSearch Alerting插件存在授权缺失，允许认证用户越权读取、修改或删除任意索引数据，直接威胁云环境数据安全。"
-      },
-      {
-        "id": "CVE-2026-66878",
-        "reason": "Red Hat多云订阅Operator存在权限绕过，允许命名空间管理员跨命名空间窃取Secrets，严重影响K8s集群安全。"
+        "id": "CVE-2026-8715",
+        "reason": "HashiCorp Vault Secrets Operator存在任意文件读取漏洞，Kubernetes低权限租户可窃取Operator Pod内的敏感凭证，导致云原生环境沦陷。"
       },
       {
         "id": "CVE-2026-59310",
-        "reason": "VMware vCenter Syslog服务器存在目录遍历漏洞，可导致远程代码执行，严重危及云虚拟化基础设施安全。"
-      },
-      {
-        "id": "CVE-2026-63294",
-        "reason": "LXD在处理镜像或备份归档时未正确验证符号链接，导致攻击者可在宿主机上以root权限执行任意命令，属于严重的容器逃逸漏洞。"
+        "reason": "VMware vCenter Syslog服务器存在目录遍历漏洞，CVSS 9.8，攻击者可利用此漏洞执行任意代码，严重威胁云基础设施。"
       }
     ],
     "网络设备": [
       {
-        "id": "CVE-2026-68426",
-        "reason": "Linux内核xfrm(IPsec)处理GSO分段时存在陈旧指针问题，CVSS 9.8，可导致网络设备内核崩溃或RCE。"
-      },
-      {
-        "id": "CVE-2026-68300",
-        "reason": "SCTP协议认证绕过漏洞，在特定克隆失败场景下会静默跳过身份验证，严重破坏网络传输安全。"
-      },
-      {
-        "id": "CVE-2026-72841",
-        "reason": "OpenWrt LuCI OpenVPN插件路径遍历漏洞，允许认证用户写入任意文件并获取root权限，严重威胁路由器安全。"
+        "id": "CVE-2026-20303",
+        "reason": "Cisco Catalyst SD-WAN 存在严重安全缺陷，可能导致企业广域网核心网络设备被完全控制。"
       },
       {
         "id": "CVE-2026-72842",
-        "reason": "OpenWrt LuCI LXC容器管理ACL绕过与路径遍历漏洞，可导致低权限用户逃逸并控制宿主机。"
+        "reason": "OpenWrt LuCI容器管理插件存在路径穿越，低权限用户可逃逸容器目录并获取Root权限。"
+      },
+      {
+        "id": "CVE-2026-71956",
+        "reason": "D-Link DWR-M961路由器多个CGI接口存在未授权命令注入，攻击者可远程获取Root权限。"
+      },
+      {
+        "id": "CVE-2026-32841",
+        "reason": "Edimax交换机固件存在认证绕过漏洞，攻击者无需凭证即可获取管理界面控制权，直接威胁局域网基础设施。"
       },
       {
         "id": "CVE-2026-19747",
-        "reason": "Tenda多款路由器ATE模块命令注入漏洞，CVSS满分10，极易被僵尸网络利用。"
+        "reason": "多款Tenda路由器ATE模块存在严重的命令注入漏洞（CVSS 10.0），攻击者无需认证即可远程执行任意系统命令，完全控制网络设备。"
       },
       {
-        "id": "CVE-2026-73665",
-        "reason": "FreePBX UCP Node服务器Socket.IO中间件绕过漏洞，CVSS 9.3，允许未授权访问。"
-      },
-      {
-        "id": "CVE-2026-73564",
-        "reason": "frp反向代理的SSH隧道网关存在整数溢出漏洞，可导致越界读写，严重影响内网穿透及网络边界设备的安全性。"
-      },
-      {
-        "id": "CVE-2026-53791",
-        "reason": "rsync守护进程存在IP地址欺骗漏洞，攻击者可通过伪造PROXY协议头绕过基于IP的访问控制策略。"
-      },
-      {
-        "id": "CVE-2026-26035",
-        "reason": "Fortinet FortiWeb存在身份验证绕过漏洞，允许远程未授权攻击者直接登录设备，对网络安全边界构成严重威胁。"
+        "id": "CVE-2026-20131",
+        "reason": "Cisco FMC Web管理接口存在反序列化漏洞，CVSS 10.0且已被CISA KEV收录，无需认证即可以root权限执行代码。"
       }
     ],
     "工业控制": [
       {
-        "id": "CVE-2026-68387",
-        "reason": "Linux内核CAN原始套接字标志位字段缺少锁保护，可能引发竞态条件，影响车载及工控CAN总线通信。"
+        "id": "CVE-2026-19188",
+        "reason": "海为 IoT Cloud HMI 网关存在未授权 OS 命令注入漏洞，可直接危及工业现场控制网络的安全。"
       },
       {
-        "id": "CVE-2025-41769",
-        "reason": "Phoenix Contact设备的PROFINET工业以太网服务存在缓冲区溢出，允许未授权远程攻击者重启设备或执行任意代码。"
+        "id": "CVE-2026-34226",
+        "reason": "OpenPLC运行时在程序上传端点缺乏输入验证，可导致数据库损坏，影响工业控制系统的稳定运行。"
       },
       {
-        "id": "CVE-2026-47717",
-        "reason": "FUXA SCADA/HMI系统在开启安全模式时仍向访客暴露敏感项目配置数据，直接影响工业控制系统安全。"
-      },
-      {
-        "id": "CVE-2026-34184",
-        "reason": "AlanWeb SCADA系统未对部分目录进行授权检查，攻击者可读取敏感文件并直接执行PHP脚本控制底层数据库。"
+        "id": "CVE-2021-47770",
+        "reason": "OpenPLC开源可编程逻辑控制器存在远程代码执行漏洞，认证攻击者可通过硬件配置接口注入恶意代码获取反向Shell，威胁工控安全。"
       }
     ],
     "Web安全": [
       {
-        "id": "CVE-2026-19758",
-        "reason": "Dromara lamp-cloud微服务框架文件分块接口存在路径遍历漏洞，远程攻击者可操纵参数读写任意文件。"
-      },
-      {
         "id": "CVE-2026-72851",
-        "reason": "Budibase自动化Webhook未授权SQL注入漏洞(CVSS 10.0)，攻击者可直接注入恶意SQL语句窃取或破坏数据库。"
+        "reason": "Budibase 低代码平台存在未授权 SQL 注入漏洞，攻击者可通过 Webhook 直接窃取或篡改后端数据库数据。"
       },
       {
-        "id": "CVE-2026-73421",
-        "reason": "NextAuth.js认证绕过漏洞，当服务器配置错误时可能导致应用鉴权失效(Fail Open)，造成未授权访问。"
+        "id": "CVE-2026-73487",
+        "reason": "Flowise AI 平台存在正则绕过导致的 Python 代码注入漏洞，攻击者可通过提示词注入在服务器上执行任意代码。"
       },
       {
-        "id": "CVE-2026-72839",
-        "reason": "filebrowser自注册权限控制不当导致未授权获取根目录完全控制权，CVSS 9.8。"
+        "id": "CVE-2026-73533",
+        "reason": "WordPress流行插件Ninja Tables Pro遭遇供应链投毒，植入后门REST API，影响大量网站。"
       },
       {
-        "id": "CVE-2024-27253",
-        "reason": "IBM DOORS Next认证绕过漏洞，CVSS满分10，允许攻击者执行未授权的高危操作。"
+        "id": "CVE-2026-70554",
+        "reason": "MaxSite CMS存在PHP对象注入漏洞，未授权攻击者可通过恶意Cookie直接执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-69084",
+        "reason": "思源笔记搜索接口存在无过滤的SQL注入，允许攻击者直接操作底层SQLite数据库，危害极大。"
       },
       {
         "id": "CVE-2026-67614",
-        "reason": "CyberPanel存在硬编码JWT密钥漏洞，允许未授权攻击者伪造认证令牌并通过WebSocket获取服务器root权限。"
+        "reason": "CyberPanel的WebTerminal服务使用硬编码JWT密钥，允许未授权攻击者伪造令牌直接获取服务器root shell。"
       },
       {
-        "id": "CVE-2026-61962",
-        "reason": "WordPress的WP BASE Booking插件存在未授权任意代码执行漏洞，攻击者可直接接管网站服务器，具有极高的在野利用风险。"
+        "id": "CVE-2026-68771",
+        "reason": "ComfyUI在加载训练数据集时存在不安全的反序列化漏洞，允许未授权攻击者上传恶意pickle文件执行任意Python代码。"
       },
       {
-        "id": "CVE-2026-27544",
-        "reason": "QA Analytics插件存在未授权远程代码执行漏洞，允许攻击者在无需认证的情况下控制服务器，CVSS评分为满分10。"
+        "id": "CVE-2026-44962",
+        "reason": "Plesk主机控制面板存在XPath注入漏洞，低权限用户可通过应用目录搜索功能绕过限制，在服务器上执行任意操作系统命令。"
       },
       {
-        "id": "CVE-2026-15413",
-        "reason": "WordPress Link Factory插件被植入后门，通过REST API允许攻击者使用硬编码密钥远程执行任意操作。"
-      },
-      {
-        "id": "CVE-2026-44578",
-        "reason": "Next.js内置Node.js服务器在处理WebSocket升级请求时存在SSRF漏洞，EPSS评分极高，极易被在野利用。"
-      },
-      {
-        "id": "CVE-2026-15308",
-        "reason": "HTML解析器DoS漏洞，处理不可信HTML时可导致CPU耗尽，严重威胁Web后端和爬虫服务的可用性。"
+        "id": "CVE-2023-7028",
+        "reason": "GitLab密码重置邮件可被发送至未验证邮箱，CVSS 10.0且已被CISA KEV收录，攻击者可借此劫持任意用户账户。"
       }
     ],
     "数据库与中间件": [
       {
-        "id": "CVE-2026-73417",
-        "reason": "JupyterLab设置覆盖漏洞，允许通过导入恶意overrides.json文件篡改笔记本环境配置，影响数据科学中间件安全。"
+        "id": "CVE-2026-17186",
+        "reason": "IBM Db2 Mirror for i 存在严重的命令注入漏洞，远程攻击者可借此在数据库服务器上执行任意 CL 命令。"
       },
       {
-        "id": "CVE-2026-14525",
-        "reason": "IBM WebSphere Liberty认证绕过漏洞，CVSS 9.4，影响企业级核心中间件安全。"
+        "id": "CVE-2026-73678",
+        "reason": "MindsDB AI 数据库平台存在未授权远程代码执行漏洞，攻击者可通过构造恶意 Prompt 直接控制底层操作系统。"
       },
       {
-        "id": "CVE-2026-72642",
-        "reason": "Elasticsearch机器学习模型原生推理进程内存越界访问漏洞，可导致远程代码执行。"
+        "id": "CVE-2026-48528",
+        "reason": "Metacat数据仓库软件REST API存在未授权SQL注入，攻击者可完全控制底层数据库。"
       },
       {
-        "id": "CVE-2026-14671",
-        "reason": "PostgreSQL refint模块存在类型混淆漏洞，允许恶意对象创建者以数据库操作系统用户身份执行任意代码。"
+        "id": "CVE-2026-70634",
+        "reason": "TimescaleDB压缩算法反向迭代器存在越界读，可能导致数据库后端崩溃或内存信息泄露。"
       },
       {
-        "id": "CVE-2026-14670",
-        "reason": "PostgreSQL的plperl扩展存在堆缓冲区溢出，允许函数所有者以数据库操作系统用户身份执行任意代码，严重威胁核心数据库安全。"
+        "id": "CVE-2026-10105",
+        "reason": "Agno框架的ClickHouse向量数据库后端存在SQL注入，攻击者可通过恶意元数据键值执行任意SQL表达式。"
+      },
+      {
+        "id": "CVE-2026-73514",
+        "reason": "PostGIS空间数据库扩展存在越界写入漏洞，数据库用户可通过构造恶意的规则表触发内存损坏，可能导致数据库服务崩溃或代码执行。"
       },
       {
         "id": "CVE-2026-14664",
-        "reason": "PostgreSQL正则表达式处理存在堆溢出，查询作者可借此执行任意代码，影响多个主流版本，危害极大。"
-      },
-      {
-        "id": "CVE-2026-10534",
-        "reason": "IBM Db2数据库IXF IMPORT解析器存在缓冲区溢出漏洞，可能导致数据库服务崩溃或潜在代码执行。"
-      },
-      {
-        "id": "CVE-2026-19001",
-        "reason": "MongoDB BI Connector ODBC驱动在处理超长元数据名称时存在越界写入，可导致客户端应用内存损坏和异常崩溃。"
+        "reason": "PostgreSQL正则表达式处理存在堆缓冲区溢出，CVSS 8.8，查询作者可通过特制文本执行任意代码，严重威胁数据库安全。"
       }
     ],
     "其他": [
       {
-        "id": "CVE-2026-68385",
-        "reason": "IBM s390大型机架构校验和计算缺陷，在无向量设施的回退路径中引发严重内存越界，CVSS 9.8。"
+        "id": "CVE-2026-53791",
+        "reason": "rsync 守护进程存在 IP 地址欺骗漏洞，攻击者可伪造 PROXY 协议头绕过基于 IP 的访问控制策略。"
       },
       {
-        "id": "CVE-2026-19753",
-        "reason": "Model Context Protocol (MCP) SSRF漏洞，攻击者可操纵URL参数发起服务端请求伪造，影响AI代理工具安全。"
+        "id": "CVE-2026-19626",
+        "reason": "Tenable Security Center报告生成功能存在RCE，非管理员用户可通过构造输入提权执行系统命令。"
       },
       {
-        "id": "CVE-2026-17482",
-        "reason": "IBM Documentation Offline文件路径控制不当导致远程代码执行，CVSS 9.8。"
+        "id": "CVE-2026-70461",
+        "reason": "rsync存在堆越界写漏洞，远程未授权攻击者可通过构造files-from条目破坏内存并可能执行代码。"
       },
       {
-        "id": "CVE-2026-73567",
-        "reason": "sm-crypto库的SM2密钥生成使用了不安全的ARC4随机数生成器，可能导致国密算法私钥被预测和泄露。"
+        "id": "CVE-2026-67324",
+        "reason": "GitPython未能正确识别短选项形式，导致不安全选项门控失效，允许攻击者在克隆时注入恶意命令。"
       },
       {
-        "id": "CVE-2026-73624",
-        "reason": "流行的Python Git库GitPython存在任意文件覆盖漏洞，攻击者可通过恶意参数覆盖系统关键文件，影响大量CI/CD和自动化工具。"
+        "id": "CVE-2026-5917",
+        "reason": "libgit2的SSH后端存在Shell命令注入漏洞，攻击者可通过包含未转义元字符的仓库路径在SSH服务器上执行任意命令。"
       },
       {
-        "id": "CVE-2026-8657",
-        "reason": "jsondiffpatch库存在原型链污染漏洞，攻击者可通过构造恶意JSON Patch文档污染对象原型，影响依赖该库的Node.js应用。"
+        "id": "CVE-2026-12866",
+        "reason": "广泛使用的JavaScript数学表达式解析库expr-eval存在代码执行漏洞，攻击者可通过恶意表达式直接在宿主环境中执行任意JS代码。"
       },
       {
-        "id": "CVE-2026-73034",
-        "reason": "AI大模型应用DB-GPT存在未授权路径遍历漏洞，攻击者可通过HTTP头注入在服务器任意位置写入文件。"
-      },
-      {
-        "id": "CVE-2026-73483",
-        "reason": "Flowise AI平台的vm2 JavaScript沙箱存在逃逸漏洞，认证用户可执行任意系统命令，对AI应用安全影响重大。"
-      },
-      {
-        "id": "CVE-2026-6100",
-        "reason": "压缩模块在内存压力下的UAF漏洞，CVSS高达9.1，存在极高的远程代码执行风险。"
-      },
-      {
-        "id": "CVE-2026-11940",
-        "reason": "tarfile提取时的符号链接绕过漏洞，可导致路径遍历和任意文件覆盖，影响所有使用Python处理压缩包的场景。"
+        "id": "CVE-2021-30116",
+        "reason": "Kaseya VSA存在凭据泄露漏洞，CVSS 10.0且已被CISA KEV收录，曾被用于大规模供应链勒索攻击，具有极高威胁。"
       }
     ]
   },
-  "summary": "本批次聚焦Linux内核网络高危漏洞，及多媒体与Web组件的溢出和路径遍历问题。 | 本批次重点分析Linux内核、OpenWrt及Web应用高危漏洞，涵盖越权、RCE与SQLi等严重威胁。 | 本批次重点发现Tenda路由器满分RCE、K8s Operator凭证泄露及IBM i系统多个高危漏洞。"
+  "summary": "本批次聚焦Cisco SD-WAN、工控网关等极高危漏洞，AI与低代码平台RCE风险凸显。 | 本批次重点关注供应链投毒、网络设备RCE及AI与K8s云原生平台的高危越权与注入漏洞。 | 本批次重点关注rsync命令注入、Contiki-NG MQTT溢出及多款AI与Web应用的RCE和SQLi漏洞。"
 }
