@@ -153,26 +153,32 @@ class CVECollector:
             return None
 
     def save_ai_curated_cache(self, curated_data, path=None):
-        """Save AI curated results to JSON cache file"""
+        """Save AI curated results to the dated JSON archive (docs/ai/YYYY/)"""
         if not curated_data:
             return
-        path = path or Config.AI_CURATED_CACHE_PATH
+        path = path or Config.get_daily_ai_curated_path()
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(curated_data, f, ensure_ascii=False, indent=2)
         print(f"AI curated data cached to {path}")
 
     def load_ai_curated_cache(self, path=None):
-        """Load AI curated results from JSON cache file"""
-        path = path or Config.AI_CURATED_CACHE_PATH
-        if os.path.exists(path):
-            try:
-                with open(path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                print(f"Loaded cached AI curation results from {path}")
-                return data
-            except Exception as e:
-                print(f"Error loading AI cache: {e}")
+        """Load AI curated results: today's dated archive first, legacy
+        docs/ai_curated.json as fallback (old caches carry Chinese
+        category keys; the reporter normalizes those at render time)."""
+        candidates = [path] if path else [
+            Config.get_daily_ai_curated_path(),
+            Config.AI_CURATED_CACHE_PATH,  # legacy pre-archive cache
+        ]
+        for candidate in candidates:
+            if candidate and os.path.exists(candidate):
+                try:
+                    with open(candidate, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    print(f"Loaded cached AI curation results from {candidate}")
+                    return data
+                except Exception as e:
+                    print(f"Error loading AI cache {candidate}: {e}")
         return None
 
     def collect_daily_cves(self, days=Config.LOOKBACK_DAYS):
@@ -299,13 +305,29 @@ class CVECollector:
                                     # Process the CVE data according to the v5 schema
                                     cve_id = cve_data.get('cveMetadata', {}).get('cveId', '')
                                     if cve_id:
-                                        # Extract description
+                                        # Extract description.
+                                        # cvelistV5 records carry both 'en' and
+                                        # regional tags like 'en-US' depending
+                                        # on the submitting CNA — matching only
+                                        # 'en' left ~45% of CVEs descriptionless.
+                                        # Prefer exact 'en', then any 'en-*',
+                                        # then fall back to the first non-empty
+                                        # value (better than a blank card).
                                         description = ""
+                                        desc_fallback = ""
                                         descriptions = cve_data.get('containers', {}).get('cna', {}).get('descriptions', [])
                                         for desc in descriptions:
-                                            if desc.get('lang') == 'en':
-                                                description = desc.get('value', '')
-                                                break
+                                            lang = (desc.get('lang') or '').lower()
+                                            value = desc.get('value', '')
+                                            if not value:
+                                                continue
+                                            if lang.startswith('en'):
+                                                description = value
+                                                if lang == 'en':
+                                                    break
+                                            elif not desc_fallback:
+                                                desc_fallback = value
+                                        description = description or desc_fallback
 
                                         # Decode HTML entities to convert &#x27; back to ' and other entities
                                         import html

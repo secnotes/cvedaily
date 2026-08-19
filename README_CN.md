@@ -113,6 +113,6 @@
 ## 📈 输出文件
 
 执行后，系统会生成:
-- `docs/index.html`: 带有过滤功能和AI精选切换的交互式仪表板报告
-- `docs/ai_curated.json`: AI精选结果缓存（启用AI时生成）
+- `docs/index.html`: 带有过滤、AI精选切换、中英文切换和深色模式的交互式仪表板报告
+- `docs/ai/[year]/ai_curated_[date].json`: 每日 AI 精选归档，推荐理由和摘要为中英双语（启用AI时生成）
 - `docs/reports/[year]/daily_cve_[date].md`: 每日发现的markdown存档

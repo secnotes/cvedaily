@@ -113,6 +113,6 @@ When AI curation is enabled, the HTML report displays a toggle button at the top
 ## 📈 Output Files
 
 After execution, the system generates:
-- `docs/index.html`: Interactive dashboard-style report with filtering and AI curation toggle
-- `docs/ai_curated.json`: AI curation results cache (when AI is enabled)
+- `docs/index.html`: Interactive dashboard-style report with filtering, AI curation toggle, EN/ZH language toggle, and dark mode
+- `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual (EN/ZH) reasons and summary (when AI is enabled)
 - `docs/reports/[year]/daily_cve_[date].md`: Markdown archive of daily findings

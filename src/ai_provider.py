@@ -169,15 +169,15 @@ class AIProvider:
         """
         if not categories:
             categories = [
-                "桌面操作系统",
-                "移动安全",
-                "IoT安全",
-                "云安全",
-                "网络设备",
-                "工业控制",
-                "Web安全",
-                "数据库与中间件",
-                "其他",
+                "Desktop OS",
+                "Mobile Security",
+                "IoT Security",
+                "Cloud Security",
+                "Network Devices",
+                "Industrial Control",
+                "Web Security",
+                "Databases & Middleware",
+                "Other",
             ]
 
         # Process in batches to avoid timeout
@@ -195,31 +195,32 @@ class AIProvider:
 
             cves_text = self._format_cves_for_ai(batch_cves)
 
-            system_prompt = """你是一位网络安全领域的专业漏洞分析师。你的任务是分析每日CVE漏洞数据，筛选出重要漏洞并进行分类。
-你需要根据漏洞描述、CVSS评分、影响厂商和产品来判断漏洞的主题和重要性，将漏洞分配到合适的分类中。
-请保持客观、专业，优先关注有实际攻击价值的漏洞。"""
+            system_prompt = """You are a professional vulnerability analyst in the cybersecurity domain. Your task is to analyze daily CVE data, select the important vulnerabilities, and categorize them.
+Judge each vulnerability's topic and importance from its description, CVSS score, and affected vendors/products, and assign it to the most fitting category.
+Stay objective and professional; prioritize vulnerabilities with real-world attack value.
+Respond in English only."""
 
-            prompt = f"""请分析以下CVE漏洞数据，筛选出重要漏洞并按影响领域分类。
+            prompt = f"""Analyze the following CVE vulnerability data, select the important ones, and categorize them by affected domain.
 
-## 分类类别
+## Categories
 {json.dumps(categories, ensure_ascii=False, separators=(',', ':'))}
 
-## 分析要求
-1. 筛选标准：CVSS评分>=7.0的高危漏洞，或已被CISA KEV收录的在野利用漏洞
-2. 每个分类选择最相关的漏洞（如果该分类有足够漏洞）
-3. 如果漏洞不适合任何分类或重要性较低，可以不收录
-4. 为每条收录的漏洞提供简短的推荐理由（1-2句话，说明为什么该漏洞值得重点关注）
+## Requirements
+1. Selection criteria: high-risk vulnerabilities with CVSS >= 7.0, or ones already listed in CISA KEV (exploited in the wild)
+2. Pick the most relevant vulnerabilities per category (when the category has enough candidates)
+3. Skip vulnerabilities that fit no category or are of low importance
+4. For every selected CVE provide a short reason (1-2 sentences on why it deserves attention)
 
-## 漏洞列表（共 {len(batch_cves)} 条，批次 {batch_num + 1}/{total_batches}）
+## CVE list ({len(batch_cves)} items, batch {batch_num + 1}/{total_batches})
 {cves_text}
 
-## 输出格式
-请严格按照以下 JSON 格式返回，不要添加任何额外内容：
+## Output format
+Return strictly this JSON structure with no extra content:
 ```json
-{{"analysis_date":"YYYY-MM-DD","total_analyzed":{len(batch_cves)},"batch_number":{batch_num + 1},"categories":{{"桌面操作系统":[{{"id":"CVE-YYYY-NNNNN","reason":"推荐理由"}}]}},"summary":"本批次分析摘要（50字以内）"}}
+{{"analysis_date":"YYYY-MM-DD","total_analyzed":{len(batch_cves)},"batch_number":{batch_num + 1},"categories":{{"Desktop OS":[{{"id":"CVE-YYYY-NNNNN","reason":"why it matters"}}]}},"summary":"batch summary in one short sentence"}}
 ```
 
-请开始分析并返回 JSON 结果。"""
+All reason and summary text must be in English. Start the analysis and return the JSON result."""
 
             try:
                 response_text = self.analyze(prompt, system_prompt)
@@ -269,7 +270,7 @@ class AIProvider:
 
         # Collect summaries from all batches
         summaries = [b.get("summary", "") for b in batch_results if b.get("summary")]
-        merged["summary"] = " | ".join(summaries[:3]) if summaries else "AI分析完成，已筛选重要漏洞并分类"
+        merged["summary"] = " | ".join(summaries[:3]) if summaries else "AI analysis complete; important vulnerabilities selected and categorized"
 
         total_curated = sum(len(cves) for cves in merged["categories"].values())
         logger.info(f"Merged {len(batch_results)} batches, total curated CVEs: {total_curated}")
@@ -294,9 +295,9 @@ class AIProvider:
             if epss > 0:
                 lines.append(f"   EPSS: {epss:.4f}")
             if in_cisa:
-                lines.append(f"   CISA KEV: 是（已知被利用）")
-            lines.append(f"   厂商: {vendors}")
-            lines.append(f"   描述: {desc}")
+                lines.append(f"   CISA KEV: yes (known exploited)")
+            lines.append(f"   Vendors: {vendors}")
+            lines.append(f"   Description: {desc}")
             lines.append("")
 
         return "\n".join(lines)

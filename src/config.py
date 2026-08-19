@@ -19,35 +19,74 @@ class Config:
 
     # AI Curation settings (requires AI_API_KEY in environment)
     AI_CURATION_ENABLED = os.getenv('AI_API_KEY') is not None
+    # Legacy single-file cache (pre-daily-archive era); kept only as a
+    # read fallback when no dated archive exists for today
     AI_CURATED_CACHE_PATH = "docs/ai_curated.json"
+    # Dated archives mirroring the markdown report layout:
+    # docs/ai/2026/ai_curated_20260818.json
+    AI_CURATED_DIR = "docs/ai"
 
-    # CVE-specific AI categories
+    # CVE-specific AI categories (English-primary; the curated JSON is
+    # generated in English, the HTML adds Chinese at render time)
     AI_CVE_CATEGORIES = [
-        "桌面操作系统",
-        "移动安全",
-        "IoT安全",
-        "云安全",
-        "网络设备",
-        "工业控制",
-        "Web安全",
-        "数据库与中间件",
-        "其他",
+        "Desktop OS",
+        "Mobile Security",
+        "IoT Security",
+        "Cloud Security",
+        "Network Devices",
+        "Industrial Control",
+        "Web Security",
+        "Databases & Middleware",
+        "Other",
     ]
 
-    # Category icon mapping for HTML display
+    # zh-CN display names for the English category keys above
+    AI_CATEGORY_ZH = {
+        "Desktop OS": "桌面操作系统",
+        "Mobile Security": "移动安全",
+        "IoT Security": "IoT安全",
+        "Cloud Security": "云安全",
+        "Network Devices": "网络设备",
+        "Industrial Control": "工业控制",
+        "Web Security": "Web安全",
+        "Databases & Middleware": "数据库与中间件",
+        "Other": "其他",
+    }
+
+    # Legacy Chinese category names (old caches) -> English keys, so
+    # reports regenerated from an old cache still render with new keys
+    AI_CATEGORY_ZH_TO_EN = {zh: en for en, zh in {
+        "Desktop OS": "桌面操作系统",
+        "Mobile Security": "移动安全",
+        "IoT Security": "IoT安全",
+        "Cloud Security": "云安全",
+        "Network Devices": "网络设备",
+        "Industrial Control": "工业控制",
+        "Web Security": "Web安全",
+        "Databases & Middleware": "数据库与中间件",
+        "Other": "其他",
+    }.items()}
+
+    # Category icon mapping for HTML display (keyed by English name)
     AI_CATEGORY_ICONS = {
-        "桌面操作系统": "💻",
-        "移动安全": "📱",
-        "IoT安全": "📡",
-        "云安全": "☁️",
-        "网络设备": "🌐",
-        "工业控制": "🏭",
-        "Web安全": "🔐",
-        "数据库与中间件": "🗄️",
-        "其他": "📌",
+        "Desktop OS": "💻",
+        "Mobile Security": "📱",
+        "IoT Security": "📡",
+        "Cloud Security": "☁️",
+        "Network Devices": "🌐",
+        "Industrial Control": "🏭",
+        "Web Security": "🔐",
+        "Databases & Middleware": "🗄️",
+        "Other": "📌",
     }
 
     @staticmethod
     def get_current_year_report_dir():
         """Get the report directory for the current year"""
         return f"docs/reports/{datetime.now().year}"
+
+    @staticmethod
+    def get_daily_ai_curated_path(date=None):
+        """Dated AI curated archive path: docs/ai/2026/ai_curated_20260818.json"""
+        d = date or datetime.now()
+        return f"{Config.AI_CURATED_DIR}/{d.year}/ai_curated_{d.strftime('%Y%m%d')}.json"

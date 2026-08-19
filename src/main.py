@@ -43,6 +43,9 @@ def main():
     if Config.AI_CURATION_ENABLED:
         ai_curated = collector.ai_curate_cves(all_cves)
         if ai_curated:
+            # Add the missing language (zh) to reasons/summary before caching
+            from translator import translate_curated_if_possible
+            translate_curated_if_possible(ai_curated)
             collector.save_ai_curated_cache(ai_curated)
             curated_count = sum(len(v) for v in ai_curated.get('categories', {}).values())
             print(f"AI curation completed: {curated_count} CVEs curated into categories")
