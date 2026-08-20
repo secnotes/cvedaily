@@ -20,7 +20,7 @@ Automated daily CVE monitoring system that collects all vulnerability informatio
   - Status filters (Recently Modified, Newly Published)
   - Vendor filters with "Show More" functionality
   - Enhanced code block rendering for technical details
-- **Historical Archiving**: Stores daily reports in Markdown format organized by year
+- **Historical Archiving**: Stores each day's complete raw data as JSON organized by year (`docs/data/`)
 - **Automated Updates**: Scheduled execution via GitHub Actions
 
 ## ⚙️ Setup
@@ -113,6 +113,10 @@ When AI curation is enabled, the HTML report displays a toggle button at the top
 ## 📈 Output Files
 
 After execution, the system generates:
-- `docs/index.html`: Interactive dashboard-style report with filtering, AI curation toggle, EN/ZH language toggle, and dark mode
-- `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual (EN/ZH) reasons and summary (when AI is enabled)
-- `docs/reports/[year]/daily_cve_[date].md`: Markdown archive of daily findings
+
+- `docs/index.html`: Small static shell (~85 KB) for the interactive dashboard - cards are rendered client-side from the daily JSON in scroll-triggered batches, so the DOM only holds a viewport's worth of cards even on days with 3000+ CVEs
+- `docs/assets/report.css|js`: Shared stylesheet/renderer, cache-busted by content hash (browsers reuse them across days)
+- `docs/data/[year]/cves_[date].json`: The day's complete raw data - single full-fidelity archive consumed by the report page (bilingual EN/ZH, dark mode, filtering, AI curation toggle all work as before)
+- `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual (EN/ZH) reasons and summary (when AI is enabled); the report's AI view is derived from this data at generation time
+
+Note: daily Markdown archives (`docs/reports/`) were superseded by the JSON data files; existing historical reports remain in git history.

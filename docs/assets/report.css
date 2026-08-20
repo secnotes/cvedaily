@@ -1,0 +1,1336 @@
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #1976d2;
+            --tertiary-color: #388e3c;
+            --warning-color: #ffa726;
+            --light-bg: #f5f5f5;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+            /* Light theme colors */
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --card-bg: white;
+            --border-color: #e0e0e0;
+            --input-bg: #f8f9fa;
+            --input-border: #e9ecef;
+            --meta-text: #666;
+            --link-bg: #f0f0f0;
+            --link-hover-bg: #e0e0e0;
+            --vendor-bg: #e9ecef;
+            --vendor-hover-bg: #dee2e6;
+            --scrollbar-track: #f1f1f1;
+            --scrollbar-thumb: #c1c1c1;
+            --scrollbar-hover: #a8a8a8;
+            --code-bg: #f4f4f4;
+            --code-border: #eaeaea;
+            --code-color: #d6336c;
+            --pre-bg: #f8f8f8;
+            --pre-border: #e1e4e8;
+            --summary-gradient-start: #e3f2fd;
+            --summary-gradient-end: #f5f5f5;
+            --header-border: #d1d5db;
+
+            /* Semantic tag palette — WCAG-validated (fg on bg >= 4.5:1).
+               Severity: red -> orange -> yellow -> green (hues kept apart).
+               Metric tags: neutral for CVSS (a number, not an alert),
+               violet for EPSS, blue for CISA, amber for update/exploit. */
+            --critical-fg: #b91c1c;  --critical-bg: #fee2e2;
+            --high-fg: #9a3412;      --high-bg: #ffedd5;
+            --medium-fg: #a16207;    --medium-bg: #fef9c3;
+            --low-fg: #15803d;       --low-bg: #dcfce7;
+
+            --tag-cvss-fg: #334155;  --tag-cvss-bg: #f1f5f9;
+            --tag-epss-fg: #4338ca;  --tag-epss-bg: #eef2ff;
+            --tag-cisa-fg: #1d4ed8;  --tag-cisa-bg: #dbeafe;
+            --tag-exp-fg: #b45309;   --tag-exp-bg: #fffbeb;
+
+            /* Neutral UI chrome — red is reserved for severity + brand */
+            --headline-color: #1f2937;
+            --github-corner-bg: #24292e;   /* GitHub dark, neutral */
+            --github-corner-cat: #ffffff;
+            --toggle-active-bg: #374151;
+            --show-all-btn-bg: #2e7d32;
+            --show-all-btn-hover: #1b5e20;
+            --show-more-btn-bg: #1976d2;
+            --show-more-btn-hover: #1565c0;
+            --ai-accent: #4f46e5;        /* lines / borders on card bg */
+            --ai-badge-bg: #4f46e5;      /* badge bg behind white text */
+        }
+
+        /* Dark theme colors */
+        [data-theme="dark"] {
+            --primary-color: #ff6b6b;
+            --secondary-color: #64b5f6;
+            --tertiary-color: #81c784;
+            --warning-color: #ffb74d;
+            --light-bg: #1e1e1e;
+            --card-shadow: 0 4px 8px rgba(255,255,255,0.05);
+
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+            --input-bg: #2d2d2d;
+            --input-border: #444;
+            --meta-text: #aaa;
+            --link-bg: #2d2d2d;
+            --link-hover-bg: #3d3d3d;
+            --vendor-bg: #2d2d2d;
+            --vendor-hover-bg: #3d3d3d;
+            --scrollbar-track: #2d2d2d;
+            --scrollbar-thumb: #555;
+            --scrollbar-hover: #666;
+            --code-bg: #2d2d2d;
+            --code-border: #444;
+            --code-color: #f07178;
+            --pre-bg: #1e1e1e;
+            --pre-border: #333;
+            --summary-gradient-start: #1a237e;
+            --summary-gradient-end: #1e1e1e;
+            --header-border: #374151;
+
+            /* Dark tag palette — same roles, stepped for the dark surface
+               (all fg-on-bg pairs validated >= 4.5:1 on their bg) */
+            --critical-fg: #ff8a80;  --critical-bg: #4a1c1c;
+            --high-fg: #ffab40;      --high-bg: #4a2c00;
+            --medium-fg: #ffd740;    --medium-bg: #4a3c00;
+            --low-fg: #a5d6a7;       --low-bg: #1c4a1c;
+
+            --tag-cvss-fg: #cbd5e1;  --tag-cvss-bg: #1e293b;
+            --tag-epss-fg: #c7d2fe;  --tag-epss-bg: #312e81;
+            --tag-cisa-fg: #82b1ff;  --tag-cisa-bg: #1a237e;
+            --tag-exp-fg: #ffab40;   --tag-exp-bg: #4a2c00;
+
+            --headline-color: #f3f4f6;
+            --github-corner-bg: #d1d5db;
+            --github-corner-cat: #1f2937;
+            --toggle-active-bg: #52525b;
+            --show-all-btn-bg: #2e7d32;
+            --show-all-btn-hover: #388e3c;
+            --show-more-btn-bg: #1565c0;
+            --show-more-btn-hover: #1976d2;
+            --ai-accent: #818cf8;        /* lighter indigo reads on dark card */
+            --ai-badge-bg: #4f46e5;      /* white badge text: 6.29:1 */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Theme switch performance: the page holds thousands of CVE cards;
+           animating color properties on all of them at once freezes the
+           main thread. Kill ALL transitions for one frame around the
+           data-theme flip so colors change instantly, while hover/other
+           transitions keep working normally afterwards. */
+        .theme-switching *,
+        .theme-switching *::before,
+        .theme-switching *::after {
+            transition: none !important;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+        }
+
+        .main-content {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Grid item: without min-width:0 the 1fr track sizes to the
+               content's min-content, so one long unbreakable token in a
+               CVE description (e.g. slash-joined function lists like
+               "foo/bar/baz/...") widens the whole page past the mobile
+               viewport and the page turns into a panned "desktop" view */
+            min-width: 0;
+        }
+
+        .sidebar {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            max-height: 90vh;  /* 增加最大高度到90vh，提供更多空间 */
+            overflow-y: auto;  /* 允许垂直滚动 */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 自定义滚动条样式 */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+            border-radius: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: var(--scrollbar-hover);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--header-border);
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--headline-color);
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        .filter-status {
+            margin-bottom: 25px;
+        }
+
+        .current-filters {
+            padding: 10px;
+            background-color: var(--input-bg);
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+        }
+
+        .current-filters strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        #active-filters {
+            color: var(--meta-text);
+            font-size: 0.9em;
+        }
+
+        .filter-section:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        .filter-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .filter-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .filter-item {
+            padding: 2px 0;
+            cursor: pointer;
+            color: var(--secondary-color);
+        }
+
+        .filter-item:hover {
+            text-decoration: underline;
+        }
+
+        .extra-vendor {
+            background-color: transparent;
+        }
+
+        /* CVSS severity filter styles */
+        .filter-critical {
+            background-color: var(--critical-bg);
+            color: var(--critical-fg);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 2px 5px 2px 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-critical:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-high {
+            background-color: var(--high-bg);
+            color: var(--high-fg);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 2px 5px 2px 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-high:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-medium {
+            background-color: var(--medium-bg);
+            color: var(--medium-fg);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 2px 5px 2px 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-medium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .filter-low {
+            background-color: var(--low-bg);
+            color: var(--low-fg);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 2px 5px 2px 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-low:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Status filter styles */
+        .filter-modified-item {
+            background-color: var(--tag-cisa-bg);
+            color: var(--tag-cisa-fg);
+            padding: 4px 8px;
+            margin: 2px 0;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .filter-published-item {
+            background-color: var(--low-bg);
+            color: var(--low-fg);
+            padding: 4px 8px;
+            margin: 2px 0;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* Card-style metric tags for sidebar */
+        .filter-metric-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: normal;
+            cursor: pointer;
+            margin: 2px 5px 2px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-metric-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-decoration: underline;
+        }
+
+        .filter-metric-tag.selected {
+            font-weight: bold;
+            text-decoration: underline;
+            /* keep the semantic bg/fg colors; selection is marked by
+               weight + underline + a ring, not by repainting the chip */
+            outline: 2px solid var(--text-color);
+            outline-offset: 1px;
+        }
+
+        .filter-tag-exp {
+            background-color: var(--tag-exp-bg);
+            color: var(--tag-exp-fg);
+        }
+
+        .filter-tag-cvss {
+            background-color: var(--tag-cvss-bg);
+            color: var(--tag-cvss-fg);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, var(--summary-gradient-start), var(--summary-gradient-end));
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--headline-color);
+        }
+
+        .cve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .cve-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            /* no color transitions: thousands of cards animating bg/border
+               on theme switch janks; hover transform/shadow is per-card */
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: var(--card-bg);
+            display: none; /* Initially hide all cards */
+            max-height: 700px; /* 增加卡片最大高度以容纳更多内容 */
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box; /* 确保padding包含在高度内 */
+            min-height: 320px; /* 设置最小高度以保持一致性 */
+        }
+
+        .cve-card.filtered-in {
+            display: flex;
+        }
+
+        .cve-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .cve-header {
+            background: linear-gradient(135deg, var(--card-bg), var(--input-bg));
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0; /* 防止头部被压缩 */
+        }
+
+        .cve-id {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
+
+        .cve-severity {
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+
+        .severity-critical {
+            background-color: var(--critical-bg);
+            color: var(--critical-fg);
+        }
+
+        .severity-high {
+            background-color: var(--high-bg);
+            color: var(--high-fg);
+        }
+
+        .severity-medium {
+            background-color: var(--medium-bg);
+            color: var(--medium-fg);
+        }
+
+        .severity-low {
+            background-color: var(--low-bg);
+            color: var(--low-fg);
+        }
+
+        .cve-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;   /* single-direction rhythm inside the card */
+        }
+
+        .metric-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .metric-tag:hover {
+            opacity: 0.8;
+        }
+
+        .tag-cvss {
+            background-color: var(--tag-cvss-bg);
+            color: var(--tag-cvss-fg);
+        }
+
+        .tag-epss {
+            background-color: var(--tag-epss-bg);
+            color: var(--tag-epss-fg);
+        }
+
+        .tag-cisa {
+            background-color: var(--tag-cisa-bg);
+            color: var(--tag-cisa-fg);
+        }
+
+        .tag-exp {
+            background-color: var(--tag-exp-bg);
+            color: var(--tag-exp-fg);
+        }
+
+        .cve-vendors {
+            margin-top: 10px;   /* gap below the description/metrics */
+            padding: 10px;
+            background-color: var(--input-bg);
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        .cve-vendor-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 2px;
+            background-color: var(--vendor-bg);
+            border-radius: 10px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: none; /* thousands of these; hover bg flip is fine without animation */
+        }
+
+        .cve-vendor-tag:hover {
+            background-color: var(--vendor-hover-bg);
+        }
+
+        .cve-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+            min-height: 0; /* Allow content to scroll if needed */
+        }
+
+        .cve-description {
+            margin-bottom: 15px;
+            line-height: 1.6; /* 调整行高 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 6; /* 限制为6行 */
+            -webkit-box-orient: vertical;
+            word-break: break-word; /* 确保长单词也能适当换行 */
+            flex-shrink: 0; /* 防止被压缩 */
+        }
+
+        /* Code block styling */
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--code-color);
+            border: 1px solid var(--code-border);
+        }
+
+        pre {
+            background-color: var(--pre-bg);
+            border: 1px solid var(--pre-border);
+            border-radius: 6px;
+            padding: 12px;
+            overflow: auto;
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+            color: inherit;
+        }
+
+        /* Container for elements that should be grouped at the bottom */
+        .cve-content-group {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto; /* Push to the bottom */
+            flex-shrink: 0; /* Prevent from shrinking */
+        }
+
+        .cve-links {
+            margin-top: 10px;
+            flex-shrink: 0; /* 防止被压缩 */
+        }
+
+        .link-item {
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 6px;
+        }
+
+        .link-btn {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--link-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.8em;
+            transition: none; /* thousands of these across cards */
+        }
+
+        .link-btn:hover {
+            background-color: var(--link-hover-bg);
+        }
+
+        .cve-meta {
+            font-size: 0.85em;
+            color: var(--meta-text);
+            padding-top: 8px;
+            flex-shrink: 0; /* 防止被压缩 */
+        }
+
+        .no-cves {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--meta-text);
+            font-size: 1.2em;
+        }
+
+        .info-icon {
+            margin-right: 5px;
+        }
+
+        .show-all-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--show-all-btn-bg);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .show-all-btn:hover {
+            background-color: var(--show-all-btn-hover);
+        }
+
+        .show-more-btn {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: var(--show-more-btn-bg);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .show-more-btn:hover {
+            background-color: var(--show-more-btn-hover);
+        }
+
+        .filter-item.selected {
+            font-weight: bold;
+            background-color: var(--input-bg);
+            padding: 3px 0;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            }
+        }
+
+        @media (min-width: 1201px) and (min-height: 801px) and (max-height: 1000px) {
+            /* 中等高度屏幕 */
+            .sidebar {
+                max-height: 80vh;
+            }
+        }
+
+        @media (min-width: 1201px) and (min-height: 1001px) {
+            /* 高屏幕 */
+            .sidebar {
+                max-height: 85vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Desktop page gutter lives on body (20px); on phones it
+               stacks with container/main-content paddings and pushed the
+               card inset to 45px per side. Let .container own the gutter. */
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 10px; /* + .main-content's 15px below = 25px card
+                                  inset per side; 40px wasted too much width
+                                  on phones */
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 15px; /* slimmer than the 25px desktop padding */
+            }
+
+            /* (sidebar becomes a FAB-opened overlay on mobile — see
+               the #filter-fab rules near the floating controls) */
+
+            .cve-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cve-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .cve-metrics {
+                width: 100%;
+            }
+
+            .cve-card {
+                max-height: none; /* 在移动设备上去除卡片最大高度限制，允许内容完全展开 */
+                min-height: auto; /* 让卡片高度适应内容 */
+            }
+
+            .cve-description {
+                -webkit-line-clamp: 10; /* 在移动设备上允许显示更多行文本 */
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px 20px;
+            color: var(--meta-text);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .separator {
+            color: var(--meta-text);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .github-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: -0.15em;
+            margin-right: 4px;
+        }
+
+        @media (max-width: 480px) {
+            /* 针对更小的屏幕进行额外优化 */
+            .cve-card {
+                min-height: auto;
+            }
+
+            .cve-header {
+                padding: 12px 15px; /* 减少内边距 */
+            }
+
+            .cve-body {
+                padding: 15px; /* 减少内边距 */
+            }
+
+            .cve-description {
+                -webkit-line-clamp: 8; /* 在极小屏幕上显示较少的行数 */
+            }
+
+            .metric-tag {
+                padding: 3px 8px; /* 减少标签内边距 */
+                font-size: 0.75em; /* 稍微缩小字体 */
+            }
+
+            .cve-vendor-tag {
+                padding: 2px 6px; /* 减少供应商标签内边距 */
+                font-size: 0.75em; /* 稍微缩小字体 */
+            }
+        }
+
+        /* Dark theme for severity/filter/tag chips and buttons is carried
+           entirely by the CSS variables above — no per-class overrides. */
+
+/* ---- section split (was a separate <style> block) ---- */
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            15% { opacity: 1; transform: translate(-50%, 0); }
+            85% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, 20px); }
+        }
+
+        .filter-count-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            z-index: 10000;
+            animation: fadeInOut 2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* View toggle buttons */
+        .view-toggle {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .view-toggle-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .view-toggle-btn:first-child {
+            border-right: 1px solid var(--border-color);
+        }
+
+        .view-toggle-btn:hover {
+            background-color: var(--vendor-hover-bg);
+        }
+
+        .view-toggle-btn.active {
+            background-color: var(--toggle-active-bg);
+            color: white;
+        }
+
+        /* View switching */
+        .original-view {
+            display: block;
+        }
+
+        .original-view.hidden {
+            display: none;
+        }
+
+        .ai-view {
+            display: none;
+        }
+
+        .ai-view.active {
+            display: block;
+        }
+
+        .sidebar-section {
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-section.hidden {
+            display: none;
+        }
+
+        /* AI category section */
+        .ai-category {
+            margin-bottom: 2rem;
+        }
+
+        .ai-category-title {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--ai-accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* AI summary block */
+        .ai-summary {
+            padding: 0.5rem 0 1.5rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ai-summary h3 {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .model-badge {
+            display: inline-block;
+            background: var(--ai-badge-bg);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-left: 10px;
+            vertical-align: middle;
+            letter-spacing: 0.3px;
+            box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+        }
+
+        .ai-summary-text {
+            color: var(--meta-text);
+            line-height: 1.7;
+            padding-left: 1rem;
+            border-left: 3px solid var(--ai-accent);
+            margin-bottom: 0.75rem;
+            overflow-wrap: anywhere; /* URLs / long tokens must not set min-content */
+        }
+
+        .ai-summary-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--meta-text);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        /* AI CVE card */
+        .ai-cve-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--card-shadow);
+            /* no color transitions: thousands of cards animating bg/border
+               on theme switch janks; hover transform/shadow is per-card */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .ai-cve-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .ai-cve-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-cve-id {
+            font-weight: bold;
+            font-size: 1.05em;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .ai-cve-id:hover {
+            text-decoration: underline;
+        }
+
+        .ai-cve-description {
+            color: var(--text-color);
+            font-size: 0.92em;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            overflow-wrap: anywhere; /* descriptions carry slash-joined
+                                        function lists that can't break
+                                        at '/' and blew up mobile layout */
+        }
+
+        .ai-cve-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--meta-text);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .ai-cve-reason {
+            color: var(--meta-text);
+            font-size: 0.88rem;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-color);
+            line-height: 1.5;
+            overflow-wrap: anywhere; /* AI reasons quote the same long tokens */
+        }
+
+        /* AI category navigation in sidebar */
+        .ai-category-nav {
+            background: var(--input-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .ai-category-nav h4 {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+
+        .ai-category-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ai-category-nav li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            color: var(--secondary-color);
+            transition: all 0.2s ease;
+        }
+
+        .ai-category-nav li:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .ai-category-nav li:last-child {
+            border-bottom: none;
+        }
+
+        /* No AI data placeholder */
+        .no-ai-data {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--meta-text);
+            background: var(--input-bg);
+            border-radius: 12px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* AI sidebar stats */
+        .ai-sidebar-stats {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: var(--input-bg);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--meta-text);
+            transition: background-color 0.3s ease;
+        }
+
+/* ---- section split (was a separate <style> block) ---- */
+
+        .lang-zh { display: none; }
+        html.lang-mode-zh .lang-en { display: none; }
+        html.lang-mode-zh .lang-zh { display: inline; }
+        html.lang-mode-zh .lang-zh.lang-block { display: block; }
+
+/* ---- section split (was a separate <style> block) ---- */
+
+        /* Standard top-right ribbon SVG rotated -90° into the top-left
+           corner — the octocat path was drawn for the top-right triangle,
+           so rotating the whole SVG (not mirroring) keeps the cat inside
+           the triangle. */
+        .github-corner-svg {
+            fill: var(--github-corner-bg);
+            color: var(--github-corner-cat);
+            position: fixed;
+            top: 0;
+            border: 0;
+            left: 0;
+            /* mirror the standard top-right ribbon into the top-left corner:
+               scaleX(-1) (origin 0,0) flips it to x<0, the leading
+               translateX(80px) shifts it back so the (80,0)-(80,80)-(0,80)
+               triangle lands on (0,0)-(0,80)-(80,80) with the hypotenuse
+               facing into the page; the octocat mirrors with it */
+            transform: translateX(80px) scaleX(-1);
+            transform-origin: 0 0;
+            z-index: 1000;
+            transition: fill 0.3s ease;
+        }
+
+        .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
+        @keyframes octocat-wave{
+            0%,100%{transform:rotate(0)}
+            20%,60%{transform:rotate(-25deg)}
+            40%,80%{transform:rotate(10deg)}
+        }
+        @media (max-width:500px){
+            .github-corner:hover .octo-arm{animation:none}
+            .github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}
+        }
+
+/* ---- section split (was a separate <style> block) ---- */
+
+        .float-controls {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1100;
+        }
+        .float-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: var(--card-shadow);
+            cursor: pointer;
+            font-size: 1.05rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .float-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .float-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-color);
+            transition: fill 0.3s ease;
+        }
+        .float-btn .sun-icon { display: none; }
+        .float-btn .moon-icon { display: block; }
+        [data-theme="dark"] .float-btn .sun-icon { display: block; }
+        [data-theme="dark"] .float-btn .moon-icon { display: none; }
+        .float-btn .lang-label-en { display: block; }
+        .float-btn .lang-label-zh { display: none; }
+        html.lang-mode-zh .float-btn .lang-label-en { display: none; }
+        html.lang-mode-zh .float-btn .lang-label-zh { display: block; }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--toggle-active-bg);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1100;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile: sidebar hidden behind a floating filter FAB that joins
+           the theme/language column at the top-right */
+        #filter-fab {
+            display: none; /* desktop: sidebar is inline, no FAB */
+        }
+        .sidebar-backdrop {
+            display: none;
+        }
+        .sidebar-close {
+            display: none; /* desktop: sidebar is inline, nothing to close */
+        }
+        @media (max-width: 768px) {
+            #filter-fab {
+                display: flex; /* first button in .float-controls */
+                background: var(--show-more-btn-bg);
+                color: white;
+            }
+            /* Centered dialog panel. The base .sidebar sets
+               height: fit-content, so a top:0/bottom:0 right drawer would
+               keep fit-content height and overflow the viewport edge;
+               centering with a max-height cap sidesteps that entirely. */
+            .sidebar {
+                display: none; /* replaced by the FAB + overlay panel */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* Same width as the CVE card column on mobile:
+                   .container padding (10px) + .main-content padding (15px)
+                   = 25px inset per side, so the dialog shares its vertical
+                   edges with the cards the filters act on. Keep these in
+                   sync if those paddings ever change. border-box because
+                   the base .sidebar has 20px padding that content-box
+                   width would add on top of this. */
+                box-sizing: border-box;
+                width: min(calc(100vw - 50px), 520px);
+                max-height: 80vh;
+                max-height: 80dvh; /* mobile browsers with a dynamic URL bar */
+                height: fit-content; /* explicit: dialog hugs its content */
+                border-radius: 12px;
+                margin: 0;
+                z-index: 1300;
+                overflow-y: auto;
+                box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            }
+            .sidebar.open {
+                display: block;
+            }
+            /* Close button in the panel's top-right corner (mobile only);
+               the fixed .sidebar is the containing block for it */
+            .sidebar-close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 1px solid var(--border-color);
+                background: var(--input-bg);
+                color: var(--text-color);
+                font-size: 1rem;
+                line-height: 1;
+                cursor: pointer;
+            }
+            .sidebar-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.45);
+                z-index: 1200;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.25s ease;
+            }
+            .sidebar-backdrop.show {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+/* ---- client-side rendering additions (data/template split) ---- */
+
+/* "Showing X of Y" line above each view's card list */
+.grid-status {
+    color: var(--meta-text);
+    font-size: 0.9em;
+    padding: 6px 2px 14px;
+}
+
+/* Invisible scroll trigger below the card grid; the renderer appends the
+   next batch when this enters the viewport */
+.grid-sentinel {
+    height: 1px;
+}
+
+/* Shown when JavaScript is disabled - points at the raw JSON data */
+.noscript-notice {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 16px 20px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    text-align: center;
+}
+.noscript-notice a {
+    color: var(--secondary-color);
+    word-break: break-all;
+}
+
+/* Error state when the daily JSON fails to load */
+.grid-status.error {
+    color: var(--critical-fg);
+}

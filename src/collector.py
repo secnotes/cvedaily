@@ -163,22 +163,18 @@ class CVECollector:
         print(f"AI curated data cached to {path}")
 
     def load_ai_curated_cache(self, path=None):
-        """Load AI curated results: today's dated archive first, legacy
-        docs/ai_curated.json as fallback (old caches carry Chinese
-        category keys; the reporter normalizes those at render time)."""
-        candidates = [path] if path else [
-            Config.get_daily_ai_curated_path(),
-            Config.AI_CURATED_CACHE_PATH,  # legacy pre-archive cache
-        ]
-        for candidate in candidates:
-            if candidate and os.path.exists(candidate):
-                try:
-                    with open(candidate, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                    print(f"Loaded cached AI curation results from {candidate}")
-                    return data
-                except Exception as e:
-                    print(f"Error loading AI cache {candidate}: {e}")
+        """Load AI curated results from the dated archive
+        (docs/ai/YYYY/ai_curated_YYYYMMDD.json). Old caches may carry
+        Chinese category keys; the reporter normalizes those at render time."""
+        candidate = path or Config.get_daily_ai_curated_path()
+        if candidate and os.path.exists(candidate):
+            try:
+                with open(candidate, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                print(f"Loaded cached AI curation results from {candidate}")
+                return data
+            except Exception as e:
+                print(f"Error loading AI cache {candidate}: {e}")
         return None
 
     def collect_daily_cves(self, days=Config.LOOKBACK_DAYS):

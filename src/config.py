@@ -19,9 +19,6 @@ class Config:
 
     # AI Curation settings (requires AI_API_KEY in environment)
     AI_CURATION_ENABLED = os.getenv('AI_API_KEY') is not None
-    # Legacy single-file cache (pre-daily-archive era); kept only as a
-    # read fallback when no dated archive exists for today
-    AI_CURATED_CACHE_PATH = "docs/ai_curated.json"
     # Dated archives mirroring the markdown report layout:
     # docs/ai/2026/ai_curated_20260818.json
     AI_CURATED_DIR = "docs/ai"

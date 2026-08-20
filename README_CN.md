@@ -20,7 +20,7 @@
   - 状态过滤器 (最近修改、新发布)
   - 供应商过滤器，带有"显示更多"功能
   - 针对技术细节的增强型代码块渲染
-- **历史归档**: 以Markdown格式按年度归档每日报告
+- **历史归档**: 每日完整原始数据以 JSON 格式按年度归档（`docs/data/`）
 - **自动更新**: 通过GitHub Actions定时执行
 
 ## ⚙️ 安装设置
@@ -113,6 +113,10 @@
 ## 📈 输出文件
 
 执行后，系统会生成:
-- `docs/index.html`: 带有过滤、AI精选切换、中英文切换和深色模式的交互式仪表板报告
-- `docs/ai/[year]/ai_curated_[date].json`: 每日 AI 精选归档，推荐理由和摘要为中英双语（启用AI时生成）
-- `docs/reports/[year]/daily_cve_[date].md`: 每日发现的markdown存档
+
+- `docs/index.html`: 小型静态外壳（约 85 KB）--卡片由 report.js 从当日 JSON 数据按滚动分批渲染，即使单日 3000+ CVE，DOM 也只保留视口附近的卡片；过滤、AI精选切换、中英文切换、深色模式等功能不变
+- `docs/assets/report.css|js`: 共享样式与渲染器，按内容哈希做缓存破坏（浏览器跨天复用缓存）
+- `docs/data/[year]/cves_[date].json`: 当日完整原始数据--唯一的全量归档，报告页面直接消费
+- `docs/ai/[year]/ai_curated_[date].json`: 每日 AI 精选归档，推荐理由和摘要为中英双语（启用AI时生成）；报告的 AI 视图在生成时由此数据派生
+
+说明：每日 Markdown 归档（`docs/reports/`）已被 JSON 数据文件取代；历史报告仍保留在 git 历史中。
