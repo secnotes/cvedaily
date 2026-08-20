@@ -466,6 +466,12 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Grid item: without min-width:0 the 1fr track sizes to the
+               content's min-content, so one long unbreakable token in a
+               CVE description (e.g. slash-joined function lists like
+               "foo/bar/baz/...") widens the whole page past the mobile
+               viewport and the page turns into a panned "desktop" view */
+            min-width: 0;
         }
 
         .sidebar {
@@ -807,7 +813,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin: 10px 0;
+            margin-top: 10px;   /* single-direction rhythm inside the card */
         }
 
         .metric-tag {
@@ -844,7 +850,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         }
 
         .cve-vendors {
-            margin: 10px 0;
+            margin-top: 10px;   /* gap below the description/metrics */
             padding: 10px;
             background-color: var(--input-bg);
             border-radius: 8px;
@@ -925,26 +931,24 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         }
 
         .cve-links {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px solid var(--border-color);
+            margin-top: 10px;
             flex-shrink: 0; /* 防止被压缩 */
         }
 
         .link-item {
             display: inline-block;
-            margin-right: 15px;
-            margin-bottom: 8px;
+            margin-right: 8px;
+            margin-bottom: 6px;
         }
 
         .link-btn {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 4px 10px;
             background-color: var(--link-bg);
             color: var(--text-color);
             text-decoration: none;
             border-radius: 6px;
-            font-size: 0.85em;
+            font-size: 0.8em;
             transition: none; /* thousands of these across cards */
         }
 
@@ -955,8 +959,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         .cve-meta {
             font-size: 0.85em;
             color: var(--meta-text);
-            padding-top: 10px;
-            border-top: 1px dashed var(--border-color);
+            padding-top: 8px;
             flex-shrink: 0; /* 防止被压缩 */
         }
 
@@ -1033,10 +1036,26 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         }
 
         @media (max-width: 768px) {
+            /* Desktop page gutter lives on body (20px); on phones it
+               stacks with container/main-content paddings and pushed the
+               card inset to 45px per side. Let .container own the gutter. */
+            body {
+                padding: 0;
+            }
+
             .container {
-                padding: 15px;
+                padding: 10px; /* + .main-content's 15px below = 25px card
+                                  inset per side; 40px wasted too much width
+                                  on phones */
                 grid-template-columns: 1fr;
             }
+
+            .main-content {
+                padding: 15px; /* slimmer than the 25px desktop padding */
+            }
+
+            /* (sidebar becomes a FAB-opened overlay on mobile — see
+               the #filter-fab rules near the floating controls) */
 
             .cve-grid {
                 grid-template-columns: 1fr;
@@ -1272,6 +1291,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             padding-left: 1rem;
             border-left: 3px solid var(--ai-accent);
             margin-bottom: 0.75rem;
+            overflow-wrap: anywhere; /* URLs / long tokens must not set min-content */
         }
 
         .ai-summary-meta {
@@ -1323,6 +1343,9 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             font-size: 0.92em;
             line-height: 1.6;
             margin-bottom: 0.75rem;
+            overflow-wrap: anywhere; /* descriptions carry slash-joined
+                                        function lists that can't break
+                                        at '/' and blew up mobile layout */
         }
 
         .ai-cve-meta {
@@ -1340,6 +1363,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             padding-top: 0.75rem;
             border-top: 1px dashed var(--border-color);
             line-height: 1.5;
+            overflow-wrap: anywhere; /* AI reasons quote the same long tokens */
         }
 
         /* AI category navigation in sidebar */
@@ -1491,6 +1515,9 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             cursor: pointer;
             font-size: 1.05rem;
             line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.2s ease;
         }
         .float-btn:hover {
@@ -1534,8 +1561,92 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             opacity: 1;
             visibility: visible;
         }
+
+        /* Mobile: sidebar hidden behind a floating filter FAB that joins
+           the theme/language column at the top-right */
+        #filter-fab {
+            display: none; /* desktop: sidebar is inline, no FAB */
+        }
+        .sidebar-backdrop {
+            display: none;
+        }
+        .sidebar-close {
+            display: none; /* desktop: sidebar is inline, nothing to close */
+        }
+        @media (max-width: 768px) {
+            #filter-fab {
+                display: flex; /* first button in .float-controls */
+                background: var(--show-more-btn-bg);
+                color: white;
+            }
+            /* Centered dialog panel. The base .sidebar sets
+               height: fit-content, so a top:0/bottom:0 right drawer would
+               keep fit-content height and overflow the viewport edge;
+               centering with a max-height cap sidesteps that entirely. */
+            .sidebar {
+                display: none; /* replaced by the FAB + overlay panel */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* Same width as the CVE card column on mobile:
+                   .container padding (10px) + .main-content padding (15px)
+                   = 25px inset per side, so the dialog shares its vertical
+                   edges with the cards the filters act on. Keep these in
+                   sync if those paddings ever change. border-box because
+                   the base .sidebar has 20px padding that content-box
+                   width would add on top of this. */
+                box-sizing: border-box;
+                width: min(calc(100vw - 50px), 520px);
+                max-height: 80vh;
+                max-height: 80dvh; /* mobile browsers with a dynamic URL bar */
+                height: fit-content; /* explicit: dialog hugs its content */
+                border-radius: 12px;
+                margin: 0;
+                z-index: 1300;
+                overflow-y: auto;
+                box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            }
+            .sidebar.open {
+                display: block;
+            }
+            /* Close button in the panel's top-right corner (mobile only);
+               the fixed .sidebar is the containing block for it */
+            .sidebar-close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 1px solid var(--border-color);
+                background: var(--input-bg);
+                color: var(--text-color);
+                font-size: 1rem;
+                line-height: 1;
+                cursor: pointer;
+            }
+            .sidebar-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.45);
+                z-index: 1200;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.25s ease;
+            }
+            .sidebar-backdrop.show {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
     </style>
     <div class="float-controls">
+        <button class="float-btn" id="filter-fab" onclick="toggleSidebar()" title="Filters / 筛选" aria-label="Open filters">☰</button>
         <button class="float-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Dark mode / 深色模式">
             <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
@@ -1550,6 +1661,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         </button>
     </div>
     <button id="back-to-top" onclick="scrollToTop()" title="Back to top / 回到顶部">↑</button>
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
     <div class="container">
         <div class="main-content">
             <header>
@@ -1679,6 +1791,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         </div>
 
         <div class="sidebar">
+            <button class="sidebar-close" onclick="toggleSidebar(false)" aria-label="Close filters / 关闭筛选">✕</button>
             {% if ai_curated %}
             <!-- View Toggle Buttons -->
             <div class="view-toggle">
@@ -1718,8 +1831,8 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
                     <li class="filter-item extra-vendor" id="filter-vendor-{{ sanitize_vendor_id(vendor) }}" onclick="toggleVendorFilter('{{ vendor }}')" style="display:none;">{{ vendor }} ({{ all_sorted_vendors[vendor] }})</li>
                     {% endfor %}
                 </ul>
-                {% if all_vendors_list|length > 19 %}
-                <button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn"><span class="lang-en">Show More Vendors ({{ all_vendors_list|length - 19 }} more)</span><span class="lang-zh">显示更多厂商 (还有 {{ all_vendors_list|length - 19 }})</span></button>
+                {% if all_vendors_list|length > 10 %}
+                <button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn"><span class="lang-en">Show More Vendors ({{ all_vendors_list|length - 10 }} more)</span><span class="lang-zh">显示更多厂商 (还有 {{ all_vendors_list|length - 10 }})</span></button>
                 {% endif %}
             </div>
             {% endif %}
@@ -1790,6 +1903,16 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         window.addEventListener('scroll', function() {
             document.getElementById('back-to-top').classList.toggle('show', window.scrollY > 600);
         });
+
+        // Mobile sidebar overlay (FAB toggles; backdrop click closes)
+        function toggleSidebar(force) {
+            const sidebar = document.querySelector('.sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            const open = typeof force === 'boolean' ? force : !sidebar.classList.contains('open');
+            sidebar.classList.toggle('open', open);
+            backdrop.classList.toggle('show', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+        }
 
         // Initialize all CVEs as visible and initialize filter state
         document.addEventListener('DOMContentLoaded', function() {
@@ -2205,12 +2328,12 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
                 showMoreBtn.textContent = t('Show Less Vendors', '收起厂商列表');
                 moreVendorsShown = true;
             } else {
-                // Hide extra vendors (keep only the first 20)
+                // Hide extra vendors (keep only the initial top 10)
                 extraVendors.forEach((item, index) => {
                     item.style.display = 'none';
                 });
 
-                showMoreBtn.textContent = t('Show More Vendors ({{ all_vendors_list|length - 19 }} more)', '显示更多厂商 (还有 {{ all_vendors_list|length - 19 }})');
+                showMoreBtn.textContent = t('Show More Vendors ({{ all_vendors_list|length - 10 }} more)', '显示更多厂商 (还有 {{ all_vendors_list|length - 10 }})');
                 moreVendorsShown = false;
             }
         }
@@ -2298,9 +2421,10 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
             all_vendors.add(vendor)
             vendor_counts[vendor] = vendor_counts.get(vendor, 0) + 1
 
-    # Sort vendors by count and limit to top 15 in the sidebar
+    # Sort vendors by count; the sidebar initially shows the top 10 and
+    # offers "Show More" for the rest
     sorted_vendors = sorted(vendor_counts.items(), key=lambda x: x[1], reverse=True)
-    top_vendors = dict(sorted_vendors[:15])  # Top 15 vendors
+    top_vendors = dict(sorted_vendors[:10])  # Top 10 vendors
     all_sorted_vendors = dict(sorted_vendors)  # All vendors sorted by count
 
     # Prepare data for template
