@@ -58,7 +58,7 @@ def generate_ai_category_nav(ai_curated):
     return ''.join(nav_items)
 
 
-def build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str):
+def build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str, stats):
     """Build the compact daily JSON payload the client-side renderer
     consumes. Descriptions are stored RAW (unescaped) - report.js escapes
     at render time, which also closes the old injection vector where
@@ -120,9 +120,32 @@ def build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str)
         'date': date_str,
         'generated': generated_str,
         'total': total_cve_count if total_cve_count is not None else len(cves),
+        'stats': stats,
         'cves': payload_cves,
         'ai': ai_data,
     }
+
+
+def write_data_manifest(docs_dir):
+    """Write docs/data/index.json listing every date that has a data file.
+    The date switcher fetches this to populate its picker; days before the
+    client-side-rendering era have no JSON and simply don't appear.
+    Returns the date list (newest first)."""
+    import glob as _glob
+
+    dates = set()
+    pattern = os.path.join(docs_dir, 'data', '*', 'cves_*.json')
+    for path in _glob.glob(pattern):
+        base = os.path.basename(path)          # cves_YYYYMMDD.json
+        stamp = base[len('cves_'):-len('.json')]
+        if len(stamp) == 8 and stamp.isdigit():
+            dates.add(f'{stamp[:4]}-{stamp[4:6]}-{stamp[6:]}')
+
+    manifest_path = os.path.join(docs_dir, 'data', 'index.json')
+    date_list = sorted(dates, reverse=True)
+    with open(manifest_path, 'w', encoding='utf-8') as f:
+        json.dump({'dates': date_list}, f, ensure_ascii=False, separators=(',', ':'))
+    return date_list
 
 
 def _copy_asset(src_path, assets_dir, url_prefix):
@@ -174,6 +197,18 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
     high_count = sum(1 for cve in cves if 7.0 <= cve.get('cvss_score', 0) < 9.0)
     medium_count = sum(1 for cve in cves if 4.0 <= cve.get('cvss_score', 0) < 7.0)
     low_count = sum(1 for cve in cves if 0 < cve.get('cvss_score', 0) < 4.0)
+    stats = {
+        'total': total_cve_count if total_cve_count is not None else len(cves),
+        'high_risk': high_risk_count,
+        'cisa': cisa_kev_count,
+        'epss': epss_high_count,
+        'modified': modified_count,
+        'published': published_count,
+        'critical': critical_count,
+        'high': high_count,
+        'medium': medium_count,
+        'low': low_count,
+    }
 
     # ---- vendor list for the sidebar (server-rendered, small) ----
     vendor_counts = {}
@@ -186,12 +221,16 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
     initial_vendors = list(top_vendors.keys())
 
     # ---- daily data JSON: the single full-fidelity archive ----
-    daily_data = build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str)
+    daily_data = build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str, stats)
     os.makedirs(data_dir, exist_ok=True)
     data_path = os.path.join(data_dir, f'cves_{now.strftime("%Y%m%d")}.json')
     with open(data_path, 'w', encoding='utf-8') as f:
         json.dump(daily_data, f, ensure_ascii=False, separators=(',', ':'))
     print(f'Daily data JSON saved as {data_path} ({len(cves)} CVEs)')
+
+    # ---- date manifest for the history switcher ----
+    available_dates = write_data_manifest(docs_dir)
+    print(f'Date manifest lists {len(available_dates)} day(s)')
 
     # ---- render the shell ----
     ai_category_nav = generate_ai_category_nav(ai_curated) if ai_curated else ''

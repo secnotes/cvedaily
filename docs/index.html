@@ -23,7 +23,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="assets/report.css?v=5a4922db4c">
+    <link rel="stylesheet" href="assets/report.css?v=2ae9634e71">
     <!-- Data pointers: the shell stays byte-identical across days except
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
@@ -61,32 +61,43 @@
     <div class="container">
         <div class="main-content">
             <header>
-                <h1>🔍 <span class="lang-en">Daily CVE Report - 2026-08-21</span><span class="lang-zh">每日CVE报告 - 2026-08-21</span></h1>
-                <p>
-                    <span class="lang-en">An advanced automated vulnerability monitoring system that sources data from MITRE CVE,<br />enabling quick filtering of high-risk vulnerabilities with intuitive visual reports.</span>
-                    <span class="lang-zh">一个先进的自动化漏洞监测系统，数据来源于 MITRE CVE，<br />通过直观的可视化报告快速筛选高危漏洞。</span>
-                </p>
+                <!-- The date is part of the headline, not a separate widget
+                     row: the select is stripped of form chrome so it reads
+                     as "Daily CVE Report · 2026-08-21", while the date text
+                     itself is the picker and the step arrows stay quiet
+                     until the date area is hovered -->
+                <h1>
+                    <span class="title-text">🔍 <span class="lang-en">Daily CVE Report</span><span class="lang-zh">每日CVE报告</span></span>
+                    <span class="title-date-sep" aria-hidden="true">·</span>
+                    <span class="title-date">
+                        <button class="date-nav-btn" id="date-prev" onclick="stepDate(-1)" aria-label="Previous day / 前一天">‹</button>
+                        <select id="date-select" onchange="switchDate(this.value)" aria-label="Report date / 报告日期">
+                            <option value="2026-08-21">2026-08-21</option>
+                        </select>
+                        <button class="date-nav-btn" id="date-next" onclick="stepDate(1)" aria-label="Next day / 后一天">›</button>
+                    </span>
+                </h1>
             </header>
 
+            <!-- No section heading here: the stat cards are self-labeled and
+                 the summary-box styling already groups them - a "Summary"
+                 title would only burn first-screen vertical space -->
             <div class="summary-box">
-                <h2>📊 <span class="lang-en">Summary</span><span class="lang-zh">摘要</span></h2>
-                <p><strong><span class="lang-en">Report Generated:</span><span class="lang-zh">报告生成时间:</span></strong> 2026-08-21 03:05:35</p>
-
                 <div class="summary-stats">
                     <div class="stat-card" onclick="applySingleFilter('all')">
-                        <div class="stat-number">2146</div>
+                        <div class="stat-number" id="stat-total">2146</div>
                         <div><span class="lang-en">Total Vulnerabilities</span><span class="lang-zh">漏洞总数</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('high-risk')">
-                        <div class="stat-number">1385</div>
+                        <div class="stat-number" id="stat-high-risk">1385</div>
                         <div><span class="lang-en">High Risk (CVSS &gt; 7.0)</span><span class="lang-zh">高危 (CVSS &gt; 7.0)</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('cisa')">
-                        <div class="stat-number">10</div>
+                        <div class="stat-number" id="stat-cisa">10</div>
                         <div><span class="lang-en">In CISA KEV</span><span class="lang-zh">CISA KEV 收录</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('epss')">
-                        <div class="stat-number">107</div>
+                        <div class="stat-number" id="stat-epss">107</div>
                         <div><span class="lang-en">High EPSS (≥0.01)</span><span class="lang-zh">高 EPSS (≥0.01)</span></div>
                     </div>
                 </div>
@@ -111,13 +122,11 @@
 
         <div class="sidebar">
             <button class="sidebar-close" onclick="toggleSidebar(false)" aria-label="Close filters / 关闭筛选">✕</button>
-            
-            <!-- View Toggle Buttons -->
-            <div class="view-toggle">
+            <!-- View Toggle Buttons (hidden on days without AI data) -->
+            <div class="view-toggle" id="view-toggle">
                 <button class="view-toggle-btn" onclick="switchView('ai')">🤖 <span class="lang-en">AI Curated</span><span class="lang-zh">AI精选</span></button>
                 <button class="view-toggle-btn active" onclick="switchView('original')">📋 <span class="lang-en">All Vulnerabilities</span><span class="lang-zh">全部漏洞</span></button>
             </div>
-            
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
@@ -140,684 +149,684 @@
             </div>
 
             
-            <div class="filter-section">
+            <div class="filter-section" id="vendor-filter-section">
                 <div class="filter-title">🏢 <span class="lang-en">Filter by Vendor</span><span class="lang-zh">按厂商筛选</span></div>
                 <ul class="filter-list" id="vendor-filter-list">
                     
-                    <li class="filter-item" id="filter-vendor-microsoft" onclick="toggleVendorFilter('microsoft')" style="display:block;">microsoft (1109)</li>
+                    <li class="filter-item" id="filter-vendor-microsoft" data-vendor="microsoft" style="display:block;">microsoft (1109)</li>
                     
-                    <li class="filter-item" id="filter-vendor-x64_based_systems" onclick="toggleVendorFilter('x64-based systems')" style="display:block;">x64-based systems (870)</li>
+                    <li class="filter-item" id="filter-vendor-x64_based_systems" data-vendor="x64-based systems" style="display:block;">x64-based systems (870)</li>
                     
-                    <li class="filter-item" id="filter-vendor-32_bit_systems" onclick="toggleVendorFilter('32-bit systems')" style="display:block;">32-bit systems (691)</li>
+                    <li class="filter-item" id="filter-vendor-32_bit_systems" data-vendor="32-bit systems" style="display:block;">32-bit systems (691)</li>
                     
-                    <li class="filter-item" id="filter-vendor-arm64_based_systems" onclick="toggleVendorFilter('arm64-based systems')" style="display:block;">arm64-based systems (587)</li>
+                    <li class="filter-item" id="filter-vendor-arm64_based_systems" data-vendor="arm64-based systems" style="display:block;">arm64-based systems (587)</li>
                     
-                    <li class="filter-item" id="filter-vendor-oracle_corporation" onclick="toggleVendorFilter('oracle corporation')" style="display:block;">oracle corporation (209)</li>
+                    <li class="filter-item" id="filter-vendor-oracle_corporation" data-vendor="oracle corporation" style="display:block;">oracle corporation (209)</li>
                     
-                    <li class="filter-item" id="filter-vendor-ibm" onclick="toggleVendorFilter('ibm')" style="display:block;">ibm (158)</li>
+                    <li class="filter-item" id="filter-vendor-ibm" data-vendor="ibm" style="display:block;">ibm (158)</li>
                     
-                    <li class="filter-item" id="filter-vendor-splunk" onclick="toggleVendorFilter('splunk')" style="display:block;">splunk (52)</li>
+                    <li class="filter-item" id="filter-vendor-splunk" data-vendor="splunk" style="display:block;">splunk (52)</li>
                     
-                    <li class="filter-item" id="filter-vendor-red_hat" onclick="toggleVendorFilter('red hat')" style="display:block;">red hat (49)</li>
+                    <li class="filter-item" id="filter-vendor-red_hat" data-vendor="red hat" style="display:block;">red hat (49)</li>
                     
-                    <li class="filter-item" id="filter-vendor-wireshark_foundation" onclick="toggleVendorFilter('wireshark foundation')" style="display:block;">wireshark foundation (25)</li>
+                    <li class="filter-item" id="filter-vendor-wireshark_foundation" data-vendor="wireshark foundation" style="display:block;">wireshark foundation (25)</li>
                     
-                    <li class="filter-item" id="filter-vendor-linux" onclick="toggleVendorFilter('linux')" style="display:block;">linux (22)</li>
+                    <li class="filter-item" id="filter-vendor-linux" data-vendor="linux" style="display:block;">linux (22)</li>
                     
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-microsoft" onclick="toggleVendorFilter('microsoft')" style="display:none;">microsoft (1109)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-microsoft" data-vendor="microsoft" style="display:none;">microsoft (1109)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-x64_based_systems" onclick="toggleVendorFilter('x64-based systems')" style="display:none;">x64-based systems (870)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-x64_based_systems" data-vendor="x64-based systems" style="display:none;">x64-based systems (870)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-32_bit_systems" onclick="toggleVendorFilter('32-bit systems')" style="display:none;">32-bit systems (691)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-32_bit_systems" data-vendor="32-bit systems" style="display:none;">32-bit systems (691)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-arm64_based_systems" onclick="toggleVendorFilter('arm64-based systems')" style="display:none;">arm64-based systems (587)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-arm64_based_systems" data-vendor="arm64-based systems" style="display:none;">arm64-based systems (587)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-oracle_corporation" onclick="toggleVendorFilter('oracle corporation')" style="display:none;">oracle corporation (209)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-oracle_corporation" data-vendor="oracle corporation" style="display:none;">oracle corporation (209)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ibm" onclick="toggleVendorFilter('ibm')" style="display:none;">ibm (158)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ibm" data-vendor="ibm" style="display:none;">ibm (158)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-splunk" onclick="toggleVendorFilter('splunk')" style="display:none;">splunk (52)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-splunk" data-vendor="splunk" style="display:none;">splunk (52)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-red_hat" onclick="toggleVendorFilter('red hat')" style="display:none;">red hat (49)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-red_hat" data-vendor="red hat" style="display:none;">red hat (49)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wireshark_foundation" onclick="toggleVendorFilter('wireshark foundation')" style="display:none;">wireshark foundation (25)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wireshark_foundation" data-vendor="wireshark foundation" style="display:none;">wireshark foundation (25)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-linux" onclick="toggleVendorFilter('linux')" style="display:none;">linux (22)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-linux" data-vendor="linux" style="display:none;">linux (22)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_26h1_for_arm64_based_systems" onclick="toggleVendorFilter('windows 11 version 26h1 for arm64-based systems')" style="display:none;">windows 11 version 26h1 for arm64-based systems (21)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_26h1_for_arm64_based_systems" data-vendor="windows 11 version 26h1 for arm64-based systems" style="display:none;">windows 11 version 26h1 for arm64-based systems (21)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_26h1_for_x64_based_systems" onclick="toggleVendorFilter('windows 11 version 26h1 for x64-based systems')" style="display:none;">windows 11 version 26h1 for x64-based systems (21)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_26h1_for_x64_based_systems" data-vendor="windows 11 version 26h1 for x64-based systems" style="display:none;">windows 11 version 26h1 for x64-based systems (21)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-dell" onclick="toggleVendorFilter('dell')" style="display:none;">dell (21)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-dell" data-vendor="dell" style="display:none;">dell (21)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_25h2_for_x64_based_systems" onclick="toggleVendorFilter('windows 11 version 25h2 for x64-based systems')" style="display:none;">windows 11 version 25h2 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_25h2_for_x64_based_systems" data-vendor="windows 11 version 25h2 for x64-based systems" style="display:none;">windows 11 version 25h2 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_32_bit_systems" onclick="toggleVendorFilter('windows 10 version 1809 for 32-bit systems')" style="display:none;">windows 10 version 1809 for 32-bit systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_32_bit_systems" data-vendor="windows 10 version 1809 for 32-bit systems" style="display:none;">windows 10 version 1809 for 32-bit systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2019__server_core_installation" onclick="toggleVendorFilter('windows server 2019 (server core installation)')" style="display:none;">windows server 2019 (server core installation) (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2019__server_core_installation" data-vendor="windows server 2019 (server core installation)" style="display:none;">windows server 2019 (server core installation) (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_24h2_for_x64_based_systems" onclick="toggleVendorFilter('windows 11 version 24h2 for x64-based systems')" style="display:none;">windows 11 version 24h2 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_24h2_for_x64_based_systems" data-vendor="windows 11 version 24h2 for x64-based systems" style="display:none;">windows 11 version 24h2 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_32_bit_systems" onclick="toggleVendorFilter('windows 10 version 22h2 for 32-bit systems')" style="display:none;">windows 10 version 22h2 for 32-bit systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_32_bit_systems" data-vendor="windows 10 version 22h2 for 32-bit systems" style="display:none;">windows 10 version 22h2 for 32-bit systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2022" onclick="toggleVendorFilter('windows server 2022')" style="display:none;">windows server 2022 (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2022" data-vendor="windows server 2022" style="display:none;">windows server 2022 (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_32_bit_systems" onclick="toggleVendorFilter('windows 10 version 21h2 for 32-bit systems')" style="display:none;">windows 10 version 21h2 for 32-bit systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_32_bit_systems" data-vendor="windows 10 version 21h2 for 32-bit systems" style="display:none;">windows 10 version 21h2 for 32-bit systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012" onclick="toggleVendorFilter('windows server 2012')" style="display:none;">windows server 2012 (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012" data-vendor="windows server 2012" style="display:none;">windows server 2012 (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2022__server_core_installation" onclick="toggleVendorFilter('windows server 2022 (server core installation)')" style="display:none;">windows server 2022 (server core installation) (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2022__server_core_installation" data-vendor="windows server 2022 (server core installation)" style="display:none;">windows server 2022 (server core installation) (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_x64_based_systems" onclick="toggleVendorFilter('windows 10 version 21h2 for x64-based systems')" style="display:none;">windows 10 version 21h2 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_x64_based_systems" data-vendor="windows 10 version 21h2 for x64-based systems" style="display:none;">windows 10 version 21h2 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_arm64_based_systems" onclick="toggleVendorFilter('windows 10 version 21h2 for arm64-based systems')" style="display:none;">windows 10 version 21h2 for arm64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_21h2_for_arm64_based_systems" data-vendor="windows 10 version 21h2 for arm64-based systems" style="display:none;">windows 10 version 21h2 for arm64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_23h2_for_x64_based_systems" onclick="toggleVendorFilter('windows 11 version 23h2 for x64-based systems')" style="display:none;">windows 11 version 23h2 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_23h2_for_x64_based_systems" data-vendor="windows 11 version 23h2 for x64-based systems" style="display:none;">windows 11 version 23h2 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_x64_based_systems" onclick="toggleVendorFilter('windows 10 version 22h2 for x64-based systems')" style="display:none;">windows 10 version 22h2 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_x64_based_systems" data-vendor="windows 10 version 22h2 for x64-based systems" style="display:none;">windows 10 version 22h2 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_23h2_for_arm64_based_systems" onclick="toggleVendorFilter('windows 11 version 23h2 for arm64-based systems')" style="display:none;">windows 11 version 23h2 for arm64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_23h2_for_arm64_based_systems" data-vendor="windows 11 version 23h2 for arm64-based systems" style="display:none;">windows 11 version 23h2 for arm64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2016" onclick="toggleVendorFilter('windows server 2016')" style="display:none;">windows server 2016 (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2016" data-vendor="windows server 2016" style="display:none;">windows server 2016 (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2019" onclick="toggleVendorFilter('windows server 2019')" style="display:none;">windows server 2019 (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2019" data-vendor="windows server 2019" style="display:none;">windows server 2019 (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_24h2_for_arm64_based_systems" onclick="toggleVendorFilter('windows 11 version 24h2 for arm64-based systems')" style="display:none;">windows 11 version 24h2 for arm64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_24h2_for_arm64_based_systems" data-vendor="windows 11 version 24h2 for arm64-based systems" style="display:none;">windows 11 version 24h2 for arm64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012_r2" onclick="toggleVendorFilter('windows server 2012 r2')" style="display:none;">windows server 2012 r2 (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012_r2" data-vendor="windows server 2012 r2" style="display:none;">windows server 2012 r2 (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_x64_based_systems" onclick="toggleVendorFilter('windows 10 version 1809 for x64-based systems')" style="display:none;">windows 10 version 1809 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_x64_based_systems" data-vendor="windows 10 version 1809 for x64-based systems" style="display:none;">windows 10 version 1809 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2016__server_core_installation" onclick="toggleVendorFilter('windows server 2016 (server core installation)')" style="display:none;">windows server 2016 (server core installation) (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2016__server_core_installation" data-vendor="windows server 2016 (server core installation)" style="display:none;">windows server 2016 (server core installation) (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_arm64_based_systems" onclick="toggleVendorFilter('windows 10 version 22h2 for arm64-based systems')" style="display:none;">windows 10 version 22h2 for arm64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_22h2_for_arm64_based_systems" data-vendor="windows 10 version 22h2 for arm64-based systems" style="display:none;">windows 10 version 22h2 for arm64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012_r2__server_core_installation" onclick="toggleVendorFilter('windows server 2012 r2 (server core installation)')" style="display:none;">windows server 2012 r2 (server core installation) (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012_r2__server_core_installation" data-vendor="windows server 2012 r2 (server core installation)" style="display:none;">windows server 2012 r2 (server core installation) (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012__server_core_installation" onclick="toggleVendorFilter('windows server 2012 (server core installation)')" style="display:none;">windows server 2012 (server core installation) (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2012__server_core_installation" data-vendor="windows server 2012 (server core installation)" style="display:none;">windows server 2012 (server core installation) (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_25h2_for_arm64_based_systems" onclick="toggleVendorFilter('windows 11 version 25h2 for arm64-based systems')" style="display:none;">windows 11 version 25h2 for arm64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_11_version_25h2_for_arm64_based_systems" data-vendor="windows 11 version 25h2 for arm64-based systems" style="display:none;">windows 11 version 25h2 for arm64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1607_for_x64_based_systems" onclick="toggleVendorFilter('windows 10 version 1607 for x64-based systems')" style="display:none;">windows 10 version 1607 for x64-based systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1607_for_x64_based_systems" data-vendor="windows 10 version 1607 for x64-based systems" style="display:none;">windows 10 version 1607 for x64-based systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1607_for_32_bit_systems" onclick="toggleVendorFilter('windows 10 version 1607 for 32-bit systems')" style="display:none;">windows 10 version 1607 for 32-bit systems (20)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1607_for_32_bit_systems" data-vendor="windows 10 version 1607 for 32-bit systems" style="display:none;">windows 10 version 1607 for 32-bit systems (20)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-n8n_io" onclick="toggleVendorFilter('n8n-io')" style="display:none;">n8n-io (17)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-n8n_io" data-vendor="n8n-io" style="display:none;">n8n-io (17)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-atutor" onclick="toggleVendorFilter('atutor')" style="display:none;">atutor (13)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-atutor" data-vendor="atutor" style="display:none;">atutor (13)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-gimp" onclick="toggleVendorFilter('gimp')" style="display:none;">gimp (11)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gimp" data-vendor="gimp" style="display:none;">gimp (11)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libevent" onclick="toggleVendorFilter('libevent')" style="display:none;">libevent (10)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libevent" data-vendor="libevent" style="display:none;">libevent (10)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-axios" onclick="toggleVendorFilter('axios')" style="display:none;">axios (9)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-axios" data-vendor="axios" style="display:none;">axios (9)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cesanta" onclick="toggleVendorFilter('cesanta')" style="display:none;">cesanta (8)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cesanta" data-vendor="cesanta" style="display:none;">cesanta (8)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-frauscher_sensortechnik" onclick="toggleVendorFilter('frauscher sensortechnik')" style="display:none;">frauscher sensortechnik (8)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-frauscher_sensortechnik" data-vendor="frauscher sensortechnik" style="display:none;">frauscher sensortechnik (8)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-torproject" onclick="toggleVendorFilter('torproject')" style="display:none;">torproject (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-torproject" data-vendor="torproject" style="display:none;">torproject (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-netty" onclick="toggleVendorFilter('netty')" style="display:none;">netty (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-netty" data-vendor="netty" style="display:none;">netty (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-django_cms" onclick="toggleVendorFilter('django-cms')" style="display:none;">django-cms (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-django_cms" data-vendor="django-cms" style="display:none;">django-cms (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tp_link_systems_inc" onclick="toggleVendorFilter('tp-link systems inc.')" style="display:none;">tp-link systems inc. (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tp_link_systems_inc" data-vendor="tp-link systems inc." style="display:none;">tp-link systems inc. (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cisco" onclick="toggleVendorFilter('cisco')" style="display:none;">cisco (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cisco" data-vendor="cisco" style="display:none;">cisco (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-originlab" onclick="toggleVendorFilter('originlab')" style="display:none;">originlab (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-originlab" data-vendor="originlab" style="display:none;">originlab (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-sony" onclick="toggleVendorFilter('sony')" style="display:none;">sony (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sony" data-vendor="sony" style="display:none;">sony (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-kenwood" onclick="toggleVendorFilter('kenwood')" style="display:none;">kenwood (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-kenwood" data-vendor="kenwood" style="display:none;">kenwood (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_arm64_based_systems" onclick="toggleVendorFilter('windows 10 version 1809 for arm64-based systems')" style="display:none;">windows 10 version 1809 for arm64-based systems (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_10_version_1809_for_arm64_based_systems" data-vendor="windows 10 version 1809 for arm64-based systems" style="display:none;">windows 10 version 1809 for arm64-based systems (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libvips" onclick="toggleVendorFilter('libvips')" style="display:none;">libvips (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libvips" data-vendor="libvips" style="display:none;">libvips (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libgit2" onclick="toggleVendorFilter('libgit2')" style="display:none;">libgit2 (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libgit2" data-vendor="libgit2" style="display:none;">libgit2 (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-frappe" onclick="toggleVendorFilter('frappe')" style="display:none;">frappe (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-frappe" data-vendor="frappe" style="display:none;">frappe (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-sourcecodester" onclick="toggleVendorFilter('sourcecodester')" style="display:none;">sourcecodester (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sourcecodester" data-vendor="sourcecodester" style="display:none;">sourcecodester (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-thorsten" onclick="toggleVendorFilter('thorsten')" style="display:none;">thorsten (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-thorsten" data-vendor="thorsten" style="display:none;">thorsten (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hcl_software" onclick="toggleVendorFilter('hcl software')" style="display:none;">hcl software (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hcl_software" data-vendor="hcl software" style="display:none;">hcl software (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-gstreamer" onclick="toggleVendorFilter('gstreamer')" style="display:none;">gstreamer (5)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gstreamer" data-vendor="gstreamer" style="display:none;">gstreamer (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-openstack" onclick="toggleVendorFilter('openstack')" style="display:none;">openstack (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-openstack" data-vendor="openstack" style="display:none;">openstack (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2025" onclick="toggleVendorFilter('windows server 2025')" style="display:none;">windows server 2025 (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2025" data-vendor="windows server 2025" style="display:none;">windows server 2025 (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2025__server_core_installation" onclick="toggleVendorFilter('windows server 2025 (server core installation)')" style="display:none;">windows server 2025 (server core installation) (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows_server_2025__server_core_installation" data-vendor="windows server 2025 (server core installation)" style="display:none;">windows server 2025 (server core installation) (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-mauriceboe" onclick="toggleVendorFilter('mauriceboe')" style="display:none;">mauriceboe (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-mauriceboe" data-vendor="mauriceboe" style="display:none;">mauriceboe (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-bigbluebutton" onclick="toggleVendorFilter('bigbluebutton')" style="display:none;">bigbluebutton (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-bigbluebutton" data-vendor="bigbluebutton" style="display:none;">bigbluebutton (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-axllent" onclick="toggleVendorFilter('axllent')" style="display:none;">axllent (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-axllent" data-vendor="axllent" style="display:none;">axllent (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows" onclick="toggleVendorFilter('windows')" style="display:none;">windows (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windows" data-vendor="windows" style="display:none;">windows (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tp_link_systems_inc" onclick="toggleVendorFilter('tp-link systems inc')" style="display:none;">tp-link systems inc (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tp_link_systems_inc" data-vendor="tp-link systems inc" style="display:none;">tp-link systems inc (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-gitpython_developers" onclick="toggleVendorFilter('gitpython-developers')" style="display:none;">gitpython-developers (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gitpython_developers" data-vendor="gitpython-developers" style="display:none;">gitpython-developers (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-renovatebot" onclick="toggleVendorFilter('renovatebot')" style="display:none;">renovatebot (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-renovatebot" data-vendor="renovatebot" style="display:none;">renovatebot (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nnn" onclick="toggleVendorFilter('nnn')" style="display:none;">nnn (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nnn" data-vendor="nnn" style="display:none;">nnn (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-yootheme_com" onclick="toggleVendorFilter('yootheme.com')" style="display:none;">yootheme.com (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-yootheme_com" data-vendor="yootheme.com" style="display:none;">yootheme.com (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-eidetic_labs" onclick="toggleVendorFilter('eidetic-labs')" style="display:none;">eidetic-labs (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-eidetic_labs" data-vendor="eidetic-labs" style="display:none;">eidetic-labs (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-zyxel_networks" onclick="toggleVendorFilter('zyxel networks')" style="display:none;">zyxel networks (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-zyxel_networks" data-vendor="zyxel networks" style="display:none;">zyxel networks (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nvidia" onclick="toggleVendorFilter('nvidia')" style="display:none;">nvidia (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nvidia" data-vendor="nvidia" style="display:none;">nvidia (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-canonical" onclick="toggleVendorFilter('canonical')" style="display:none;">canonical (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-canonical" data-vendor="canonical" style="display:none;">canonical (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ptc" onclick="toggleVendorFilter('ptc')" style="display:none;">ptc (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ptc" data-vendor="ptc" style="display:none;">ptc (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lemmynet" onclick="toggleVendorFilter('lemmynet')" style="display:none;">lemmynet (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lemmynet" data-vendor="lemmynet" style="display:none;">lemmynet (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-comfast" onclick="toggleVendorFilter('comfast')" style="display:none;">comfast (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-comfast" data-vendor="comfast" style="display:none;">comfast (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-atlassian" onclick="toggleVendorFilter('atlassian')" style="display:none;">atlassian (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-atlassian" data-vendor="atlassian" style="display:none;">atlassian (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-trendnet" onclick="toggleVendorFilter('trendnet')" style="display:none;">trendnet (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-trendnet" data-vendor="trendnet" style="display:none;">trendnet (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-vsdesk" onclick="toggleVendorFilter('vsdesk')" style="display:none;">vsdesk (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-vsdesk" data-vendor="vsdesk" style="display:none;">vsdesk (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-liftoff_sr" onclick="toggleVendorFilter('liftoff-sr')" style="display:none;">liftoff-sr (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-liftoff_sr" data-vendor="liftoff-sr" style="display:none;">liftoff-sr (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libexpat_project" onclick="toggleVendorFilter('libexpat project')" style="display:none;">libexpat project (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libexpat_project" data-vendor="libexpat project" style="display:none;">libexpat project (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themegoods" onclick="toggleVendorFilter('themegoods')" style="display:none;">themegoods (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themegoods" data-vendor="themegoods" style="display:none;">themegoods (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-parallels" onclick="toggleVendorFilter('parallels')" style="display:none;">parallels (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-parallels" data-vendor="parallels" style="display:none;">parallels (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-aeon" onclick="toggleVendorFilter('aeon')" style="display:none;">aeon (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-aeon" data-vendor="aeon" style="display:none;">aeon (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ffmpeg" onclick="toggleVendorFilter('ffmpeg')" style="display:none;">ffmpeg (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ffmpeg" data-vendor="ffmpeg" style="display:none;">ffmpeg (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-zephyrproject" onclick="toggleVendorFilter('zephyrproject')" style="display:none;">zephyrproject (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-zephyrproject" data-vendor="zephyrproject" style="display:none;">zephyrproject (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-phoca_cz" onclick="toggleVendorFilter('phoca.cz')" style="display:none;">phoca.cz (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-phoca_cz" data-vendor="phoca.cz" style="display:none;">phoca.cz (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-moby" onclick="toggleVendorFilter('moby')" style="display:none;">moby (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-moby" data-vendor="moby" style="display:none;">moby (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-fast_uri" onclick="toggleVendorFilter('fast-uri')" style="display:none;">fast-uri (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-fast_uri" data-vendor="fast-uri" style="display:none;">fast-uri (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-vllm_project" onclick="toggleVendorFilter('vllm-project')" style="display:none;">vllm-project (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-vllm_project" data-vendor="vllm-project" style="display:none;">vllm-project (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-undici" onclick="toggleVendorFilter('undici')" style="display:none;">undici (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-undici" data-vendor="undici" style="display:none;">undici (3)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-drakkan" onclick="toggleVendorFilter('drakkan')" style="display:none;">drakkan (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-drakkan" data-vendor="drakkan" style="display:none;">drakkan (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cloudnative_pg" onclick="toggleVendorFilter('cloudnative-pg')" style="display:none;">cloudnative-pg (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cloudnative_pg" data-vendor="cloudnative-pg" style="display:none;">cloudnative-pg (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-capstone_engine" onclick="toggleVendorFilter('capstone-engine')" style="display:none;">capstone-engine (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-capstone_engine" data-vendor="capstone-engine" style="display:none;">capstone-engine (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-mtrudel" onclick="toggleVendorFilter('mtrudel')" style="display:none;">mtrudel (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-mtrudel" data-vendor="mtrudel" style="display:none;">mtrudel (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-aws" onclick="toggleVendorFilter('aws')" style="display:none;">aws (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-aws" data-vendor="aws" style="display:none;">aws (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-macos" onclick="toggleVendorFilter('macos')" style="display:none;">macos (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-macos" data-vendor="macos" style="display:none;">macos (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-trueconf" onclick="toggleVendorFilter('trueconf')" style="display:none;">trueconf (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-trueconf" data-vendor="trueconf" style="display:none;">trueconf (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-coturn" onclick="toggleVendorFilter('coturn')" style="display:none;">coturn (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-coturn" data-vendor="coturn" style="display:none;">coturn (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-koel" onclick="toggleVendorFilter('koel')" style="display:none;">koel (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-koel" data-vendor="koel" style="display:none;">koel (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-termix_ssh" onclick="toggleVendorFilter('termix-ssh')" style="display:none;">termix-ssh (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-termix_ssh" data-vendor="termix-ssh" style="display:none;">termix-ssh (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themagnifico52" onclick="toggleVendorFilter('themagnifico52')" style="display:none;">themagnifico52 (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themagnifico52" data-vendor="themagnifico52" style="display:none;">themagnifico52 (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-handnot2" onclick="toggleVendorFilter('handnot2')" style="display:none;">handnot2 (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-handnot2" data-vendor="handnot2" style="display:none;">handnot2 (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-dropbox" onclick="toggleVendorFilter('dropbox')" style="display:none;">dropbox (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-dropbox" data-vendor="dropbox" style="display:none;">dropbox (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libfuse" onclick="toggleVendorFilter('libfuse')" style="display:none;">libfuse (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libfuse" data-vendor="libfuse" style="display:none;">libfuse (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-n_a" onclick="toggleVendorFilter('n/a')" style="display:none;">n/a (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-n_a" data-vendor="n/a" style="display:none;">n/a (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-chenhg5" onclick="toggleVendorFilter('chenhg5')" style="display:none;">chenhg5 (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-chenhg5" data-vendor="chenhg5" style="display:none;">chenhg5 (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-itsourcecode" onclick="toggleVendorFilter('itsourcecode')" style="display:none;">itsourcecode (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-itsourcecode" data-vendor="itsourcecode" style="display:none;">itsourcecode (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-codeastro" onclick="toggleVendorFilter('codeastro')" style="display:none;">codeastro (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-codeastro" data-vendor="codeastro" style="display:none;">codeastro (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-david_lingren" onclick="toggleVendorFilter('david lingren')" style="display:none;">david lingren (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-david_lingren" data-vendor="david lingren" style="display:none;">david lingren (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-monkeysan" onclick="toggleVendorFilter('monkeysan')" style="display:none;">monkeysan (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-monkeysan" data-vendor="monkeysan" style="display:none;">monkeysan (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-crocoblock__jetimpex_inc" onclick="toggleVendorFilter('crocoblock. jetimpex inc.')" style="display:none;">crocoblock. jetimpex inc. (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-crocoblock__jetimpex_inc" data-vendor="crocoblock. jetimpex inc." style="display:none;">crocoblock. jetimpex inc. (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-balbooa_com" onclick="toggleVendorFilter('balbooa.com')" style="display:none;">balbooa.com (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-balbooa_com" data-vendor="balbooa.com" style="display:none;">balbooa.com (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-anders_nor_n" onclick="toggleVendorFilter('anders norén')" style="display:none;">anders norén (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-anders_nor_n" data-vendor="anders norén" style="display:none;">anders norén (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-siteground" onclick="toggleVendorFilter('siteground')" style="display:none;">siteground (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-siteground" data-vendor="siteground" style="display:none;">siteground (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-m_files_corporation" onclick="toggleVendorFilter('m-files corporation')" style="display:none;">m-files corporation (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-m_files_corporation" data-vendor="m-files corporation" style="display:none;">m-files corporation (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tanium" onclick="toggleVendorFilter('tanium')" style="display:none;">tanium (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tanium" data-vendor="tanium" style="display:none;">tanium (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hmbown" onclick="toggleVendorFilter('hmbown')" style="display:none;">hmbown (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hmbown" data-vendor="hmbown" style="display:none;">hmbown (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-labredescefetrj" onclick="toggleVendorFilter('labredescefetrj')" style="display:none;">labredescefetrj (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-labredescefetrj" data-vendor="labredescefetrj" style="display:none;">labredescefetrj (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-omnivore_app" onclick="toggleVendorFilter('omnivore-app')" style="display:none;">omnivore-app (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-omnivore_app" data-vendor="omnivore-app" style="display:none;">omnivore-app (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_24_04_lts" onclick="toggleVendorFilter('ubuntu 24.04 lts')" style="display:none;">ubuntu 24.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_24_04_lts" data-vendor="ubuntu 24.04 lts" style="display:none;">ubuntu 24.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_20_04_lts" onclick="toggleVendorFilter('ubuntu 20.04 lts')" style="display:none;">ubuntu 20.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_20_04_lts" data-vendor="ubuntu 20.04 lts" style="display:none;">ubuntu 20.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_14_04_lts" onclick="toggleVendorFilter('ubuntu 14.04 lts')" style="display:none;">ubuntu 14.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_14_04_lts" data-vendor="ubuntu 14.04 lts" style="display:none;">ubuntu 14.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_22_04_lts" onclick="toggleVendorFilter('ubuntu 22.04 lts')" style="display:none;">ubuntu 22.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_22_04_lts" data-vendor="ubuntu 22.04 lts" style="display:none;">ubuntu 22.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_26_04_lts" onclick="toggleVendorFilter('ubuntu 26.04 lts')" style="display:none;">ubuntu 26.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_26_04_lts" data-vendor="ubuntu 26.04 lts" style="display:none;">ubuntu 26.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_18_04_lts" onclick="toggleVendorFilter('ubuntu 18.04 lts')" style="display:none;">ubuntu 18.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_18_04_lts" data-vendor="ubuntu 18.04 lts" style="display:none;">ubuntu 18.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_26_10" onclick="toggleVendorFilter('ubuntu 26.10')" style="display:none;">ubuntu 26.10 (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_26_10" data-vendor="ubuntu 26.10" style="display:none;">ubuntu 26.10 (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_16_04_lts" onclick="toggleVendorFilter('ubuntu 16.04 lts')" style="display:none;">ubuntu 16.04 lts (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ubuntu_16_04_lts" data-vendor="ubuntu 16.04 lts" style="display:none;">ubuntu 16.04 lts (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-code_projects" onclick="toggleVendorFilter('code-projects')" style="display:none;">code-projects (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-code_projects" data-vendor="code-projects" style="display:none;">code-projects (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-netscaler" onclick="toggleVendorFilter('netscaler')" style="display:none;">netscaler (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-netscaler" data-vendor="netscaler" style="display:none;">netscaler (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-iskorotkov" onclick="toggleVendorFilter('iskorotkov')" style="display:none;">iskorotkov (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-iskorotkov" data-vendor="iskorotkov" style="display:none;">iskorotkov (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-isc" onclick="toggleVendorFilter('isc')" style="display:none;">isc (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-isc" data-vendor="isc" style="display:none;">isc (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lodash" onclick="toggleVendorFilter('lodash')" style="display:none;">lodash (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lodash" data-vendor="lodash" style="display:none;">lodash (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-isaacs" onclick="toggleVendorFilter('isaacs')" style="display:none;">isaacs (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-isaacs" data-vendor="isaacs" style="display:none;">isaacs (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-websockets" onclick="toggleVendorFilter('websockets')" style="display:none;">websockets (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-websockets" data-vendor="websockets" style="display:none;">websockets (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-langchain_ai" onclick="toggleVendorFilter('langchain-ai')" style="display:none;">langchain-ai (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-langchain_ai" data-vendor="langchain-ai" style="display:none;">langchain-ai (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lightdash" onclick="toggleVendorFilter('lightdash')" style="display:none;">lightdash (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lightdash" data-vendor="lightdash" style="display:none;">lightdash (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-evershopcommerce" onclick="toggleVendorFilter('evershopcommerce')" style="display:none;">evershopcommerce (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-evershopcommerce" data-vendor="evershopcommerce" style="display:none;">evershopcommerce (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nltk" onclick="toggleVendorFilter('nltk')" style="display:none;">nltk (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nltk" data-vendor="nltk" style="display:none;">nltk (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-spip" onclick="toggleVendorFilter('spip')" style="display:none;">spip (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-spip" data-vendor="spip" style="display:none;">spip (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nationalsecurityagency" onclick="toggleVendorFilter('nationalsecurityagency')" style="display:none;">nationalsecurityagency (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nationalsecurityagency" data-vendor="nationalsecurityagency" style="display:none;">nationalsecurityagency (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-mailu" onclick="toggleVendorFilter('mailu')" style="display:none;">mailu (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-mailu" data-vendor="mailu" style="display:none;">mailu (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-kovah" onclick="toggleVendorFilter('kovah')" style="display:none;">kovah (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-kovah" data-vendor="kovah" style="display:none;">kovah (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-kerberos_io" onclick="toggleVendorFilter('kerberos-io')" style="display:none;">kerberos-io (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-kerberos_io" data-vendor="kerberos-io" style="display:none;">kerberos-io (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-decolua" onclick="toggleVendorFilter('decolua')" style="display:none;">decolua (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-decolua" data-vendor="decolua" style="display:none;">decolua (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-xapian" onclick="toggleVendorFilter('xapian')" style="display:none;">xapian (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-xapian" data-vendor="xapian" style="display:none;">xapian (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-centuran_consulting" onclick="toggleVendorFilter('centuran consulting')" style="display:none;">centuran consulting (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-centuran_consulting" data-vendor="centuran consulting" style="display:none;">centuran consulting (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-dicebear" onclick="toggleVendorFilter('dicebear')" style="display:none;">dicebear (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-dicebear" data-vendor="dicebear" style="display:none;">dicebear (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-httplib2" onclick="toggleVendorFilter('httplib2')" style="display:none;">httplib2 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-httplib2" data-vendor="httplib2" style="display:none;">httplib2 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-centrifugal" onclick="toggleVendorFilter('centrifugal')" style="display:none;">centrifugal (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-centrifugal" data-vendor="centrifugal" style="display:none;">centrifugal (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-opensearch" onclick="toggleVendorFilter('opensearch')" style="display:none;">opensearch (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-opensearch" data-vendor="opensearch" style="display:none;">opensearch (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-louislam" onclick="toggleVendorFilter('louislam')" style="display:none;">louislam (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-louislam" data-vendor="louislam" style="display:none;">louislam (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nosleep" onclick="toggleVendorFilter('nosleep')" style="display:none;">nosleep (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nosleep" data-vendor="nosleep" style="display:none;">nosleep (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-znuny" onclick="toggleVendorFilter('znuny')" style="display:none;">znuny (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-znuny" data-vendor="znuny" style="display:none;">znuny (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cole" onclick="toggleVendorFilter('cole')" style="display:none;">cole (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cole" data-vendor="cole" style="display:none;">cole (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-m2team" onclick="toggleVendorFilter('m2team')" style="display:none;">m2team (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-m2team" data-vendor="m2team" style="display:none;">m2team (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-freedomofpress" onclick="toggleVendorFilter('freedomofpress')" style="display:none;">freedomofpress (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-freedomofpress" data-vendor="freedomofpress" style="display:none;">freedomofpress (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-appwrite" onclick="toggleVendorFilter('appwrite')" style="display:none;">appwrite (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-appwrite" data-vendor="appwrite" style="display:none;">appwrite (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lin_snow" onclick="toggleVendorFilter('lin-snow')" style="display:none;">lin-snow (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lin_snow" data-vendor="lin-snow" style="display:none;">lin-snow (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-silabs_com" onclick="toggleVendorFilter('silabs.com')" style="display:none;">silabs.com (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-silabs_com" data-vendor="silabs.com" style="display:none;">silabs.com (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nixos" onclick="toggleVendorFilter('nixos')" style="display:none;">nixos (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nixos" data-vendor="nixos" style="display:none;">nixos (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-t8y2" onclick="toggleVendorFilter('t8y2')" style="display:none;">t8y2 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-t8y2" data-vendor="t8y2" style="display:none;">t8y2 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-shaarli" onclick="toggleVendorFilter('shaarli')" style="display:none;">shaarli (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-shaarli" data-vendor="shaarli" style="display:none;">shaarli (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-bunkerity" onclick="toggleVendorFilter('bunkerity')" style="display:none;">bunkerity (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-bunkerity" data-vendor="bunkerity" style="display:none;">bunkerity (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-msgpack" onclick="toggleVendorFilter('msgpack')" style="display:none;">msgpack (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-msgpack" data-vendor="msgpack" style="display:none;">msgpack (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-libexpat" onclick="toggleVendorFilter('libexpat')" style="display:none;">libexpat (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-libexpat" data-vendor="libexpat" style="display:none;">libexpat (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-thembay" onclick="toggleVendorFilter('thembay')" style="display:none;">thembay (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-thembay" data-vendor="thembay" style="display:none;">thembay (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-mlflow" onclick="toggleVendorFilter('mlflow')" style="display:none;">mlflow (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-mlflow" data-vendor="mlflow" style="display:none;">mlflow (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-della" onclick="toggleVendorFilter('della')" style="display:none;">della (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-della" data-vendor="della" style="display:none;">della (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-valkey_io" onclick="toggleVendorFilter('valkey-io')" style="display:none;">valkey-io (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-valkey_io" data-vendor="valkey-io" style="display:none;">valkey-io (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tenda" onclick="toggleVendorFilter('tenda')" style="display:none;">tenda (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tenda" data-vendor="tenda" style="display:none;">tenda (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-elementor" onclick="toggleVendorFilter('elementor')" style="display:none;">elementor (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-elementor" data-vendor="elementor" style="display:none;">elementor (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-victoriametrics" onclick="toggleVendorFilter('victoriametrics')" style="display:none;">victoriametrics (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-victoriametrics" data-vendor="victoriametrics" style="display:none;">victoriametrics (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-linuxfabrik" onclick="toggleVendorFilter('linuxfabrik')" style="display:none;">linuxfabrik (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-linuxfabrik" data-vendor="linuxfabrik" style="display:none;">linuxfabrik (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-taxopress" onclick="toggleVendorFilter('taxopress')" style="display:none;">taxopress (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-taxopress" data-vendor="taxopress" style="display:none;">taxopress (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hank_ai" onclick="toggleVendorFilter('hank-ai')" style="display:none;">hank-ai (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hank_ai" data-vendor="hank-ai" style="display:none;">hank-ai (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-greydgl" onclick="toggleVendorFilter('greydgl')" style="display:none;">greydgl (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-greydgl" data-vendor="greydgl" style="display:none;">greydgl (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-elunez" onclick="toggleVendorFilter('elunez')" style="display:none;">elunez (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-elunez" data-vendor="elunez" style="display:none;">elunez (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-siyuan_note" onclick="toggleVendorFilter('siyuan-note')" style="display:none;">siyuan-note (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-siyuan_note" data-vendor="siyuan-note" style="display:none;">siyuan-note (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-jkuhlmann" onclick="toggleVendorFilter('jkuhlmann')" style="display:none;">jkuhlmann (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-jkuhlmann" data-vendor="jkuhlmann" style="display:none;">jkuhlmann (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-canop" onclick="toggleVendorFilter('canop')" style="display:none;">canop (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-canop" data-vendor="canop" style="display:none;">canop (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-leanprover" onclick="toggleVendorFilter('leanprover')" style="display:none;">leanprover (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-leanprover" data-vendor="leanprover" style="display:none;">leanprover (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-monkeytypegame" onclick="toggleVendorFilter('monkeytypegame')" style="display:none;">monkeytypegame (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-monkeytypegame" data-vendor="monkeytypegame" style="display:none;">monkeytypegame (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-masci" onclick="toggleVendorFilter('masci')" style="display:none;">masci (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-masci" data-vendor="masci" style="display:none;">masci (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-jhy" onclick="toggleVendorFilter('jhy')" style="display:none;">jhy (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-jhy" data-vendor="jhy" style="display:none;">jhy (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cvat_ai" onclick="toggleVendorFilter('cvat-ai')" style="display:none;">cvat-ai (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cvat_ai" data-vendor="cvat-ai" style="display:none;">cvat-ai (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-windmill_labs" onclick="toggleVendorFilter('windmill-labs')" style="display:none;">windmill-labs (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-windmill_labs" data-vendor="windmill-labs" style="display:none;">windmill-labs (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-unstructured_io" onclick="toggleVendorFilter('unstructured-io')" style="display:none;">unstructured-io (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-unstructured_io" data-vendor="unstructured-io" style="display:none;">unstructured-io (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-udecode" onclick="toggleVendorFilter('udecode')" style="display:none;">udecode (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-udecode" data-vendor="udecode" style="display:none;">udecode (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-sumatrapdfreader" onclick="toggleVendorFilter('sumatrapdfreader')" style="display:none;">sumatrapdfreader (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sumatrapdfreader" data-vendor="sumatrapdfreader" style="display:none;">sumatrapdfreader (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-rebeccastevens" onclick="toggleVendorFilter('rebeccastevens')" style="display:none;">rebeccastevens (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-rebeccastevens" data-vendor="rebeccastevens" style="display:none;">rebeccastevens (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-pylons" onclick="toggleVendorFilter('pylons')" style="display:none;">pylons (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-pylons" data-vendor="pylons" style="display:none;">pylons (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-orange_opensource" onclick="toggleVendorFilter('orange-opensource')" style="display:none;">orange-opensource (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-orange_opensource" data-vendor="orange-opensource" style="display:none;">orange-opensource (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-uxper" onclick="toggleVendorFilter('uxper')" style="display:none;">uxper (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-uxper" data-vendor="uxper" style="display:none;">uxper (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cozmoslabs" onclick="toggleVendorFilter('cozmoslabs')" style="display:none;">cozmoslabs (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cozmoslabs" data-vendor="cozmoslabs" style="display:none;">cozmoslabs (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tagembed" onclick="toggleVendorFilter('tagembed')" style="display:none;">tagembed (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tagembed" data-vendor="tagembed" style="display:none;">tagembed (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cleantalk_inc" onclick="toggleVendorFilter('cleantalk inc')" style="display:none;">cleantalk inc (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cleantalk_inc" data-vendor="cleantalk inc" style="display:none;">cleantalk inc (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-melograno_venture_studio" onclick="toggleVendorFilter('melograno venture studio')" style="display:none;">melograno venture studio (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-melograno_venture_studio" data-vendor="melograno venture studio" style="display:none;">melograno venture studio (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hasthemes" onclick="toggleVendorFilter('hasthemes')" style="display:none;">hasthemes (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hasthemes" data-vendor="hasthemes" style="display:none;">hasthemes (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-eric_teubert" onclick="toggleVendorFilter('eric teubert')" style="display:none;">eric teubert (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-eric_teubert" data-vendor="eric teubert" style="display:none;">eric teubert (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-e_plugins" onclick="toggleVendorFilter('e-plugins')" style="display:none;">e-plugins (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-e_plugins" data-vendor="e-plugins" style="display:none;">e-plugins (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tyche_softwares" onclick="toggleVendorFilter('tyche softwares.')" style="display:none;">tyche softwares. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tyche_softwares" data-vendor="tyche softwares." style="display:none;">tyche softwares. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-repute_infosystems" onclick="toggleVendorFilter('repute infosystems')" style="display:none;">repute infosystems (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-repute_infosystems" data-vendor="repute infosystems" style="display:none;">repute infosystems (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-jonathan_daggerhart" onclick="toggleVendorFilter('jonathan daggerhart')" style="display:none;">jonathan daggerhart (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-jonathan_daggerhart" data-vendor="jonathan daggerhart" style="display:none;">jonathan daggerhart (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-roxnor" onclick="toggleVendorFilter('roxnor')" style="display:none;">roxnor (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-roxnor" data-vendor="roxnor" style="display:none;">roxnor (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpeverest" onclick="toggleVendorFilter('wpeverest')" style="display:none;">wpeverest (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wpeverest" data-vendor="wpeverest" style="display:none;">wpeverest (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-indithemes" onclick="toggleVendorFilter('indithemes')" style="display:none;">indithemes (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-indithemes" data-vendor="indithemes" style="display:none;">indithemes (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-revmakx" onclick="toggleVendorFilter('revmakx')" style="display:none;">revmakx (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-revmakx" data-vendor="revmakx" style="display:none;">revmakx (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-mycred" onclick="toggleVendorFilter('mycred')" style="display:none;">mycred (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-mycred" data-vendor="mycred" style="display:none;">mycred (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-baylan_measuring_instruments_industry_and_trade_inc" onclick="toggleVendorFilter('baylan measuring instruments industry and trade inc.')" style="display:none;">baylan measuring instruments industry and trade inc. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-baylan_measuring_instruments_industry_and_trade_inc" data-vendor="baylan measuring instruments industry and trade inc." style="display:none;">baylan measuring instruments industry and trade inc. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-opf" onclick="toggleVendorFilter('opf')" style="display:none;">opf (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-opf" data-vendor="opf" style="display:none;">opf (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-adminer" onclick="toggleVendorFilter('adminer')" style="display:none;">adminer (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-adminer" data-vendor="adminer" style="display:none;">adminer (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hugging_face" onclick="toggleVendorFilter('hugging face')" style="display:none;">hugging face (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hugging_face" data-vendor="hugging face" style="display:none;">hugging face (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-op_engineering" onclick="toggleVendorFilter('op-engineering')" style="display:none;">op-engineering (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-op_engineering" data-vendor="op-engineering" style="display:none;">op-engineering (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-heimdall_data" onclick="toggleVendorFilter('heimdall data')" style="display:none;">heimdall data (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-heimdall_data" data-vendor="heimdall data" style="display:none;">heimdall data (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-osnexus" onclick="toggleVendorFilter('osnexus')" style="display:none;">osnexus (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-osnexus" data-vendor="osnexus" style="display:none;">osnexus (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nomachine" onclick="toggleVendorFilter('nomachine')" style="display:none;">nomachine (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nomachine" data-vendor="nomachine" style="display:none;">nomachine (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-go_vikunja" onclick="toggleVendorFilter('go-vikunja')" style="display:none;">go-vikunja (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-go_vikunja" data-vendor="go-vikunja" style="display:none;">go-vikunja (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-langbot_app" onclick="toggleVendorFilter('langbot-app')" style="display:none;">langbot-app (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-langbot_app" data-vendor="langbot-app" style="display:none;">langbot-app (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-paolo" onclick="toggleVendorFilter('paolo')" style="display:none;">paolo (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-paolo" data-vendor="paolo" style="display:none;">paolo (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-plainware" onclick="toggleVendorFilter('plainware')" style="display:none;">plainware (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-plainware" data-vendor="plainware" style="display:none;">plainware (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-peepso" onclick="toggleVendorFilter('peepso')" style="display:none;">peepso (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-peepso" data-vendor="peepso" style="display:none;">peepso (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpo_hr" onclick="toggleVendorFilter('wpo-hr')" style="display:none;">wpo-hr (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wpo_hr" data-vendor="wpo-hr" style="display:none;">wpo-hr (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themetechmount" onclick="toggleVendorFilter('themetechmount')" style="display:none;">themetechmount (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themetechmount" data-vendor="themetechmount" style="display:none;">themetechmount (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cmsminds" onclick="toggleVendorFilter('cmsminds')" style="display:none;">cmsminds (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cmsminds" data-vendor="cmsminds" style="display:none;">cmsminds (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-outanking_team" onclick="toggleVendorFilter('outanking team')" style="display:none;">outanking team (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-outanking_team" data-vendor="outanking team" style="display:none;">outanking team (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-the4" onclick="toggleVendorFilter('the4')" style="display:none;">the4 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-the4" data-vendor="the4" style="display:none;">the4 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-klbtheme" onclick="toggleVendorFilter('klbtheme')" style="display:none;">klbtheme (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-klbtheme" data-vendor="klbtheme" style="display:none;">klbtheme (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-faydam_innovation_inc" onclick="toggleVendorFilter('faydam innovation inc.')" style="display:none;">faydam innovation inc. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-faydam_innovation_inc" data-vendor="faydam innovation inc." style="display:none;">faydam innovation inc. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cmsjunkie_com" onclick="toggleVendorFilter('cmsjunkie.com')" style="display:none;">cmsjunkie.com (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cmsjunkie_com" data-vendor="cmsjunkie.com" style="display:none;">cmsjunkie.com (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-radiustheme" onclick="toggleVendorFilter('radiustheme')" style="display:none;">radiustheme (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-radiustheme" data-vendor="radiustheme" style="display:none;">radiustheme (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-shenzhen_cudy_technology_co___ltd" onclick="toggleVendorFilter('shenzhen cudy technology co., ltd.')" style="display:none;">shenzhen cudy technology co., ltd. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-shenzhen_cudy_technology_co___ltd" data-vendor="shenzhen cudy technology co., ltd." style="display:none;">shenzhen cudy technology co., ltd. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-paymob" onclick="toggleVendorFilter('paymob')" style="display:none;">paymob (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-paymob" data-vendor="paymob" style="display:none;">paymob (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-passionate_programmer_peter" onclick="toggleVendorFilter('passionate programmer peter')" style="display:none;">passionate programmer peter (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-passionate_programmer_peter" data-vendor="passionate programmer peter" style="display:none;">passionate programmer peter (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themewinter" onclick="toggleVendorFilter('themewinter')" style="display:none;">themewinter (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themewinter" data-vendor="themewinter" style="display:none;">themewinter (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-icecoder" onclick="toggleVendorFilter('icecoder')" style="display:none;">icecoder (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-icecoder" data-vendor="icecoder" style="display:none;">icecoder (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tassos_gr" onclick="toggleVendorFilter('tassos.gr')" style="display:none;">tassos.gr (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tassos_gr" data-vendor="tassos.gr" style="display:none;">tassos.gr (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ly_corporation" onclick="toggleVendorFilter('ly corporation')" style="display:none;">ly corporation (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ly_corporation" data-vendor="ly corporation" style="display:none;">ly corporation (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpfeedback" onclick="toggleVendorFilter('wpfeedback')" style="display:none;">wpfeedback (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wpfeedback" data-vendor="wpfeedback" style="display:none;">wpfeedback (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-extra_innovation_inc" onclick="toggleVendorFilter('extra innovation inc.')" style="display:none;">extra innovation inc. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-extra_innovation_inc" data-vendor="extra innovation inc." style="display:none;">extra innovation inc. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-arm" onclick="toggleVendorFilter('arm')" style="display:none;">arm (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-arm" data-vendor="arm" style="display:none;">arm (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-insyde_software" onclick="toggleVendorFilter('insyde software')" style="display:none;">insyde software (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-insyde_software" data-vendor="insyde software" style="display:none;">insyde software (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-icagenda_com" onclick="toggleVendorFilter('icagenda.com')" style="display:none;">icagenda.com (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-icagenda_com" data-vendor="icagenda.com" style="display:none;">icagenda.com (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nosilver4u" onclick="toggleVendorFilter('nosilver4u')" style="display:none;">nosilver4u (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-nosilver4u" data-vendor="nosilver4u" style="display:none;">nosilver4u (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-seiko_epson_corporation" onclick="toggleVendorFilter('seiko epson corporation')" style="display:none;">seiko epson corporation (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-seiko_epson_corporation" data-vendor="seiko epson corporation" style="display:none;">seiko epson corporation (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-liedekef" onclick="toggleVendorFilter('liedekef')" style="display:none;">liedekef (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-liedekef" data-vendor="liedekef" style="display:none;">liedekef (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-tier4" onclick="toggleVendorFilter('tier4')" style="display:none;">tier4 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tier4" data-vendor="tier4" style="display:none;">tier4 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-phpipam" onclick="toggleVendorFilter('phpipam')" style="display:none;">phpipam (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-phpipam" data-vendor="phpipam" style="display:none;">phpipam (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-evidentlyai" onclick="toggleVendorFilter('evidentlyai')" style="display:none;">evidentlyai (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-evidentlyai" data-vendor="evidentlyai" style="display:none;">evidentlyai (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-romkatv" onclick="toggleVendorFilter('romkatv')" style="display:none;">romkatv (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-romkatv" data-vendor="romkatv" style="display:none;">romkatv (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wazuh" onclick="toggleVendorFilter('wazuh')" style="display:none;">wazuh (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wazuh" data-vendor="wazuh" style="display:none;">wazuh (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-pydio" onclick="toggleVendorFilter('pydio')" style="display:none;">pydio (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-pydio" data-vendor="pydio" style="display:none;">pydio (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-arcadedata" onclick="toggleVendorFilter('arcadedata')" style="display:none;">arcadedata (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-arcadedata" data-vendor="arcadedata" style="display:none;">arcadedata (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-celabshq" onclick="toggleVendorFilter('celabshq')" style="display:none;">celabshq (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-celabshq" data-vendor="celabshq" style="display:none;">celabshq (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-openemr" onclick="toggleVendorFilter('openemr')" style="display:none;">openemr (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-openemr" data-vendor="openemr" style="display:none;">openemr (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-innotim_software__telecommunications_and_consulting_trade_ltd__co" onclick="toggleVendorFilter('innotim software, telecommunications and consulting trade ltd. co.')" style="display:none;">innotim software, telecommunications and consulting trade ltd. co. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-innotim_software__telecommunications_and_consulting_trade_ltd__co" data-vendor="innotim software, telecommunications and consulting trade ltd. co." style="display:none;">innotim software, telecommunications and consulting trade ltd. co. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ispconfig" onclick="toggleVendorFilter('ispconfig')" style="display:none;">ispconfig (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ispconfig" data-vendor="ispconfig" style="display:none;">ispconfig (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-octopus_deploy" onclick="toggleVendorFilter('octopus deploy')" style="display:none;">octopus deploy (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-octopus_deploy" data-vendor="octopus deploy" style="display:none;">octopus deploy (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hashicorp" onclick="toggleVendorFilter('hashicorp')" style="display:none;">hashicorp (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hashicorp" data-vendor="hashicorp" style="display:none;">hashicorp (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-agno_agi" onclick="toggleVendorFilter('agno agi')" style="display:none;">agno agi (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-agno_agi" data-vendor="agno agi" style="display:none;">agno agi (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpmu_dev" onclick="toggleVendorFilter('wpmu dev')" style="display:none;">wpmu dev (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wpmu_dev" data-vendor="wpmu dev" style="display:none;">wpmu dev (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lukeseager" onclick="toggleVendorFilter('lukeseager')" style="display:none;">lukeseager (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lukeseager" data-vendor="lukeseager" style="display:none;">lukeseager (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-codexthemes" onclick="toggleVendorFilter('codexthemes')" style="display:none;">codexthemes (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-codexthemes" data-vendor="codexthemes" style="display:none;">codexthemes (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-10web" onclick="toggleVendorFilter('10web')" style="display:none;">10web (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-10web" data-vendor="10web" style="display:none;">10web (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-vaultdweller" onclick="toggleVendorFilter('vaultdweller')" style="display:none;">vaultdweller (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-vaultdweller" data-vendor="vaultdweller" style="display:none;">vaultdweller (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hakan_ozevin" onclick="toggleVendorFilter('hakan ozevin')" style="display:none;">hakan ozevin (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hakan_ozevin" data-vendor="hakan ozevin" style="display:none;">hakan ozevin (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wordpress_com" onclick="toggleVendorFilter('wordpress.com')" style="display:none;">wordpress.com (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-wordpress_com" data-vendor="wordpress.com" style="display:none;">wordpress.com (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-amirsanni" onclick="toggleVendorFilter('amirsanni')" style="display:none;">amirsanni (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-amirsanni" data-vendor="amirsanni" style="display:none;">amirsanni (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-jknack" onclick="toggleVendorFilter('jknack')" style="display:none;">jknack (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-jknack" data-vendor="jknack" style="display:none;">jknack (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lxml" onclick="toggleVendorFilter('lxml')" style="display:none;">lxml (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lxml" data-vendor="lxml" style="display:none;">lxml (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-fedora_python" onclick="toggleVendorFilter('fedora-python')" style="display:none;">fedora-python (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-fedora_python" data-vendor="fedora-python" style="display:none;">fedora-python (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hashthemes" onclick="toggleVendorFilter('hashthemes')" style="display:none;">hashthemes (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-hashthemes" data-vendor="hashthemes" style="display:none;">hashthemes (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-axew3" onclick="toggleVendorFilter('axew3')" style="display:none;">axew3 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-axew3" data-vendor="axew3" style="display:none;">axew3 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-emqx" onclick="toggleVendorFilter('emqx')" style="display:none;">emqx (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-emqx" data-vendor="emqx" style="display:none;">emqx (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-notificationx" onclick="toggleVendorFilter('notificationx')" style="display:none;">notificationx (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-notificationx" data-vendor="notificationx" style="display:none;">notificationx (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-seo_squirrly" onclick="toggleVendorFilter('seo squirrly')" style="display:none;">seo squirrly (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-seo_squirrly" data-vendor="seo squirrly" style="display:none;">seo squirrly (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themegrill" onclick="toggleVendorFilter('themegrill')" style="display:none;">themegrill (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themegrill" data-vendor="themegrill" style="display:none;">themegrill (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-kingtech_llc" onclick="toggleVendorFilter('kingtech llc.')" style="display:none;">kingtech llc. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-kingtech_llc" data-vendor="kingtech llc." style="display:none;">kingtech llc. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-rtcamp" onclick="toggleVendorFilter('rtcamp')" style="display:none;">rtcamp (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-rtcamp" data-vendor="rtcamp" style="display:none;">rtcamp (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-edge_themes" onclick="toggleVendorFilter('edge themes')" style="display:none;">edge themes (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-edge_themes" data-vendor="edge themes" style="display:none;">edge themes (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-cgauge" onclick="toggleVendorFilter('cgauge')" style="display:none;">cgauge (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-cgauge" data-vendor="cgauge" style="display:none;">cgauge (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-internlm" onclick="toggleVendorFilter('internlm')" style="display:none;">internlm (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-internlm" data-vendor="internlm" style="display:none;">internlm (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-estonian_information_system_authority__ria" onclick="toggleVendorFilter('estonian information system authority (ria)')" style="display:none;">estonian information system authority (ria) (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-estonian_information_system_authority__ria" data-vendor="estonian information system authority (ria)" style="display:none;">estonian information system authority (ria) (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-baserproject" onclick="toggleVendorFilter('baserproject')" style="display:none;">baserproject (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-baserproject" data-vendor="baserproject" style="display:none;">baserproject (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-the_linux_kernel_organization" onclick="toggleVendorFilter('the linux kernel organization')" style="display:none;">the linux kernel organization (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-the_linux_kernel_organization" data-vendor="the linux kernel organization" style="display:none;">the linux kernel organization (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-gitlab" onclick="toggleVendorFilter('gitlab')" style="display:none;">gitlab (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gitlab" data-vendor="gitlab" style="display:none;">gitlab (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-debian" onclick="toggleVendorFilter('debian')" style="display:none;">debian (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-debian" data-vendor="debian" style="display:none;">debian (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-fedora_project" onclick="toggleVendorFilter('fedora project')" style="display:none;">fedora project (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-fedora_project" data-vendor="fedora project" style="display:none;">fedora project (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-graphicsmagick_group" onclick="toggleVendorFilter('graphicsmagick group')" style="display:none;">graphicsmagick group (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-graphicsmagick_group" data-vendor="graphicsmagick group" style="display:none;">graphicsmagick group (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ether" onclick="toggleVendorFilter('ether')" style="display:none;">ether (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ether" data-vendor="ether" style="display:none;">ether (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-open_telemetry" onclick="toggleVendorFilter('open-telemetry')" style="display:none;">open-telemetry (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-open_telemetry" data-vendor="open-telemetry" style="display:none;">open-telemetry (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-grafana" onclick="toggleVendorFilter('grafana')" style="display:none;">grafana (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-grafana" data-vendor="grafana" style="display:none;">grafana (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ruby" onclick="toggleVendorFilter('ruby')" style="display:none;">ruby (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ruby" data-vendor="ruby" style="display:none;">ruby (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-aio_libs" onclick="toggleVendorFilter('aio-libs')" style="display:none;">aio-libs (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-aio_libs" data-vendor="aio-libs" style="display:none;">aio-libs (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_es" onclick="toggleVendorFilter('lodash-es')" style="display:none;">lodash-es (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_es" data-vendor="lodash-es" style="display:none;">lodash-es (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_amd" onclick="toggleVendorFilter('lodash-amd')" style="display:none;">lodash-amd (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_amd" data-vendor="lodash-amd" style="display:none;">lodash-amd (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_unset" onclick="toggleVendorFilter('lodash.unset')" style="display:none;">lodash.unset (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-lodash_unset" data-vendor="lodash.unset" style="display:none;">lodash.unset (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-grpc" onclick="toggleVendorFilter('grpc')" style="display:none;">grpc (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-grpc" data-vendor="grpc" style="display:none;">grpc (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-go_jose" onclick="toggleVendorFilter('go-jose')" style="display:none;">go-jose (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-go_jose" data-vendor="go-jose" style="display:none;">go-jose (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-docker" onclick="toggleVendorFilter('docker')" style="display:none;">docker (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-docker" data-vendor="docker" style="display:none;">docker (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-immutable_js" onclick="toggleVendorFilter('immutable-js')" style="display:none;">immutable-js (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-immutable_js" data-vendor="immutable-js" style="display:none;">immutable-js (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-pyca" onclick="toggleVendorFilter('pyca')" style="display:none;">pyca (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-pyca" data-vendor="pyca" style="display:none;">pyca (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-form_data" onclick="toggleVendorFilter('form-data')" style="display:none;">form-data (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-form_data" data-vendor="form-data" style="display:none;">form-data (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-naturalintelligence" onclick="toggleVendorFilter('naturalintelligence')" style="display:none;">naturalintelligence (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-naturalintelligence" data-vendor="naturalintelligence" style="display:none;">naturalintelligence (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-postfix" onclick="toggleVendorFilter('postfix')" style="display:none;">postfix (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-postfix" data-vendor="postfix" style="display:none;">postfix (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ajv_js" onclick="toggleVendorFilter('ajv.js')" style="display:none;">ajv.js (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ajv_js" data-vendor="ajv.js" style="display:none;">ajv.js (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-protobufjs" onclick="toggleVendorFilter('protobufjs')" style="display:none;">protobufjs (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-protobufjs" data-vendor="protobufjs" style="display:none;">protobufjs (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-prometheus" onclick="toggleVendorFilter('prometheus')" style="display:none;">prometheus (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-prometheus" data-vendor="prometheus" style="display:none;">prometheus (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-sequelize" onclick="toggleVendorFilter('sequelize')" style="display:none;">sequelize (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sequelize" data-vendor="sequelize" style="display:none;">sequelize (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-urllib3" onclick="toggleVendorFilter('urllib3')" style="display:none;">urllib3 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-urllib3" data-vendor="urllib3" style="display:none;">urllib3 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-remix_run" onclick="toggleVendorFilter('remix-run')" style="display:none;">remix-run (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-remix_run" data-vendor="remix-run" style="display:none;">remix-run (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-beaugunderson" onclick="toggleVendorFilter('beaugunderson')" style="display:none;">beaugunderson (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-beaugunderson" data-vendor="beaugunderson" style="display:none;">beaugunderson (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-apostrophecms" onclick="toggleVendorFilter('apostrophecms')" style="display:none;">apostrophecms (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-apostrophecms" data-vendor="apostrophecms" style="display:none;">apostrophecms (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-opencontainers" onclick="toggleVendorFilter('opencontainers')" style="display:none;">opencontainers (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-opencontainers" data-vendor="opencontainers" style="display:none;">opencontainers (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-pkp" onclick="toggleVendorFilter('pkp')" style="display:none;">pkp (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-pkp" data-vendor="pkp" style="display:none;">pkp (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-checkmk_gmbh" onclick="toggleVendorFilter('checkmk gmbh')" style="display:none;">checkmk gmbh (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-checkmk_gmbh" data-vendor="checkmk gmbh" style="display:none;">checkmk gmbh (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-paulepro2019" onclick="toggleVendorFilter('paulepro2019')" style="display:none;">paulepro2019 (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-paulepro2019" data-vendor="paulepro2019" style="display:none;">paulepro2019 (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-themehunk" onclick="toggleVendorFilter('themehunk')" style="display:none;">themehunk (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-themehunk" data-vendor="themehunk" style="display:none;">themehunk (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-thinkingreed_inc" onclick="toggleVendorFilter('thinkingreed inc.')" style="display:none;">thinkingreed inc. (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-thinkingreed_inc" data-vendor="thinkingreed inc." style="display:none;">thinkingreed inc. (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-gohugoio" onclick="toggleVendorFilter('gohugoio')" style="display:none;">gohugoio (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gohugoio" data-vendor="gohugoio" style="display:none;">gohugoio (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-aeternalabshq" onclick="toggleVendorFilter('aeternalabshq')" style="display:none;">aeternalabshq (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-aeternalabshq" data-vendor="aeternalabshq" style="display:none;">aeternalabshq (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-python_software_foundation" onclick="toggleVendorFilter('python software foundation')" style="display:none;">python software foundation (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-python_software_foundation" data-vendor="python software foundation" style="display:none;">python software foundation (1)</li>
                     
                 </ul>
                 
@@ -827,24 +836,22 @@
             
             </div>
 
-            <!-- AI Sidebar (Category Navigation) -->
-            
+            <!-- AI Sidebar (Category Navigation; content rebuilt per date) -->
             <div class="sidebar-section hidden" id="ai-sidebar">
                 <div class="ai-category-nav">
                     <h4>📋 <span class="lang-en">Categories</span><span class="lang-zh">分类目录</span></h4>
-                    <ul>
+                    <ul id="ai-nav-list">
                         <li onclick="scrollToCategory('Desktop_OS')">💻 <span class="lang-en">Desktop OS</span><span class="lang-zh">桌面操作系统</span> (65)</li><li onclick="scrollToCategory('Mobile_Security')">📱 <span class="lang-en">Mobile Security</span><span class="lang-zh">移动安全</span> (6)</li><li onclick="scrollToCategory('IoT_Security')">📡 <span class="lang-en">IoT Security</span><span class="lang-zh">IoT安全</span> (9)</li><li onclick="scrollToCategory('Cloud_Security')">☁️ <span class="lang-en">Cloud Security</span><span class="lang-zh">云安全</span> (43)</li><li onclick="scrollToCategory('Network_Devices')">🌐 <span class="lang-en">Network Devices</span><span class="lang-zh">网络设备</span> (24)</li><li onclick="scrollToCategory('Industrial_Control')">🏭 <span class="lang-en">Industrial Control</span><span class="lang-zh">工业控制</span> (6)</li><li onclick="scrollToCategory('Web_Security')">🔐 <span class="lang-en">Web Security</span><span class="lang-zh">Web安全</span> (59)</li><li onclick="scrollToCategory('Databases___Middleware')">🗄️ <span class="lang-en">Databases &amp; Middleware</span><span class="lang-zh">数据库与中间件</span> (34)</li><li onclick="scrollToCategory('Other')">📌 <span class="lang-en">Other</span><span class="lang-zh">其他</span> (16)</li>
                     </ul>
                 </div>
                 <div class="ai-sidebar-stats">
                     <p>🤖 <span class="lang-en">AI Analysis</span><span class="lang-zh">AI智能分析</span></p>
-                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> 2026-08-21</p>
-                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> 262</p>
-                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> 1496</p>
-                    <p><span class="lang-en">Model:</span><span class="lang-zh">模型来源:</span> qwen3.7-plus-2026-05-26</p>
+                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> <span id="ai-stat-date">2026-08-21</span></p>
+                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> <span id="ai-stat-count">262</span></p>
+                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> <span id="ai-stat-analyzed">1496</span></p>
+                    <p><span class="lang-en">Model:</span><span class="lang-zh">模型来源:</span> <span id="ai-stat-model">qwen3.7-plus-2026-05-26</span></p>
                 </div>
             </div>
-            
 
         </div>
     </div>
@@ -869,13 +876,16 @@
                 Star on GitHub
             </a>
             <span class="separator">|</span>
-            <a href="data/2026/cves_20260821.json" target="_blank" rel="noopener noreferrer">
+            <a href="data/2026/cves_20260821.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
                 📊 <span class="lang-en">Raw Data (JSON)</span><span class="lang-zh">原始数据 (JSON)</span>
             </a>
         </p>
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> 2026-08-21 03:05:35</p>
+        <!-- id="generated-time" lives here: applyData() updates it when the
+             date switcher loads another day (the summary-box copy was removed
+             along with its heading, so this is the single timestamp display) -->
+        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-08-21 02:55:47</span></p>
     </div>
 
-    <script src="assets/report.js?v=5a4922db4c"></script>
+    <script src="assets/report.js?v=2ae9634e71"></script>
 </body>
 </html>

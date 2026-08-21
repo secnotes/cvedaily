@@ -18,6 +18,14 @@
     let currentView = 'original';
     const BATCH = 60;         // cards appended per render pass
 
+    // ---------- history (date switcher) state ----------
+    let manifestDates = [];   // available dates, newest first (data/index.json)
+    let currentDate = null;   // 'YYYY-MM-DD' currently displayed
+
+    function dataUrlFor(dateStr) {
+        return 'data/' + dateStr.slice(0, 4) + '/cves_' + dateStr.replace(/-/g, '') + '.json';
+    }
+
     // Per-view render state: items (cve objects / AI flat items),
     // how many are in the DOM, and the grid elements.
     const viewState = {
@@ -332,6 +340,90 @@
         updateStatusLine('ai');
     }
 
+    // ---------- per-date DOM rebuilds (history switcher) ----------
+    function setText(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    }
+
+    function updateStatsDom(stats) {
+        setText('stat-total', stats.total != null ? stats.total : CVE_DATA.length);
+        setText('stat-high-risk', stats.high_risk != null ? stats.high_risk : '');
+        setText('stat-cisa', stats.cisa != null ? stats.cisa : '');
+        setText('stat-epss', stats.epss != null ? stats.epss : '');
+        setText('filter-critical', 'Critical (' + (stats.critical || 0) + ')');
+        setText('filter-high', 'High (' + (stats.high || 0) + ')');
+        setText('filter-medium', 'Medium (' + (stats.medium || 0) + ')');
+        setText('filter-low', 'Low (' + (stats.low || 0) + ')');
+
+        const mod = document.getElementById('filter-modified');
+        if (mod) mod.innerHTML = '🔄 <span class="lang-en">Recently Modified (' + (stats.modified || 0) + ')</span><span class="lang-zh">最近修改 (' + (stats.modified || 0) + ')</span>';
+        const pub = document.getElementById('filter-published');
+        if (pub) pub.innerHTML = '🆕 <span class="lang-en">Newly Published (' + (stats.published || 0) + ')</span><span class="lang-zh">新发布 (' + (stats.published || 0) + ')</span>';
+    }
+
+    // Vendor DOM id must match updateSelectedFiltersHighlight's lookup
+    function vendorDomId(name) {
+        return name.replace(/[^a-zA-Z0-9]/g, '_');
+    }
+
+    function rebuildVendorList() {
+        const section = document.getElementById('vendor-filter-section');
+        if (!section) return;
+
+        const counts = {};
+        CVE_DATA.forEach(c => (c.vendors || []).forEach(v => {
+            counts[v] = (counts[v] || 0) + 1;
+        }));
+        const sorted = Object.keys(counts).map(v => [v, counts[v]])
+            .sort((a, b) => b[1] - a[1]);
+        const top = sorted.slice(0, 10);
+        const rest = sorted.slice(10);
+
+        let html = '<div class="filter-title">🏢 <span class="lang-en">Filter by Vendor</span><span class="lang-zh">按厂商筛选</span></div>'
+            + '<ul class="filter-list" id="vendor-filter-list">';
+        const li = (v, n, extra) =>
+            '<li class="filter-item' + extra + '" id="filter-vendor-' + vendorDomId(v)
+            + '" data-vendor="' + esc(v) + '" style="display:' + (extra ? 'none' : 'block') + '">'
+            + esc(v) + ' (' + n + ')</li>';
+        top.forEach(([v, n]) => { html += li(v, n, ''); });
+        rest.forEach(([v, n]) => { html += li(v, n, ' extra-vendor'); });
+        html += '</ul>';
+        if (rest.length) {
+            html += '<button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn">'
+                + t('Show More Vendors (' + rest.length + ' more)', '显示更多厂商 (还有 ' + rest.length + ')')
+                + '</button>';
+        }
+        section.innerHTML = html;
+        moreVendorsShown = false;
+    }
+
+    function rebuildAiSidebar() {
+        const toggle = document.getElementById('view-toggle');
+        const aiSidebar = document.getElementById('ai-sidebar');
+        const navList = document.getElementById('ai-nav-list');
+
+        if (!AI_DATA) {
+            if (toggle) toggle.style.display = 'none';
+            if (aiSidebar) aiSidebar.style.display = 'none';
+            return;
+        }
+
+        if (toggle) toggle.style.display = '';
+        if (aiSidebar) aiSidebar.style.display = '';
+        if (navList) {
+            navList.innerHTML = (AI_DATA.categories || []).map(cat =>
+                '<li onclick="scrollToCategory(\'' + esc(cat.id) + '\')">' + cat.icon
+                + ' <span class="lang-en">' + esc(cat.en) + '</span>'
+                + '<span class="lang-zh">' + esc(cat.zh) + '</span> (' + cat.items.length + ')</li>'
+            ).join('');
+        }
+        setText('ai-stat-date', AI_DATA.date || '-');
+        setText('ai-stat-count', AI_DATA.curated_count || 0);
+        setText('ai-stat-analyzed', AI_DATA.analyzed || 0);
+        setText('ai-stat-model', AI_DATA.model || '-');
+    }
+
     // ---------- filter engine (semantics ported verbatim) ----------
     function cveMatchesFilters(cve) {
         const cvss = cve.cvss || 0;
@@ -543,8 +635,7 @@
 
         if (window.activeFilters.vendors.length > 0) {
             const vendor = window.activeFilters.vendors[0];
-            const sanitizedVendor = vendor.replace(/[^a-zA-Z0-9]/g, '_');
-            const vendorElement = document.getElementById('filter-vendor-' + sanitizedVendor);
+            const vendorElement = document.getElementById('filter-vendor-' + vendorDomId(vendor));
             if (vendorElement) vendorElement.classList.add('selected');
         }
     }
@@ -586,6 +677,7 @@
             buttons[1].classList.add('active');
             currentView = 'original';
         } else {
+            if (!AI_DATA) return; // no AI data for this day
             originalView.classList.add('hidden');
             aiView.classList.add('active');
             originalSidebar.classList.add('hidden');
@@ -598,38 +690,149 @@
         }
     }
 
-    // Scroll to a specific AI category
+    // Scroll to a specific AI category. The AI view renders lazily in
+    // scroll-triggered batches, so the target header may not be in the
+    // DOM yet when the user clicks a category they never scrolled to.
+    // Render further batches synchronously until it exists (stops as
+    // soon as the header appears - categories beyond it stay lazy).
     function scrollToCategory(safeId) {
-        const el = document.getElementById('ai-category-' + safeId);
+        const st = viewState.ai;
+        let el = document.getElementById('ai-category-' + safeId);
+        while (!el && st.rendered < st.items.length) {
+            renderMore('ai');
+            el = document.getElementById('ai-category-' + safeId);
+        }
         if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
-    // ---------- vendor tag clicks (event delegation) ----------
-    // Cards are created/destroyed dynamically, so per-tag onclick
-    // attributes would need re-binding; one listener covers them all.
+    // ---------- vendor clicks (event delegation) ----------
+    // Cards and the sidebar vendor list are created/destroyed
+    // dynamically, so per-element onclick attributes would need
+    // re-binding; one listener covers them all.
     document.addEventListener('click', function (e) {
-        const tag = e.target.closest('.cve-vendor-tag');
-        if (tag && tag.dataset.vendor) {
-            toggleVendorFilter(tag.dataset.vendor);
+        const el = e.target.closest('[data-vendor]');
+        if (el && el.dataset.vendor) {
+            toggleVendorFilter(el.dataset.vendor);
         }
     });
 
-    // ---------- data loading ----------
+    // ---------- data loading / date switching ----------
+    function applyData(data) {
+        CVE_DATA = data.cves || [];
+        AI_DATA = data.ai || null;
+        cveLookup = new Map(CVE_DATA.map(c => [c.id, c]));
+        currentDate = data.date || currentDate;
+
+        updateStatsDom(data.stats || {});
+        rebuildVendorList();
+        rebuildAiSidebar();
+
+        // Reset filter + view state for the new day
+        window.activeFilters = { severities: [], status: [], vendors: [] };
+        updateActiveFiltersDisplay();
+        updateSelectedFiltersHighlight();
+        resetView('original', CVE_DATA);
+        viewState.ai.items = [];
+        if (viewState.ai.grid) viewState.ai.grid.innerHTML = '';
+        if (currentView === 'ai' && !AI_DATA) switchView('original');
+        else if (currentView === 'ai' && AI_DATA) switchView('ai'); // rebuild lazily
+
+        document.title = 'Daily CVE Report - ' + currentDate;
+        const dateEl = document.getElementById('report-date');
+        if (dateEl) dateEl.textContent = currentDate;
+        const genEl = document.getElementById('generated-time');
+        if (genEl) genEl.textContent = data.generated || '';
+        const rawLink = document.getElementById('raw-data-link');
+        if (rawLink) rawLink.setAttribute('href', dataUrlFor(currentDate));
+    }
+
+    async function loadDate(dateStr) {
+        const st = viewState.original;
+        try {
+            const resp = await fetch(dataUrlFor(dateStr));
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            const data = await resp.json();
+            applyData(data);
+            setDateSelect(dateStr);
+            return true;
+        } catch (err) {
+            st.status.classList.add('error');
+            st.status.textContent = t(
+                'Failed to load CVE data for ' + dateStr + ' (' + err.message + ')',
+                '加载 ' + dateStr + ' 的 CVE 数据失败 (' + err.message + ')');
+            return false;
+        }
+    }
+
+    // Pick a date from the switcher dropdown
+    function switchDate(dateStr) {
+        if (!dateStr || dateStr === currentDate) return;
+        loadDate(dateStr).then(ok => {
+            if (ok) location.hash = dateStr;
+        });
+    }
+
+    // Prev/next arrows walk the manifest. It is stored newest-first, so
+    // "previous day" (delta -1, i.e. older) is a HIGHER index - flip the
+    // sign, otherwise both arrows index outside the array and no-op.
+    function stepDate(delta) {
+        const idx = manifestDates.indexOf(currentDate);
+        if (idx === -1) return;
+        const next = manifestDates[idx - delta];
+        if (next) switchDate(next);
+    }
+
+    function setDateSelect(dateStr) {
+        const sel = document.getElementById('date-select');
+        if (sel) sel.value = dateStr;
+        const prev = document.getElementById('date-prev');
+        const next = document.getElementById('date-next');
+        const idx = manifestDates.indexOf(dateStr);
+        if (prev) prev.disabled = idx === -1 || idx >= manifestDates.length - 1;
+        if (next) next.disabled = idx <= 0;
+    }
+
     async function loadData() {
         const st = viewState.original;
         try {
-            const resp = await fetch(window.DAILY_CVE_DATA_URL);
+            // Manifest first: it defines what the switcher can offer and
+            // which date to show (URL hash wins, else today)
+            let initialDate = null;
+            try {
+                const mResp = await fetch('data/index.json');
+                if (mResp.ok) {
+                    const manifest = await mResp.json();
+                    manifestDates = manifest.dates || [];
+                }
+            } catch (e) { /* manifest optional - switcher just stays empty */ }
+
+            const sel = document.getElementById('date-select');
+            if (sel && manifestDates.length) {
+                sel.innerHTML = manifestDates
+                    .map(d => '<option value="' + d + '">' + d + '</option>')
+                    .join('');
+            }
+
+            const hashDate = decodeURIComponent(location.hash.replace(/^#/, ''));
+            if (manifestDates.length && manifestDates.indexOf(hashDate) !== -1) {
+                initialDate = hashDate;
+            } else {
+                // today = the date the shell was generated for
+                const m = (window.DAILY_CVE_DATA_URL || '').match(/cves_(\d{8})\.json/);
+                initialDate = m ? m[1].replace(/(^\d{4})(\d{2})(\d{2}$)/, '$1-$2-$3') : null;
+            }
+
+            const resp = await fetch(initialDate ? dataUrlFor(initialDate) : window.DAILY_CVE_DATA_URL);
             if (!resp.ok) throw new Error('HTTP ' + resp.status);
             const data = await resp.json();
-
-            CVE_DATA = data.cves || [];
-            AI_DATA = data.ai || null;
-            cveLookup = new Map(CVE_DATA.map(c => [c.id, c]));
-
-            document.title = 'Daily CVE Report - ' + (data.date || '');
-            resetView('original', CVE_DATA);
+            applyData(data);
+            if (initialDate && initialDate !== currentDate) {
+                // keep the URL consistent with what's on screen
+                location.hash = initialDate;
+            }
+            setDateSelect(currentDate);
         } catch (err) {
             st.status.classList.add('error');
             st.status.textContent = t(
@@ -637,6 +840,14 @@
                 'CVE 数据加载失败 (' + err.message + ')。原始 JSON: ' + window.DAILY_CVE_DATA_URL);
         }
     }
+
+    // Back/forward buttons walk visited dates via the hash
+    window.addEventListener('hashchange', function () {
+        const d = decodeURIComponent(location.hash.replace(/^#/, ''));
+        if (d && d !== currentDate && manifestDates.indexOf(d) !== -1) {
+            loadDate(d);
+        }
+    });
 
     // ---------- bootstrap ----------
     document.addEventListener('DOMContentLoaded', function () {
@@ -701,6 +912,7 @@
         toggleStatusFilter, toggleVendorFilter, applySingleFilter,
         applySingleFilterByCVSS, applySingleFilterBySeverity,
         applySingleFilterByEPSS, clearAllFilters, toggleMoreVendors,
-        switchView, scrollToCategory, applyAllFilters
+        switchView, scrollToCategory, applyAllFilters,
+        switchDate, stepDate
     });
 })();

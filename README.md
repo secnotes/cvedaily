@@ -21,6 +21,7 @@ Automated daily CVE monitoring system that collects all vulnerability informatio
   - Vendor filters with "Show More" functionality
   - Enhanced code block rendering for technical details
 - **Historical Archiving**: Stores each day's complete raw data as JSON organized by year (`docs/data/`)
+- **History Browsing**: A date switcher in the report loads any archived day's data client-side - the URL hash (`#YYYY-MM-DD`) makes any day directly linkable; days without AI curation degrade gracefully (the AI view is hidden for them)
 - **Automated Updates**: Scheduled execution via GitHub Actions
 
 ## ⚙️ Setup

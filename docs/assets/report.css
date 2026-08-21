@@ -199,6 +199,14 @@
             color: var(--headline-color);
             margin: 0;
             font-size: 2.2em;
+            /* Title text and the inline date picker share one line (the
+               date is part of the headline, not a widget row below it).
+               Narrow screens wrap the date under the title. */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px 14px;
         }
 
         .filter-status {
@@ -395,7 +403,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 0; /* flush with the box top - nothing above the
+                              cards since the heading/timestamp were dropped */
         }
 
         .stat-card {
@@ -1334,3 +1343,73 @@
 .grid-status.error {
     color: var(--critical-fg);
 }
+
+        /* ---- date picker inside the h1 line ---- */
+        /* The date control is typography, not chrome: the select carries
+           no border/background so the headline reads as one sentence,
+           with a hover underline as the click affordance. The step
+           arrows sit at low opacity and come forward when the date area
+           is hovered or focused. */
+        .title-date-sep {
+            color: var(--meta-text);
+            font-size: 0.6em;
+        }
+
+        .title-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .title-date #date-select {
+            /* heading-scale typography, not form chrome */
+            font-size: 0.55em;
+            font-weight: 700;
+            font-family: inherit;
+            color: var(--headline-color);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding: 2px 6px;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .title-date #date-select:hover,
+        .title-date #date-select:focus {
+            border-bottom-color: currentColor;
+            outline: none;
+        }
+
+        .date-nav-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            color: var(--headline-color);
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.45;
+            transition: opacity 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* arrows come forward when the date area is engaged */
+        .title-date:hover .date-nav-btn,
+        .date-nav-btn:focus-visible {
+            opacity: 1;
+        }
+
+        .date-nav-btn:hover:not(:disabled) {
+            background: var(--link-hover-bg);
+        }
+
+        .date-nav-btn:disabled {
+            opacity: 0.15;
+            cursor: default;
+        }
