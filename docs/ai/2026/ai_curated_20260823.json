@@ -1,0 +1,279 @@
+{
+  "analysis_date": "2026-08-23",
+  "total_analyzed": 177,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2025-1244",
+        "reason": "Command injection in Emacs allows unauthenticated remote code execution via crafted websites, posing a significant threat to developers and power users who frequently process untrusted content.",
+        "reason_en": "Command injection in Emacs allows unauthenticated remote code execution via crafted websites, posing a significant threat to developers and power users who frequently process untrusted content.",
+        "reason_zh": "Emacs 中的命令注入漏洞允许通过构造的网页实现未认证的远程代码执行，对经常处理不受信任内容的开发者和高级用户构成重大威胁。"
+      },
+      {
+        "id": "CVE-2026-60084",
+        "reason": "Arbitrary file deletion in SiYuan enables authenticated administrators to recursively remove system files using absolute paths, risking severe local data loss and system instability.",
+        "reason_en": "Arbitrary file deletion in SiYuan enables authenticated administrators to recursively remove system files using absolute paths, risking severe local data loss and system instability.",
+        "reason_zh": "SiYuan 中的任意文件删除漏洞允许已认证的管理员使用绝对路径递归删除系统文件，可能导致严重的本地数据丢失和系统不稳定。"
+      },
+      {
+        "id": "CVE-2026-18294",
+        "reason": "Memory corruption during OGW file parsing in OriginLab Origin Viewer permits remote code execution upon user interaction with malicious documents, directly impacting engineering workstations.",
+        "reason_en": "Memory corruption during OGW file parsing in OriginLab Origin Viewer permits remote code execution upon user interaction with malicious documents, directly impacting engineering workstations.",
+        "reason_zh": "OriginLab Origin Viewer 在解析 OGW 文件时发生内存损坏，用户与恶意文档交互即可触发远程代码执行，直接影响工程工作站。"
+      },
+      {
+        "id": "CVE-2026-16869",
+        "reason": "IBM AIX local code execution via improperly scrubbed environment variables poses a direct threat to enterprise workstations and servers.",
+        "reason_en": "IBM AIX local code execution via improperly scrubbed environment variables poses a direct threat to enterprise workstations and servers.",
+        "reason_zh": "通过未正确清理的环境变量在 IBM AIX 上实现本地代码执行，对企业工作站和服务器构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-62727",
+        "reason": "A race condition in the Windows Telephony Service enables local privilege escalation, impacting standard user environments.",
+        "reason_en": "A race condition in the Windows Telephony Service enables local privilege escalation, impacting standard user environments.",
+        "reason_zh": "Windows Telephony Service 中存在竞态条件漏洞，可导致本地权限提升，影响标准用户环境。"
+      },
+      {
+        "id": "CVE-2021-43226",
+        "reason": "Actively exploited Windows Common Log File System Driver vulnerability allows attackers to gain elevated privileges on affected systems.",
+        "reason_en": "Actively exploited Windows Common Log File System Driver vulnerability allows attackers to gain elevated privileges on affected systems.",
+        "reason_zh": "被主动利用的 Windows Common Log File System Driver 漏洞允许攻击者在受影响系统上获取提权。"
+      }
+    ],
+    "Mobile Security": [],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-78050",
+        "reason": "Stack-based buffer overflow in Comfast router firmware allows remote attackers to execute arbitrary code via manipulated NTP configuration parameters, compromising consumer network hardware.",
+        "reason_en": "Stack-based buffer overflow in Comfast router firmware allows remote attackers to execute arbitrary code via manipulated NTP configuration parameters, compromising consumer network hardware.",
+        "reason_zh": "Comfast 路由器固件中的基于栈的缓冲区溢出漏洞允许远程攻击者通过篡改 NTP 配置参数执行任意代码，从而危及消费级网络硬件。"
+      },
+      {
+        "id": "CVE-2026-77946",
+        "reason": "Critical buffer overflow in TRENDnet router NTP handler enables unauthenticated remote code execution, exposing widespread IoT and home networking devices to immediate takeover.",
+        "reason_en": "Critical buffer overflow in TRENDnet router NTP handler enables unauthenticated remote code execution, exposing widespread IoT and home networking devices to immediate takeover.",
+        "reason_zh": "TRENDnet 路由器 NTP 处理程序中的关键缓冲区溢出漏洞允许未经认证的远程代码执行，使广泛的物联网和家庭网络设备面临被立即接管的风险。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-7374",
+        "reason": "Improper symlink validation in KubeVirt allows namespace-edit users to escape container isolation and access host filesystems via console sockets, breaking multi-tenant security boundaries.",
+        "reason_en": "Improper symlink validation in KubeVirt allows namespace-edit users to escape container isolation and access host filesystems via console sockets, breaking multi-tenant security boundaries.",
+        "reason_zh": "KubeVirt 中不正确的符号链接验证漏洞允许具有 namespace-edit 权限的用户逃逸容器隔离，并通过控制台套接字访问主机文件系统，破坏多租户安全边界。"
+      },
+      {
+        "id": "CVE-2026-69555",
+        "reason": "Incorrect authorization in Azure Arc permits unauthenticated network attackers to escalate privileges and compromise hybrid cloud management infrastructure.",
+        "reason_en": "Incorrect authorization in Azure Arc permits unauthenticated network attackers to escalate privileges and compromise hybrid cloud management infrastructure.",
+        "reason_zh": "Azure Arc 中的授权错误允许未经认证的网络攻击者提升权限并破坏混合云管理基础设施。"
+      },
+      {
+        "id": "CVE-2026-12710",
+        "reason": "Missing authorization in Google Cloud Application Integration exposes sensitive internal data to external attackers without requiring valid credentials, violating core cloud security principles.",
+        "reason_en": "Missing authorization in Google Cloud Application Integration exposes sensitive internal data to external attackers without requiring valid credentials, violating core cloud security principles.",
+        "reason_zh": "Google Cloud Application Integration 中缺失的授权检查导致无需有效凭据即可向外部攻击者暴露敏感内部数据，违反了核心云安全原则。"
+      },
+      {
+        "id": "CVE-2026-65770",
+        "reason": "Argument injection in Azure Managed Instance for Apache Cassandra allows unauthenticated remote code execution over the network, directly threatening managed database services.",
+        "reason_en": "Argument injection in Azure Managed Instance for Apache Cassandra allows unauthenticated remote code execution over the network, directly threatening managed database services.",
+        "reason_zh": "Azure Managed Instance for Apache Cassandra 中的参数注入漏洞允许通过网络进行未经认证的远程代码执行，直接威胁托管数据库服务。"
+      },
+      {
+        "id": "CVE-2026-65801",
+        "reason": "Critical SSRF flaw in Microsoft Exchange Online allows unauthorized privilege escalation over the network.",
+        "reason_en": "Critical SSRF flaw in Microsoft Exchange Online allows unauthorized privilege escalation over the network.",
+        "reason_zh": "Microsoft Exchange Online 中的关键 SSRF 漏洞允许通过网络进行未授权的权限提升。"
+      },
+      {
+        "id": "CVE-2026-69836",
+        "reason": "Dangerous deserialization vulnerability in Microsoft Entra ID enables remote code execution without authentication.",
+        "reason_en": "Dangerous deserialization vulnerability in Microsoft Entra ID enables remote code execution without authentication.",
+        "reason_zh": "Microsoft Entra ID 中存在危险的反序列化漏洞，可在无需认证的情况下实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-69851",
+        "reason": "SSRF in Azure Active Directory permits authorized attackers to escalate privileges across cloud services.",
+        "reason_en": "SSRF in Azure Active Directory permits authorized attackers to escalate privileges across cloud services.",
+        "reason_zh": "Azure Active Directory 中的 SSRF 漏洞允许已认证的攻击者在云服务间提升权限。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-8836",
+        "reason": "Stack-based buffer overflow in lwIP SNMPv3 USM handler impacts embedded network stacks, potentially enabling remote code execution on routers, switches, and network appliances.",
+        "reason_en": "Stack-based buffer overflow in lwIP SNMPv3 USM handler impacts embedded network stacks, potentially enabling remote code execution on routers, switches, and network appliances.",
+        "reason_zh": "lwIP SNMPv3 USM 处理程序中的基于栈的缓冲区溢出漏洞影响嵌入式网络协议栈，可能启用路由器、交换机和网络设备上的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-64531",
+        "reason": "Lack of length validation for Open vSwitch flow actions can trigger crashes or unpredictable behavior in virtualized network environments, affecting SDN controllers and hypervisors.",
+        "reason_en": "Lack of length validation for Open vSwitch flow actions can trigger crashes or unpredictable behavior in virtualized network environments, affecting SDN controllers and hypervisors.",
+        "reason_zh": "Open vSwitch 流操作缺乏长度验证，可能在虚拟化网络环境中引发崩溃或不可预测的行为，影响 SDN 控制器和虚拟机监控程序。"
+      },
+      {
+        "id": "CVE-2026-47895",
+        "reason": "Double-free vulnerability in strongSwan EAP identity parsing may lead to denial of service or memory corruption, destabilizing enterprise VPN deployments.",
+        "reason_en": "Double-free vulnerability in strongSwan EAP identity parsing may lead to denial of service or memory corruption, destabilizing enterprise VPN deployments.",
+        "reason_zh": "strongSwan EAP 身份解析中的双重释放漏洞可能导致拒绝服务或内存损坏，破坏企业 VPN 部署的稳定性。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-16835",
+        "reason": "Unauthenticated bypass in IBM Power Systems Firmware FSP protocol grants attackers full administrative control over server hardware management interfaces, risking physical infrastructure compromise.",
+        "reason_en": "Unauthenticated bypass in IBM Power Systems Firmware FSP protocol grants attackers full administrative control over server hardware management interfaces, risking physical infrastructure compromise.",
+        "reason_zh": "IBM Power Systems Firmware FSP 协议中的未认证绕过漏洞使攻击者能够完全控制服务器硬件管理接口，危及物理基础设施安全。"
+      },
+      {
+        "id": "CVE-2026-16687",
+        "reason": "Malformed requests to the IBM Power Systems ASMI web interface enable remote code execution on service processors, compromising out-of-band management critical for industrial servers.",
+        "reason_en": "Malformed requests to the IBM Power Systems ASMI web interface enable remote code execution on service processors, compromising out-of-band management critical for industrial servers.",
+        "reason_zh": "向 IBM Power Systems ASMI Web 界面发送畸形请求可在服务处理器上实现远程代码执行，破坏工业服务器至关重要的带外管理功能。"
+      },
+      {
+        "id": "CVE-2026-77644",
+        "reason": "Critical access control bypass in PTC Windchill Risk and Reliability allows unauthorized users to manipulate engineering and manufacturing data, disrupting production workflows.",
+        "reason_en": "Critical access control bypass in PTC Windchill Risk and Reliability allows unauthorized users to manipulate engineering and manufacturing data, disrupting production workflows.",
+        "reason_zh": "PTC Windchill Risk and Reliability 中的关键访问控制绕过漏洞允许未授权用户操纵工程和制造数据，扰乱生产工作流。"
+      },
+      {
+        "id": "CVE-2026-77645",
+        "reason": "Remote code execution via untrusted data deserialization in PTC Windchill and FlexPLM poses a direct threat to industrial software ecosystems and supply chain integrity.",
+        "reason_en": "Remote code execution via untrusted data deserialization in PTC Windchill and FlexPLM poses a direct threat to industrial software ecosystems and supply chain integrity.",
+        "reason_zh": "PTC Windchill 和 FlexPLM 中通过不受信任的数据反序列化实现远程代码执行，对工业软件生态系统和供应链完整性构成直接威胁。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-66915",
+        "reason": "Unauthenticated remote code execution in Joomla Fabrik extension allows attackers to execute arbitrary code via the ajax_calc feature, directly compromising vulnerable websites.",
+        "reason_en": "Unauthenticated remote code execution in Joomla Fabrik extension allows attackers to execute arbitrary code via the ajax_calc feature, directly compromising vulnerable websites.",
+        "reason_zh": "Joomla Fabrik 扩展中的未认证远程代码执行漏洞允许攻击者通过 ajax_calc 功能执行任意代码，直接危及易受攻击的网站。"
+      },
+      {
+        "id": "CVE-2026-76604",
+        "reason": "PHP form element in Joomla Fabrik lacks input sanitization, enabling unauthenticated attackers to inject and execute arbitrary server-side code on affected portals.",
+        "reason_en": "PHP form element in Joomla Fabrik lacks input sanitization, enabling unauthenticated attackers to inject and execute arbitrary server-side code on affected portals.",
+        "reason_zh": "Joomla Fabrik 中的 PHP 表单元素缺乏输入过滤，使未认证攻击者能够在受影响门户中注入并执行任意服务器端代码。"
+      },
+      {
+        "id": "CVE-2026-4703",
+        "reason": "PHP object injection in WS Form LITE WordPress plugin permits unauthenticated remote code execution through deserialized form submission metadata, targeting a massive CMS ecosystem.",
+        "reason_en": "PHP object injection in WS Form LITE WordPress plugin permits unauthenticated remote code execution through deserialized form submission metadata, targeting a massive CMS ecosystem.",
+        "reason_zh": "WordPress 插件 WS Form LITE 中的 PHP 对象注入漏洞允许通过反序列化的表单提交元数据实现未经认证的远程代码执行，针对庞大的 CMS 生态系统。"
+      },
+      {
+        "id": "CVE-2026-78003",
+        "reason": "Server-side request forgery in Mailgun for WordPress plugin enables internal network reconnaissance and credential theft via path traversal, exposing backend infrastructure.",
+        "reason_en": "Server-side request forgery in Mailgun for WordPress plugin enables internal network reconnaissance and credential theft via path traversal, exposing backend infrastructure.",
+        "reason_zh": "WordPress 插件 Mailgun 中的服务端请求伪造漏洞可通过路径遍历实现内网探测和凭据窃取，暴露后端基础设施。"
+      },
+      {
+        "id": "CVE-2026-73570",
+        "reason": "Actively exploited Zimbra Collaboration RCE via SNMP notifications highlights immediate risk to email infrastructure.",
+        "reason_en": "Actively exploited Zimbra Collaboration RCE via SNMP notifications highlights immediate risk to email infrastructure.",
+        "reason_zh": "通过 SNMP 通知被主动利用的 Zimbra Collaboration RCE 漏洞凸显了电子邮件基础设施面临的即时风险。"
+      },
+      {
+        "id": "CVE-2026-71065",
+        "reason": "Unauthenticated HTTP compromise in Oracle Helidon Imperative Web Server allows full application takeover.",
+        "reason_en": "Unauthenticated HTTP compromise in Oracle Helidon Imperative Web Server allows full application takeover.",
+        "reason_zh": "Oracle Helidon Imperative Web Server 中的未认证 HTTP 漏洞可使攻击者完全接管应用程序。"
+      },
+      {
+        "id": "CVE-2026-19883",
+        "reason": "Missing capability checks in the WPeMatico WordPress plugin enable authenticated privilege escalation.",
+        "reason_en": "Missing capability checks in the WPeMatico WordPress plugin enable authenticated privilege escalation.",
+        "reason_zh": "WordPress 插件 WPeMatico 中缺失的能力检查可导致已认证用户的权限提升。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-15686",
+        "reason": "Flawed function return value checking in Adminer allows authenticated users to execute arbitrary commands on backend database servers, undermining database administration security.",
+        "reason_en": "Flawed function return value checking in Adminer allows authenticated users to execute arbitrary commands on backend database servers, undermining database administration security.",
+        "reason_zh": "Adminer 中缺陷的函数返回值检查允许已认证用户在后端数据库服务器上执行任意命令，破坏数据库管理安全性。"
+      },
+      {
+        "id": "CVE-2026-62243",
+        "reason": "Netty disables TLS hostname verification under specific trust manager configurations, undermining secure communications and enabling man-in-the-middle attacks in Java-based middleware.",
+        "reason_en": "Netty disables TLS hostname verification under specific trust manager configurations, undermining secure communications and enabling man-in-the-middle attacks in Java-based middleware.",
+        "reason_zh": "Netty在特定信任管理器配置下会禁用TLS主机名验证，破坏安全通信机制，并使基于Java的中间件面临中间人攻击风险。"
+      },
+      {
+        "id": "CVE-2026-10840",
+        "reason": "Overly permissive ClusterRoleBinding in OpenShift Pipelines grants unnecessary write access to critical scheduler and cert-manager resources, increasing the attack surface for Kubernetes clusters.",
+        "reason_en": "Overly permissive ClusterRoleBinding in OpenShift Pipelines grants unnecessary write access to critical scheduler and cert-manager resources, increasing the attack surface for Kubernetes clusters.",
+        "reason_zh": "OpenShift Pipelines中过于宽松的ClusterRoleBinding授予了对关键调度器和cert-manager资源的不必要写权限，扩大了Kubernetes集群的攻击面。"
+      },
+      {
+        "id": "CVE-2026-68789",
+        "reason": "SQL injection in Azure SQL Database allows network-based privilege escalation by authorized users.",
+        "reason_en": "SQL injection in Azure SQL Database allows network-based privilege escalation by authorized users.",
+        "reason_zh": "Azure SQL Database中存在SQL注入漏洞，授权用户可利用该漏洞通过网络实现权限提升。"
+      },
+      {
+        "id": "CVE-2026-71064",
+        "reason": "Unauthenticated compromise in Oracle Database Server Portable Clusterware threatens core database infrastructure.",
+        "reason_en": "Unauthenticated compromise in Oracle Database Server Portable Clusterware threatens core database infrastructure.",
+        "reason_zh": "Oracle Database Server Portable Clusterware存在未授权利用漏洞，危及核心数据库基础设施。"
+      },
+      {
+        "id": "CVE-2026-70921",
+        "reason": "Critical TLS vulnerability in Oracle Hyperion Financial Management enables unauthenticated network compromise.",
+        "reason_en": "Critical TLS vulnerability in Oracle Hyperion Financial Management enables unauthenticated network compromise.",
+        "reason_zh": "Oracle Hyperion Financial Management存在严重TLS漏洞，攻击者无需认证即可通过网络入侵系统。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-71513",
+        "reason": "Allowlist bypass in NLTK's unpickler enables remote code execution by resolving dotted names outside the permitted namespace, threatening widely deployed NLP pipelines.",
+        "reason_en": "Allowlist bypass in NLTK's unpickler enables remote code execution by resolving dotted names outside the permitted namespace, threatening widely deployed NLP pipelines.",
+        "reason_zh": "NLTK的unpickler存在白名单绕过漏洞，可通过解析允许命名空间之外的点分名称实现远程代码执行，对广泛部署的NLP流水线构成威胁。"
+      },
+      {
+        "id": "CVE-2026-68766",
+        "reason": "Insecure parsing of restore files in hashcat allows command-line option injection, potentially redirecting outputs or executing arbitrary commands on security research workstations.",
+        "reason_en": "Insecure parsing of restore files in hashcat allows command-line option injection, potentially redirecting outputs or executing arbitrary commands on security research workstations.",
+        "reason_zh": "hashcat在处理恢复文件时存在不安全解析漏洞，可导致命令行参数注入，进而可能重定向输出结果或在安全研究工作站上执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-12505",
+        "reason": "Insecure root privilege dropping in cifs-utils allows local attackers to manipulate environment variables and hijack root-owned helper processes, escalating local privileges.",
+        "reason_en": "Insecure root privilege dropping in cifs-utils allows local attackers to manipulate environment variables and hijack root-owned helper processes, escalating local privileges.",
+        "reason_zh": "cifs-utils存在不安全的Root权限降级机制，允许本地攻击者篡改环境变量并劫持由Root运行的辅助进程，从而实现本地权限提升。"
+      },
+      {
+        "id": "CVE-2026-8020",
+        "reason": "Private IP validation bypass in the private-ip package enables server-side request forgery by exploiting unresolved multicast address ranges, impacting cloud and serverless functions.",
+        "reason_en": "Private IP validation bypass in the private-ip package enables server-side request forgery by exploiting unresolved multicast address ranges, impacting cloud and serverless functions.",
+        "reason_zh": "private-ip软件包存在私有IP验证绕过漏洞，攻击者可利用未正确解析的多播地址范围实施服务器端请求伪造（SSRF），影响云服务与无服务器函数。"
+      },
+      {
+        "id": "CVE-2026-43499",
+        "reason": "Linux kernel rtmutex proxy-lock rollback issue can cause stability and potential exploitation in real-time scheduling paths.",
+        "reason_en": "Linux kernel rtmutex proxy-lock rollback issue can cause stability and potential exploitation in real-time scheduling paths.",
+        "reason_zh": "Linux内核rtmutex的代理锁回滚缺陷可能导致实时调度路径出现系统不稳定及被利用的风险。"
+      },
+      {
+        "id": "CVE-2026-2050",
+        "reason": "Heap-based buffer overflow in GIMP HDR file parsing allows remote code execution when processing malicious images.",
+        "reason_en": "Heap-based buffer overflow in GIMP HDR file parsing allows remote code execution when processing malicious images.",
+        "reason_zh": "GIMP在解析HDR文件时存在基于堆的缓冲区溢出漏洞，处理恶意图像时可触发远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-70906",
+        "reason": "Vulnerability in Oracle Java SE 2D component allows unauthenticated network-based compromise across multiple protocols.",
+        "reason_en": "Vulnerability in Oracle Java SE 2D component allows unauthenticated network-based compromise across multiple protocols.",
+        "reason_zh": "Oracle Java SE 2D组件存在漏洞，攻击者无需认证即可通过多种网络协议入侵系统。"
+      }
+    ]
+  },
+  "summary": "This batch highlights critical remote code execution, authentication bypass, and privilege escalation flaws across cloud platforms, industrial firmware, and web applications, with several CVSS 10.0 vulnerabilities demanding immediate patching due to high real-world exploitability. | This batch is heavily dominated by high-severity Oracle Enterprise applications and Microsoft cloud platform flaws, with several actively exploited vulnerabilities requiring immediate patching.",
+  "summary_en": "This batch highlights critical remote code execution, authentication bypass, and privilege escalation flaws across cloud platforms, industrial firmware, and web applications, with several CVSS 10.0 vulnerabilities demanding immediate patching due to high real-world exploitability. | This batch is heavily dominated by high-severity Oracle Enterprise applications and Microsoft cloud platform flaws, with several actively exploited vulnerabilities requiring immediate patching.",
+  "summary_zh": "本批次重点披露了云平台、工业固件及Web应用中的关键远程代码执行、身份验证绕过与权限提升缺陷；其中多个CVSS 10.0评分漏洞因在实际环境中极易被利用，亟需立即修补。| 本批次以高严重性Oracle企业级应用及Microsoft云平台漏洞为主，其中数个已被实际利用的漏洞要求紧急修复。"
+}
