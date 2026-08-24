@@ -9,6 +9,7 @@ import os
 import re
 import json
 import logging
+import tempfile
 from typing import Optional, Dict, Any, List
 from datetime import datetime
 
@@ -335,8 +336,9 @@ All reason and summary text must be in English. Start the analysis and return th
 
         # Save raw response for debugging and return empty result.
         logger.error(f"Failed to parse AI response as JSON")
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
+        debug_dir = os.path.join(tempfile.gettempdir(), 'dailycve')
+        os.makedirs(debug_dir, exist_ok=True)
+        debug_file = os.path.join(debug_dir, 'ai_response_debug.txt')
         with open(debug_file, 'w', encoding='utf-8') as f:
             f.write(f"Raw Response (length={len(text)}):\n")
             f.write(text)

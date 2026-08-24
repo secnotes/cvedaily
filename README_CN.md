@@ -1,8 +1,17 @@
+<div align="center">
+
 # CVE 每日监控
 
 [English](README.md) | [中文](README_CN.md)
 
+[![Daily Update](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/dailycve)](https://github.com/secnotes/dailycve/commits)
+[![License](https://img.shields.io/github/license/secnotes/dailycve)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
+
 自动化的每日CVE监控系统，每日从MITRE CVE收集所有漏洞信息，并生成易于阅读的报告，可以快速自定义筛选高风险漏洞。
+
+</div>
 
 ## 🚀 功能特点
 
@@ -105,19 +114,6 @@
 | 🗄️ 数据库与中间件 | Oracle、MySQL、Apache、Nginx |
 | 📌 其他 | 不属于以上类别的漏洞 |
 
-### UI切换
+## ⚠️ 免责声明
 
-启用AI精选后，HTML报告侧边栏顶部会显示切换按钮:
-- **📋 全部漏洞**: 默认视图，显示所有采集的CVE
-- **🤖 AI精选**: AI筛选后的分类视图，包含推荐理由
-
-## 📈 输出文件
-
-执行后，系统会生成:
-
-- `docs/index.html`: 小型静态外壳（约 85 KB）--卡片由 report.js 从当日 JSON 数据按滚动分批渲染，即使单日 3000+ CVE，DOM 也只保留视口附近的卡片；过滤、AI精选切换、中英文切换、深色模式等功能不变
-- `docs/assets/report.css|js`: 共享样式与渲染器，按内容哈希做缓存破坏（浏览器跨天复用缓存）
-- `docs/data/[year]/cves_[date].json`: 当日完整原始数据--唯一的全量归档，报告页面直接消费
-- `docs/ai/[year]/ai_curated_[date].json`: 每日 AI 精选归档，推荐理由和摘要为中英双语（启用AI时生成）；报告的 AI 视图在生成时由此数据派生
-
-说明：每日 Markdown 归档（`docs/reports/`）已被 JSON 数据文件取代；历史报告仍保留在 git 历史中。
+本项目是一个**独立的社区项目**，与 MITRE、CVE Program、NVD、CISA 等任何官方漏洞数据库均无关联，也未获得其认可或支持。"CVE" 及 CVE 标志是 The MITRE Corporation 的注册商标。本项目仅对上述来源的公开数据进行汇总，用于信息参考目的。数据的准确性与时效性完全取决于上游来源；如需权威的漏洞信息，请始终以官方来源为准。

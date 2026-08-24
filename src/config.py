@@ -15,7 +15,6 @@ class Config:
 
     # Output settings
     REPORT_HTML_PATH = "docs/index.html"
-    REPORT_DIR = f"docs/reports/{datetime.now().year}"
 
     # AI Curation settings (requires AI_API_KEY in environment)
     AI_CURATION_ENABLED = os.getenv('AI_API_KEY') is not None
@@ -76,11 +75,6 @@ class Config:
         "Databases & Middleware": "🗄️",
         "Other": "📌",
     }
-
-    @staticmethod
-    def get_current_year_report_dir():
-        """Get the report directory for the current year"""
-        return f"docs/reports/{datetime.now().year}"
 
     @staticmethod
     def get_daily_ai_curated_path(date=None):

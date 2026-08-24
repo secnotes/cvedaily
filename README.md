@@ -1,8 +1,17 @@
+<div align="center">
+
 # CVE Daily
 
 [English](README.md) | [中文](README_CN.md)
 
+[![Daily Update](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/dailycve)](https://github.com/secnotes/dailycve/commits)
+[![License](https://img.shields.io/github/license/secnotes/dailycve)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
+
 Automated daily CVE monitoring system that collects all vulnerability information from MITRE CVE and generates human-readable reports, allowing for quick customization to filter high-risk vulnerabilities.
+
+</div>
 
 ## 🚀 Features
 
@@ -105,19 +114,6 @@ Vulnerabilities are categorized into the following domains:
 | 🗄️ Database & Middleware | Oracle, MySQL, Apache, Nginx |
 | 📌 Other | Anything not fitting above categories |
 
-### UI Toggle
+## ⚠️ Disclaimer
 
-When AI curation is enabled, the HTML report displays a toggle button at the top of the sidebar:
-- **📋 All Vulnerabilities**: Default view showing all collected CVEs
-- **🤖 AI Curated**: AI-filtered view with categorized vulnerabilities and recommendation reasons
-
-## 📈 Output Files
-
-After execution, the system generates:
-
-- `docs/index.html`: Small static shell (~85 KB) for the interactive dashboard - cards are rendered client-side from the daily JSON in scroll-triggered batches, so the DOM only holds a viewport's worth of cards even on days with 3000+ CVEs
-- `docs/assets/report.css|js`: Shared stylesheet/renderer, cache-busted by content hash (browsers reuse them across days)
-- `docs/data/[year]/cves_[date].json`: The day's complete raw data - single full-fidelity archive consumed by the report page (bilingual EN/ZH, dark mode, filtering, AI curation toggle all work as before)
-- `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual (EN/ZH) reasons and summary (when AI is enabled); the report's AI view is derived from this data at generation time
-
-Note: daily Markdown archives (`docs/reports/`) were superseded by the JSON data files; existing historical reports remain in git history.
+This is an **independent, community-driven project**. It is NOT affiliated with, endorsed by, or connected to MITRE, the CVE Program, NVD, CISA, or any other official vulnerability database. "CVE" and the CVE logo are registered trademarks of The MITRE Corporation. This project merely aggregates publicly available data from these sources for informational purposes. Data accuracy and timeliness depend entirely on the upstream sources; always refer to the official sources for authoritative vulnerability information.

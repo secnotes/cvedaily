@@ -5,64 +5,70 @@ This project implements an automated system to collect, filter, and report high-
 ## Overview
 
 CVE Daily is a security intelligence tool that:
-- Aggregates CVE data from public sources (NVD, GitHub Advisories)
-- Filters vulnerabilities based on risk indicators (CVSS, EPSS, CISA KEV)
-- Generates daily HTML reports for immediate consumption
-- Archives historical data in Markdown format organized by year
-- Automatically updates via GitHub Actions
+- Downloads the previous day's CVE delta from CVEProject/cvelistV5 (the official CVE list repository)
+- Enriches each CVE with CISA KEV status and EPSS scores
+- Optionally curates high-risk vulnerabilities via an OpenAI-compatible AI API
+- Publishes a static, interactive HTML report under `docs/` served by GitHub Pages or any static host
+- Archives every day's complete raw data as JSON, organized by year
+- Updates automatically via GitHub Actions
 
 ## Architecture
 
 ### Data Sources
-1. **NVD (National Vulnerability Database)**: Primary source for CVE details
-2. **CISA KEV (Known Exploited Vulnerabilities)**: List of actively exploited vulnerabilities
-3. **EPSS (Exploit Prediction Scoring System)**: Probability of exploitation
-4. **GitHub Security Advisories**: Additional vulnerability intelligence
+1. **CVEProject/cvelistV5**: Daily end-of-day delta ZIP from GitHub Releases (primary CVE source, CVE Record Format v5)
+2. **CISA KEV (Known Exploited Vulnerabilities)**: Catalog of actively exploited vulnerabilities
+3. **EPSS (Exploit Prediction Scoring System)**: FIRST API, queried in batches for exploitation probability
+4. **AI API (optional)**: Any OpenAI-compatible chat API for curation and translation
 
 ### Risk Classification
 A CVE is classified as "high-risk" if it meets ANY of these criteria:
-- CVSS score > 7.0 (High/Critical severity)
+- CVSS score > 7.0 (High or Critical severity)
 - Listed in CISA KEV catalog
-- EPSS score > 0.10 (10%+ probability of exploitation)
+- EPSS score ≥ 0.01 (1%+ probability of exploitation)
+
+Note: CVEs without any CVSS score are dropped at collection time; the report's
+"Total" counts CVEs that have a score or are otherwise high-risk.
 
 ### Components
 
 #### 1. Collector (`src/collector.py`)
-- Fetches CVE data from NVD API (both newly published and recently modified CVEs)
-- Downloads CISA KEV list
-- Retrieves EPSS scores
-- Extracts vendor/product information from CVE configurations or by keyword analysis
-- Filters high-risk vulnerabilities
-- Optional AI enhancement of vulnerability descriptions
+- Downloads the end-of-day delta ZIP for the target date (default: yesterday, `LOOKBACK_DAYS`)
+- Parses the CVE Record Format v5: descriptions (with `en`/`en-US` fallback), CVSS v4/v3/v2 scores, vendors/products, publish/update dates
+- Flags CISA KEV membership
+- Fetches EPSS scores in batches (with per-CVE retry fallback)
+- Sorts by the more recent of published/modified date
 
-#### 2. Reporter (`src/reporter.py`)
-- Generates styled HTML reports with rich information and modern UI
-- Creates archival Markdown documents
-- Formats data for readability
-- Includes vulnerability metrics (CVSS, EPSS, CISA KEV status)
-- Provides direct links to NVD, MITRE, and EPSS for each CVE
-- Distinguishes between newly published and recently modified CVEs
-- Features interactive filtering system with dual-panel layout
-- Optimized sidebar with scrollable vendor filter list and Show More functionality
-- Implements advanced composite filtering allowing combination of filters
+#### 2. AI Provider (`src/ai_provider.py`) & Translator (`src/translator.py`)
+- OpenAI-compatible client (OpenAI, DeepSeek, Alibaba DashScope, Moonshot, Zhipu/GLM, ...)
+- Sends eligible CVEs (CVSS ≥ 7.0 with a description) in batches of 100 for categorization
+- Robust JSON parsing (handles code fences and `<think>` blocks)
+- Translator adds the missing language (EN/ZH) to reasons and summaries, validating
+  that outputs are actually in the target language
 
-#### 3. Configuration (`src/config.py`)
-- Centralized settings management
-- Risk thresholds
-- API endpoints
-- File paths
+#### 3. Reporter (`src/reporter.py`)
+- Writes the day's full-fidelity JSON archive and a date manifest
+- Copies shared CSS/JS assets with content-hash cache busting
+- Renders a small Jinja2 shell (`docs/index.html`); all CVE cards are rendered
+  client-side from the JSON
 
-#### 4. Automation (`github/workflows/daily-update.yml`)
-- Scheduled execution (daily at 00:00 UTC)
-- Automatic commit and push of updated reports
-- Runs without human intervention
+#### 4. Frontend (`src/static/report.js`, `report.css`, `src/templates/report.html`)
+- Fetches the day's JSON and renders cards in scroll-triggered batches (~60 at a
+  time), so the DOM stays small even on days with 3000+ CVEs
+- Interactive filtering, history date switcher, bilingual UI, dark mode
+
+#### 5. Configuration (`src/config.py`)
+- Centralized settings: risk thresholds, lookback days, output paths, AI categories
+
+#### 6. Automation (`.github/workflows/daily-update.yml`)
+- Scheduled execution (daily at 01:00 UTC), plus manual dispatch
+- Commits and pushes updated `docs/` content automatically
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd cvedaily
+git clone https://github.com/secnotes/dailycve.git
+cd dailycve
 
 # Create virtual environment
 python3 -m venv venv
@@ -80,98 +86,77 @@ cp .env.example .env
 
 ### Manual Execution
 ```bash
-# Activate virtual environment
 source venv/bin/activate
-
-# Run daily collection
 python src/main.py
 ```
 
 ### With AI Curation
 ```bash
-# Set AI API key
+# AI curation activates automatically when AI_API_KEY is set
 export AI_API_KEY=your_api_key_here
+# Optional overrides:
+export AI_MODEL=gpt-4o-mini
+export AI_BASE_URL=https://api.openai.com/v1
 python src/main.py
 ```
 
-### Test Script
-```bash
-# Run the test script
-python test_collector.py
-```
+### Proxy
+The collector honors standard proxy environment variables
+(`HTTPS_PROXY` / `HTTP_PROXY`, lowercase variants too); set them in `.env`
+if the target sources are unreachable from your network.
 
 ## Output Files
 
-- `report.html`: Current day's high-risk CVEs in HTML format (rich UI with metrics and interactive filters)
-- `reports/YYYY/daily_cve_YYYYMMDD.md`: Daily Markdown archives organized by year
-- Generated reports include:
-  - CVE identifier (e.g., CVE-2023-1234)
-  - Enhanced vulnerability descriptions
-  - CVSS scores with severity indicators
-  - EPSS probabilities
-  - CISA KEV listing status
-  - Direct links to NVD, MITRE, and EPSS pages
-  - Publication dates and modification dates
-  - Status indicators (New vs Recently Updated)
-  - Vendor/Product classifications
+- `docs/index.html`: Small static shell (~22 KB) for the interactive dashboard
+- `docs/assets/report.css|js`: Shared stylesheet/renderer, cache-busted by content hash
+- `docs/data/[year]/cves_[date].json`: The day's complete raw data — the single full-fidelity archive
+- `docs/data/index.json`: Manifest of available dates (powers the history switcher)
+- `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual reasons and summary (when AI is enabled)
+
+Each generated report includes:
+- CVE identifier (e.g., CVE-2026-1234)
+- Description (rendered with code-block support)
+- CVSS scores with severity indicators
+- EPSS probabilities
+- CISA KEV listing status
+- Direct links to NVD, MITRE, and EPSS pages
+- Publication/modification dates and New vs Recently Updated status
+- Vendor classifications
 
 ## Report Features
 
-The HTML report includes:
+### Client-Side Rendering
+- Cards are rendered from the daily JSON in scroll-triggered batches; only a
+  viewport's worth of cards lives in the DOM at any time
+- The shell and assets stay byte-identical across days, so browsers reuse caches
 
-### Advanced Interactive Filtering System
-- **Dual-panel Layout**: Main content panel and filtering sidebar
-- **Scrollable Sidebar**: The vendor filter list is scrollable with max-height (85vh) and custom scrollbars
-- **Applied Filters Display**: Shows currently active filters at the top of the sidebar
-- **Summary Filters**: Click on any statistic in the summary to filter (e.g., "In CISA KEV" button)
-- **Composite Filtering**: Combines multiple filter types simultaneously (Status + Vendor/Product filters)
-- **Filter Toggle System**: Click to add/remove filters, allowing multiple simultaneous selections
-- **Real-time Filter Status**: Shows currently applied filters at the top of the sidebar
-- **Vendor Filters**: Sidebar lists top 20 vendors/products by count with "Show More" button; click to show additional vendors
-- **Show More Functionality**: Expand vendor list to see all available filters (37 more in example)
-- **Status Filters**: Filter by "In CISA KEV", "High EPSS", "Recently Modified", etc. with toggle capability
-- **Card-level Filters**: Each CVE card has clickable tags (CVSS, EPSS, CISA KEV, etc.) to filter
-- **Vendor Tags**: Each CVE displays clickable vendor tags that filter the report
-- **Clear All Filters Button**: Reset all filters to view all CVEs
+### Interactive Filtering
+- **Summary Cards**: Click any statistic (Total, High Risk, CISA KEV, High EPSS) to filter
+- **Severity Filters**: Critical / High / Medium / Low
+- **Status Filters**: Recently Modified / Newly Published
+- **Vendor Filters**: Top 10 vendors by count, with "Show More" to reveal the rest
+- **Card-Level Filters**: Click CVSS / EPSS / KEV tags or vendor tags on any card
+- One selection per filter group; active groups combine with AND
 
-### Filter Combinations Supported
-- Status + Vendor (e.g., "Recently Modified" AND "Vendor: google")
-- Multiple vendors (e.g., "Vendor: microsoft" OR "Vendor: apple")
-- Multiple statuses (e.g., "High EPSS" AND "In CISA KEV")
-- Mixed combinations (e.g., "Newly Published" AND ("Vendor: google" OR "Vendor: microsoft"))
+### History Browsing
+- Date switcher (dropdown + prev/next arrows) loads any archived day client-side
+- URL hash (`#YYYY-MM-DD`) links directly to a specific day; back/forward buttons work
 
-### Optimized Vendor Handling
-- **Top 20 Vendors**: The sidebar initially shows the top 20 vendors by vulnerability count
-- **Show More Button**: Reveal additional vendors beyond the initial 20 with a single click
-- **Smart Scrolling**: Custom scrollbar styling for better UX
-- **Responsive Limits**: Long vendor lists are constrained to prevent UI issues
-- **Applied Filters Display**: Shows currently active filters at the top of the sidebar for better visibility
+### AI Curated View
+- Toggle between all vulnerabilities and the AI-curated, categorized view with
+  recommendation reasons (hidden automatically on days without AI data)
 
-### Visual Elements
-- 📊 Summary statistics dashboard
-- 🛡️ CVSS severity ratings with color coding
-- 📈 EPSS scores showing exploitation likelihood
-- 🇺🇸 CISA KEV indicators for known exploited vulnerabilities
-- 🔗 Direct links to NVD, MITRE, and EPSS for each CVE
-- 🔄 Indicators for recently modified CVEs vs new publications
-- 🏢 Vendor/product tags for classification
-- 📱 Responsive design for desktop and mobile viewing
-- 🎨 Modern UI with hover effects and card-based layout
-
-## Markdown Report Features
-
-The Markdown report includes:
-- **Vendor Summary Table**: Top 10 vendors by vulnerability count at the top of the report
-- **Detailed CVE Listings**: Each CVE with metrics and metadata
-- **Organized Format**: Clear separation between CVE entries
+### UI
+- Bilingual interface (English / 中文) and light/dark theme, both persisted
+- Responsive layout: overlay filter sidebar on mobile, back-to-top button
 
 ## Configuration Options
 
 Edit `src/config.py` to customize:
-- Risk thresholds (CVSS and EPSS)
-- Lookback days
-- API endpoints
+- Risk thresholds (`CVSS_THRESHOLD`, `EPSS_THRESHOLD`)
+- Lookback days (`LOOKBACK_DAYS`)
 - Output paths
+- AI category taxonomy
 
 ## GitHub Actions Setup
 
@@ -179,31 +164,30 @@ Edit `src/config.py` to customize:
 2. Copy this project to the repository
 3. Optionally add `AI_API_KEY` to repository secrets (Settings → Secrets and variables → Actions)
 4. Add `AI_MODEL` and `AI_BASE_URL` to repository variables (Settings → Secrets and variables → Actions)
-5. The workflow will run automatically daily at 00:00 UTC
+5. The workflow runs automatically daily at 01:00 UTC and pushes updated `docs/`
 
 ## Dependencies
 
-The system requires Python 3.8+ and these packages:
+The system requires Python 3.10+ (as used in CI) and these packages (see `requirements.txt`):
 - requests: HTTP requests
-- beautifulsoup4: HTML parsing
-- pandas: Data manipulation (optional, for advanced analysis)
-- openai: AI enhancement (optional)
+- openai: OpenAI-compatible AI client
+- httpx: HTTP client underlying the AI calls
 - python-dotenv: Environment variable management
-- html2text: HTML to text conversion
 - jinja2: HTML template rendering
 
 ## Troubleshooting
 
 - **Missing dependencies**: Run `pip install -r requirements.txt`
 - **Rate limiting**: The system uses public APIs which may have rate limits
-- **Network connectivity**: Ensure network access to data sources
-- **No CVEs found**: This is expected on days with no high-risk vulnerabilities
+- **Network connectivity**: Ensure network access to GitHub Releases, CISA, and FIRST APIs (or configure a proxy)
+- **No CVEs found**: The delta ZIP for a given day may be published late; this is expected around the daily cutoff
+- **AI parse failures**: Raw AI responses are dumped to a debug file (path is printed in the log) for inspection
 
 ## Security Considerations
 
 - Uses only public, unauthenticated APIs where possible
 - Minimal external dependencies
-- Sanitizes all data inputs
+- All data from external sources is escaped at render time in the browser
 - Designed for transparency and auditability
 
 ## License
