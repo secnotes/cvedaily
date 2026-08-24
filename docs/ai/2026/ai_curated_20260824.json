@@ -1,0 +1,267 @@
+{
+  "analysis_date": "2026-08-24",
+  "total_analyzed": 113,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2025-1244",
+        "reason": "Command injection in Emacs allows arbitrary shell execution by tricking users into visiting malicious URLs or redirects.",
+        "reason_en": "Command injection in Emacs allows arbitrary shell execution by tricking users into visiting malicious URLs or redirects.",
+        "reason_zh": "Emacs 中的命令注入漏洞允许通过诱使用户访问恶意 URL 或重定向链接来执行任意 Shell 命令。"
+      },
+      {
+        "id": "CVE-2026-74450",
+        "reason": "Concurrent power table modifications in the AMD GPU driver cause use-after-free vulnerabilities during sysfs access.",
+        "reason_en": "Concurrent power table modifications in the AMD GPU driver cause use-after-free vulnerabilities during sysfs access.",
+        "reason_zh": "AMD GPU 驱动中并发的电源表修改会在 sysfs 访问期间引发释放后使用（use-after-free）漏洞。"
+      },
+      {
+        "id": "CVE-2026-68253",
+        "reason": "Buffer overflow occurs before bounds checking in the Intel i915 HDCP stream handling routine, risking kernel instability.",
+        "reason_en": "Buffer overflow occurs before bounds checking in the Intel i915 HDCP stream handling routine, risking kernel instability.",
+        "reason_zh": "Intel i915 HDCP 流处理例程在边界检查前发生缓冲区溢出，可能导致内核不稳定。"
+      },
+      {
+        "id": "CVE-2025-6020",
+        "reason": "Local privilege escalation via race conditions and symlink attacks in Linux-PAM's namespace module allows standard users to gain root access on affected systems.",
+        "reason_en": "Local privilege escalation via race conditions and symlink attacks in Linux-PAM's namespace module allows standard users to gain root access on affected systems.",
+        "reason_zh": "Linux-PAM 的命名空间模块中存在利用竞态条件和符号链接攻击的本地权限提升漏洞，使普通用户能够在受影响系统上获取 root 权限。"
+      },
+      {
+        "id": "CVE-2024-12085",
+        "reason": "Notable exploitability highlights the risk of stack memory disclosure during rsync checksum comparisons, potentially leaking sensitive system data during file synchronization operations.",
+        "reason_en": "Notable exploitability highlights the risk of stack memory disclosure during rsync checksum comparisons, potentially leaking sensitive system data during file synchronization operations.",
+        "reason_zh": "该漏洞具有较高的可利用性，rsync 校验和比较过程中存在栈内存泄露风险，可能在文件同步操作中导致敏感系统数据外泄。"
+      }
+    ],
+    "Mobile Security": [],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-78154",
+        "reason": "Backend API flaw in open-wearables allows manipulation of invitation codes, potentially compromising device onboarding workflows.",
+        "reason_en": "Backend API flaw in open-wearables allows manipulation of invitation codes, potentially compromising device onboarding workflows.",
+        "reason_zh": "open-wearables 的后端 API 存在缺陷，允许篡改邀请码，可能破坏设备初始化流程。"
+      },
+      {
+        "id": "CVE-2026-64585",
+        "reason": "Freeing CAN network devices before killing URBs triggers kernel crashes upon hardware disconnection.",
+        "reason_en": "Freeing CAN network devices before killing URBs triggers kernel crashes upon hardware disconnection.",
+        "reason_zh": "在终止 URB 之前释放 CAN 网络设备，会在硬件断开连接时触发内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-64583",
+        "reason": "Improper IRQ teardown ordering in USB gadget drivers allows handlers to execute after driver removal, causing memory corruption.",
+        "reason_en": "Improper IRQ teardown ordering in USB gadget drivers allows handlers to execute after driver removal, causing memory corruption.",
+        "reason_zh": "USB gadget 驱动中不恰当的 IRQ 清理顺序会导致处理程序在驱动卸载后继续执行，从而引发内存损坏。"
+      },
+      {
+        "id": "CVE-2026-78136",
+        "reason": "Eval injection via crafted CSV files in CHIRP radio programming software enables arbitrary code execution, compromising connected amateur radio hardware and firmware updates.",
+        "reason_en": "Eval injection via crafted CSV files in CHIRP radio programming software enables arbitrary code execution, compromising connected amateur radio hardware and firmware updates.",
+        "reason_zh": "CHIRP 无线电编程软件可通过构造的 CSV 文件实现 Eval 注入，进而执行任意代码，危及已连接的业余无线电硬件及固件更新过程。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-50540",
+        "reason": "Unvalidated configuration path annotations in Kata Containers enable host code execution via the container runtime.",
+        "reason_en": "Unvalidated configuration path annotations in Kata Containers enable host code execution via the container runtime.",
+        "reason_zh": "Kata Containers 中未经验证的路径配置注解可通过容器运行时实现主机代码执行。"
+      },
+      {
+        "id": "CVE-2026-7374",
+        "reason": "Improper symlink validation in KubeVirt's virt-handler allows authenticated users to escalate privileges to root via console sockets.",
+        "reason_en": "Improper symlink validation in KubeVirt's virt-handler allows authenticated users to escalate privileges to root via console sockets.",
+        "reason_zh": "KubeVirt 的 virt-handler 中存在不恰当的符号链接验证问题，允许已认证用户通过控制台套接字将权限提升至 root。"
+      },
+      {
+        "id": "CVE-2026-16242",
+        "reason": "Missing cluster CA certificate validation in Konnectivity proxy-server permits unauthenticated remote agent connections to control planes.",
+        "reason_en": "Missing cluster CA certificate validation in Konnectivity proxy-server permits unauthenticated remote agent connections to control planes.",
+        "reason_zh": "Konnectivity proxy-server 缺少集群 CA 证书验证，允许未经认证的远程代理连接到控制平面。"
+      },
+      {
+        "id": "CVE-2024-45497",
+        "reason": "HostPath volume mounts in OpenShift build pods expose kubelet credentials, enabling lateral movement and cluster compromise.",
+        "reason_en": "HostPath volume mounts in OpenShift build pods expose kubelet credentials, enabling lateral movement and cluster compromise.",
+        "reason_zh": "OpenShift 构建 Pod 中的 HostPath 卷挂载会暴露 kubelet 凭据，从而导致攻击者能够进行横向移动并攻陷集群。"
+      },
+      {
+        "id": "CVE-2026-42965",
+        "reason": "Misconfigured EndpointSlices allow the OpenShift Router to proxy requests to cloud metadata endpoints, leaking instance credentials.",
+        "reason_en": "Misconfigured EndpointSlices allow the OpenShift Router to proxy requests to cloud metadata endpoints, leaking instance credentials.",
+        "reason_zh": "错误配置的 EndpointSlices 会使 OpenShift Router 将请求代理至云元数据端点，导致实例凭据泄露。"
+      },
+      {
+        "id": "CVE-2026-50237",
+        "reason": "Enables namespace tenants to perform server-side request forgery and inject malicious Helm charts, directly threatening cluster integrity and supply chain security.",
+        "reason_en": "Enables namespace tenants to perform server-side request forgery and inject malicious Helm charts, directly threatening cluster integrity and supply chain security.",
+        "reason_zh": "该漏洞使命名空间租户能够发起服务端请求伪造（SSRF）并注入恶意 Helm 图表，直接威胁集群完整性与供应链安全。"
+      },
+      {
+        "id": "CVE-2026-1784",
+        "reason": "Insufficient YAML validation in OpenShift Route specifications allows HAProxy configuration injection, risking traffic interception or service disruption in cloud environments.",
+        "reason_en": "Insufficient YAML validation in OpenShift Route specifications allows HAProxy configuration injection, risking traffic interception or service disruption in cloud environments.",
+        "reason_zh": "OpenShift Route 规范中 YAML 验证不足可导致 HAProxy 配置注入，在云环境中存在流量拦截或服务中断的风险。"
+      },
+      {
+        "id": "CVE-2026-49332",
+        "reason": "Exploits header normalization differences in the OAuth proxy to spoof user identities, potentially bypassing authentication controls in containerized workloads.",
+        "reason_en": "Exploits header normalization differences in the OAuth proxy to spoof user identities, potentially bypassing authentication controls in containerized workloads.",
+        "reason_zh": "该漏洞利用 OAuth 代理中的头部规范化差异来伪造用户身份，可能绕过容器化工作负载的身份验证控制。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-74474",
+        "reason": "Missing header validation in the VXLAN transmit path risks out-of-bounds memory reads during packet processing.",
+        "reason_en": "Missing header validation in the VXLAN transmit path risks out-of-bounds memory reads during packet processing.",
+        "reason_zh": "VXLAN 传输路径中缺少头部验证，在数据包处理过程中存在越界内存读取风险。"
+      },
+      {
+        "id": "CVE-2026-74476",
+        "reason": "Improper fragment list conversion in veth interfaces leads to memory corruption during XDP acceleration.",
+        "reason_en": "Improper fragment list conversion in veth interfaces leads to memory corruption during XDP acceleration.",
+        "reason_zh": "veth 接口中不恰当的片段列表转换会在 XDP 加速期间导致内存损坏。"
+      },
+      {
+        "id": "CVE-2026-68431",
+        "reason": "SMB2 transform requests bypass minimum PDU size checks, enabling protocol confusion and potential exploitation.",
+        "reason_en": "SMB2 transform requests bypass minimum PDU size checks, enabling protocol confusion and potential exploitation.",
+        "reason_zh": "SMB2 转换请求可绕过最小 PDU 大小检查，导致协议混淆并可能被利用。"
+      },
+      {
+        "id": "CVE-2026-68136",
+        "reason": "Missing flush validation in GRO list processing corrupts packet segmentation offload states and disrupts network performance.",
+        "reason_en": "Missing flush validation in GRO list processing corrupts packet segmentation offload states and disrupts network performance.",
+        "reason_zh": "GRO 列表处理中缺少刷新验证会损坏数据包分段卸载状态，进而影响网络性能。"
+      },
+      {
+        "id": "CVE-2026-74575",
+        "reason": "Use-after-free on Thunderbolt device disconnect can crash the system or escalate local privileges via delayed work queues.",
+        "reason_en": "Use-after-free on Thunderbolt device disconnect can crash the system or escalate local privileges via delayed work queues.",
+        "reason_zh": "Thunderbolt 设备断开连接时的释放后使用漏洞可通过延迟工作队列导致系统崩溃或提升本地权限。"
+      },
+      {
+        "id": "CVE-2026-47895",
+        "reason": "Improper memory handling in strongSwan's EAP identity parsing triggers a double-free vulnerability, which can cause denial-of-service or potential code execution in network security gateways.",
+        "reason_en": "Improper memory handling in strongSwan's EAP identity parsing triggers a double-free vulnerability, which can cause denial-of-service or potential code execution in network security gateways.",
+        "reason_zh": "strongSwan 的 EAP 身份解析中存在不恰当的内存处理问题，会触发双重释放漏洞，可能导致网络安全网关出现拒绝服务或潜在代码执行。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-64280",
+        "reason": "Unbounded userspace DMA length in FPGA port ioctls enables arbitrary kernel memory access and potential firmware tampering.",
+        "reason_en": "Unbounded userspace DMA length in FPGA port ioctls enables arbitrary kernel memory access and potential firmware tampering.",
+        "reason_zh": "FPGA 端口 ioctl 中无界的用户态 DMA 长度可实现任意内核内存访问，并存在潜在的固件篡改风险。"
+      },
+      {
+        "id": "CVE-2026-64269",
+        "reason": "Unchecked RDMA write lengths allow peers to trigger out-of-bounds memory operations on industrial storage servers.",
+        "reason_en": "Unchecked RDMA write lengths allow peers to trigger out-of-bounds memory operations on industrial storage servers.",
+        "reason_zh": "未检查的 RDMA 写入长度允许对等方在工业存储服务器上触发越界内存操作。"
+      },
+      {
+        "id": "CVE-2025-39758",
+        "reason": "Incorrect byte count calculation in RDMA TCP sendpages causes data corruption and transmission failures in high-throughput environments.",
+        "reason_en": "Incorrect byte count calculation in RDMA TCP sendpages causes data corruption and transmission failures in high-throughput environments.",
+        "reason_zh": "RDMA TCP sendpages 中错误的字节数计算会在高吞吐量环境中导致数据损坏和传输失败。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-76604",
+        "reason": "PHP form element in Fabrik directly executes user-supplied code, granting immediate remote code execution on vulnerable sites.",
+        "reason_en": "PHP form element in Fabrik directly executes user-supplied code, granting immediate remote code execution on vulnerable sites.",
+        "reason_zh": "Fabrik 中的 PHP 表单元素会直接执行用户提供的代码，导致易受攻击的网站立即面临远程代码执行风险。"
+      },
+      {
+        "id": "CVE-2026-1615",
+        "reason": "Unsafe evaluation of JSON Path expressions in the jsonpath library allows arbitrary code execution in backend applications.",
+        "reason_en": "Unsafe evaluation of JSON Path expressions in the jsonpath library allows arbitrary code execution in backend applications.",
+        "reason_zh": "jsonpath 库中对 JSON Path 表达式的不安全评估可在后端应用中执行任意代码。"
+      },
+      {
+        "id": "CVE-2025-1022",
+        "reason": "Bypass of input validation in browsershot enables local file read attacks via crafted file URIs lacking proper slash escaping.",
+        "reason_en": "Bypass of input validation in browsershot enables local file read attacks via crafted file URIs lacking proper slash escaping.",
+        "reason_zh": "browsershot 的输入验证绕过漏洞可通过缺乏正确斜杠转义的构造文件 URI 实现本地文件读取攻击。"
+      },
+      {
+        "id": "CVE-2026-7808",
+        "reason": "Multiple HTML sanitization bypasses in justhtml allow dangerous scripts and styles to survive filtering, leading to XSS.",
+        "reason_en": "Multiple HTML sanitization bypasses in justhtml allow dangerous scripts and styles to survive filtering, leading to XSS.",
+        "reason_zh": "justhtml 中存在多项 HTML 过滤绕过漏洞，导致危险脚本和样式未被清除，从而引发 XSS 漏洞。"
+      },
+      {
+        "id": "CVE-2026-76607",
+        "reason": "A critical ACL bypass in the Fabrik Joomla extension allows unauthenticated attackers to download restricted resources, severely compromising web application access controls.",
+        "reason_en": "A critical ACL bypass in the Fabrik Joomla extension allows unauthenticated attackers to download restricted resources, severely compromising web application access controls.",
+        "reason_zh": "Fabrik Joomla扩展中存在关键ACL绕过漏洞，允许未授权攻击者下载受限资源，严重破坏Web应用访问控制机制。"
+      },
+      {
+        "id": "CVE-2026-10053",
+        "reason": "An authenticated path traversal flaw in GitLab's package registry can lead to remote code execution, posing a direct threat to CI/CD pipelines and developer ecosystems.",
+        "reason_en": "An authenticated path traversal flaw in GitLab's package registry can lead to remote code execution, posing a direct threat to CI/CD pipelines and developer ecosystems.",
+        "reason_zh": "GitLab软件包注册中心存在已认证路径遍历漏洞，可导致远程代码执行，对CI/CD流水线及开发者生态构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-14764",
+        "reason": "Remote SQL injection in an administrative event management interface exposes sensitive reservation databases to extraction or manipulation by external attackers.",
+        "reason_en": "Remote SQL injection in an administrative event management interface exposes sensitive reservation databases to extraction or manipulation by external attackers.",
+        "reason_zh": "管理端事件管理界面存在远程SQL注入漏洞，导致敏感预订数据库易受外部攻击者提取或篡改。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2025-49796",
+        "reason": "Memory corruption triggered by specific sch:name XML elements can crash libxml2 or cause undefined behavior in parsing pipelines.",
+        "reason_en": "Memory corruption triggered by specific sch:name XML elements can crash libxml2 or cause undefined behavior in parsing pipelines.",
+        "reason_zh": "特定sch:name XML元素可触发内存损坏，导致libxml2崩溃或在解析流程中引发未定义行为。"
+      },
+      {
+        "id": "CVE-2025-49794",
+        "reason": "Use-after-free vulnerability during XPath parsing enables potential code execution via malicious XML documents processed by middleware.",
+        "reason_en": "Use-after-free vulnerability during XPath parsing enables potential code execution via malicious XML documents processed by middleware.",
+        "reason_zh": "XPath解析过程中存在释放后使用漏洞，中间件在处理恶意XML文档时可能触发代码执行。"
+      },
+      {
+        "id": "CVE-2025-5914",
+        "reason": "Integer overflow in libarchive's RAR extraction leads to double-free conditions and memory corruption in archive handling tools.",
+        "reason_en": "Integer overflow in libarchive's RAR extraction leads to double-free conditions and memory corruption in archive handling tools.",
+        "reason_zh": "libarchive的RAR解压模块存在整数溢出漏洞，会在归档处理工具中引发双重释放及内存损坏。"
+      },
+      {
+        "id": "CVE-2026-78155",
+        "reason": "Critical privilege escalation within the StackGres PostgreSQL operator allows compromised low-privilege database tenants to seize full administrative control over the cluster.",
+        "reason_en": "Critical privilege escalation within the StackGres PostgreSQL operator allows compromised low-privilege database tenants to seize full administrative control over the cluster.",
+        "reason_zh": "StackGres PostgreSQL Operator内存在关键权限提升漏洞，可使已被攻陷的低权限数据库租户获取集群的完全管理控制权。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-78147",
+        "reason": "Deserialization flaw in llama.cpp's RPC server may lead to remote code execution via manipulated tensor parameters.",
+        "reason_en": "Deserialization flaw in llama.cpp's RPC server may lead to remote code execution via manipulated tensor parameters.",
+        "reason_zh": "llama.cpp的RPC服务器存在反序列化漏洞，攻击者可通过篡改张量参数实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-72191",
+        "reason": "Missing split-point offset validation in NTFS buffer insertion enables out-of-bounds kernel memory access during file operations.",
+        "reason_en": "Missing split-point offset validation in NTFS buffer insertion enables out-of-bounds kernel memory access during file operations.",
+        "reason_zh": "NTFS缓冲区插入操作缺失分割点偏移量验证，致使文件操作期间发生越界内核内存访问。"
+      },
+      {
+        "id": "CVE-2026-72069",
+        "reason": "Premature RCU protection release before lock unlock creates a window for use-after-free attacks in core kernel synchronization.",
+        "reason_en": "Premature RCU protection release before lock unlock creates a window for use-after-free attacks in core kernel synchronization.",
+        "reason_zh": "锁解锁前过早释放RCU保护，为核心内核同步机制中的释放后使用攻击提供了可利用的时间窗口。"
+      }
+    ]
+  },
+  "summary": "This batch highlights critical vulnerabilities across cloud orchestration, kernel networking, and web frameworks, with particular emphasis on privilege escalation paths in KubeVirt/Kata and widespread RCE/SQLi flaws in popular CMS extensions. | This batch highlights critical cloud infrastructure misconfigurations, web application access control failures, and high-impact privilege escalation flaws requiring immediate patching.",
+  "summary_en": "This batch highlights critical vulnerabilities across cloud orchestration, kernel networking, and web frameworks, with particular emphasis on privilege escalation paths in KubeVirt/Kata and widespread RCE/SQLi flaws in popular CMS extensions. | This batch highlights critical cloud infrastructure misconfigurations, web application access control failures, and high-impact privilege escalation flaws requiring immediate patching.",
+  "summary_zh": "本批次重点披露了云编排、内核网络及Web框架中的关键漏洞，尤其强调KubeVirt/Kata中的权限提升路径及流行CMS扩展中广泛存在的RCE/SQLi缺陷。| 本批次聚焦关键云基础设施配置错误、Web应用访问控制失效及需紧急修补的高危权限提升漏洞。"
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily CVE Report - 2026-08-23</title>
+    <title>Daily CVE Report - 2026-08-24</title>
     <!-- Theme + language initialization - must run before the stylesheet
          and renderer to prevent a flash of wrong theme/language -->
     <script>
@@ -28,7 +28,7 @@
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
     <script>
-        window.DAILY_CVE_DATA_URL = "data/2026/cves_20260823.json";
+        window.DAILY_CVE_DATA_URL = "data/2026/cves_20260824.json";
         window.DAILY_CVE_AI_URL = null;
     </script>
 </head>
@@ -72,7 +72,7 @@
                     <span class="title-date">
                         <button class="date-nav-btn" id="date-prev" onclick="stepDate(-1)" aria-label="Previous day / 前一天">‹</button>
                         <select id="date-select" onchange="switchDate(this.value)" aria-label="Report date / 报告日期">
-                            <option value="2026-08-23">2026-08-23</option>
+                            <option value="2026-08-24">2026-08-24</option>
                         </select>
                         <button class="date-nav-btn" id="date-next" onclick="stepDate(1)" aria-label="Next day / 后一天">›</button>
                     </span>
@@ -85,19 +85,19 @@
             <div class="summary-box">
                 <div class="summary-stats">
                     <div class="stat-card" onclick="applySingleFilter('all')">
-                        <div class="stat-number" id="stat-total">238</div>
+                        <div class="stat-number" id="stat-total">147</div>
                         <div><span class="lang-en">Total Vulnerabilities</span><span class="lang-zh">漏洞总数</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('high-risk')">
-                        <div class="stat-number" id="stat-high-risk">174</div>
+                        <div class="stat-number" id="stat-high-risk">113</div>
                         <div><span class="lang-en">High Risk (CVSS &gt; 7.0)</span><span class="lang-zh">高危 (CVSS &gt; 7.0)</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('cisa')">
-                        <div class="stat-number" id="stat-cisa">2</div>
+                        <div class="stat-number" id="stat-cisa">0</div>
                         <div><span class="lang-en">In CISA KEV</span><span class="lang-zh">CISA KEV 收录</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('epss')">
-                        <div class="stat-number" id="stat-epss">9</div>
+                        <div class="stat-number" id="stat-epss">8</div>
                         <div><span class="lang-en">High EPSS (≥0.01)</span><span class="lang-zh">高 EPSS (≥0.01)</span></div>
                     </div>
                 </div>
@@ -133,18 +133,18 @@
             <div class="filter-section">
                 <div class="filter-title">🛡️ <span class="lang-en">Filter by CVSS Severity</span><span class="lang-zh">按 CVSS 严重度筛选</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-                    <span class="filter-item filter-critical" id="filter-critical" onclick="applySingleFilterBySeverity('critical')">Critical (55)</span>
-                    <span class="filter-item filter-high" id="filter-high" onclick="applySingleFilterBySeverity('high')">High (122)</span>
-                    <span class="filter-item filter-medium" id="filter-medium" onclick="applySingleFilterBySeverity('medium')">Medium (58)</span>
-                    <span class="filter-item filter-low" id="filter-low" onclick="applySingleFilterBySeverity('low')">Low (3)</span>
+                    <span class="filter-item filter-critical" id="filter-critical" onclick="applySingleFilterBySeverity('critical')">Critical (32)</span>
+                    <span class="filter-item filter-high" id="filter-high" onclick="applySingleFilterBySeverity('high')">High (81)</span>
+                    <span class="filter-item filter-medium" id="filter-medium" onclick="applySingleFilterBySeverity('medium')">Medium (34)</span>
+                    <span class="filter-item filter-low" id="filter-low" onclick="applySingleFilterBySeverity('low')">Low (0)</span>
                 </div>
             </div>
 
             <div class="filter-section">
                 <div class="filter-title">🏷️ <span class="lang-en">Filter by Status</span><span class="lang-zh">按状态筛选</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-                    <span class="filter-metric-tag filter-tag-exp" id="filter-modified" onclick="toggleStatusFilter('modified')">🔄 <span class="lang-en">Recently Modified (162)</span><span class="lang-zh">最近修改 (162)</span></span>
-                    <span class="filter-metric-tag filter-tag-cvss" id="filter-published" onclick="toggleStatusFilter('published')">🆕 <span class="lang-en">Newly Published (76)</span><span class="lang-zh">新发布 (76)</span></span>
+                    <span class="filter-metric-tag filter-tag-exp" id="filter-modified" onclick="toggleStatusFilter('modified')">🔄 <span class="lang-en">Recently Modified (112)</span><span class="lang-zh">最近修改 (112)</span></span>
+                    <span class="filter-metric-tag filter-tag-cvss" id="filter-published" onclick="toggleStatusFilter('published')">🆕 <span class="lang-en">Newly Published (35)</span><span class="lang-zh">新发布 (35)</span></span>
                 </div>
             </div>
 
@@ -153,132 +153,78 @@
                 <div class="filter-title">🏢 <span class="lang-en">Filter by Vendor</span><span class="lang-zh">按厂商筛选</span></div>
                 <ul class="filter-list" id="vendor-filter-list">
                     
-                    <li class="filter-item" id="filter-vendor-oracle_corporation" data-vendor="oracle corporation" style="display:block;">oracle corporation (74)</li>
+                    <li class="filter-item" id="filter-vendor-linux" data-vendor="linux" style="display:block;">linux (67)</li>
                     
-                    <li class="filter-item" id="filter-vendor-ibm" data-vendor="ibm" style="display:block;">ibm (45)</li>
+                    <li class="filter-item" id="filter-vendor-red_hat" data-vendor="red hat" style="display:block;">red hat (30)</li>
                     
-                    <li class="filter-item" id="filter-vendor-fabrikar_com" data-vendor="fabrikar.com" style="display:block;">fabrikar.com (18)</li>
+                    <li class="filter-item" id="filter-vendor-emilstenstrom" data-vendor="emilstenstrom" style="display:block;">emilstenstrom (11)</li>
                     
-                    <li class="filter-item" id="filter-vendor-microsoft" data-vendor="microsoft" style="display:block;">microsoft (16)</li>
+                    <li class="filter-item" id="filter-vendor-fabrikar_com" data-vendor="fabrikar.com" style="display:block;">fabrikar.com (7)</li>
                     
-                    <li class="filter-item" id="filter-vendor-red_hat" data-vendor="red hat" style="display:block;">red hat (12)</li>
+                    <li class="filter-item" id="filter-vendor-n_a" data-vendor="n/a" style="display:block;">n/a (5)</li>
                     
-                    <li class="filter-item" id="filter-vendor-nltk" data-vendor="nltk" style="display:block;">nltk (12)</li>
+                    <li class="filter-item" id="filter-vendor-sourcecodester" data-vendor="sourcecodester" style="display:block;">sourcecodester (5)</li>
                     
-                    <li class="filter-item" id="filter-vendor-wwbn" data-vendor="wwbn" style="display:block;">wwbn (7)</li>
+                    <li class="filter-item" id="filter-vendor-code_projects" data-vendor="code-projects" style="display:block;">code-projects (4)</li>
                     
-                    <li class="filter-item" id="filter-vendor-siyuan_note" data-vendor="siyuan-note" style="display:block;">siyuan-note (4)</li>
+                    <li class="filter-item" id="filter-vendor-ggml_org" data-vendor="ggml-org" style="display:block;">ggml-org (2)</li>
                     
-                    <li class="filter-item" id="filter-vendor-hashcat" data-vendor="hashcat" style="display:block;">hashcat (3)</li>
+                    <li class="filter-item" id="filter-vendor-tenda" data-vendor="tenda" style="display:block;">tenda (2)</li>
                     
-                    <li class="filter-item" id="filter-vendor-trendnet" data-vendor="trendnet" style="display:block;">trendnet (3)</li>
+                    <li class="filter-item" id="filter-vendor-vas3k" data-vendor="vas3k" style="display:block;">vas3k (2)</li>
                     
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-oracle_corporation" data-vendor="oracle corporation" style="display:none;">oracle corporation (74)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-linux" data-vendor="linux" style="display:none;">linux (67)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ibm" data-vendor="ibm" style="display:none;">ibm (45)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-red_hat" data-vendor="red hat" style="display:none;">red hat (30)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-fabrikar_com" data-vendor="fabrikar.com" style="display:none;">fabrikar.com (18)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-emilstenstrom" data-vendor="emilstenstrom" style="display:none;">emilstenstrom (11)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-microsoft" data-vendor="microsoft" style="display:none;">microsoft (16)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-fabrikar_com" data-vendor="fabrikar.com" style="display:none;">fabrikar.com (7)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-red_hat" data-vendor="red hat" style="display:none;">red hat (12)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-n_a" data-vendor="n/a" style="display:none;">n/a (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-nltk" data-vendor="nltk" style="display:none;">nltk (12)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sourcecodester" data-vendor="sourcecodester" style="display:none;">sourcecodester (5)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-wwbn" data-vendor="wwbn" style="display:none;">wwbn (7)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-code_projects" data-vendor="code-projects" style="display:none;">code-projects (4)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-siyuan_note" data-vendor="siyuan-note" style="display:none;">siyuan-note (4)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-ggml_org" data-vendor="ggml-org" style="display:none;">ggml-org (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-hashcat" data-vendor="hashcat" style="display:none;">hashcat (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-tenda" data-vendor="tenda" style="display:none;">tenda (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-trendnet" data-vendor="trendnet" style="display:none;">trendnet (3)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-vas3k" data-vendor="vas3k" style="display:none;">vas3k (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-n_a" data-vendor="n/a" style="display:none;">n/a (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-sambitraj" data-vendor="sambitraj" style="display:none;">sambitraj (2)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-metaphorcreations" data-vendor="metaphorcreations" style="display:none;">metaphorcreations (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-the_momentum" data-vendor="the-momentum" style="display:none;">the-momentum (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-netty" data-vendor="netty" style="display:none;">netty (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-kata_containers" data-vendor="kata-containers" style="display:none;">kata-containers (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-joomgalleryfriends_net" data-vendor="joomgalleryfriends.net" style="display:none;">joomgalleryfriends.net (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-dromara" data-vendor="dromara" style="display:none;">dromara (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-linux" data-vendor="linux" style="display:none;">linux (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gnome" data-vendor="gnome" style="display:none;">gnome (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-originlab" data-vendor="originlab" style="display:none;">originlab (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gnu" data-vendor="gnu" style="display:none;">gnu (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-ptc" data-vendor="ptc" style="display:none;">ptc (2)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-p11_glue" data-vendor="p11-glue" style="display:none;">p11-glue (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-x64_based_systems" data-vendor="x64-based systems" style="display:none;">x64-based systems (2)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-arm64_based_systems" data-vendor="arm64-based systems" style="display:none;">arm64-based systems (2)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-32_bit_systems" data-vendor="32-bit systems" style="display:none;">32-bit systems (2)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-rubengc" data-vendor="rubengc" style="display:none;">rubengc (2)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-alexta69" data-vendor="alexta69" style="display:none;">alexta69 (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-buildwps" data-vendor="buildwps" style="display:none;">buildwps (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-webtoffee" data-vendor="webtoffee" style="display:none;">webtoffee (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-marc4" data-vendor="marc4" style="display:none;">marc4 (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-comfast" data-vendor="comfast" style="display:none;">comfast (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-tecnativa" data-vendor="tecnativa" style="display:none;">tecnativa (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-yootheme_com" data-vendor="yootheme.com" style="display:none;">yootheme.com (1)</li>
                     
                     <li class="filter-item extra-vendor" id="filter-vendor-operator_framework" data-vendor="operator-framework" style="display:none;">operator-framework (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-systerel" data-vendor="systerel" style="display:none;">systerel (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-gitlab" data-vendor="gitlab" style="display:none;">gitlab (1)</li>
+                    
+                    <li class="filter-item extra-vendor" id="filter-vendor-ongres" data-vendor="ongres" style="display:none;">ongres (1)</li>
+                    
+                    <li class="filter-item extra-vendor" id="filter-vendor-itsourcecode" data-vendor="itsourcecode" style="display:none;">itsourcecode (1)</li>
                     
                     <li class="filter-item extra-vendor" id="filter-vendor-strongswan" data-vendor="strongswan" style="display:none;">strongswan (1)</li>
                     
-                    <li class="filter-item extra-vendor" id="filter-vendor-zephyrproject" data-vendor="zephyrproject" style="display:none;">zephyrproject (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-westguard" data-vendor="westguard" style="display:none;">westguard (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpchill" data-vendor="wpchill" style="display:none;">wpchill (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-wpsoul" data-vendor="wpsoul" style="display:none;">wpsoul (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-dvankooten" data-vendor="dvankooten" style="display:none;">dvankooten (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-maartenbelmans" data-vendor="maartenbelmans" style="display:none;">maartenbelmans (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-pglombardo" data-vendor="pglombardo" style="display:none;">pglombardo (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-openwrt" data-vendor="openwrt" style="display:none;">openwrt (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-jeemok" data-vendor="jeemok" style="display:none;">jeemok (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-properfraction" data-vendor="properfraction" style="display:none;">properfraction (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-mailgun" data-vendor="mailgun" style="display:none;">mailgun (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-google_cloud" data-vendor="google cloud" style="display:none;">google cloud (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-windows" data-vendor="windows" style="display:none;">windows (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-cloud_foundry_foundation" data-vendor="cloud foundry foundation" style="display:none;">cloud foundry foundation (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-adminer" data-vendor="adminer" style="display:none;">adminer (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-spring" data-vendor="spring" style="display:none;">spring (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-gimp" data-vendor="gimp" style="display:none;">gimp (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-zimbra" data-vendor="zimbra" style="display:none;">zimbra (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-themifyme" data-vendor="themifyme" style="display:none;">themifyme (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-etruel" data-vendor="etruel" style="display:none;">etruel (1)</li>
-                    
-                    <li class="filter-item extra-vendor" id="filter-vendor-smub" data-vendor="smub" style="display:none;">smub (1)</li>
+                    <li class="filter-item extra-vendor" id="filter-vendor-chirpmyradio" data-vendor="chirpmyradio" style="display:none;">chirpmyradio (1)</li>
                     
                 </ul>
                 
-                <button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn"><span class="lang-en">Show More Vendors (41 more)</span><span class="lang-zh">显示更多厂商 (还有 41)</span></button>
+                <button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn"><span class="lang-en">Show More Vendors (14 more)</span><span class="lang-zh">显示更多厂商 (还有 14)</span></button>
                 
             </div>
             
@@ -289,14 +235,14 @@
                 <div class="ai-category-nav">
                     <h4>📋 <span class="lang-en">Categories</span><span class="lang-zh">分类目录</span></h4>
                     <ul id="ai-nav-list">
-                        <li onclick="scrollToCategory('Desktop_OS')">💻 <span class="lang-en">Desktop OS</span><span class="lang-zh">桌面操作系统</span> (6)</li><li onclick="scrollToCategory('IoT_Security')">📡 <span class="lang-en">IoT Security</span><span class="lang-zh">IoT安全</span> (2)</li><li onclick="scrollToCategory('Cloud_Security')">☁️ <span class="lang-en">Cloud Security</span><span class="lang-zh">云安全</span> (7)</li><li onclick="scrollToCategory('Network_Devices')">🌐 <span class="lang-en">Network Devices</span><span class="lang-zh">网络设备</span> (3)</li><li onclick="scrollToCategory('Industrial_Control')">🏭 <span class="lang-en">Industrial Control</span><span class="lang-zh">工业控制</span> (4)</li><li onclick="scrollToCategory('Web_Security')">🔐 <span class="lang-en">Web Security</span><span class="lang-zh">Web安全</span> (7)</li><li onclick="scrollToCategory('Databases___Middleware')">🗄️ <span class="lang-en">Databases &amp; Middleware</span><span class="lang-zh">数据库与中间件</span> (6)</li><li onclick="scrollToCategory('Other')">📌 <span class="lang-en">Other</span><span class="lang-zh">其他</span> (7)</li>
+                        <li onclick="scrollToCategory('Desktop_OS')">💻 <span class="lang-en">Desktop OS</span><span class="lang-zh">桌面操作系统</span> (5)</li><li onclick="scrollToCategory('IoT_Security')">📡 <span class="lang-en">IoT Security</span><span class="lang-zh">IoT安全</span> (4)</li><li onclick="scrollToCategory('Cloud_Security')">☁️ <span class="lang-en">Cloud Security</span><span class="lang-zh">云安全</span> (8)</li><li onclick="scrollToCategory('Network_Devices')">🌐 <span class="lang-en">Network Devices</span><span class="lang-zh">网络设备</span> (6)</li><li onclick="scrollToCategory('Industrial_Control')">🏭 <span class="lang-en">Industrial Control</span><span class="lang-zh">工业控制</span> (3)</li><li onclick="scrollToCategory('Web_Security')">🔐 <span class="lang-en">Web Security</span><span class="lang-zh">Web安全</span> (7)</li><li onclick="scrollToCategory('Databases___Middleware')">🗄️ <span class="lang-en">Databases &amp; Middleware</span><span class="lang-zh">数据库与中间件</span> (4)</li><li onclick="scrollToCategory('Other')">📌 <span class="lang-en">Other</span><span class="lang-zh">其他</span> (3)</li>
                     </ul>
                 </div>
                 <div class="ai-sidebar-stats">
                     <p>🤖 <span class="lang-en">AI Analysis</span><span class="lang-zh">AI智能分析</span></p>
-                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> <span id="ai-stat-date">2026-08-23</span></p>
-                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> <span id="ai-stat-count">42</span></p>
-                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> <span id="ai-stat-analyzed">177</span></p>
+                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> <span id="ai-stat-date">2026-08-24</span></p>
+                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> <span id="ai-stat-count">40</span></p>
+                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> <span id="ai-stat-analyzed">113</span></p>
                     <p><span class="lang-en">Model:</span><span class="lang-zh">模型来源:</span> <span id="ai-stat-model">qwen3.7-flash</span></p>
                 </div>
             </div>
@@ -308,7 +254,7 @@
         <div class="noscript-notice">
             <span class="lang-en">This report renders CVE cards with JavaScript. The complete raw data for this day is available as JSON:</span>
             <span class="lang-zh">本报告需要 JavaScript 渲染卡片。当日的完整原始数据可从 JSON 获取：</span>
-            <a href="data/2026/cves_20260823.json">data/2026/cves_20260823.json</a>
+            <a href="data/2026/cves_20260824.json">data/2026/cves_20260824.json</a>
         </div>
     </noscript>
 
@@ -324,14 +270,14 @@
                 Star on GitHub
             </a>
             <span class="separator">|</span>
-            <a href="data/2026/cves_20260823.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
+            <a href="data/2026/cves_20260824.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
                 📊 <span class="lang-en">Raw Data (JSON)</span><span class="lang-zh">原始数据 (JSON)</span>
             </a>
         </p>
         <!-- id="generated-time" lives here: applyData() updates it when the
              date switcher loads another day (the summary-box copy was removed
              along with its heading, so this is the single timestamp display) -->
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-08-23 02:23:11</span></p>
+        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-08-24 02:22:28</span></p>
     </div>
 
     <script src="assets/report.js?v=2ae9634e71"></script>
