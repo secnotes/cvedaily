@@ -1,10 +1,10 @@
-# CVE Daily - Automated CVE Monitoring System
+# Daily CVE - Automated CVE Monitoring System
 
 This project implements an automated system to collect, filter, and report high-risk CVEs (Common Vulnerabilities and Exposures) on a daily basis.
 
 ## Overview
 
-CVE Daily is a security intelligence tool that:
+Daily CVE is a security intelligence tool that:
 - Downloads the previous day's CVE delta from CVEProject/cvelistV5 (the official CVE list repository)
 - Enriches each CVE with CISA KEV status and EPSS scores
 - Optionally curates high-risk vulnerabilities via an OpenAI-compatible AI API

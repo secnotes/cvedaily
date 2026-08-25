@@ -1,6 +1,6 @@
 <div align="center">
 
-# CVE Daily
+# 🐞 Daily CVE
 
 [English](README.md) | [中文](README_CN.md)
 
