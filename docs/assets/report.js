@@ -36,7 +36,8 @@
     window.activeFilters = {
         severities: [],    // CVSS severity filters (critical, high, medium, low)
         status: [],        // Status filters (cisa, epss, modified, published, ...)
-        vendors: []        // Vendor filters (mutually exclusive)
+        vendors: [],       // Vendor filter (single; mutually exclusive)
+        product: null      // Product filter (only meaningful together with vendors[0])
     };
 
     // Current UI language ('en' default; 'zh' opts into the Chinese UI)
@@ -100,10 +101,19 @@
     // Markdown code blocks -> HTML. Input is RAW text; escaping happens
     // here (the old pipeline escaped descriptions server-side and let
     // non-code text through unescaped - a latent injection vector).
+    function renderRejected() {
+        return '<em><span class="lang-en">This CVE record was rejected by the CVE Program (no valid vulnerability).</span>'
+            + '<span class="lang-zh">该 CVE 记录已被 CVE Program 驳回（不构成有效漏洞）。</span></em>';
+    }
+
     function renderDescription(text) {
         if (!text) {
             return '<span class="lang-en">No description provided by the CNA yet - check NVD details via the link below.</span>'
                 + '<span class="lang-zh">CNA 暂未提供描述 - 可点击下方 NVD 链接查看详情。</span>';
+        }
+        // REJECTED records: make it explicit rather than showing a blank card
+        if (text && text.indexOf('** REJECT **') !== -1) {
+            return renderRejected();
         }
         let s = esc(text);
         s = s.replace(/```(\w*)\n?([\s\S]*?)```/g, function (m, lang, code) {
@@ -117,7 +127,8 @@
         if (cvss >= 9.0) return 'critical';
         if (cvss >= 7.0) return 'high';
         if (cvss >= 4.0) return 'medium';
-        return 'low';
+        if (cvss > 0) return 'low';
+        return 'na';   // not yet scored / REJECTED
     }
 
     function fmtEpss(v) { return Number(v).toFixed(3); }
@@ -132,10 +143,15 @@
         const pub = cve.pub || '';
         const upd = cve.upd || '';
         const vendors = cve.vendors || [];
+        const rejected = (cve.st || '').toUpperCase() === 'REJECTED';
         const sev = severityOf(cvss);
+        const scored = cvss > 0;
+        const sevLabel = scored ? sev.charAt(0).toUpperCase() + sev.slice(1)
+            : (rejected ? 'Rejected' : 'N/A');
 
         let metrics =
-            '<span class="metric-tag tag-cvss" onclick="applySingleFilterByCVSS(' + cvss + ')">🛡️ CVSS: ' + cvss.toFixed(1) + '</span>';
+            '<span class="metric-tag tag-cvss"' + (scored ? ' onclick="applySingleFilterByCVSS(' + cvss + ')"' : '')
+            + '>🛡️ CVSS: ' + (scored ? cvss.toFixed(1) : 'N/A') + '</span>';
         if (epss > 0) {
             metrics += '<span class="metric-tag tag-epss" onclick="applySingleFilterByEPSS(' + fmtEpss(epss) + ')">📈 EPSS: ' + fmtEpss(epss) + '</span>';
         }
@@ -161,7 +177,7 @@
             '<div class="link-item"><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + encodeURIComponent(id) + '" target="_blank" class="link-btn">📝 MITRE CVE</a></div>'
             + '<div class="link-item"><a href="https://nvd.nist.gov/vuln/detail/' + encodeURIComponent(id) + '" target="_blank" class="link-btn">🔍 <span class="lang-en">NVD Details</span><span class="lang-zh">NVD 详情</span></a></div>';
         if (epss > 0) {
-            links += '<div class="link-item"><a href="https://epss.cyentia.com/?cve=' + encodeURIComponent(id) + '" target="_blank" class="link-btn">📊 <span class="lang-en">EPSS Score</span><span class="lang-zh">EPSS 评分</span></a></div>';
+            links += '<div class="link-item"><a href="https://api.first.org/data/v1/epss?cve=' + encodeURIComponent(id) + '" target="_blank" class="link-btn">📊 <span class="lang-en">EPSS Score</span><span class="lang-zh">EPSS 评分</span></a></div>';
         }
 
         let meta = '<strong><span class="lang-en">Published:</span><span class="lang-zh">发布:</span></strong> ' + (pub ? esc(pub.slice(0, 10)) : 'Unknown');
@@ -177,10 +193,10 @@
             + ' data-vendors="' + esc(vendors.join(',')) + '">'
             + '<div class="cve-header">'
             + '<div class="cve-id">' + esc(id) + '</div>'
-            + '<div class="cve-severity severity-' + sev + '">' + sev.charAt(0).toUpperCase() + sev.slice(1) + '</div>'
+            + '<div class="cve-severity severity-' + sev + '">' + sevLabel + '</div>'
             + '</div>'
             + '<div class="cve-body">'
-            + '<div class="cve-description">' + renderDescription(cve.d) + '</div>'
+            + '<div class="cve-description">' + (rejected ? renderRejected() : renderDescription(cve.d)) + '</div>'
             + '<div class="cve-content-group">'
             + '<div class="cve-metrics">' + metrics + '</div>'
             + vendorTags
@@ -355,6 +371,8 @@
         setText('filter-high', 'High (' + (stats.high || 0) + ')');
         setText('filter-medium', 'Medium (' + (stats.medium || 0) + ')');
         setText('filter-low', 'Low (' + (stats.low || 0) + ')');
+        const na = document.getElementById('filter-na');
+        if (na) na.innerHTML = '<span class="lang-en">N/A</span><span class="lang-zh">未评分</span> (' + (stats.na || 0) + ')';
 
         const mod = document.getElementById('filter-modified');
         if (mod) mod.innerHTML = '🔄 <span class="lang-en">Recently Modified (' + (stats.modified || 0) + ')</span><span class="lang-zh">最近修改 (' + (stats.modified || 0) + ')</span>';
@@ -367,35 +385,62 @@
         return name.replace(/[^a-zA-Z0-9]/g, '_');
     }
 
+    // Build the vendor -> products tree from the per-CVE vp pairs.
+    // Index: { vendor: { product: count } }, vendorCount: { vendor: count }
+    function buildVendorIndex() {
+        const vendorProducts = {};   // vendor -> { product: count }
+        const vendorCount = {};      // vendor -> total CVEs touching it
+        CVE_DATA.forEach(function (c) {
+            const seen = new Set();
+            (c.vp || []).forEach(function (pair) {
+                const v = pair[0], p = pair[1];
+                if (!v) return;
+                vendorProducts[v] = vendorProducts[v] || {};
+                vendorProducts[v][p] = (vendorProducts[v][p] || 0) + 1;
+                seen.add(v);
+            });
+            seen.forEach(function (v) { vendorCount[v] = (vendorCount[v] || 0) + 1; });
+        });
+        const vendors = Object.keys(vendorCount)
+            .sort((a, b) => vendorCount[b] - vendorCount[a]);
+        return { vendorProducts: vendorProducts, vendorCount: vendorCount, vendors: vendors };
+    }
+
     function rebuildVendorList() {
-        const section = document.getElementById('vendor-filter-section');
-        if (!section) return;
+        const tree = document.getElementById('vp-tree');
+        if (!tree) return;
+        const search = document.getElementById('vp-vendor-search');
+        if (search) search.value = '';
 
-        const counts = {};
-        CVE_DATA.forEach(c => (c.vendors || []).forEach(v => {
-            counts[v] = (counts[v] || 0) + 1;
-        }));
-        const sorted = Object.keys(counts).map(v => [v, counts[v]])
-            .sort((a, b) => b[1] - a[1]);
-        const top = sorted.slice(0, 10);
-        const rest = sorted.slice(10);
+        const idx = buildVendorIndex();
+        const vc = idx.vendorCount, vp = idx.vendorProducts;
 
-        let html = '<div class="filter-title">🏢 <span class="lang-en">Filter by Vendor</span><span class="lang-zh">按厂商筛选</span></div>'
-            + '<ul class="filter-list" id="vendor-filter-list">';
-        const li = (v, n, extra) =>
-            '<li class="filter-item' + extra + '" id="filter-vendor-' + vendorDomId(v)
-            + '" data-vendor="' + esc(v) + '" style="display:' + (extra ? 'none' : 'block') + '">'
-            + esc(v) + ' (' + n + ')</li>';
-        top.forEach(([v, n]) => { html += li(v, n, ''); });
-        rest.forEach(([v, n]) => { html += li(v, n, ' extra-vendor'); });
-        html += '</ul>';
-        if (rest.length) {
-            html += '<button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn">'
-                + t('Show More Vendors (' + rest.length + ' more)', '显示更多厂商 (还有 ' + rest.length + ')')
-                + '</button>';
-        }
-        section.innerHTML = html;
-        moreVendorsShown = false;
+        const rows = idx.vendors.map(function (v) {
+            const products = Object.keys(vp[v] || {})
+                .map(function (p) { return [p, vp[v][p]]; })
+                .sort((a, b) => b[1] - a[1]);
+            const prodLis = products.map(function (p) {
+                return '<li class="vp-product" data-vendor="' + esc(v) + '" data-product="' + esc(p[0]) + '">'
+                    + '<span class="vp-prod-name">' + esc(p[0]) + '</span>'
+                    + '<span class="vp-count">(' + p[1] + ')</span></li>';
+            }).join('');
+            return '<div class="vp-row" data-vendor="' + esc(v) + '">'
+                + '<div class="vp-vendor" data-vendor="' + esc(v) + '">'
+                + '<span class="vp-caret">▶</span>'
+                + '<span class="vp-vendor-name">' + esc(v) + '</span>'
+                + '<span class="vp-count">(' + vc[v] + ')</span>'
+                + '</div>'
+                + '<div class="vp-products" hidden>'
+                + '<input class="vp-product-search" type="search" placeholder="'
+                + t('Search product…', '搜索产品…') + '" data-vendor="' + esc(v) + '">'
+                + '<ul class="vp-product-list">' + prodLis + '</ul>'
+                + '</div>'
+                + '</div>';
+        }).join('');
+        tree.innerHTML = rows || '<div class="vp-empty">' + t('No vendor data', '无厂商数据') + '</div>';
+
+        // Restore expanded state + highlights for the active filter
+        updateSelectedFiltersHighlight();
     }
 
     function rebuildAiSidebar() {
@@ -437,6 +482,7 @@
                 case 'high': if (cvss < 7.0 || cvss >= 9.0) return false; break;
                 case 'medium': if (cvss < 4.0 || cvss >= 7.0) return false; break;
                 case 'low': if (cvss >= 4.0 || cvss === 0) return false; break;
+                case 'na': if (cvss !== 0) return false; break;
             }
         }
 
@@ -459,10 +505,16 @@
             }
         }
 
-        // Vendor filter (mutually exclusive)
+        // Vendor filter (single). When a product is also selected, the CVE
+        // must carry the (vendor, product) pair — driven by the vp pairs
+        // preserved from cvelistV5 affected[] entries.
         if (window.activeFilters.vendors.length > 0) {
             const vendor = window.activeFilters.vendors[0];
-            if ((cve.vendors || []).indexOf(vendor) === -1) return false;
+            const product = window.activeFilters.product;
+            const hit = (cve.vp || []).some(function (pair) {
+                return pair[0] === vendor && (!product || pair[1] === product);
+            });
+            if (!hit) return false;
         }
         return true;
     }
@@ -490,9 +542,31 @@
     function toggleVendorFilter(vendor) {
         const index = window.activeFilters.vendors.indexOf(vendor);
         if (index > -1) {
+            // Toggling the active vendor off clears both vendor and product
             window.activeFilters.vendors = [];
+            window.activeFilters.product = null;
+            // Collapse this vendor's product block back to ▶
+            const row = document.querySelector('.vp-row[data-vendor="' + cssEsc(vendor) + '"]');
+            if (row) expandVendorRow(row, false);
         } else {
             window.activeFilters.vendors = [vendor];
+            window.activeFilters.product = null;
+            // Selecting a vendor expands its product list (updateSelectedFiltersHighlight
+            // also does this, but set it here so expand is correct even if highlight runs late)
+        }
+        const count = applyAllFilters();
+        updateSelectedFiltersHighlight();
+        showFilterCount(count);
+    }
+
+    // Selecting a product always implies its vendor; clicking the active
+    // product again clears the product (vendor stays selected).
+    function toggleProductFilter(vendor, product) {
+        if (window.activeFilters.vendors[0] === vendor && window.activeFilters.product === product) {
+            window.activeFilters.product = null;
+        } else {
+            window.activeFilters.vendors = [vendor];
+            window.activeFilters.product = product;
         }
         const count = applyAllFilters();
         updateSelectedFiltersHighlight();
@@ -524,9 +598,12 @@
         window.activeFilters = {
             status: ['cvss-' + minScore],
             severities: [],
-            vendors: []
+            vendors: [],
+            product: null
         };
-        applyAllFilters();
+        const count = applyAllFilters();
+        updateSelectedFiltersHighlight();
+        showFilterCount(count);
     }
 
     function applySingleFilterBySeverity(severity) {
@@ -545,16 +622,20 @@
         window.activeFilters = {
             status: ['epss-' + minScore],
             severities: [],
-            vendors: []
+            vendors: [],
+            product: null
         };
-        applyAllFilters();
+        const count = applyAllFilters();
+        updateSelectedFiltersHighlight();
+        showFilterCount(count);
     }
 
     function clearAllFilters() {
         window.activeFilters = {
             severities: [],
             status: [],
-            vendors: []
+            vendors: [],
+            product: null
         };
         applyAllFilters();
         updateSelectedFiltersHighlight();
@@ -598,7 +679,11 @@
             }
         }
         for (let vendor of window.activeFilters.vendors) {
-            filterText.push(t('Vendor: ', '厂商: ') + vendor);
+            let label = t('Vendor: ', '厂商: ') + vendor;
+            if (window.activeFilters.product) {
+                label += ' / ' + t('Product: ', '产品: ') + window.activeFilters.product;
+            }
+            filterText.push(label);
         }
         if (filterText.length === 0) {
             activeFiltersDiv.textContent = t('None', '无');
@@ -611,6 +696,7 @@
     function updateSelectedFiltersHighlight() {
         document.querySelectorAll('.filter-item').forEach(item => item.classList.remove('selected'));
         document.querySelectorAll('.filter-metric-tag').forEach(tag => tag.classList.remove('selected'));
+        document.querySelectorAll('.vp-vendor, .vp-product').forEach(el => el.classList.remove('selected'));
 
         window.activeFilters.severities.forEach(severity => {
             const element = document.getElementById('filter-' + severity);
@@ -633,29 +719,43 @@
             }
         });
 
+        // Collapse every vendor row first, so a previously-selected vendor
+        // folds back up when the selection moves elsewhere (or clears).
+        document.querySelectorAll('.vp-row').forEach(function (r) { expandVendorRow(r, false); });
+
         if (window.activeFilters.vendors.length > 0) {
             const vendor = window.activeFilters.vendors[0];
-            const vendorElement = document.getElementById('filter-vendor-' + vendorDomId(vendor));
-            if (vendorElement) vendorElement.classList.add('selected');
+            const product = window.activeFilters.product;
+            const row = document.querySelector('.vp-row[data-vendor="' + cssEsc(vendor) + '"]');
+            if (row) {
+                const vcell = row.querySelector('.vp-vendor');
+                if (vcell) vcell.classList.add('selected');
+                // Auto-expand the active vendor so the product list is visible
+                expandVendorRow(row, true);
+                if (product) {
+                    const prod = row.querySelector('.vp-product[data-product="' + cssEsc(product) + '"]');
+                    if (prod) prod.classList.add('selected');
+                }
+            }
         }
     }
 
-    // Toggle more vendors
-    let moreVendorsShown = false;
-    function toggleMoreVendors() {
-        const extraVendors = document.querySelectorAll('.extra-vendor');
-        const showMoreBtn = document.getElementById('show-more-btn');
+    // Escape a string for safe use inside a CSS attribute selector
+    function cssEsc(s) {
+        return String(s).replace(/["\\]/g, '\\$&');
+    }
 
-        if (!moreVendorsShown) {
-            extraVendors.forEach(item => { item.style.display = 'block'; });
-            showMoreBtn.textContent = t('Show Less Vendors', '收起厂商列表');
-            moreVendorsShown = true;
-        } else {
-            extraVendors.forEach(item => { item.style.display = 'none'; });
-            // Count read from the DOM: no server-side interpolation here
-            showMoreBtn.textContent = t('Show More Vendors (' + extraVendors.length + ' more)',
-                '显示更多厂商 (还有 ' + extraVendors.length + ')');
-            moreVendorsShown = false;
+    // Expand or collapse a vendor row's product block. state=true opens,
+    // state=false closes, omitted toggles.
+    function expandVendorRow(row, state) {
+        const block = row.querySelector('.vp-products');
+        const caret = row.querySelector('.vp-caret');
+        if (!block) return;
+        const open = (state === undefined) ? block.hidden : state;
+        block.hidden = !open;
+        if (caret) {
+            caret.textContent = open ? '▼' : '▶';
+            caret.classList.toggle('open', open);
         }
     }
 
@@ -707,14 +807,45 @@
         }
     }
 
-    // ---------- vendor clicks (event delegation) ----------
-    // Cards and the sidebar vendor list are created/destroyed
-    // dynamically, so per-element onclick attributes would need
-    // re-binding; one listener covers them all.
+    // ---------- vendor/product clicks (event delegation) ----------
+    // Cards and the sidebar tree are created/destroyed dynamically, so
+    // per-element onclick attributes would need re-binding; one listener
+    // covers them all. Card vendor tags carry only data-vendor; tree
+    // product items carry data-vendor + data-product.
     document.addEventListener('click', function (e) {
+        // Don't hijack clicks inside the search inputs
+        if (e.target.closest('input')) return;
+        const prod = e.target.closest('.vp-product');
+        if (prod && prod.dataset.vendor && prod.dataset.product) {
+            toggleProductFilter(prod.dataset.vendor, prod.dataset.product);
+            return;
+        }
         const el = e.target.closest('[data-vendor]');
         if (el && el.dataset.vendor) {
             toggleVendorFilter(el.dataset.vendor);
+        }
+    });
+
+    // ---------- vendor/product search (event delegation) ----------
+    // The tree is rebuilt on every date switch, so bind on document once.
+    document.addEventListener('input', function (e) {
+        const t0 = e.target;
+        if (t0.id === 'vp-vendor-search') {
+            const q = t0.value.trim().toLowerCase();
+            document.querySelectorAll('.vp-row').forEach(function (row) {
+                const name = (row.dataset.vendor || '').toLowerCase();
+                row.style.display = (!q || name.indexOf(q) !== -1) ? '' : 'none';
+            });
+            return;
+        }
+        if (t0.classList && t0.classList.contains('vp-product-search')) {
+            const q = t0.value.trim().toLowerCase();
+            const row = t0.closest('.vp-row');
+            if (!row) return;
+            row.querySelectorAll('.vp-product').forEach(function (li) {
+                const name = (li.dataset.product || '').toLowerCase();
+                li.style.display = (!q || name.indexOf(q) !== -1) ? '' : 'none';
+            });
         }
     });
 
@@ -730,7 +861,7 @@
         rebuildAiSidebar();
 
         // Reset filter + view state for the new day
-        window.activeFilters = { severities: [], status: [], vendors: [] };
+        window.activeFilters = { severities: [], status: [], vendors: [], product: null };
         updateActiveFiltersDisplay();
         updateSelectedFiltersHighlight();
         resetView('original', CVE_DATA);
@@ -909,9 +1040,9 @@
     // Expose the onclick API the shell / rendered cards reference
     Object.assign(window, {
         toggleTheme, toggleLang, setLang, scrollToTop, toggleSidebar,
-        toggleStatusFilter, toggleVendorFilter, applySingleFilter,
+        toggleStatusFilter, toggleVendorFilter, toggleProductFilter, applySingleFilter,
         applySingleFilterByCVSS, applySingleFilterBySeverity,
-        applySingleFilterByEPSS, clearAllFilters, toggleMoreVendors,
+        applySingleFilterByEPSS, clearAllFilters,
         switchView, scrollToCategory, applyAllFilters,
         switchDate, stepDate
     });
