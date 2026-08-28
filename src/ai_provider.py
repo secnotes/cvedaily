@@ -235,6 +235,17 @@ All reason and summary text must be in English. Start the analysis and return th
         # Merge all batch results
         merged_result = self._merge_batch_results(all_results, cves, categories)
 
+        # Synthesize a single day-level summary across the whole curated
+        # set. Batch summaries are batch-scoped and only good for logs; the
+        # final summary must reflect the entire day, so it is generated
+        # once here from the merged curated CVEs.
+        try:
+            merged_result["summary"] = self._synthesize_summary(merged_result)
+            logger.info("Day-level summary synthesized")
+        except Exception as e:
+            logger.error(f"Summary synthesis failed, leaving summary empty: {e}")
+            merged_result["summary"] = ""
+
         return merged_result
 
     def _merge_batch_results(
@@ -269,14 +280,48 @@ All reason and summary text must be in English. Start the analysis and return th
                         seen_ids.add(cve_id)
                         merged["categories"][cat_name].append(cve)
 
-        # Collect summaries from all batches
-        summaries = [b.get("summary", "") for b in batch_results if b.get("summary")]
-        merged["summary"] = " | ".join(summaries[:3]) if summaries else "AI analysis complete; important vulnerabilities selected and categorized"
+        # Summaries are batch-scoped and not day-level, so they are not
+        # concatenated into the final summary. A day-level summary is
+        # synthesized separately from the merged curated CVEs.
+        merged["summary"] = ""
 
         total_curated = sum(len(cves) for cves in merged["categories"].values())
         logger.info(f"Merged {len(batch_results)} batches, total curated CVEs: {total_curated}")
 
         return merged
+
+    def _synthesize_summary(self, merged: Dict[str, Any]) -> str:
+        """Produce a single day-level summary from the merged curated CVEs.
+
+        The batch summaries each only saw ~100 CVEs; this pass sees the
+        full curated set (id + category + reason + cvss) and writes one
+        concise English summary covering the day's overall threat picture,
+        mentioning the most prominent categories/vendors.
+        """
+        curated_lines = []
+        for cat_name, cat_cves in merged.get("categories", {}).items():
+            if not cat_cves:
+                continue
+            curated_lines.append(f"## {cat_name} ({len(cat_cves)})")
+            for cve in cat_cves[:15]:  # cap per category to keep prompt small
+                cid = cve.get("id", "")
+                reason = (cve.get("reason") or "").strip()
+                curated_lines.append(f"- {cid}: {reason}")
+        if not curated_lines:
+            return ""
+        curated_text = "\n".join(curated_lines)
+        total = sum(len(v) for v in merged.get("categories", {}).values())
+
+        system_prompt = "You are a professional vulnerability analyst. Summarize the day's curated vulnerabilities in clear, objective English."
+
+        prompt = f"""Below are {total} vulnerabilities curated as the most important of the day, grouped by category.
+
+{curated_text}
+
+Write ONE concise summary (2-4 sentences, plain text, no markdown, no bullet list) that captures the day's overall threat picture. Mention the most prominent categories and, where notable, specific vendors/products or attack types. Do not enumerate CVE IDs. Return only the summary text."""
+
+        text = self.analyze(prompt, system_prompt, max_tokens=512, temperature=0.3)
+        return (text or "").strip()
 
     def _format_cves_for_ai(self, cves: List[Dict[str, Any]]) -> str:
         """Format CVE list for AI prompt"""

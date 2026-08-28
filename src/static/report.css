@@ -255,7 +255,7 @@
         }
 
         .filter-item:hover {
-            text-decoration: underline;
+            filter: brightness(0.95);
         }
 
         .extra-vendor {
@@ -335,6 +335,25 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
+        .filter-na {
+            /* Not-yet-scored / REJECTED — neutral, not a severity hue */
+            background-color: var(--link-bg);
+            color: var(--meta-text);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 2px 5px 2px 0;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .filter-na:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
         /* Status filter styles */
         .filter-modified-item {
             background-color: var(--tag-cisa-bg);
@@ -369,14 +388,12 @@
         .filter-metric-tag:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            text-decoration: underline;
         }
 
         .filter-metric-tag.selected {
             font-weight: bold;
-            text-decoration: underline;
             /* keep the semantic bg/fg colors; selection is marked by
-               weight + underline + a ring, not by repainting the chip */
+               weight + a ring, not by repainting the chip */
             outline: 2px solid var(--text-color);
             outline-offset: 1px;
         }
@@ -498,6 +515,12 @@
         .severity-low {
             background-color: var(--low-bg);
             color: var(--low-fg);
+        }
+
+        .severity-na {
+            /* Not-yet-scored / REJECTED records — neutral chrome, not a severity */
+            background-color: var(--link-bg);
+            color: var(--meta-text);
         }
 
         .cve-metrics {
@@ -703,9 +726,121 @@
 
         .filter-item.selected {
             font-weight: bold;
+            /* Selection keeps the chip's semantic color but locks it in
+               with a ring + lift, visible in both light and dark themes
+               (repainting the bg to --input-bg was too low-contrast). */
+            outline: 2px solid var(--text-color);
+            outline-offset: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vendor -> product tree (sidebar "Filter by Vendor / Product").
+           Rebuilt client-side from the per-CVE vp pairs. */
+        .vp-vendor-search,
+        .vp-product-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px 8px;
+            margin-bottom: 8px;
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
             background-color: var(--input-bg);
-            padding: 3px 0;
-            text-decoration: underline;
+            color: var(--text-color);
+            font-size: 0.85em;
+        }
+        .vp-vendor-search:focus,
+        .vp-product-search:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .vp-tree {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .vp-empty {
+            color: var(--meta-text);
+            font-size: 0.85em;
+            padding: 4px 0;
+        }
+        .vp-row {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .vp-row:last-child {
+            border-bottom: none;
+        }
+        .vp-vendor {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 2px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-radius: 4px;
+        }
+        .vp-vendor:hover {
+            background-color: var(--link-bg);
+        }
+        .vp-vendor.selected {
+            background-color: var(--input-bg);
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .vp-caret {
+            display: inline-block;
+            width: 1em;
+            text-align: center;
+            color: var(--meta-text);
+            transition: transform 0.2s;
+        }
+        .vp-caret.open {
+            color: var(--secondary-color);
+        }
+        .vp-vendor-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .vp-count {
+            color: var(--meta-text);
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        .vp-products {
+            padding: 2px 0 6px 18px;
+        }
+        .vp-product-list {
+            list-style: none;
+            margin: 4px 0 0;
+            padding: 0;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+        .vp-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 3px 6px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-radius: 4px;
+            font-size: 0.88em;
+        }
+        .vp-product:hover {
+            background-color: var(--link-bg);
+        }
+        .vp-product.selected {
+            background-color: var(--input-bg);
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .vp-prod-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         @media (max-width: 1200px) {

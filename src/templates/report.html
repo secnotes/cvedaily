@@ -137,6 +137,7 @@
                     <span class="filter-item filter-high" id="filter-high" onclick="applySingleFilterBySeverity('high')">High ({{ high_count }})</span>
                     <span class="filter-item filter-medium" id="filter-medium" onclick="applySingleFilterBySeverity('medium')">Medium ({{ medium_count }})</span>
                     <span class="filter-item filter-low" id="filter-low" onclick="applySingleFilterBySeverity('low')">Low ({{ low_count }})</span>
+                    <span class="filter-item filter-na" id="filter-na" onclick="applySingleFilterBySeverity('na')"><span class="lang-en">N/A</span><span class="lang-zh">未评分</span> ({{ na_count }})</span>
                 </div>
             </div>
 
@@ -148,22 +149,11 @@
                 </div>
             </div>
 
-            {% if all_vendors_list %}
             <div class="filter-section" id="vendor-filter-section">
-                <div class="filter-title">🏢 <span class="lang-en">Filter by Vendor</span><span class="lang-zh">按厂商筛选</span></div>
-                <ul class="filter-list" id="vendor-filter-list">
-                    {% for vendor in initial_vendors %}
-                    <li class="filter-item" id="filter-vendor-{{ sanitize_vendor_id(vendor) }}" data-vendor="{{ vendor }}" style="display:block;">{{ vendor }} ({{ all_sorted_vendors[vendor] }})</li>
-                    {% endfor %}
-                    {% for vendor in all_vendors_list %}
-                    <li class="filter-item extra-vendor" id="filter-vendor-{{ sanitize_vendor_id(vendor) }}" data-vendor="{{ vendor }}" style="display:none;">{{ vendor }} ({{ all_sorted_vendors[vendor] }})</li>
-                    {% endfor %}
-                </ul>
-                {% if all_vendors_list|length > 10 %}
-                <button class="show-more-btn" onclick="toggleMoreVendors()" id="show-more-btn"><span class="lang-en">Show More Vendors ({{ all_vendors_list|length - 10 }} more)</span><span class="lang-zh">显示更多厂商 (还有 {{ all_vendors_list|length - 10 }})</span></button>
-                {% endif %}
+                <div class="filter-title">🏢 <span class="lang-en">Filter by Vendor / Product</span><span class="lang-zh">按厂商/产品筛选</span></div>
+                <input class="vp-vendor-search" id="vp-vendor-search" type="search" placeholder="搜索厂商… / Search vendor…">
+                <div id="vp-tree" class="vp-tree"></div>
             </div>
-            {% endif %}
             </div>
 
             <!-- AI Sidebar (Category Navigation; content rebuilt per date) -->
@@ -216,6 +206,6 @@
         <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">{{ generated_time }}</span></p>
     </div>
 
-    <script src="assets/report.js?v={{ css_version }}"></script>
+    <script src="assets/report.js?v={{ js_version }}"></script>
 </body>
 </html>

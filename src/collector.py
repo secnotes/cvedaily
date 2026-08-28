@@ -300,6 +300,7 @@ class CVECollector:
 
                                     # Process the CVE data according to the v5 schema
                                     cve_id = cve_data.get('cveMetadata', {}).get('cveId', '')
+                                    cve_state = cve_data.get('cveMetadata', {}).get('state', 'PUBLISHED')
                                     if cve_id:
                                         # Extract description.
                                         # cvelistV5 records carry both 'en' and
@@ -352,31 +353,43 @@ class CVECollector:
                                         # Extract vendor and product information from affected
                                         vendors = set()
                                         products = set()
+                                        # vendor↔product pairs preserved per affected entry,
+                                        # so the UI can show "click a vendor -> its products".
+                                        # Only clean vendor+product from the same affected entry
+                                        # are paired (platforms/version noise is excluded).
+                                        vpairs = set()
+
+                                        def _clean(s):
+                                            s = (s or '').strip().lower()
+                                            return '' if s in ('', '-', '*', 'n/a') else s
 
                                         affected_list = cve_data.get('containers', {}).get('cna', {}).get('affected', [])
                                         for affected in affected_list:
-                                            vendor = affected.get('vendor', '')
-                                            product = affected.get('product', '')
+                                            vendor = _clean(affected.get('vendor', ''))
+                                            product = _clean(affected.get('product', ''))
 
-                                            if vendor and vendor.lower() not in ['-', '*', '']:
-                                                vendors.add(vendor.lower())
-                                            if product and product.lower() not in ['-', '*', '']:
-                                                products.add(product.lower())
+                                            if vendor:
+                                                vendors.add(vendor)
+                                            if product:
+                                                products.add(product)
+                                            if vendor and product:
+                                                vpairs.add((vendor, product))
 
                                             # Also check for platforms, modules, etc.
                                             platforms = affected.get('platforms', [])
                                             for platform in platforms:
-                                                if platform and platform.lower() not in ['-', '*', '']:
-                                                    vendors.add(platform.lower())
+                                                platform = _clean(platform)
+                                                if platform:
+                                                    vendors.add(platform)
 
                                             # Process versions to extract more vendor/product info
                                             versions = affected.get('versions', [])
                                             for version in versions:
                                                 if 'changes' in version:
                                                     for change in version['changes']:
-                                                        value = change.get('value', '')
-                                                        if value and value.lower() not in ['-', '*', '']:
-                                                            vendors.add(value.lower())
+                                                        value = _clean(change.get('value', ''))
+                                                        if value:
+                                                            vendors.add(value)
 
                                         # Extract publication date
                                         published_date = cve_data.get('cveMetadata', {}).get('datePublished', '')
@@ -401,30 +414,25 @@ class CVECollector:
                                         else:
                                             entry_type = 'published'
 
-                                        # Check if it's high risk (based only on available data at collection time)
-                                        # Full evaluation with EPSS happens after batch EPSS retrieval
-                                        is_high_risk_initial = (
-                                            cvss_score > Config.CVSS_THRESHOLD or
-                                            cve_id in self.cisa_kev_list
-                                        )
-
-                                        # Include in results if it's high risk based on current data
-                                        # or if it has CVSS score > 0 (we might later find high EPSS)
-                                        include_in_results = is_high_risk_initial or cvss_score > 0
-
-                                        if include_in_results:
-                                            cves.append({
-                                                'id': cve_id,
-                                                'description': description,
-                                                'cvss_score': cvss_score,
-                                                'epss_score': 0,  # Will be updated later
-                                                'in_cisa_kev': cve_id in self.cisa_kev_list,
-                                                'vendors': list(vendors),
-                                                'products': list(products),  # Keep products for processing but we'll not use them in the UI
-                                                'published_date': published_date,
-                                                'last_modified': last_modified,
-                                                'entry_type': entry_type
-                                            })
+                                        # Intake the full delta to stay aligned with
+                                        # cvelistV5's per-day change count (incl.
+                                        # REJECTED / not-yet-scored records). Risk
+                                        # filtering is done client-side via the
+                                        # CVSS/CISA/EPSS filters in the report.
+                                        cves.append({
+                                            'id': cve_id,
+                                            'state': cve_state,
+                                            'description': description,
+                                            'cvss_score': cvss_score,
+                                            'epss_score': 0,  # Will be updated later
+                                            'in_cisa_kev': cve_id in self.cisa_kev_list,
+                                            'vendors': list(vendors),
+                                            'products': list(products),
+                                            'vpairs': [list(vp) for vp in vpairs],
+                                            'published_date': published_date,
+                                            'last_modified': last_modified,
+                                            'entry_type': entry_type
+                                        })
 
                                 except json.JSONDecodeError:
                                     print(f"Could not decode JSON for file: {file_info.filename}")

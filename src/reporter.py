@@ -74,6 +74,7 @@ def build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str,
     for cve in cves:
         payload_cves.append({
             'id': cve['id'],
+            'st': cve.get('state', 'PUBLISHED'),
             'd': cve.get('description', ''),
             'cvss': cve.get('cvss_score', 0),
             'epss': cve.get('epss_score', 0),
@@ -82,6 +83,7 @@ def build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str,
             'pub': cve.get('published_date', ''),
             'upd': cve.get('last_modified', ''),
             'vendors': cve.get('vendors', []),
+            'vp': cve.get('vpairs', []),
         })
 
     ai_data = None
@@ -184,7 +186,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
 
     static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
     css_url, css_version = _copy_asset(os.path.join(static_dir, 'report.css'), assets_dir, 'assets/')
-    _copy_asset(os.path.join(static_dir, 'report.js'), assets_dir, 'assets/')
+    js_url, js_version = _copy_asset(os.path.join(static_dir, 'report.js'), assets_dir, 'assets/')
     data_url = f'data/{now.year}/cves_{now.strftime("%Y%m%d")}.json'
 
     # ---- statistics (unchanged definitions) ----
@@ -197,6 +199,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
     high_count = sum(1 for cve in cves if 7.0 <= cve.get('cvss_score', 0) < 9.0)
     medium_count = sum(1 for cve in cves if 4.0 <= cve.get('cvss_score', 0) < 7.0)
     low_count = sum(1 for cve in cves if 0 < cve.get('cvss_score', 0) < 4.0)
+    na_count = sum(1 for cve in cves if cve.get('cvss_score', 0) == 0)
     stats = {
         'total': total_cve_count if total_cve_count is not None else len(cves),
         'high_risk': high_risk_count,
@@ -208,17 +211,8 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         'high': high_count,
         'medium': medium_count,
         'low': low_count,
+        'na': na_count,
     }
-
-    # ---- vendor list for the sidebar (server-rendered, small) ----
-    vendor_counts = {}
-    for cve in cves:
-        for vendor in cve.get('vendors', []):
-            vendor_counts[vendor] = vendor_counts.get(vendor, 0) + 1
-    sorted_vendors = sorted(vendor_counts.items(), key=lambda x: x[1], reverse=True)
-    top_vendors = dict(sorted_vendors[:10])
-    all_sorted_vendors = dict(sorted_vendors)
-    initial_vendors = list(top_vendors.keys())
 
     # ---- daily data JSON: the single full-fidelity archive ----
     daily_data = build_daily_data(cves, total_cve_count, ai_curated, date_str, generated_str, stats)
@@ -253,9 +247,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         high_count=high_count,
         medium_count=medium_count,
         low_count=low_count,
-        initial_vendors=initial_vendors,
-        all_vendors_list=list(all_sorted_vendors.keys()),
-        all_sorted_vendors=all_sorted_vendors,
+        na_count=na_count,
         ai_curated=ai_curated,
         ai_category_nav=ai_category_nav,
         ai_curated_date=ai_curated.get('analysis_date', '-') if ai_curated else '-',
@@ -264,6 +256,7 @@ def generate_html_report(cves, output_path='index.html', total_cve_count=None, a
         ai_model_name=(ai_curated.get('model') if ai_curated else None)
                       or os.environ.get('AI_MODEL') or 'gpt-4o-mini',
         css_version=css_version,
+        js_version=js_version,
         data_url=data_url,
         ai_data_url=None,  # AI data ships inside the daily JSON
     )
