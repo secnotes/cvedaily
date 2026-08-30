@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily CVE Report - 2026-08-29</title>
+    <title>Daily CVE Report - 2026-08-30</title>
     <!-- Theme + language initialization - must run before the stylesheet
          and renderer to prevent a flash of wrong theme/language -->
     <script>
@@ -28,7 +28,7 @@
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
     <script>
-        window.DAILY_CVE_DATA_URL = "data/2026/cves_20260829.json";
+        window.DAILY_CVE_DATA_URL = "data/2026/cves_20260830.json";
         window.DAILY_CVE_AI_URL = null;
     </script>
 </head>
@@ -72,7 +72,7 @@
                     <span class="title-date">
                         <button class="date-nav-btn" id="date-prev" onclick="stepDate(-1)" aria-label="Previous day / 前一天">‹</button>
                         <select id="date-select" onchange="switchDate(this.value)" aria-label="Report date / 报告日期">
-                            <option value="2026-08-29">2026-08-29</option>
+                            <option value="2026-08-30">2026-08-30</option>
                         </select>
                         <button class="date-nav-btn" id="date-next" onclick="stepDate(1)" aria-label="Next day / 后一天">›</button>
                     </span>
@@ -85,19 +85,19 @@
             <div class="summary-box">
                 <div class="summary-stats">
                     <div class="stat-card" onclick="applySingleFilter('all')">
-                        <div class="stat-number" id="stat-total">2099</div>
+                        <div class="stat-number" id="stat-total">741</div>
                         <div><span class="lang-en">Total Vulnerabilities</span><span class="lang-zh">漏洞总数</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('high-risk')">
-                        <div class="stat-number" id="stat-high-risk">1076</div>
+                        <div class="stat-number" id="stat-high-risk">466</div>
                         <div><span class="lang-en">High Risk (CVSS &gt; 7.0)</span><span class="lang-zh">高危 (CVSS &gt; 7.0)</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('cisa')">
-                        <div class="stat-number" id="stat-cisa">9</div>
+                        <div class="stat-number" id="stat-cisa">1</div>
                         <div><span class="lang-en">In CISA KEV</span><span class="lang-zh">CISA KEV 收录</span></div>
                     </div>
                     <div class="stat-card" onclick="applySingleFilter('epss')">
-                        <div class="stat-number" id="stat-epss">109</div>
+                        <div class="stat-number" id="stat-epss">42</div>
                         <div><span class="lang-en">High EPSS (≥0.01)</span><span class="lang-zh">高 EPSS (≥0.01)</span></div>
                     </div>
                 </div>
@@ -133,19 +133,19 @@
             <div class="filter-section">
                 <div class="filter-title">🛡️ <span class="lang-en">Filter by CVSS Severity</span><span class="lang-zh">按 CVSS 严重度筛选</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-                    <span class="filter-item filter-critical" id="filter-critical" onclick="applySingleFilterBySeverity('critical')">Critical (149)</span>
-                    <span class="filter-item filter-high" id="filter-high" onclick="applySingleFilterBySeverity('high')">High (1032)</span>
-                    <span class="filter-item filter-medium" id="filter-medium" onclick="applySingleFilterBySeverity('medium')">Medium (553)</span>
-                    <span class="filter-item filter-low" id="filter-low" onclick="applySingleFilterBySeverity('low')">Low (38)</span>
-                    <span class="filter-item filter-na" id="filter-na" onclick="applySingleFilterBySeverity('na')"><span class="lang-en">N/A</span><span class="lang-zh">未评分</span> (327)</span>
+                    <span class="filter-item filter-critical" id="filter-critical" onclick="applySingleFilterBySeverity('critical')">Critical (81)</span>
+                    <span class="filter-item filter-high" id="filter-high" onclick="applySingleFilterBySeverity('high')">High (430)</span>
+                    <span class="filter-item filter-medium" id="filter-medium" onclick="applySingleFilterBySeverity('medium')">Medium (197)</span>
+                    <span class="filter-item filter-low" id="filter-low" onclick="applySingleFilterBySeverity('low')">Low (5)</span>
+                    <span class="filter-item filter-na" id="filter-na" onclick="applySingleFilterBySeverity('na')"><span class="lang-en">N/A</span><span class="lang-zh">未评分</span> (28)</span>
                 </div>
             </div>
 
             <div class="filter-section">
                 <div class="filter-title">🏷️ <span class="lang-en">Filter by Status</span><span class="lang-zh">按状态筛选</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-                    <span class="filter-metric-tag filter-tag-exp" id="filter-modified" onclick="toggleStatusFilter('modified')">🔄 <span class="lang-en">Recently Modified (1603)</span><span class="lang-zh">最近修改 (1603)</span></span>
-                    <span class="filter-metric-tag filter-tag-cvss" id="filter-published" onclick="toggleStatusFilter('published')">🆕 <span class="lang-en">Newly Published (496)</span><span class="lang-zh">新发布 (496)</span></span>
+                    <span class="filter-metric-tag filter-tag-exp" id="filter-modified" onclick="toggleStatusFilter('modified')">🔄 <span class="lang-en">Recently Modified (676)</span><span class="lang-zh">最近修改 (676)</span></span>
+                    <span class="filter-metric-tag filter-tag-cvss" id="filter-published" onclick="toggleStatusFilter('published')">🆕 <span class="lang-en">Newly Published (65)</span><span class="lang-zh">新发布 (65)</span></span>
                 </div>
             </div>
 
@@ -161,14 +161,14 @@
                 <div class="ai-category-nav">
                     <h4>📋 <span class="lang-en">Categories</span><span class="lang-zh">分类目录</span></h4>
                     <ul id="ai-nav-list">
-                        <li onclick="scrollToCategory('Desktop_OS')">💻 <span class="lang-en">Desktop OS</span><span class="lang-zh">桌面操作系统</span> (52)</li><li onclick="scrollToCategory('Mobile_Security')">📱 <span class="lang-en">Mobile Security</span><span class="lang-zh">移动安全</span> (9)</li><li onclick="scrollToCategory('IoT_Security')">📡 <span class="lang-en">IoT Security</span><span class="lang-zh">IoT安全</span> (8)</li><li onclick="scrollToCategory('Cloud_Security')">☁️ <span class="lang-en">Cloud Security</span><span class="lang-zh">云安全</span> (33)</li><li onclick="scrollToCategory('Network_Devices')">🌐 <span class="lang-en">Network Devices</span><span class="lang-zh">网络设备</span> (19)</li><li onclick="scrollToCategory('Industrial_Control')">🏭 <span class="lang-en">Industrial Control</span><span class="lang-zh">工业控制</span> (5)</li><li onclick="scrollToCategory('Web_Security')">🔐 <span class="lang-en">Web Security</span><span class="lang-zh">Web安全</span> (37)</li><li onclick="scrollToCategory('Databases___Middleware')">🗄️ <span class="lang-en">Databases &amp; Middleware</span><span class="lang-zh">数据库与中间件</span> (25)</li><li onclick="scrollToCategory('Other')">📌 <span class="lang-en">Other</span><span class="lang-zh">其他</span> (22)</li>
+                        <li onclick="scrollToCategory('Desktop_OS')">💻 <span class="lang-en">Desktop OS</span><span class="lang-zh">桌面操作系统</span> (22)</li><li onclick="scrollToCategory('Mobile_Security')">📱 <span class="lang-en">Mobile Security</span><span class="lang-zh">移动安全</span> (3)</li><li onclick="scrollToCategory('IoT_Security')">📡 <span class="lang-en">IoT Security</span><span class="lang-zh">IoT安全</span> (5)</li><li onclick="scrollToCategory('Cloud_Security')">☁️ <span class="lang-en">Cloud Security</span><span class="lang-zh">云安全</span> (18)</li><li onclick="scrollToCategory('Network_Devices')">🌐 <span class="lang-en">Network Devices</span><span class="lang-zh">网络设备</span> (9)</li><li onclick="scrollToCategory('Industrial_Control')">🏭 <span class="lang-en">Industrial Control</span><span class="lang-zh">工业控制</span> (3)</li><li onclick="scrollToCategory('Web_Security')">🔐 <span class="lang-en">Web Security</span><span class="lang-zh">Web安全</span> (21)</li><li onclick="scrollToCategory('Databases___Middleware')">🗄️ <span class="lang-en">Databases &amp; Middleware</span><span class="lang-zh">数据库与中间件</span> (10)</li><li onclick="scrollToCategory('Other')">📌 <span class="lang-en">Other</span><span class="lang-zh">其他</span> (7)</li>
                     </ul>
                 </div>
                 <div class="ai-sidebar-stats">
                     <p>🤖 <span class="lang-en">AI Analysis</span><span class="lang-zh">AI智能分析</span></p>
-                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> <span id="ai-stat-date">2026-08-29</span></p>
-                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> <span id="ai-stat-count">210</span></p>
-                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> <span id="ai-stat-analyzed">1181</span></p>
+                    <p><span class="lang-en">Analysis date:</span><span class="lang-zh">分析日期:</span> <span id="ai-stat-date">2026-08-30</span></p>
+                    <p><span class="lang-en">Curated:</span><span class="lang-zh">精选漏洞:</span> <span id="ai-stat-count">98</span></p>
+                    <p><span class="lang-en">Analyzed:</span><span class="lang-zh">候选漏洞:</span> <span id="ai-stat-analyzed">511</span></p>
                     <p><span class="lang-en">Model:</span><span class="lang-zh">模型来源:</span> <span id="ai-stat-model">qwen3.7-flash</span></p>
                 </div>
             </div>
@@ -180,7 +180,7 @@
         <div class="noscript-notice">
             <span class="lang-en">This report renders CVE cards with JavaScript. The complete raw data for this day is available as JSON:</span>
             <span class="lang-zh">本报告需要 JavaScript 渲染卡片。当日的完整原始数据可从 JSON 获取：</span>
-            <a href="data/2026/cves_20260829.json">data/2026/cves_20260829.json</a>
+            <a href="data/2026/cves_20260830.json">data/2026/cves_20260830.json</a>
         </div>
     </noscript>
 
@@ -196,14 +196,14 @@
                 Star on GitHub
             </a>
             <span class="separator">|</span>
-            <a href="data/2026/cves_20260829.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
+            <a href="data/2026/cves_20260830.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
                 📊 <span class="lang-en">Raw Data (JSON)</span><span class="lang-zh">原始数据 (JSON)</span>
             </a>
         </p>
         <!-- id="generated-time" lives here: applyData() updates it when the
              date switcher loads another day (the summary-box copy was removed
              along with its heading, so this is the single timestamp display) -->
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-08-29 07:51:33</span></p>
+        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-08-30 06:15:07</span></p>
     </div>
 
     <script src="assets/report.js?v=e9070d5d8f"></script>
