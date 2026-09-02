@@ -1,4 +1,4 @@
-name: Daily CVE Update
+name: CVE Daily Update
 on:
   schedule:
     # Run daily at 01:00 UTC
@@ -44,7 +44,7 @@ jobs:
 
           # Check if there are changes to commit
           if [[ -n $(git status --porcelain docs/) ]]; then
-            git commit -m "Daily CVE update - $(date +'%Y-%m-%d')" -m "Updated security reports in docs/"
+            git commit -m "CVE Daily update - $(date +'%Y-%m-%d')" -m "Updated security reports in docs/"
 
             # Configure git to use the GITHUB_TOKEN for pushing
             git -c http.extraheader="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" push origin HEAD:${{ github.ref_name }}

@@ -1482,9 +1482,10 @@
         /* ---- date picker inside the h1 line ---- */
         /* The date control is typography, not chrome: the select carries
            no border/background so the headline reads as one sentence,
-           with a hover underline as the click affordance. The step
-           arrows sit at low opacity and come forward when the date area
-           is hovered or focused. */
+           with a hover underline as the click affordance. The date (plus
+           its weekday, carried inside the option labels) sits at ~70% of
+           the heading size, and the step arrows are always visible (full
+           opacity on hover/focus of the date area). */
         .title-date-sep {
             color: var(--meta-text);
             font-size: 0.6em;
@@ -1493,12 +1494,12 @@
         .title-date {
             display: inline-flex;
             align-items: center;
-            gap: 2px;
+            gap: 4px;
         }
 
         .title-date #date-select {
             /* heading-scale typography, not form chrome */
-            font-size: 0.55em;
+            font-size: 0.7em;
             font-weight: 700;
             font-family: inherit;
             color: var(--headline-color);
@@ -1530,11 +1531,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            opacity: 0.45;
+            opacity: 0.75;
             transition: opacity 0.2s ease, background-color 0.2s ease;
         }
 
-        /* arrows come forward when the date area is engaged */
+        /* arrows reach full strength when the date area is engaged */
         .title-date:hover .date-nav-btn,
         .date-nav-btn:focus-visible {
             opacity: 1;

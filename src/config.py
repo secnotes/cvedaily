@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-# Configuration for Daily CVE
+# Configuration for CVE Daily
 class Config:
     # CISA KEV feed
     CISA_KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"

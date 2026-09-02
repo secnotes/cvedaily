@@ -1,4 +1,4 @@
-/* Daily CVE report renderer.
+/* CVE Daily report renderer.
  *
  * The HTML is a static shell; this script fetches the day's JSON
  * (window.DAILY_CVE_DATA_URL) and renders CVE cards client-side in
@@ -21,6 +21,15 @@
     // ---------- history (date switcher) state ----------
     let manifestDates = [];   // available dates, newest first (data/index.json)
     let currentDate = null;   // 'YYYY-MM-DD' currently displayed
+
+    // Weekday labels for the date area (next to the picker and inside
+    // its dropdown options); localized because setLang can flip them
+    const WEEKDAY_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const WEEKDAY_ZH = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    function weekdayLabel(dateStr) {
+        const d = new Date(dateStr + 'T00:00:00');
+        return isNaN(d.getTime()) ? '' : (currentLang === 'zh' ? WEEKDAY_ZH : WEEKDAY_EN)[d.getDay()];
+    }
 
     function dataUrlFor(dateStr) {
         return 'data/' + dateStr.slice(0, 4) + '/cves_' + dateStr.replace(/-/g, '') + '.json';
@@ -69,6 +78,9 @@
         localStorage.setItem('cve-lang', lang);
         // Status lines are set via textContent at render time; refresh them
         refreshStatusLines();
+        // The weekday next to the date picker and in the dropdown options
+        // is language-dependent too
+        refreshDateTexts();
     }
 
     function scrollToTop() {
@@ -870,7 +882,7 @@
         if (currentView === 'ai' && !AI_DATA) switchView('original');
         else if (currentView === 'ai' && AI_DATA) switchView('ai'); // rebuild lazily
 
-        document.title = 'Daily CVE Report - ' + currentDate;
+        document.title = 'CVE Daily - ' + currentDate;
         const dateEl = document.getElementById('report-date');
         if (dateEl) dateEl.textContent = currentDate;
         const genEl = document.getElementById('generated-time');
@@ -925,6 +937,21 @@
         if (next) next.disabled = idx <= 0;
     }
 
+    // The weekday lives inside the option labels only (the closed select
+    // shows the selected label, so a separate weekday element next to it
+    // would render it twice). Labels are language-dependent and rebuilt
+    // on language flips; option values stay the bare date so switchDate
+    // / hash handling is unaffected.
+    function refreshDateTexts() {
+        const sel = document.getElementById('date-select');
+        if (sel && manifestDates.length) {
+            sel.innerHTML = manifestDates
+                .map(d => '<option value="' + d + '">' + d + ' ' + weekdayLabel(d) + '</option>')
+                .join('');
+            if (currentDate) sel.value = currentDate;
+        }
+    }
+
     async function loadData() {
         const st = viewState.original;
         try {
@@ -939,12 +966,7 @@
                 }
             } catch (e) { /* manifest optional - switcher just stays empty */ }
 
-            const sel = document.getElementById('date-select');
-            if (sel && manifestDates.length) {
-                sel.innerHTML = manifestDates
-                    .map(d => '<option value="' + d + '">' + d + '</option>')
-                    .join('');
-            }
+            refreshDateTexts();
 
             const hashDate = decodeURIComponent(location.hash.replace(/^#/, ''));
             if (manifestDates.length && manifestDates.indexOf(hashDate) !== -1) {

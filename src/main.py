@@ -54,7 +54,7 @@ def main():
     # markdown archive was replaced by the JSON as the single data source)
     generate_html_report(all_cves, Config.REPORT_HTML_PATH, total_cve_count, ai_curated=ai_curated)
 
-    print(f"Daily CVE collection completed!")
+    print(f"CVE Daily collection completed!")
     print(f"Found {len(high_risk_cves)} high-risk vulnerabilities")
     print(f"Total CVEs collected: {total_cve_count}")
     print(f"HTML report saved as {Config.REPORT_HTML_PATH}")

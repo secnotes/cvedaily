@@ -1,10 +1,10 @@
-# Daily CVE - Automated CVE Monitoring System
+# CVE Daily - Automated CVE Monitoring System
 
 This project implements an automated system to collect, filter, and report high-risk CVEs (Common Vulnerabilities and Exposures) on a daily basis.
 
 ## Overview
 
-Daily CVE is a security intelligence tool that:
+CVE Daily is a security intelligence tool that:
 - Downloads the previous day's CVE delta from CVEProject/cvelistV5 (the official CVE list repository)
 - Enriches each CVE with CISA KEV status and EPSS scores
 - Optionally curates high-risk vulnerabilities via an OpenAI-compatible AI API
@@ -26,8 +26,9 @@ A CVE is classified as "high-risk" if it meets ANY of these criteria:
 - Listed in CISA KEV catalog
 - EPSS score ≥ 0.01 (1%+ probability of exploitation)
 
-Note: CVEs without any CVSS score are dropped at collection time; the report's
-"Total" counts CVEs that have a score or are otherwise high-risk.
+Note: the full day's delta is ingested (including REJECTED and not-yet-scored
+records), keeping counts aligned with cvelistV5's per-day change count; risk
+filtering happens client-side via the report's CVSS / CISA KEV / EPSS filters.
 
 ### Components
 
@@ -67,8 +68,8 @@ Note: CVEs without any CVSS score are dropped at collection time; the report's
 
 ```bash
 # Clone the repository
-git clone https://github.com/secnotes/dailycve.git
-cd dailycve
+git clone https://github.com/secnotes/cvedaily.git
+cd cvedaily
 
 # Create virtual environment
 python3 -m venv venv

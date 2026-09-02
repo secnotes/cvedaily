@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🐞 Daily CVE
+# CVE Daily
 
 [English](README.md) | [中文](README_CN.md)
 
-[![Daily Update](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml)
-[![Last Commit](https://img.shields.io/github/last-commit/secnotes/dailycve)](https://github.com/secnotes/dailycve/commits)
-[![License](https://img.shields.io/github/license/secnotes/dailycve)](LICENSE)
+[![Daily Update](https://github.com/secnotes/cvedaily/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/cvedaily/actions/workflows/daily-update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/cvedaily)](https://github.com/secnotes/cvedaily/commits)
+[![License](https://img.shields.io/github/license/secnotes/cvedaily)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 
 Automated daily CVE monitoring system that collects all vulnerability information from MITRE CVE and generates human-readable reports, allowing for quick customization to filter high-risk vulnerabilities.
@@ -37,8 +37,8 @@ Automated daily CVE monitoring system that collects all vulnerability informatio
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/secnotes/dailycve.git
-   cd dailycve
+   git clone https://github.com/secnotes/cvedaily.git
+   cd cvedaily
    ```
 
 2. **Install dependencies**:

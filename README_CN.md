@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🐞 CVE 每日监控
+# CVE 日报
 
 [English](README.md) | [中文](README_CN.md)
 
-[![Daily Update](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/dailycve/actions/workflows/daily-update.yml)
-[![Last Commit](https://img.shields.io/github/last-commit/secnotes/dailycve)](https://github.com/secnotes/dailycve/commits)
-[![License](https://img.shields.io/github/license/secnotes/dailycve)](LICENSE)
+[![Daily Update](https://github.com/secnotes/cvedaily/actions/workflows/daily-update.yml/badge.svg)](https://github.com/secnotes/cvedaily/actions/workflows/daily-update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/cvedaily)](https://github.com/secnotes/cvedaily/commits)
+[![License](https://img.shields.io/github/license/secnotes/cvedaily)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
 
 自动化的每日CVE监控系统，每日从MITRE CVE收集所有漏洞信息，并生成易于阅读的报告，可以快速自定义筛选高风险漏洞。
@@ -37,8 +37,8 @@
 
 1. **克隆仓库**:
    ```bash
-   git clone https://github.com/secnotes/dailycve.git
-   cd dailycve
+   git clone https://github.com/secnotes/cvedaily.git
+   cd cvedaily
    ```
 
 2. **安装依赖**:
