@@ -23,7 +23,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="assets/report.css?v=4b6f45f378">
+    <link rel="stylesheet" href="assets/report.css?v=249f8e4908">
     <!-- Data pointers: the shell stays byte-identical across days except
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
@@ -64,17 +64,14 @@
                 <!-- The date is part of the headline, not a separate widget
                      row: the select is stripped of form chrome so it reads
                      as "CVE Daily · 2026-08-21", while the date text
-                     itself is the picker and the step arrows stay quiet
-                     until the date area is hovered -->
+                     itself is the picker -->
                 <h1>
                     <span class="title-text"><span class="lang-en">CVE Daily</span><span class="lang-zh">CVE日报</span></span>
                     <span class="title-date-sep" aria-hidden="true">·</span>
                     <span class="title-date">
-                        <button class="date-nav-btn" id="date-prev" onclick="stepDate(-1)" aria-label="Previous day / 前一天">‹</button>
                         <select id="date-select" onchange="switchDate(this.value)" aria-label="Report date / 报告日期">
                             <option value="2026-09-03">2026-09-03</option>
                         </select>
-                        <button class="date-nav-btn" id="date-next" onclick="stepDate(1)" aria-label="Next day / 后一天">›</button>
                     </span>
                 </h1>
             </header>
@@ -206,6 +203,6 @@
         <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-09-03 05:40:55</span></p>
     </div>
 
-    <script src="assets/report.js?v=94305f176c"></script>
+    <script src="assets/report.js?v=7f425b1f82"></script>
 </body>
 </html>

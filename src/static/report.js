@@ -917,24 +917,9 @@
         });
     }
 
-    // Prev/next arrows walk the manifest. It is stored newest-first, so
-    // "previous day" (delta -1, i.e. older) is a HIGHER index - flip the
-    // sign, otherwise both arrows index outside the array and no-op.
-    function stepDate(delta) {
-        const idx = manifestDates.indexOf(currentDate);
-        if (idx === -1) return;
-        const next = manifestDates[idx - delta];
-        if (next) switchDate(next);
-    }
-
     function setDateSelect(dateStr) {
         const sel = document.getElementById('date-select');
         if (sel) sel.value = dateStr;
-        const prev = document.getElementById('date-prev');
-        const next = document.getElementById('date-next');
-        const idx = manifestDates.indexOf(dateStr);
-        if (prev) prev.disabled = idx === -1 || idx >= manifestDates.length - 1;
-        if (next) next.disabled = idx <= 0;
     }
 
     // The weekday lives inside the option labels only (the closed select
@@ -1066,6 +1051,6 @@
         applySingleFilterByCVSS, applySingleFilterBySeverity,
         applySingleFilterByEPSS, clearAllFilters,
         switchView, scrollToCategory, applyAllFilters,
-        switchDate, stepDate
+        switchDate
     });
 })();

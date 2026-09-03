@@ -1482,13 +1482,13 @@
         /* ---- date picker inside the h1 line ---- */
         /* The date control is typography, not chrome: the select carries
            no border/background so the headline reads as one sentence,
-           with a hover underline as the click affordance. The date (plus
-           its weekday, carried inside the option labels) sits at ~70% of
-           the heading size, and the step arrows are always visible (full
-           opacity on hover/focus of the date area). */
+           with a hover underline as the click affordance. Sizing is
+           rem-based (NOT em of the 2.2em h1): the native dropdown
+           options inherit the select's font-size, so heading-scale
+           em sizing made the opened option list huge. */
         .title-date-sep {
             color: var(--meta-text);
-            font-size: 0.6em;
+            font-size: 1rem;
         }
 
         .title-date {
@@ -1498,54 +1498,26 @@
         }
 
         .title-date #date-select {
-            /* heading-scale typography, not form chrome */
-            font-size: 0.7em;
-            font-weight: 700;
+            /* normal text size, decoupled from the heading scale */
+            font-size: 1.1rem;
+            font-weight: 600;
             font-family: inherit;
             color: var(--headline-color);
-            background: transparent;
+            /* pill highlight — same design language as the sidebar
+               filter tags (rounded chip, muted bg, hover deepen + lift),
+               so the date reads as a control without any underline */
+            background: var(--link-bg);
             border: none;
-            border-bottom: 2px solid transparent;
-            border-radius: 0;
-            padding: 2px 6px;
+            border-radius: 15px;
+            padding: 4px 12px;
             cursor: pointer;
-            transition: border-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .title-date #date-select:hover,
         .title-date #date-select:focus {
-            border-bottom-color: currentColor;
-            outline: none;
-        }
-
-        .date-nav-btn {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            border: none;
-            background: transparent;
-            color: var(--headline-color);
-            font-size: 1rem;
-            line-height: 1;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.75;
-            transition: opacity 0.2s ease, background-color 0.2s ease;
-        }
-
-        /* arrows reach full strength when the date area is engaged */
-        .title-date:hover .date-nav-btn,
-        .date-nav-btn:focus-visible {
-            opacity: 1;
-        }
-
-        .date-nav-btn:hover:not(:disabled) {
             background: var(--link-hover-bg);
-        }
-
-        .date-nav-btn:disabled {
-            opacity: 0.15;
-            cursor: default;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            outline: none;
         }
