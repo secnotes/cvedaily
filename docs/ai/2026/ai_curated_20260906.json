@@ -1,0 +1,266 @@
+{
+  "analysis_date": "2026-09-06",
+  "total_analyzed": 126,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-86185",
+        "reason": "Disables TLS certificate verification and executes unsigned remote JavaScript, enabling man-in-the-middle attacks and arbitrary code execution in the renderer process.",
+        "reason_en": "Disables TLS certificate verification and executes unsigned remote JavaScript, enabling man-in-the-middle attacks and arbitrary code execution in the renderer process.",
+        "reason_zh": "禁用TLS证书验证并执行未签名的远程JavaScript，导致中间人攻击及渲染进程中的任意代码执行。"
+      },
+      {
+        "id": "CVE-2025-6020",
+        "reason": "Allows local users to escalate privileges to root via symlink attacks and race conditions in the pam_namespace module due to insufficient path protection.",
+        "reason_en": "Allows local users to escalate privileges to root via symlink attacks and race conditions in the pam_namespace module due to insufficient path protection.",
+        "reason_zh": "由于pam_namespace模块的路径保护不足，本地用户可通过符号链接攻击和竞态条件将权限提升至root。"
+      },
+      {
+        "id": "CVE-2026-78408",
+        "reason": "The nsenter cgroup join option leaves file descriptors open across credential changes, enabling attackers to bypass namespace isolation and execute commands with elevated privileges.",
+        "reason_en": "The nsenter cgroup join option leaves file descriptors open across credential changes, enabling attackers to bypass namespace isolation and execute commands with elevated privileges.",
+        "reason_zh": "nsenter的cgroup加入选项在凭据变更时保持文件描述符打开，使攻击者能够绕过命名空间隔离并以高权限执行命令。"
+      }
+    ],
+    "Mobile Security": [],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-86151",
+        "reason": "Remote OS command injection in the network configuration management component allows unauthenticated attackers to fully compromise home router functionality.",
+        "reason_en": "Remote OS command injection in the network configuration management component allows unauthenticated attackers to fully compromise home router functionality.",
+        "reason_zh": "网络配置管理组件中存在远程操作系统命令注入漏洞，允许未认证的攻击者完全破坏家用路由器功能。"
+      },
+      {
+        "id": "CVE-2026-86149",
+        "reason": "Manipulation of the interface_name/host argument triggers remote OS command injection in the network ping checking routine, enabling complete device takeover.",
+        "reason_en": "Manipulation of the interface_name/host argument triggers remote OS command injection in the network ping checking routine, enabling complete device takeover.",
+        "reason_zh": "操纵interface_name/host参数可在网络ping检测例程中触发远程操作系统命令注入，导致设备被完全接管。"
+      },
+      {
+        "id": "CVE-2026-86148",
+        "reason": "Remote OS command injection via the AlarmVoiceURL argument in system.c allows unauthenticated attackers to execute arbitrary commands on the affected router firmware.",
+        "reason_en": "Remote OS command injection via the AlarmVoiceURL argument in system.c allows unauthenticated attackers to execute arbitrary commands on the affected router firmware.",
+        "reason_zh": "system.c中的AlarmVoiceURL参数存在远程操作系统命令注入漏洞，允许未认证的攻击者在受影响的路由器固件上执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-85424",
+        "reason": "Critical lack of authentication in the MOOS wire protocol allows unauthenticated clients to execute privileged operations, posing severe risks to autonomous marine and robotic vehicle networks.",
+        "reason_en": "Critical lack of authentication in the MOOS wire protocol allows unauthenticated clients to execute privileged operations, posing severe risks to autonomous marine and robotic vehicle networks.",
+        "reason_zh": "MOOS有线协议缺乏关键的身份验证机制，允许未认证客户端执行特权操作，对自主海洋和机器人车辆网络构成严重风险。"
+      },
+      {
+        "id": "CVE-2026-85434",
+        "reason": "Unverified node pings enable attackers to redirect bridged variables to malicious addresses, compromising data integrity and operational safety in autonomous systems.",
+        "reason_en": "Unverified node pings enable attackers to redirect bridged variables to malicious addresses, compromising data integrity and operational safety in autonomous systems.",
+        "reason_zh": "未经验证的节点ping可使攻击者将桥接变量重定向至恶意地址，破坏自治系统的数据完整性和运行安全。"
+      },
+      {
+        "id": "CVE-2026-85439",
+        "reason": "Remote code execution via unsanitized log file pathnames allows attackers to inject shell commands, directly compromising system control and stability.",
+        "reason_en": "Remote code execution via unsanitized log file pathnames allows attackers to inject shell commands, directly compromising system control and stability.",
+        "reason_zh": "未过滤的日志文件路径名可导致远程代码执行，攻击者可注入Shell命令，直接破坏系统控制与稳定性。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-70352",
+        "reason": "Missing authentication for critical functions in Azure AI Language allows unauthorized network-based privilege escalation within Microsoft's cloud ecosystem.",
+        "reason_en": "Missing authentication for critical functions in Azure AI Language allows unauthorized network-based privilege escalation within Microsoft's cloud ecosystem.",
+        "reason_zh": "Azure AI Language的关键功能缺少身份验证，允许未经授权的网络访问实现Microsoft云生态系统内的提权。"
+      },
+      {
+        "id": "CVE-2026-83711",
+        "reason": "Authorization bypass through user-controlled keys in Azure AD B2C enables unauthorized privilege elevation across Microsoft's identity and access management platform.",
+        "reason_en": "Authorization bypass through user-controlled keys in Azure AD B2C enables unauthorized privilege elevation across Microsoft's identity and access management platform.",
+        "reason_zh": "Azure AD B2C中通过用户可控密钥可绕过授权，导致Microsoft身份与访问管理平台上的未授权提权。"
+      },
+      {
+        "id": "CVE-2026-72526",
+        "reason": "Confused-deputy attack in RHACM allows namespace-admin tenants to hijack highly privileged ServiceAccounts and deploy arbitrary workloads across managed clusters.",
+        "reason_en": "Confused-deputy attack in RHACM allows namespace-admin tenants to hijack highly privileged ServiceAccounts and deploy arbitrary workloads across managed clusters.",
+        "reason_zh": "RHACM中的混淆副手攻击允许namespace-admin租户劫持高权限ServiceAccount，并在托管集群中部署任意工作负载。"
+      },
+      {
+        "id": "CVE-2026-16242",
+        "reason": "Missing client certificate validation on the Konnectivity agent-facing listener exposes hosted Kubernetes control planes to remote unauthorized agent connections.",
+        "reason_en": "Missing client certificate validation on the Konnectivity agent-facing listener exposes hosted Kubernetes control planes to remote unauthorized agent connections.",
+        "reason_zh": "Konnectivity面向代理的监听器缺失客户端证书验证，导致托管Kubernetes控制平面暴露于远程未授权代理连接之下。"
+      },
+      {
+        "id": "CVE-2026-67567",
+        "reason": "HelmRelease controller processes chart templates with elevated privileges, allowing tenants to bypass security controls and potentially achieve remote code execution.",
+        "reason_en": "HelmRelease controller processes chart templates with elevated privileges, allowing tenants to bypass security controls and potentially achieve remote code execution.",
+        "reason_zh": "HelmRelease控制器以高权限处理图表模板，允许租户绕过安全控制并可能实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-66786",
+        "reason": "Malicious clusters can exploit unvalidated CRD strings to inject arbitrary ipsec.conf directives, potentially hijacking inter-cluster secure communications and bypassing zero-trust controls.",
+        "reason_en": "Malicious clusters can exploit unvalidated CRD strings to inject arbitrary ipsec.conf directives, potentially hijacking inter-cluster secure communications and bypassing zero-trust controls.",
+        "reason_zh": "恶意集群可利用未验证的CRD字符串注入任意ipsec.conf指令，可能劫持集群间安全通信并绕过零信任控制。"
+      },
+      {
+        "id": "CVE-2026-75035",
+        "reason": "Rancher Manager's token store drops owner filters when queried by non-admin users, enabling unauthorized enumeration of sensitive service account credentials across namespaces.",
+        "reason_en": "Rancher Manager's token store drops owner filters when queried by non-admin users, enabling unauthorized enumeration of sensitive service account credentials across namespaces.",
+        "reason_zh": "Rancher Manager的令牌存储在非管理员用户查询时会丢弃所有者过滤器，导致跨命名空间未授权枚举敏感服务账户凭据。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-86060",
+        "reason": "SSH login path flaw allows unauthenticated privilege escalation by manipulating prohibited username characters to alter trusted policy masks.",
+        "reason_en": "SSH login path flaw allows unauthenticated privilege escalation by manipulating prohibited username characters to alter trusted policy masks.",
+        "reason_zh": "SSH登录路径缺陷允许通过操纵禁止的用户名字符来更改受信任策略掩码，从而实现未授权提权。"
+      },
+      {
+        "id": "CVE-2026-67276",
+        "reason": "Incomplete RSA public key comparison during SSH authentication enables key substitution attacks, allowing attackers to impersonate authorized users.",
+        "reason_en": "Incomplete RSA public key comparison during SSH authentication enables key substitution attacks, allowing attackers to impersonate authorized users.",
+        "reason_zh": "SSH认证期间RSA公钥比对不完整，易受密钥替换攻击，使攻击者能够冒充已授权用户。"
+      },
+      {
+        "id": "CVE-2026-85595",
+        "reason": "Authentication bypass in the digestAuth middleware allows attackers to forge valid responses using empty secrets, granting unauthorized access to protected routes.",
+        "reason_en": "Authentication bypass in the digestAuth middleware allows attackers to forge valid responses using empty secrets, granting unauthorized access to protected routes.",
+        "reason_zh": "digestAuth中间件的身份验证绕过漏洞允许攻击者使用空密钥伪造有效响应，从而获取受保护路由的未授权访问权限。"
+      },
+      {
+        "id": "CVE-2026-85597",
+        "reason": "TLS option conflict resolution flaw enables unauthenticated bypass of client-certificate authentication requirements on multi-host routers.",
+        "reason_en": "TLS option conflict resolution flaw enables unauthenticated bypass of client-certificate authentication requirements on multi-host routers.",
+        "reason_zh": "TLS选项冲突解决缺陷允许在多主机路由器上绕过客户端证书身份验证要求，实现未认证访问。"
+      },
+      {
+        "id": "CVE-2026-33630",
+        "reason": "Use-after-free and double-free flaws in c-ares query completion handling can cause crashes or memory corruption in applications relying on asynchronous DNS resolution.",
+        "reason_en": "Use-after-free and double-free flaws in c-ares query completion handling can cause crashes or memory corruption in applications relying on asynchronous DNS resolution.",
+        "reason_zh": "c-ares查询完成处理中的释放后使用和双重释放缺陷可能导致依赖异步DNS解析的应用程序崩溃或内存损坏。"
+      }
+    ],
+    "Industrial Control": [],
+    "Web Security": [
+      {
+        "id": "CVE-2026-86189",
+        "reason": "Path traversal vulnerability in notify.ffmpeg.json.php allows unauthenticated attackers to write files to arbitrary locations, leading to potential remote code execution.",
+        "reason_en": "Path traversal vulnerability in notify.ffmpeg.json.php allows unauthenticated attackers to write files to arbitrary locations, leading to potential remote code execution.",
+        "reason_zh": "notify.ffmpeg.json.php中的路径遍历漏洞允许未认证的攻击者将文件写入任意位置，可能导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-10196",
+        "reason": "PHP object injection via deserialization of untrusted input in the form submission handler enables unauthenticated remote code execution on WordPress sites.",
+        "reason_en": "PHP object injection via deserialization of untrusted input in the form submission handler enables unauthenticated remote code execution on WordPress sites.",
+        "reason_zh": "WordPress站点表单提交处理器中对不可信输入进行反序列化可导致PHP对象注入，实现未认证的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-83627",
+        "reason": "Log file writing flaw in the page-cache module allows unauthenticated attackers to achieve remote code execution by exploiting debug log paths.",
+        "reason_en": "Log file writing flaw in the page-cache module allows unauthenticated attackers to achieve remote code execution by exploiting debug log paths.",
+        "reason_zh": "page-cache模块的日志文件写入缺陷允许未认证的攻击者通过利用调试日志路径实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-86196",
+        "reason": "Password reset link generation relies on the untrusted Host header, enabling attackers to redirect reset tokens to malicious domains and perform account takeover.",
+        "reason_en": "Password reset link generation relies on the untrusted Host header, enabling attackers to redirect reset tokens to malicious domains and perform account takeover.",
+        "reason_zh": "密码重置链接生成依赖于不可信的Host头，使攻击者能够将重置令牌重定向至恶意域名并实施账户接管。"
+      },
+      {
+        "id": "CVE-2026-86177",
+        "reason": "Insufficient permission validation in scheduled task creation allows subusers to execute arbitrary console commands on managed game servers.",
+        "reason_en": "Insufficient permission validation in scheduled task creation allows subusers to execute arbitrary console commands on managed game servers.",
+        "reason_zh": "计划任务创建过程中的权限验证不足，允许子用户在托管游戏服务器上执行任意控制台命令。"
+      },
+      {
+        "id": "CVE-2026-84753",
+        "reason": "Unauthenticated PHP Object Injection in Mail Mint allows remote attackers to achieve full application compromise without any prior access or credentials.",
+        "reason_en": "Unauthenticated PHP Object Injection in Mail Mint allows remote attackers to achieve full application compromise without any prior access or credentials.",
+        "reason_zh": "Mail Mint中的未认证PHP对象注入漏洞允许远程攻击者在无需任何先期访问或凭据的情况下完全攻陷应用程序。"
+      },
+      {
+        "id": "CVE-2026-85154",
+        "reason": "AVideo's non-expiring video_id_hash bearer token grants indefinite administrative access, making credential theft highly impactful and difficult to remediate without manual intervention.",
+        "reason_en": "AVideo's non-expiring video_id_hash bearer token grants indefinite administrative access, making credential theft highly impactful and difficult to remediate without manual intervention.",
+        "reason_zh": "AVideo的video_id_hash Bearer令牌不过期，授予无限期的管理员访问权限，使得凭证窃取影响巨大且难以在不手动干预的情况下修复。"
+      },
+      {
+        "id": "CVE-2026-85236",
+        "reason": "MISP's CSRF vulnerability allows state-changing actions via GET requests, enabling attackers to irreversibly purge threat intelligence events and disrupt incident response workflows.",
+        "reason_en": "MISP's CSRF vulnerability allows state-changing actions via GET requests, enabling attackers to irreversibly purge threat intelligence events and disrupt incident response workflows.",
+        "reason_zh": "MISP的CSRF漏洞允许通过GET请求执行状态更改操作，使攻击者能够不可逆地清除威胁情报事件并破坏事件响应工作流。"
+      },
+      {
+        "id": "CVE-2026-85174",
+        "reason": "Plaintext logging of API tokens in SiYuan Note allows authenticated attackers to escalate to permanent administrative control by reading accessible log files.",
+        "reason_en": "Plaintext logging of API tokens in SiYuan Note allows authenticated attackers to escalate to permanent administrative control by reading accessible log files.",
+        "reason_zh": "SiYuan Note中以明文记录API令牌，允许已认证的攻击者通过读取可访问的日志文件提升权限至永久管理员控制。"
+      },
+      {
+        "id": "CVE-2026-63376",
+        "reason": "Prototype pollution in toml-node enables traversal into native JavaScript prototypes, potentially leading to denial-of-service or logic bypasses in Node.js applications.",
+        "reason_en": "Prototype pollution in toml-node enables traversal into native JavaScript prototypes, potentially leading to denial-of-service or logic bypasses in Node.js applications.",
+        "reason_zh": "toml-node 中的原型污染漏洞可导致对原生 JavaScript 原型的遍历，进而可能引发 Node.js 应用程序的拒绝服务或逻辑绕过。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-86123",
+        "reason": "Unauthenticated API endpoints accept arbitrary database connection parameters, enabling SQL injection, schema enumeration, and network pivoting to internal databases.",
+        "reason_en": "Unauthenticated API endpoints accept arbitrary database connection parameters, enabling SQL injection, schema enumeration, and network pivoting to internal databases.",
+        "reason_zh": "未经身份验证的 API 端点可接受任意数据库连接参数，从而导致 SQL 注入、数据库架构枚举以及向内部数据库的网络跳板攻击。"
+      },
+      {
+        "id": "CVE-2026-86173",
+        "reason": "Server-side request forgery in the web crawler handler allows unauthenticated attackers to fetch arbitrary URLs by bypassing default empty allowlist controls.",
+        "reason_en": "Server-side request forgery in the web crawler handler allows unauthenticated attackers to fetch arbitrary URLs by bypassing default empty allowlist controls.",
+        "reason_zh": "网页爬虫处理器中存在的服务端请求伪造漏洞，使未授权攻击者可通过绕过默认的空白名单控制机制来访问任意 URL。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-86124",
+        "reason": "Unauthenticated remote code execution in the TCP server binds to all interfaces and executes attacker-supplied commands as root, compromising the host environment.",
+        "reason_en": "Unauthenticated remote code execution in the TCP server binds to all interfaces and executes attacker-supplied commands as root, compromising the host environment.",
+        "reason_zh": "TCP 服务器中存在未经身份验证的远程代码执行漏洞，该漏洞会绑定至所有网络接口并以 root 权限执行攻击者传入的命令，导致主机环境被完全控制。"
+      },
+      {
+        "id": "CVE-2026-86145",
+        "reason": "Out-of-bounds write in the recursive DFA matching workspace lacks size checks, making it exploitable via crafted regular expressions to corrupt memory.",
+        "reason_en": "Out-of-bounds write in the recursive DFA matching workspace lacks size checks, making it exploitable via crafted regular expressions to corrupt memory.",
+        "reason_zh": "递归 DFA 匹配工作区存在越界写入漏洞且缺乏边界检查，攻击者可利用构造的正则表达式触发该漏洞以破坏内存。"
+      },
+      {
+        "id": "CVE-2026-86140",
+        "reason": "Stack-based buffer overflow in xmlSnprintfElements can be triggered by malformed XML documents, potentially leading to arbitrary code execution.",
+        "reason_en": "Stack-based buffer overflow in xmlSnprintfElements can be triggered by malformed XML documents, potentially leading to arbitrary code execution.",
+        "reason_zh": "xmlSnprintfElements 函数中存在基于栈的缓冲区溢出漏洞，可通过畸形 XML 文档触发，进而可能导致任意代码执行。"
+      },
+      {
+        "id": "CVE-2026-0799",
+        "reason": "Missing register index validation in the libpcap BPF interpreter allows crafted filter programs to cause memory corruption or application crashes.",
+        "reason_en": "Missing register index validation in the libpcap BPF interpreter allows crafted filter programs to cause memory corruption or application crashes.",
+        "reason_zh": "libpcap BPF 解释器中缺失寄存器索引验证，攻击者可利用构造的过滤程序导致内存破坏或应用程序崩溃。"
+      },
+      {
+        "id": "CVE-2026-53671",
+        "reason": "The PREVAIL eBPF verifier incorrectly treats certain register writes as no-ops, potentially allowing malicious eBPF programs to bypass safety checks and crash the host kernel.",
+        "reason_en": "The PREVAIL eBPF verifier incorrectly treats certain register writes as no-ops, potentially allowing malicious eBPF programs to bypass safety checks and crash the host kernel.",
+        "reason_zh": "PREVAIL eBPF 验证器错误地将部分寄存器写入操作视为空操作，可能导致恶意 eBPF 程序绕过安全检查并致使主机内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-84381",
+        "reason": "HTTPX2 fails to initiate TLS upgrades over SOCKS5 proxies for wss connections, breaking encrypted communication channels and exposing traffic to interception.",
+        "reason_en": "HTTPX2 fails to initiate TLS upgrades over SOCKS5 proxies for wss connections, breaking encrypted communication channels and exposing traffic to interception.",
+        "reason_zh": "HTTPX2 无法通过 SOCKS5 代理为 wss 连接发起 TLS 升级，导致加密通信通道中断，并使流量面临被窃听的风险。"
+      },
+      {
+        "id": "CVE-2026-55658",
+        "reason": "Flawed fund management in 1Hive Gardens v2 allows unauthorized movement of real pool funds during streaming proposals, risking significant financial loss in decentralized governance.",
+        "reason_en": "Flawed fund management in 1Hive Gardens v2 allows unauthorized movement of real pool funds during streaming proposals, risking significant financial loss in decentralized governance.",
+        "reason_zh": "1Hive Gardens v2 存在资金管理缺陷，允许在流式提案期间未经授权转移真实资金池资产，给去中心化治理带来重大财务损失风险。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by critical remote code execution and authentication bypass flaws across web applications, cloud infrastructure, and network device ecosystems. Significant findings target major enterprise and open-source platforms, including Microsoft Azure services, Kubernetes distribution tools like Rancher and RHACM, and widely deployed web software such as WordPress and MISP. These weaknesses frequently stem from inadequate input validation, misconfigured identity controls, and insecure default settings, enabling unauthenticated attackers to escalate privileges, hijack container workloads, and compromise sensitive data. The widespread impact across hybrid and cloud-native environments highlights an urgent need for stricter access enforcement and comprehensive patch management.",
+  "summary_en": "Today's vulnerability landscape is dominated by critical remote code execution and authentication bypass flaws across web applications, cloud infrastructure, and network device ecosystems. Significant findings target major enterprise and open-source platforms, including Microsoft Azure services, Kubernetes distribution tools like Rancher and RHACM, and widely deployed web software such as WordPress and MISP. These weaknesses frequently stem from inadequate input validation, misconfigured identity controls, and insecure default settings, enabling unauthenticated attackers to escalate privileges, hijack container workloads, and compromise sensitive data. The widespread impact across hybrid and cloud-native environments highlights an urgent need for stricter access enforcement and comprehensive patch management.",
+  "summary_zh": "当前漏洞态势主要由跨 Web 应用、云基础设施及网络设备生态的关键远程代码执行与身份验证绕过漏洞主导。重点发现涉及多家主流企业与开源平台，包括 Microsoft Azure 服务、Rancher 与 RHACM 等 Kubernetes 发行版工具，以及广泛部署的 WordPress 和 MISP 等 Web 软件。此类缺陷多源于输入验证不足、身份鉴权配置不当及不安全的默认设置，致使未授权攻击者可实施提权、劫持容器工作负载及窃取敏感数据。上述漏洞在混合架构与云原生环境中的广泛影响，凸显了落实严格访问控制与全面补丁管理的紧迫性。"
+}
