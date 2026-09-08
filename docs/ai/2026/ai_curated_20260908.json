@@ -1,0 +1,388 @@
+{
+  "analysis_date": "2026-09-08",
+  "total_analyzed": 282,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-86504",
+        "reason": "JetBrains IDEA skips project-trust verification before building Dev Containers, enabling host-level code execution through malicious container definitions.",
+        "reason_en": "JetBrains IDEA skips project-trust verification before building Dev Containers, enabling host-level code execution through malicious container definitions.",
+        "reason_zh": "JetBrains IDEA 在构建 Dev Containers 前跳过项目信任验证，攻击者可通过恶意容器定义实现主机级代码执行。"
+      },
+      {
+        "id": "CVE-2026-86502",
+        "reason": "Unencrypted and unauthenticated gRPC server in IntelliJ IDEA allows local attackers to execute arbitrary code on remote development hosts.",
+        "reason_en": "Unencrypted and unauthenticated gRPC server in IntelliJ IDEA allows local attackers to execute arbitrary code on remote development hosts.",
+        "reason_zh": "IntelliJ IDEA 中未加密且未经身份验证的 gRPC 服务器允许本地攻击者在远程开发主机上执行任意代码。"
+      },
+      {
+        "id": "CVE-2025-6020",
+        "reason": "Linux-PAM module mishandles user-controlled paths, enabling local privilege escalation to root via symlink attacks and race conditions.",
+        "reason_en": "Linux-PAM module mishandles user-controlled paths, enabling local privilege escalation to root via symlink attacks and race conditions.",
+        "reason_zh": "Linux-PAM 模块对用户可控路径处理不当，导致攻击者可通过符号链接攻击和竞态条件实现本地提权至 root。"
+      },
+      {
+        "id": "CVE-2026-75925",
+        "reason": "CRLF injection in IXON VPN Client configuration values allows attackers to execute commands with SYSTEM privileges by manipulating privileged subprocess inputs.",
+        "reason_en": "CRLF injection in IXON VPN Client configuration values allows attackers to execute commands with SYSTEM privileges by manipulating privileged subprocess inputs.",
+        "reason_zh": "IXON VPN Client 配置值中的 CRLF 注入漏洞使攻击者能够通过操纵特权子进程输入来以 SYSTEM 权限执行命令。"
+      },
+      {
+        "id": "CVE-2026-84226",
+        "reason": "Binary planting vulnerability in OpenVPN for Windows during network configuration steps allows local authenticated attackers to escalate privileges by replacing legitimate binaries.",
+        "reason_en": "Binary planting vulnerability in OpenVPN for Windows during network configuration steps allows local authenticated attackers to escalate privileges by replacing legitimate binaries.",
+        "reason_zh": "Windows 版 OpenVPN 在网络配置步骤中存在二进制文件植入漏洞，允许已认证的本地攻击者通过替换合法二进制文件实现提权。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2022-51017",
+        "reason": "PocketMine-MP fails to validate skin data field lengths, allowing oversized payloads that trigger exceptions and cause denial of service on multiplayer servers accessed by mobile clients.",
+        "reason_en": "PocketMine-MP fails to validate skin data field lengths, allowing oversized payloads that trigger exceptions and cause denial of service on multiplayer servers accessed by mobile clients.",
+        "reason_zh": "PocketMine-MP 未验证皮肤数据字段长度，导致超大载荷触发异常，并使移动客户端访问的多玩家服务器发生拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-6223",
+        "reason": "CVSS 9.4 authentication bypass in the BiHayat mobile app stems from improper restriction of excessive login attempts, directly compromising user accounts without rate limiting.",
+        "reason_en": "CVSS 9.4 authentication bypass in the BiHayat mobile app stems from improper restriction of excessive login attempts, directly compromising user accounts without rate limiting.",
+        "reason_zh": "BiHayat 移动应用存在 CVSS 9.4 分的身份验证绕过漏洞，源于对登录尝试次数限制不当，在未实施速率限制的情况下直接危及用户账户安全。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-54212",
+        "reason": "Critical buffer overflow in the Tobit TeamDavid Webbox API endpoint allows unauthenticated attackers to crash the server or potentially execute arbitrary code.",
+        "reason_en": "Critical buffer overflow in the Tobit TeamDavid Webbox API endpoint allows unauthenticated attackers to crash the server or potentially execute arbitrary code.",
+        "reason_zh": "Tobit TeamDavid Webbox API 端点存在关键缓冲区溢出漏洞，允许未认证攻击者导致服务器崩溃或潜在地执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-54213",
+        "reason": "Exposed internal endpoint performs a hard shutdown without authentication, enabling remote denial-of-service against email and collaboration appliances.",
+        "reason_en": "Exposed internal endpoint performs a hard shutdown without authentication, enabling remote denial-of-service against email and collaboration appliances.",
+        "reason_zh": "暴露的内部端点在未进行身份验证的情况下执行硬关机操作，可导致针对邮件与协作设备的远程拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-54208",
+        "reason": "Arbitrary file write vulnerability allows unauthenticated attackers to overwrite server files with controlled content, facilitating further system compromise.",
+        "reason_en": "Arbitrary file write vulnerability allows unauthenticated attackers to overwrite server files with controlled content, facilitating further system compromise.",
+        "reason_zh": "任意文件写入漏洞允许未认证攻击者使用受控内容覆盖服务器文件，从而为进一步的系统入侵创造条件。"
+      },
+      {
+        "id": "CVE-2026-86299",
+        "reason": "OS command injection in Linksys RE7000 ping test handler allows remote attackers to execute arbitrary commands on the device firmware.",
+        "reason_en": "OS command injection in Linksys RE7000 ping test handler allows remote attackers to execute arbitrary commands on the device firmware.",
+        "reason_zh": "Linksys RE7000 的 ping 测试处理程序存在操作系统命令注入漏洞，允许远程攻击者在设备固件上执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-86296",
+        "reason": "Remote stack-based buffer overflow in D-Link DIR-822A DHCP client enables unauthenticated attackers to execute arbitrary code on network devices.",
+        "reason_en": "Remote stack-based buffer overflow in D-Link DIR-822A DHCP client enables unauthenticated attackers to execute arbitrary code on network devices.",
+        "reason_zh": "D-Link DIR-822A DHCP 客户端存在远程栈缓冲区溢出漏洞，允许未认证攻击者在网络设备中执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-86313",
+        "reason": "Out-of-bounds write vulnerability in Samsung Opensource Walrus allows buffer overflows that could corrupt memory and lead to arbitrary code execution on storage devices.",
+        "reason_en": "Out-of-bounds write vulnerability in Samsung Opensource Walrus allows buffer overflows that could corrupt memory and lead to arbitrary code execution on storage devices.",
+        "reason_zh": "Samsung Opensource Walrus 存在越界写入漏洞，可能导致缓冲区溢出、内存损坏，进而引发存储设备上的任意代码执行。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-73269",
+        "reason": "Allows namespace-local users to escalate to cluster-admin via malicious ClusterCurator resources, breaking multi-tenant isolation in Red Hat OpenShift environments.",
+        "reason_en": "Allows namespace-local users to escalate to cluster-admin via malicious ClusterCurator resources, breaking multi-tenant isolation in Red Hat OpenShift environments.",
+        "reason_zh": "该漏洞允许命名空间内用户通过恶意的 ClusterCurator 资源提权至 cluster-admin，破坏 Red Hat OpenShift 环境中的多租户隔离机制。"
+      },
+      {
+        "id": "CVE-2026-16242",
+        "reason": "Konnectivity proxy-server lacks certificate validation on the agent-facing listener, enabling remote attackers to hijack connections and gain full control over hosted Kubernetes control planes.",
+        "reason_en": "Konnectivity proxy-server lacks certificate validation on the agent-facing listener, enabling remote attackers to hijack connections and gain full control over hosted Kubernetes control planes.",
+        "reason_zh": "Konnectivity proxy-server 在面向代理的监听器上缺乏证书验证，使远程攻击者能够劫持连接并完全控制托管的 Kubernetes 控制平面。"
+      },
+      {
+        "id": "CVE-2026-86169",
+        "reason": "Defaults trust_remote_code to None in Hugging Face model loading, allowing unauthenticated remote code execution via malicious AI repositories in cloud ML pipelines.",
+        "reason_en": "Defaults trust_remote_code to None in Hugging Face model loading, allowing unauthenticated remote code execution via malicious AI repositories in cloud ML pipelines.",
+        "reason_zh": "Hugging Face 模型加载默认将 trust_remote_code 设为 None，允许通过云机器学习流水线中的恶意 AI 仓库实现未认证的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-22797",
+        "reason": "CVSS 9.9 flaw in OpenStack Keystone middleware fails to sanitize incoming OAuth 2.0 authentication headers, enabling token forgery and unauthorized access to cloud identity services.",
+        "reason_en": "CVSS 9.9 flaw in OpenStack Keystone middleware fails to sanitize incoming OAuth 2.0 authentication headers, enabling token forgery and unauthorized access to cloud identity services.",
+        "reason_zh": "OpenStack Keystone 中间件存在 CVSS 9.9 分缺陷，未能清理传入的 OAuth 2.0 认证头，导致令牌伪造及未经授权访问云身份服务。"
+      },
+      {
+        "id": "CVE-2026-42880",
+        "reason": "CVSS 9.6 missing authorization and data-masking gap in Argo CD allows read-only users to extract plaintext KubeConfigs, severely compromising Kubernetes cluster security.",
+        "reason_en": "CVSS 9.6 missing authorization and data-masking gap in Argo CD allows read-only users to extract plaintext KubeConfigs, severely compromising Kubernetes cluster security.",
+        "reason_zh": "Argo CD 存在 CVSS 9.6 分的授权缺失与数据掩码缺陷，允许只读用户提取明文 KubeConfig，严重危及 Kubernetes 集群安全。"
+      },
+      {
+        "id": "CVE-2026-42965",
+        "reason": "CVSS 7.7 vulnerability in OpenShift Router permits EndpointSlice write access to proxy requests to cloud metadata endpoints, facilitating automated credential theft in managed environments.",
+        "reason_en": "CVSS 7.7 vulnerability in OpenShift Router permits EndpointSlice write access to proxy requests to cloud metadata endpoints, facilitating automated credential theft in managed environments.",
+        "reason_zh": "OpenShift Router 存在 CVSS 7.7 分漏洞，允许 EndpointSlice 写入权限将代理请求转发至云元数据端点，助长托管环境中的自动化凭证窃取。"
+      },
+      {
+        "id": "CVE-2026-76578",
+        "reason": "Missing authentication requirements for self-managed OTP tokens combined with flawed ACI evaluation allows unauthenticated LDAP clients to compromise identity infrastructure.",
+        "reason_en": "Missing authentication requirements for self-managed OTP tokens combined with flawed ACI evaluation allows unauthenticated LDAP clients to compromise identity infrastructure.",
+        "reason_zh": "自管 OTP 令牌缺少身份验证要求，结合有缺陷的 ACI 评估逻辑，允许未认证的 LDAP 客户端攻陷身份基础设施。"
+      },
+      {
+        "id": "CVE-2026-86218",
+        "reason": "Critical pre-authentication remote code execution in N-central allows unauthenticated attackers to fully compromise managed IT and cloud management platforms.",
+        "reason_en": "Critical pre-authentication remote code execution in N-central allows unauthenticated attackers to fully compromise managed IT and cloud management platforms.",
+        "reason_zh": "N-central 存在关键预认证远程代码执行漏洞，允许未认证攻击者完全攻陷托管的 IT 与云管理平台。"
+      },
+      {
+        "id": "CVE-2026-33186",
+        "reason": "Improper validation of the HTTP/2 :path pseudo-header in gRPC-Go allows unauthenticated or unauthorized clients to bypass authorization checks and access protected microservices.",
+        "reason_en": "Improper validation of the HTTP/2 :path pseudo-header in gRPC-Go allows unauthenticated or unauthorized clients to bypass authorization checks and access protected microservices.",
+        "reason_zh": "gRPC-Go 对 HTTP/2 :path 伪头的验证不当，允许未认证或未授权客户端绕过鉴权检查并访问受保护的微服务。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-67276",
+        "reason": "MikroTik RouterOS fails to validate RSA public key exponents during SSH authentication, allowing attackers to forge authorized keys and bypass security controls entirely.",
+        "reason_en": "MikroTik RouterOS fails to validate RSA public key exponents during SSH authentication, allowing attackers to forge authorized keys and bypass security controls entirely.",
+        "reason_zh": "MikroTik RouterOS 在 SSH 认证过程中未验证 RSA 公钥指数，使攻击者能够伪造授权密钥并完全绕过安全控制。"
+      },
+      {
+        "id": "CVE-2026-67281",
+        "reason": "Stale principal pointers in RouterOS WebFig enable unauthenticated file reads across the device filesystem, exposing sensitive network configuration data.",
+        "reason_en": "Stale principal pointers in RouterOS WebFig enable unauthenticated file reads across the device filesystem, exposing sensitive network configuration data.",
+        "reason_zh": "RouterOS WebFig 中的陈旧主体指针漏洞允许跨设备文件系统读取文件，导致敏感网络配置数据泄露。"
+      },
+      {
+        "id": "CVE-2026-86426",
+        "reason": "LibreNMS REST API suffers from MySQL type coercion allowing unauthenticated access to protected endpoints, undermining enterprise network monitoring integrity.",
+        "reason_en": "LibreNMS REST API suffers from MySQL type coercion allowing unauthenticated access to protected endpoints, undermining enterprise network monitoring integrity.",
+        "reason_zh": "LibreNMS REST API 存在 MySQL 类型强制转换漏洞，允许未认证访问受保护端点，破坏企业网络监控的完整性。"
+      },
+      {
+        "id": "CVE-2026-42945",
+        "reason": "CVSS 9.2 with exceptionally high EPSS (0.68) rewrite module flaw in F5 NGINX enables memory corruption and potential remote code execution in enterprise load balancers and reverse proxies.",
+        "reason_en": "CVSS 9.2 with exceptionally high EPSS (0.68) rewrite module flaw in F5 NGINX enables memory corruption and potential remote code execution in enterprise load balancers and reverse proxies.",
+        "reason_zh": "F5 NGINX 重写模块存在 CVSS 9.2 分且 EPSS 极高（0.68）的缺陷，可导致内存损坏及企业负载均衡器和反向代理中的潜在远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-61410",
+        "reason": "CVSS 9.4 missing authorization in Dell SCG allows unauthenticated remote attackers to achieve remote code execution on storage network appliances.",
+        "reason_en": "CVSS 9.4 missing authorization in Dell SCG allows unauthenticated remote attackers to achieve remote code execution on storage network appliances.",
+        "reason_zh": "Dell SCG 存在 CVSS 9.4 分的授权缺失漏洞，允许未认证的远程攻击者在存储网络设备上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-16876",
+        "reason": "Authentication bypass in NEC UNIVERGE WebGUI allows attackers to tamper with messages and execute arbitrary CLI commands, compromising enterprise communication infrastructure.",
+        "reason_en": "Authentication bypass in NEC UNIVERGE WebGUI allows attackers to tamper with messages and execute arbitrary CLI commands, compromising enterprise communication infrastructure.",
+        "reason_zh": "NEC UNIVERGE WebGUI 存在身份验证绕过漏洞，使攻击者能够篡改消息并执行任意 CLI 命令，危及企业通信基础设施。"
+      },
+      {
+        "id": "CVE-2026-84732",
+        "reason": "Integer overflow in OpenVPN's ACK packet retransmission handling allows unauthenticated attackers to trigger timeouts and cause denial-of-service across VPN infrastructures.",
+        "reason_en": "Integer overflow in OpenVPN's ACK packet retransmission handling allows unauthenticated attackers to trigger timeouts and cause denial-of-service across VPN infrastructures.",
+        "reason_zh": "OpenVPN 的 ACK 数据包重传处理存在整数溢出漏洞，允许未认证攻击者触发超时并在整个 VPN 基础设施中造成拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-86295",
+        "reason": "Command injection in D-Link udhcpcd allows remote attackers to execute system commands by manipulating hostname arguments processed by the DHCP client.",
+        "reason_en": "Command injection in D-Link udhcpcd allows remote attackers to execute system commands by manipulating hostname arguments processed by the DHCP client.",
+        "reason_zh": "D-Link udhcpcd 存在命令注入漏洞，允许远程攻击者通过操纵 DHCP 客户端处理的 hostname 参数来执行系统命令。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-77393",
+        "reason": "Default misconfiguration in Ignition Gateway permits any authenticated user to create projects, significantly expanding the attack surface in operational technology environments.",
+        "reason_en": "Default misconfiguration in Ignition Gateway permits any authenticated user to create projects, significantly expanding the attack surface in operational technology environments.",
+        "reason_zh": "Ignition Gateway的默认配置不当允许任何已认证用户创建项目，显著扩大了运营技术（OT）环境中的攻击面。"
+      },
+      {
+        "id": "CVE-2026-2670",
+        "reason": "High EPSS score indicates active exploitation of Advantech WISE-6610 industrial gateways, posing immediate risk to factory automation and edge computing networks.",
+        "reason_en": "High EPSS score indicates active exploitation of Advantech WISE-6610 industrial gateways, posing immediate risk to factory automation and edge computing networks.",
+        "reason_zh": "较高的EPSS评分表明Advantech WISE-6610工业网关正遭活跃利用，对工厂自动化和边缘计算网络构成直接风险。"
+      },
+      {
+        "id": "CVE-2026-81302",
+        "reason": "Incorrect default permissions in PALLET CONTROL products allow local attackers to execute arbitrary code with SYSTEM privileges, compromising industrial automation systems.",
+        "reason_en": "Incorrect default permissions in PALLET CONTROL products allow local attackers to execute arbitrary code with SYSTEM privileges, compromising industrial automation systems.",
+        "reason_zh": "PALLET CONTROL产品的默认权限设置错误允许本地攻击者以SYSTEM权限执行任意代码，从而破坏工业自动化系统。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-75650",
+        "reason": "Template engine injection in Adobe Commerce enables arbitrary code execution, directly compromising e-commerce storefronts and backend business logic.",
+        "reason_en": "Template engine injection in Adobe Commerce enables arbitrary code execution, directly compromising e-commerce storefronts and backend business logic.",
+        "reason_zh": "Adobe Commerce中的模板引擎注入漏洞可导致任意代码执行，直接危及电商前台与后端业务逻辑。"
+      },
+      {
+        "id": "CVE-2026-86480",
+        "reason": "JetBrains Hub allows unauthenticated registration of trusted services to instantly gain superuser privileges, compromising entire developer identity ecosystems.",
+        "reason_en": "JetBrains Hub allows unauthenticated registration of trusted services to instantly gain superuser privileges, compromising entire developer identity ecosystems.",
+        "reason_zh": "JetBrains Hub允许未认证用户注册受信任服务以立即获取超级用户权限，从而危及整个开发者身份生态系统。"
+      },
+      {
+        "id": "CVE-2026-7861",
+        "reason": "Unsafe deserialization in Next4Biz CSM permits remote code execution without authentication, posing severe risks to customer service management platforms.",
+        "reason_en": "Unsafe deserialization in Next4Biz CSM permits remote code execution without authentication, posing severe risks to customer service management platforms.",
+        "reason_zh": "Next4Biz CSM中存在不安全的反序列化漏洞，允许未经认证的远程代码执行，对客户服务平台构成严重威胁。"
+      },
+      {
+        "id": "CVE-2025-12543",
+        "reason": "CVSS 9.6 Undertow HTTP server core flaw fails to validate Host headers, enabling request smuggling and cache poisoning attacks in widely deployed Java web stacks.",
+        "reason_en": "CVSS 9.6 Undertow HTTP server core flaw fails to validate Host headers, enabling request smuggling and cache poisoning attacks in widely deployed Java web stacks.",
+        "reason_zh": "CVSS评分为9.6的Undertow HTTP服务器核心缺陷未能验证Host头，导致在广泛部署的Java Web栈中可发起请求走私和缓存投毒攻击。"
+      },
+      {
+        "id": "CVE-2026-44990",
+        "reason": "CVSS 9.3 sanitize-html default configuration incorrectly converts disallowed xmp elements into live HTML, creating a direct stored XSS vector for web applications relying on this library.",
+        "reason_en": "CVSS 9.3 sanitize-html default configuration incorrectly converts disallowed xmp elements into live HTML, creating a direct stored XSS vector for web applications relying on this library.",
+        "reason_zh": "CVSS评分为9.3的sanitize-html默认配置错误地将不允许的xmp元素转换为可执行HTML，为依赖该库的Web应用程序创建了直接的存储型XSS攻击向量。"
+      },
+      {
+        "id": "CVE-2026-6431",
+        "reason": "CVSS 7.2 stored XSS vulnerability in a popular WordPress plugin due to insufficient sanitization of biographical info fields, posing high risk to CMS deployments.",
+        "reason_en": "CVSS 7.2 stored XSS vulnerability in a popular WordPress plugin due to insufficient sanitization of biographical info fields, posing high risk to CMS deployments.",
+        "reason_zh": "某流行WordPress插件因对个人简介字段清理不足存在CVSS评分为7.2的存储型XSS漏洞，对CMS部署构成高风险。"
+      },
+      {
+        "id": "CVE-2026-41242",
+        "reason": "Arbitrary code injection in protobufjs executes during standard object decoding, enabling remote code execution through crafted protobuf definitions.",
+        "reason_en": "Arbitrary code injection in protobufjs executes during standard object decoding, enabling remote code execution through crafted protobuf definitions.",
+        "reason_zh": "protobufjs在标准对象解码过程中会执行任意代码注入，可通过构造的protobuf定义实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-31938",
+        "reason": "Critical HTML injection in jsPDF allows attackers to inject arbitrary scripts into browser contexts when generated PDFs are opened, facilitating cross-site scripting.",
+        "reason_en": "Critical HTML injection in jsPDF allows attackers to inject arbitrary scripts into browser contexts when generated PDFs are opened, facilitating cross-site scripting.",
+        "reason_zh": "jsPDF存在严重的HTML注入漏洞，当生成的PDF被打开时，攻击者可向浏览器上下文中注入任意脚本，从而引发跨站脚本攻击。"
+      },
+      {
+        "id": "CVE-2026-11613",
+        "reason": "Local file inclusion in Divi Ajax Filter plugin allows unauthenticated attackers to include and execute arbitrary PHP files, leading to complete server compromise.",
+        "reason_en": "Local file inclusion in Divi Ajax Filter plugin allows unauthenticated attackers to include and execute arbitrary PHP files, leading to complete server compromise.",
+        "reason_zh": "Divi Ajax Filter插件存在本地文件包含漏洞，允许未认证攻击者包含并执行任意PHP文件，导致服务器被完全控制。"
+      },
+      {
+        "id": "CVE-2026-44494",
+        "reason": "Prototype pollution gadget in Axios escalates generic object pollution into full Man-in-the-Middle attacks, compromising HTTPS traffic integrity.",
+        "reason_en": "Prototype pollution gadget in Axios escalates generic object pollution into full Man-in-the-Middle attacks, compromising HTTPS traffic integrity.",
+        "reason_zh": "Axios中的原型污染利用组件可将普通对象污染升级为完整的中间人攻击，破坏HTTPS流量的完整性。"
+      },
+      {
+        "id": "CVE-2026-9277",
+        "reason": "Validation bypass in shell-quote's quote() function allows line terminators to circumvent operator models, potentially leading to command injection in shell generation workflows.",
+        "reason_en": "Validation bypass in shell-quote's quote() function allows line terminators to circumvent operator models, potentially leading to command injection in shell generation workflows.",
+        "reason_zh": "shell-quote的quote()函数存在验证绕过漏洞，允许行终止符绕过操作符解析，可能在Shell生成工作流中导致命令注入。"
+      },
+      {
+        "id": "CVE-2026-13447",
+        "reason": "Missing cryptographic signature verification in Mstore Api plugin enables JWT forgery, allowing unauthenticated attackers to bypass authentication mechanisms.",
+        "reason_en": "Missing cryptographic signature verification in Mstore Api plugin enables JWT forgery, allowing unauthenticated attackers to bypass authentication mechanisms.",
+        "reason_zh": "Mstore Api插件缺少加密签名验证，可导致JWT伪造，使未认证攻击者能够绕过认证机制。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-18922",
+        "reason": "389 Directory Server reuses stale SASL identities after failed binds, effectively bypassing authentication and granting unauthorized access to directory entries.",
+        "reason_en": "389 Directory Server reuses stale SASL identities after failed binds, effectively bypassing authentication and granting unauthorized access to directory entries.",
+        "reason_zh": "389 Directory Server在绑定失败后会重用过期的SASL身份，实质上绕过了认证机制并授予对目录条目的未授权访问权限。"
+      },
+      {
+        "id": "CVE-2026-86404",
+        "reason": "WildFly Artemis defaults to permitting unrestricted object deserialization, creating a trivial remote code execution vector for enterprise message brokers.",
+        "reason_en": "WildFly Artemis defaults to permitting unrestricted object deserialization, creating a trivial remote code execution vector for enterprise message brokers.",
+        "reason_zh": "WildFly Artemis默认允许无限制的对象反序列化，为企业级消息代理创建了极易利用的远程代码执行向量。"
+      },
+      {
+        "id": "CVE-2026-19843",
+        "reason": "LDAP command injection in the 389 DS Cockpit console allows privileged users to execute arbitrary shell commands via crafted distinguished names.",
+        "reason_en": "LDAP command injection in the 389 DS Cockpit console allows privileged users to execute arbitrary shell commands via crafted distinguished names.",
+        "reason_zh": "389 DS Cockpit控制台存在LDAP命令注入漏洞，允许特权用户通过构造的专有名称（DN）执行任意Shell命令。"
+      },
+      {
+        "id": "CVE-2025-15379",
+        "reason": "CVSS 10 command injection in MLflow model serving initialization allows arbitrary code execution when deploying machine learning artifacts with local environment managers.",
+        "reason_en": "CVSS 10 command injection in MLflow model serving initialization allows arbitrary code execution when deploying machine learning artifacts with local environment managers.",
+        "reason_zh": "MLflow模型服务初始化过程中存在CVSS评分为10的命令注入漏洞，在使用本地环境管理器部署机器学习工件时可导致任意代码执行。"
+      },
+      {
+        "id": "CVE-2026-42154",
+        "reason": "CVSS 7.5 snappy decompression bomb in Prometheus remote read endpoint enables unauthenticated denial-of-service against monitoring infrastructure by triggering unbounded memory allocation.",
+        "reason_en": "CVSS 7.5 snappy decompression bomb in Prometheus remote read endpoint enables unauthenticated denial-of-service against monitoring infrastructure by triggering unbounded memory allocation.",
+        "reason_zh": "Prometheus远程读取端点存在CVSS评分为7.5的snappy解压缩炸弹漏洞，可通过触发无界内存分配对监控基础设施实施未认证拒绝服务攻击。"
+      },
+      {
+        "id": "CVE-2026-33216",
+        "reason": "CVSS 8.6 NATS Server misclassifies MQTT passwords as non-authenticating JWTs, exposing sensitive credentials through monitoring endpoints in messaging middleware.",
+        "reason_en": "CVSS 8.6 NATS Server misclassifies MQTT passwords as non-authenticating JWTs, exposing sensitive credentials through monitoring endpoints in messaging middleware.",
+        "reason_zh": "CVSS评分为8.6的NATS Server漏洞会将MQTT密码错误分类为非认证JWT，导致敏感凭据通过消息中间件的监控端点泄露。"
+      },
+      {
+        "id": "CVE-2026-5680",
+        "reason": "Exponential buffer doubling in Undertow's PerMessageDeflate implementation causes excessive memory consumption via crafted WebSocket messages, enabling denial-of-service.",
+        "reason_en": "Exponential buffer doubling in Undertow's PerMessageDeflate implementation causes excessive memory consumption via crafted WebSocket messages, enabling denial-of-service.",
+        "reason_zh": "Undertow的PerMessageDeflate实现中存在指数级缓冲区翻倍问题，可通过构造的WebSocket消息导致过度内存消耗，从而引发拒绝服务攻击。"
+      },
+      {
+        "id": "CVE-2026-33217",
+        "reason": "ACL enforcement failure in NATS Server's MQTT namespace allows unauthorized clients to bypass access controls and access restricted message subjects.",
+        "reason_en": "ACL enforcement failure in NATS Server's MQTT namespace allows unauthorized clients to bypass access controls and access restricted message subjects.",
+        "reason_zh": "NATS Server的MQTT命名空间中ACL强制执行失败，允许未授权客户端绕过访问控制并访问受限的消息主题。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-86431",
+        "reason": "Commonmark library processes form feed characters incorrectly, bypassing XSS filters and enabling cross-site scripting in markdown rendering engines.",
+        "reason_en": "Commonmark library processes form feed characters incorrectly, bypassing XSS filters and enabling cross-site scripting in markdown rendering engines.",
+        "reason_zh": "Commonmark库错误处理换页符，可绕过XSS过滤器并在Markdown渲染引擎中启用跨站脚本攻击。"
+      },
+      {
+        "id": "CVE-2026-86435",
+        "reason": "Quadratic complexity in Commonmark footnote deduplication allows attackers to craft documents that cause catastrophic CPU exhaustion and application crashes.",
+        "reason_en": "Quadratic complexity in Commonmark footnote deduplication allows attackers to craft documents that cause catastrophic CPU exhaustion and application crashes.",
+        "reason_zh": "Commonmark脚注去重算法存在二次复杂度问题，攻击者可构造特定文档导致灾难性的CPU耗尽及应用崩溃。"
+      },
+      {
+        "id": "CVE-2026-44005",
+        "reason": "CVSS 10 sandbox escape in Node.js vm2 exposes mutable host intrinsics via bridge proxies, allowing full host compromise from isolated execution contexts.",
+        "reason_en": "CVSS 10 sandbox escape in Node.js vm2 exposes mutable host intrinsics via bridge proxies, allowing full host compromise from isolated execution contexts.",
+        "reason_zh": "Node.js vm2中存在CVSS评分为10的沙箱逃逸漏洞，通过桥接代理暴露了可变的主机内置对象，允许从隔离的执行上下文中完全控制主机。"
+      },
+      {
+        "id": "CVE-2026-44492",
+        "reason": "CVSS 8.6 axios fails to normalize IPv4-mapped IPv6 addresses, bypassing NO_PROXY protections and leaking internal network traffic to external endpoints.",
+        "reason_en": "CVSS 8.6 axios fails to normalize IPv4-mapped IPv6 addresses, bypassing NO_PROXY protections and leaking internal network traffic to external endpoints.",
+        "reason_zh": "axios存在CVSS评分为8.6的漏洞，未能规范化IPv4映射的IPv6地址，导致绕过NO_PROXY保护并将内部网络流量泄露至外部端点。"
+      },
+      {
+        "id": "CVE-2026-4601",
+        "reason": "CVSS 9.4 missing cryptographic step in jsrsasign DSA implementation allows private key recovery by forcing invalid signature parameters during signing operations.",
+        "reason_en": "CVSS 9.4 missing cryptographic step in jsrsasign DSA implementation allows private key recovery by forcing invalid signature parameters during signing operations.",
+        "reason_zh": "jsrsasign的DSA实现中存在CVSS评分为9.4的缺失加密步骤漏洞，通过在签名操作中强制使用无效签名参数可实现私钥恢复。"
+      },
+      {
+        "id": "CVE-2026-86288",
+        "reason": "Out-of-bounds read in ModelCloud Triton dequantization kernel exposes adjacent memory contents, potentially leaking sensitive inference data or crashing applications.",
+        "reason_en": "Out-of-bounds read in ModelCloud Triton dequantization kernel exposes adjacent memory contents, potentially leaking sensitive inference data or crashing applications.",
+        "reason_zh": "ModelCloud Triton的反量化内核存在越界读取漏洞，会暴露相邻内存内容，可能导致敏感推理数据泄露或应用崩溃。"
+      },
+      {
+        "id": "CVE-2026-24049",
+        "reason": "Mishandling of file permissions during Python wheel extraction blindly trusts archive filenames, which can lead to privilege escalation or unauthorized file modifications.",
+        "reason_en": "Mishandling of file permissions during Python wheel extraction blindly trusts archive filenames, which can lead to privilege escalation or unauthorized file modifications.",
+        "reason_zh": "Python wheel提取过程中文件权限处理不当且盲目信任归档文件名，可能导致权限提升或未授权的文件修改。"
+      }
+    ]
+  },
+  "summary": "Remote code execution and authentication bypass vulnerabilities dominate today's threat landscape, severely impacting cloud infrastructure, network devices, and web applications through flaws in Kubernetes control planes, enterprise load balancers, and e-commerce platforms. Major vendors including Red Hat, F5, MikroTik, Adobe, and JetBrains are targeted by critical issues such as certificate validation failures, privilege escalation, and template injection that can lead to full system compromise or unauthorized administrative access. Additional high-risk findings include memory corruption and command injection attacks against IoT hardware from D-Link and Samsung, active exploitation risks in industrial gateways, and dangerous deserialization and cross-site scripting vectors embedded in widely used libraries like Axios and protobufjs.",
+  "summary_en": "Remote code execution and authentication bypass vulnerabilities dominate today's threat landscape, severely impacting cloud infrastructure, network devices, and web applications through flaws in Kubernetes control planes, enterprise load balancers, and e-commerce platforms. Major vendors including Red Hat, F5, MikroTik, Adobe, and JetBrains are targeted by critical issues such as certificate validation failures, privilege escalation, and template injection that can lead to full system compromise or unauthorized administrative access. Additional high-risk findings include memory corruption and command injection attacks against IoT hardware from D-Link and Samsung, active exploitation risks in industrial gateways, and dangerous deserialization and cross-site scripting vectors embedded in widely used libraries like Axios and protobufjs.",
+  "summary_zh": "远程代码执行与认证绕过漏洞主导了当前的威胁态势，通过Kubernetes控制平面、企业负载均衡器和电子商务平台中的缺陷，严重影响了云基础设施、网络设备和Web应用程序。包括Red Hat、F5、MikroTik、Adobe和JetBrains在内的主要厂商正面临证书验证失败、权限提升和模板注入等关键问题，这些问题可能导致系统完全被控或未授权的管理员访问。其他高风险发现还包括针对D-Link和Samsung的IoT硬件的内存破坏与命令注入攻击、工业网关中的活跃利用风险，以及嵌入在Axios和protobufjs等广泛使用的库中的危险反序列化和跨站脚本向量。"
+}
