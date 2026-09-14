@@ -1,0 +1,430 @@
+{
+  "analysis_date": "2026-09-14",
+  "total_analyzed": 326,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-89712",
+        "reason": "A critical race condition in the NFS server's umount walk can lead to use-after-free vulnerabilities, potentially allowing local privilege escalation or system crashes.",
+        "reason_en": "A critical race condition in the NFS server's umount walk can lead to use-after-free vulnerabilities, potentially allowing local privilege escalation or system crashes.",
+        "reason_zh": "NFS服务器的umount遍历过程中存在关键竞态条件，可能导致释放后使用漏洞，进而允许本地权限提升或引发系统崩溃。"
+      },
+      {
+        "id": "CVE-2026-89708",
+        "reason": "Improper RCU protection during NFS session teardown creates a use-after-free window exploitable for kernel memory corruption and privilege escalation.",
+        "reason_en": "Improper RCU protection during NFS session teardown creates a use-after-free window exploitable for kernel memory corruption and privilege escalation.",
+        "reason_zh": "NFS会话终止期间缺乏适当的RCU保护，会形成可利用的释放后使用窗口期，导致内核内存损坏及权限提升。"
+      },
+      {
+        "id": "CVE-2026-89729",
+        "reason": "Out-of-bounds write in the HID sensor hub driver allows local attackers to corrupt kernel memory by supplying malicious sensor data.",
+        "reason_en": "Out-of-bounds write in the HID sensor hub driver allows local attackers to corrupt kernel memory by supplying malicious sensor data.",
+        "reason_zh": "HID传感器集线器驱动中存在越界写入漏洞，允许本地攻击者通过提供恶意传感器数据来损坏内核内存。"
+      },
+      {
+        "id": "CVE-2026-89612",
+        "reason": "Crafted NTFS boot sector values cause integer conversion issues that can corrupt kernel memory when mounting volumes. This poses a direct local privilege escalation risk on desktop systems requiring cross-platform filesystem support.",
+        "reason_en": "Crafted NTFS boot sector values cause integer conversion issues that can corrupt kernel memory when mounting volumes. This poses a direct local privilege escalation risk on desktop systems requiring cross-platform filesystem support.",
+        "reason_zh": "精心构造的NTFS引导扇区值会导致整数转换问题，在挂载卷时可能损坏内核内存。这对需要跨平台文件系统支持的桌面系统构成直接的本地权限提升风险。"
+      },
+      {
+        "id": "CVE-2026-89607",
+        "reason": "Oversized encrypted key sizes bypass internal bounds checks, potentially triggering buffer overflows during decryption operations. This threatens user data confidentiality and system stability on systems relying on eCryptfs for home directory encryption.",
+        "reason_en": "Oversized encrypted key sizes bypass internal bounds checks, potentially triggering buffer overflows during decryption operations. This threatens user data confidentiality and system stability on systems relying on eCryptfs for home directory encryption.",
+        "reason_zh": "过大的加密密钥长度可绕过内部边界检查，可能在解密操作中触发缓冲区溢出。这威胁到依赖eCryptfs进行主目录加密系统的用户数据机密性与系统稳定性。"
+      },
+      {
+        "id": "CVE-2026-89603",
+        "reason": "A race condition between ptrace and TSYNC seccomp filters can bypass mandatory access controls, undermining container isolation. This flaw weakens application sandboxing and security hardening mechanisms commonly deployed on desktop and server workloads.",
+        "reason_en": "A race condition between ptrace and TSYNC seccomp filters can bypass mandatory access controls, undermining container isolation. This flaw weakens application sandboxing and security hardening mechanisms commonly deployed on desktop and server workloads.",
+        "reason_zh": "ptrace与TSYNC seccomp过滤器之间的竞态条件可绕过强制访问控制，破坏容器隔离。此缺陷削弱了通常在桌面和服务器工作负载中部署的应用沙箱及安全加固机制。"
+      },
+      {
+        "id": "CVE-2026-89489",
+        "reason": "Adds missing pointer validation to the OpenRISC atomic syscall, blocking arbitrary kernel memory access.",
+        "reason_en": "Adds missing pointer validation to the OpenRISC atomic syscall, blocking arbitrary kernel memory access.",
+        "reason_zh": "为OpenRISC原子系统调用补充缺失的指针验证，从而阻止任意内核内存访问。"
+      },
+      {
+        "id": "CVE-2026-81012",
+        "reason": "Fixes an off-by-one write in HP BIOS config parsing, preventing local users from corrupting kernel memory via sysfs.",
+        "reason_en": "Fixes an off-by-one write in HP BIOS config parsing, preventing local users from corrupting kernel memory via sysfs.",
+        "reason_zh": "修复HP BIOS配置解析中的差一写入漏洞，防止本地用户通过sysfs损坏内核内存。"
+      },
+      {
+        "id": "CVE-2026-89521",
+        "reason": "Addresses a core scheduler race condition when task selection releases locks, improving CPU scheduling reliability.",
+        "reason_en": "Addresses a core scheduler race condition when task selection releases locks, improving CPU scheduling reliability.",
+        "reason_zh": "解决任务选择释放锁时的核心调度器竞态条件，提升CPU调度的可靠性。"
+      },
+      {
+        "id": "CVE-2026-80929",
+        "reason": "Incorrect pid_table permissions allow non-root users to manipulate global kernel parameters, potentially leading to local privilege escalation on Linux workstations and servers.",
+        "reason_en": "Incorrect pid_table permissions allow non-root users to manipulate global kernel parameters, potentially leading to local privilege escalation on Linux workstations and servers.",
+        "reason_zh": "pid_table权限配置错误允许非root用户操纵全局内核参数，可能导致Linux工作站和服务器发生本地权限提升。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-89524",
+        "reason": "Clamps association request lengths in the ath6kl Wi-Fi driver, preventing integer underflows that cause heap corruption.",
+        "reason_en": "Clamps association request lengths in the ath6kl Wi-Fi driver, preventing integer underflows that cause heap corruption.",
+        "reason_zh": "限制ath6kl Wi-Fi驱动中的关联请求长度，防止因整数下溢导致的堆损坏。"
+      },
+      {
+        "id": "CVE-2026-80997",
+        "reason": "Fixes stalled TX queues in the IPA modem driver after runtime resume, resolving connectivity drops on mobile platforms.",
+        "reason_en": "Fixes stalled TX queues in the IPA modem driver after runtime resume, resolving connectivity drops on mobile platforms.",
+        "reason_zh": "修复IPA调制解调器驱动在运行时恢复后TX队列停滞的问题，解决移动平台的连接中断现象。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-90606",
+        "reason": "Buffer overflow in the Totolink router's IPv6 configuration handler enables remote attackers to execute arbitrary code without authentication.",
+        "reason_en": "Buffer overflow in the Totolink router's IPv6 configuration handler enables remote attackers to execute arbitrary code without authentication.",
+        "reason_zh": "Totolink路由器的IPv6配置处理程序存在缓冲区溢出漏洞，使远程攻击者能够在无需认证的情况下执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-90605",
+        "reason": "Remote buffer overflow in the network filter component allows unauthenticated attackers to achieve code execution on affected router models.",
+        "reason_en": "Remote buffer overflow in the network filter component allows unauthenticated attackers to achieve code execution on affected router models.",
+        "reason_zh": "网络过滤组件中的远程缓冲区溢出漏洞允许未认证的攻击者在受影响的路由器型号上实现代码执行。"
+      },
+      {
+        "id": "CVE-2026-15891",
+        "reason": "Flawed gateway record handling in the Zephyr MQTT-SN client can cause unexpected disconnects and denial of service in constrained IoT deployments.",
+        "reason_en": "Flawed gateway record handling in the Zephyr MQTT-SN client can cause unexpected disconnects and denial of service in constrained IoT deployments.",
+        "reason_zh": "Zephyr MQTT-SN客户端中网关记录处理的缺陷可能导致意外断连和服务拒绝，影响资源受限的IoT部署环境。"
+      },
+      {
+        "id": "CVE-2026-89569",
+        "reason": "A race condition in RFCOMM security confirmation handling can bypass authentication during device pairing. This compromises trust models in Bluetooth-enabled IoT ecosystems, allowing unauthorized device connections.",
+        "reason_en": "A race condition in RFCOMM security confirmation handling can bypass authentication during device pairing. This compromises trust models in Bluetooth-enabled IoT ecosystems, allowing unauthorized device connections.",
+        "reason_zh": "RFCOMM安全确认处理中的竞态条件可在设备配对期间绕过认证。这会破坏支持蓝牙的IoT生态系统的信任模型，导致未经授权的设备连接。"
+      },
+      {
+        "id": "CVE-2026-89620",
+        "reason": "Missing report size validation before DMA copy allows heap corruption via malicious USB HID devices. This is particularly dangerous for embedded systems and IoT hardware interfaces that rely on quickspi-based sensor controllers.",
+        "reason_en": "Missing report size validation before DMA copy allows heap corruption via malicious USB HID devices. This is particularly dangerous for embedded systems and IoT hardware interfaces that rely on quickspi-based sensor controllers.",
+        "reason_zh": "DMA复制前缺少报告大小验证，可通过恶意USB HID设备导致堆损坏。这对于依赖基于quickspi的传感器控制器的嵌入式系统和IoT硬件接口尤为危险。"
+      },
+      {
+        "id": "CVE-2026-89522",
+        "reason": "Resolves a use-after-free in the IPU7 media driver probe error path, securing V4L2 interfaces against local exploitation.",
+        "reason_en": "Resolves a use-after-free in the IPU7 media driver probe error path, securing V4L2 interfaces against local exploitation.",
+        "reason_zh": "修复IPU7媒体驱动探测错误路径中的释放后使用漏洞，保护V4L2接口免受本地利用。"
+      },
+      {
+        "id": "CVE-2026-89471",
+        "reason": "Bounds EC-reported port counts in Cros USBPD chargers, preventing out-of-bounds writes in firmware communication loops.",
+        "reason_en": "Bounds EC-reported port counts in Cros USBPD chargers, preventing out-of-bounds writes in firmware communication loops.",
+        "reason_zh": "对Cros USBPD充电器中EC报告的端口数量进行边界限制，防止固件通信循环中出现越界写入。"
+      },
+      {
+        "id": "CVE-2026-81017",
+        "reason": "Validates sensor numbers from ChromeOS EC FIFOs, blocking buffer overflows in connected IoT edge devices.",
+        "reason_en": "Validates sensor numbers from ChromeOS EC FIFOs, blocking buffer overflows in connected IoT edge devices.",
+        "reason_zh": "验证来自ChromeOS EC FIFO的传感器编号，阻止连接的IoT边缘设备发生缓冲区溢出。"
+      },
+      {
+        "id": "CVE-2026-80953",
+        "reason": "Uninitialized lock usage before interrupt enablement creates a race condition that can corrupt memory in embedded I3C controllers commonly used in IoT and industrial sensors.",
+        "reason_en": "Uninitialized lock usage before interrupt enablement creates a race condition that can corrupt memory in embedded I3C controllers commonly used in IoT and industrial sensors.",
+        "reason_zh": "在中断启用前使用未初始化的锁会引发竞态条件，可能导致常用于IoT和工业传感器的嵌入式I3C控制器内存损坏。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-90603",
+        "reason": "Unrestricted S3 upload functionality bypasses security controls, allowing attackers to upload arbitrary payloads to cloud storage buckets.",
+        "reason_en": "Unrestricted S3 upload functionality bypasses security controls, allowing attackers to upload arbitrary payloads to cloud storage buckets.",
+        "reason_zh": "无限制的S3上传功能绕过了安全控制，允许攻击者将任意有效载荷上传至云存储桶。"
+      },
+      {
+        "id": "CVE-2026-29811",
+        "reason": "Incorrect domain alias detection logic in CyberPanel bypasses ORM validation, potentially enabling unauthorized domain configuration changes.",
+        "reason_en": "Incorrect domain alias detection logic in CyberPanel bypasses ORM validation, potentially enabling unauthorized domain configuration changes.",
+        "reason_zh": "CyberPanel中错误的域名别名检测逻辑会绕过ORM验证，可能导致未经授权的域名配置更改。"
+      },
+      {
+        "id": "CVE-2026-90770",
+        "reason": "Authenticated users can inject shell metacharacters into monitor addresses, leading to remote code execution on the underlying infrastructure.",
+        "reason_en": "Authenticated users can inject shell metacharacters into monitor addresses, leading to remote code execution on the underlying infrastructure.",
+        "reason_zh": "已认证用户可将Shell元字符注入监控地址，从而导致底层基础设施发生远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-90510",
+        "reason": "Weakness in the host key encryption implementation exposes sensitive credentials, risking unauthorized access to managed assets.",
+        "reason_en": "Weakness in the host key encryption implementation exposes sensitive credentials, risking unauthorized access to managed assets.",
+        "reason_zh": "主机密钥加密实现的缺陷会暴露敏感凭据，危及受管资产面临未经授权访问的风险。"
+      },
+      {
+        "id": "CVE-2026-89655",
+        "reason": "Use-after-free during capability flush handling can lead to remote code execution on Ceph cluster nodes. This directly threatens distributed storage integrity and availability in modern cloud infrastructure deployments.",
+        "reason_en": "Use-after-free during capability flush handling can lead to remote code execution on Ceph cluster nodes. This directly threatens distributed storage integrity and availability in modern cloud infrastructure deployments.",
+        "reason_zh": "能力刷新处理期间的释放后使用漏洞可能导致Ceph集群节点发生远程代码执行。这直接威胁现代云基础设施部署中分布式存储的完整性与可用性。"
+      },
+      {
+        "id": "CVE-2026-89558",
+        "reason": "An inverted degraded state flag masks drive failures, risking silent data loss during subsequent disk faults. Correcting this is critical for maintaining reliability in software RAID configurations powering cloud storage backends.",
+        "reason_en": "An inverted degraded state flag masks drive failures, risking silent data loss during subsequent disk faults. Correcting this is critical for maintaining reliability in software RAID configurations powering cloud storage backends.",
+        "reason_zh": "反转的降级状态标志会掩盖磁盘故障，在后续磁盘故障期间可能导致静默数据丢失。修正此问题对于维持支撑云存储后端的软件RAID配置的可靠性至关重要。"
+      },
+      {
+        "id": "CVE-2026-89513",
+        "reason": "Fixes PMU event array overflow in RISC-V KVM, preventing guest-controlled memory truncation and host instability.",
+        "reason_en": "Fixes PMU event array overflow in RISC-V KVM, preventing guest-controlled memory truncation and host instability.",
+        "reason_zh": "修复RISC-V KVM中的PMU事件数组溢出漏洞，防止客户机控制的内存截断及主机不稳定。"
+      },
+      {
+        "id": "CVE-2026-89448",
+        "reason": "Forces ACS requests when Intel TXT is enabled, ensuring proper IOMMU isolation to prevent cross-VM DMA attacks.",
+        "reason_en": "Forces ACS requests when Intel TXT is enabled, ensuring proper IOMMU isolation to prevent cross-VM DMA attacks.",
+        "reason_zh": "启用Intel TXT时强制发送ACS请求，确保正确的IOMMU隔离以防范跨虚拟机DMA攻击。"
+      },
+      {
+        "id": "CVE-2026-89445",
+        "reason": "Eliminates a use-after-free in IOMMUFD selftests, protecting hypervisors from crashes during device fault reporting.",
+        "reason_en": "Eliminates a use-after-free in IOMMUFD selftests, protecting hypervisors from crashes during device fault reporting.",
+        "reason_zh": "消除IOMMUFD自测中的释放后使用漏洞，保护虚拟机管理程序在设备故障报告期间免于崩溃。"
+      },
+      {
+        "id": "CVE-2026-80945",
+        "reason": "Improper DMA unmapping during hardware-to-software fallback causes memory corruption on Intel Analytics Accelerators, which are heavily utilized in cloud data center inference pipelines.",
+        "reason_en": "Improper DMA unmapping during hardware-to-software fallback causes memory corruption on Intel Analytics Accelerators, which are heavily utilized in cloud data center inference pipelines.",
+        "reason_zh": "硬件至软件回退期间DMA解映射不当会导致Intel Analytics Accelerators发生内存损坏，该设备在云数据中心推理流水线中被广泛使用。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-90780",
+        "reason": "Static buffer overflow when processing oversized SIP headers allows remote attackers to crash the application or execute code via crafted packets.",
+        "reason_en": "Static buffer overflow when processing oversized SIP headers allows remote attackers to crash the application or execute code via crafted packets.",
+        "reason_zh": "处理超大SIP头部时发生静态缓冲区溢出，使远程攻击者能够通过构造的数据包导致应用程序崩溃或执行代码。"
+      },
+      {
+        "id": "CVE-2026-90779",
+        "reason": "Stack buffer overflow in SIP authentication challenge parsing enables remote code execution through malicious server responses.",
+        "reason_en": "Stack buffer overflow in SIP authentication challenge parsing enables remote code execution through malicious server responses.",
+        "reason_zh": "SIP认证挑战解析过程中的栈缓冲区溢出漏洞可通过恶意服务器响应实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-90778",
+        "reason": "Oversized tag parameters in SIP To headers trigger a buffer overflow, allowing unauthenticated attackers to crash the processing daemon.",
+        "reason_en": "Oversized tag parameters in SIP To headers trigger a buffer overflow, allowing unauthenticated attackers to crash the processing daemon.",
+        "reason_zh": "SIP To头部中过大的标签参数会触发缓冲区溢出，使未授权攻击者能够导致处理守护进程崩溃。"
+      },
+      {
+        "id": "CVE-2026-89675",
+        "reason": "Use-after-free in NFSv4 async copy teardown allows local attackers to corrupt kernel memory. This significantly increases exploitation risk in enterprise file-sharing environments where NFS daemons handle concurrent client requests.",
+        "reason_en": "Use-after-free in NFSv4 async copy teardown allows local attackers to corrupt kernel memory. This significantly increases exploitation risk in enterprise file-sharing environments where NFS daemons handle concurrent client requests.",
+        "reason_zh": "NFSv4异步复制拆除过程中的释放后使用（Use-after-free）漏洞允许本地攻击者破坏内核内存。在企业文件共享环境中，NFS守护进程需处理并发客户端请求，此漏洞显著增加了被利用的风险。"
+      },
+      {
+        "id": "CVE-2026-89633",
+        "reason": "Unvalidated DataOffset fields enable out-of-bounds reads and writes via malicious SMB servers. This flaw directly impacts client-side network security and can be leveraged for remote code execution on connected endpoints.",
+        "reason_en": "Unvalidated DataOffset fields enable out-of-bounds reads and writes via malicious SMB servers. This flaw directly impacts client-side network security and can be leveraged for remote code execution on connected endpoints.",
+        "reason_zh": "未经验证的DataOffset字段允许通过恶意SMB服务器进行越界读写。该缺陷直接影响客户端网络安全，并可被利用于在已连接终端上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-89550",
+        "reason": "Missing minimum length enforcement for GSSAPI Kerberos tokens allows crafted packets to crash services or bypass authentication. This is critical for securing RPC communication across distributed network services and identity management systems.",
+        "reason_en": "Missing minimum length enforcement for GSSAPI Kerberos tokens allows crafted packets to crash services or bypass authentication. This is critical for securing RPC communication across distributed network services and identity management systems.",
+        "reason_zh": "GSSAPI Kerberos令牌缺乏最小长度校验，攻击者可利用构造的数据包导致服务崩溃或绕过身份验证。该修复对保障分布式网络服务与身份管理系统间的RPC通信安全至关重要。"
+      },
+      {
+        "id": "CVE-2026-89542",
+        "reason": "Hardens GSS-KRB5 token unwrapping against short tokens, preventing authentication bypass and potential remote code execution.",
+        "reason_en": "Hardens GSS-KRB5 token unwrapping against short tokens, preventing authentication bypass and potential remote code execution.",
+        "reason_zh": "增强GSS-KRB5令牌解包机制以防御短令牌攻击，防止身份验证绕过及潜在的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-89530",
+        "reason": "Fixes inline reply overflow in RPC-over-RDMA, mitigating remote kernel memory corruption triggered by malicious NFS clients.",
+        "reason_en": "Fixes inline reply overflow in RPC-over-RDMA, mitigating remote kernel memory corruption triggered by malicious NFS clients.",
+        "reason_zh": "修复RPC-over-RDMA协议中的内联回复缓冲区溢出问题，缓解恶意NFS客户端触发的远程内核内存损坏风险。"
+      },
+      {
+        "id": "CVE-2026-89479",
+        "reason": "Prevents SCTP from processing packets after association deletion, eliminating use-after-free vulnerabilities exploitable for privilege escalation.",
+        "reason_en": "Prevents SCTP from processing packets after association deletion, eliminating use-after-free vulnerabilities exploitable for privilege escalation.",
+        "reason_zh": "阻止SCTP在关联删除后继续处理数据包，彻底消除可被利用进行权限提升的释放后使用（Use-after-free）漏洞。"
+      },
+      {
+        "id": "CVE-2026-81002",
+        "reason": "Corrects XDP zero-copy frame layout calculations, stopping packet data from overwriting critical kernel control structures.",
+        "reason_en": "Corrects XDP zero-copy frame layout calculations, stopping packet data from overwriting critical kernel control structures.",
+        "reason_zh": "修正XDP零拷贝帧布局的计算逻辑，防止数据包数据覆盖关键的内核控制结构。"
+      },
+      {
+        "id": "CVE-2026-80981",
+        "reason": "Resolves a use-after-free in SMC LLC link addition, closing a path for local privilege escalation via shared memory networking.",
+        "reason_en": "Resolves a use-after-free in SMC LLC link addition, closing a path for local privilege escalation via shared memory networking.",
+        "reason_zh": "修复SMC LLC链路添加过程中的释放后使用漏洞，阻断通过共享内存网络进行本地权限提升的攻击路径。"
+      },
+      {
+        "id": "CVE-2026-80926",
+        "reason": "A critical use-after-free flaw in the kernel SMB server allows remote attackers to execute arbitrary code or trigger denial of service on network file shares.",
+        "reason_en": "A critical use-after-free flaw in the kernel SMB server allows remote attackers to execute arbitrary code or trigger denial of service on network file shares.",
+        "reason_zh": "内核SMB服务器中存在严重的释放后使用（Use-after-free）漏洞，允许远程攻击者在网络文件共享上执行任意代码或触发拒绝服务（DoS）。"
+      },
+      {
+        "id": "CVE-2026-80937",
+        "reason": "Missing bounds validation on device EEPROM addresses enables buffer overflows in widely deployed MediaTek WiFi network adapters, risking driver crashes or code execution.",
+        "reason_en": "Missing bounds validation on device EEPROM addresses enables buffer overflows in widely deployed MediaTek WiFi network adapters, risking driver crashes or code execution.",
+        "reason_zh": "设备EEPROM地址缺乏边界校验，导致广泛部署的MediaTek WiFi网卡发生缓冲区溢出，可能引发驱动程序崩溃或代码执行。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-89469",
+        "reason": "Fixes a use-after-free in the LP8727 power supply driver, ensuring stable operation in industrial power monitoring systems.",
+        "reason_en": "Fixes a use-after-free in the LP8727 power supply driver, ensuring stable operation in industrial power monitoring systems.",
+        "reason_zh": "修复LP8727电源管理驱动中的释放后使用漏洞，确保工业电源监控系统稳定运行。"
+      },
+      {
+        "id": "CVE-2026-89465",
+        "reason": "Quiesces delayed work before teardown in the RT9455 charger driver, preventing race conditions in embedded power management.",
+        "reason_en": "Quiesces delayed work before teardown in the RT9455 charger driver, preventing race conditions in embedded power management.",
+        "reason_zh": "在RT9455充电驱动清理阶段前暂停延迟任务，防止嵌入式电源管理系统中出现竞态条件。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-81578",
+        "reason": "Known exploited in the wild, this improper access control flaw allows unauthenticated requests to trigger administrative backend actions before validation completes.",
+        "reason_en": "Known exploited in the wild, this improper access control flaw allows unauthenticated requests to trigger administrative backend actions before validation completes.",
+        "reason_zh": "该不恰当的访问控制漏洞已在野外被实际利用，允许未认证请求在验证完成前触发后台管理操作。"
+      },
+      {
+        "id": "CVE-2026-81648",
+        "reason": "Critical unauthenticated vulnerability permits arbitrary file deletion and payment gateway configuration overwrites via compromised AJAX endpoints.",
+        "reason_en": "Critical unauthenticated vulnerability permits arbitrary file deletion and payment gateway configuration overwrites via compromised AJAX endpoints.",
+        "reason_zh": "该高危未授权漏洞允许攻击者通过被攻陷的AJAX端点执行任意文件删除及支付网关配置覆盖。"
+      },
+      {
+        "id": "CVE-2026-85129",
+        "reason": "Missing authorization checks in the import feature allow unauthenticated stored cross-site scripting attacks targeting end users.",
+        "reason_en": "Missing authorization checks in the import feature allow unauthenticated stored cross-site scripting attacks targeting end users.",
+        "reason_zh": "导入功能缺失权限校验，导致未授权用户可发起存储型跨站脚本（XSS）攻击，直接威胁终端用户。"
+      },
+      {
+        "id": "CVE-2026-90561",
+        "reason": "Stored XSS in Strapi's WYSIWYG preview component executes malicious scripts when editors view unsanitized rich text fields.",
+        "reason_en": "Stored XSS in Strapi's WYSIWYG preview component executes malicious scripts when editors view unsanitized rich text fields.",
+        "reason_zh": "Strapi的WYSIWYG预览组件存在存储型XSS漏洞，当编辑器查看未过滤的富文本字段时将执行恶意脚本。"
+      },
+      {
+        "id": "CVE-2026-90562",
+        "reason": "Extremely low entropy in password recovery keys combined with no rate limiting enables brute-force administrative account takeover.",
+        "reason_en": "Extremely low entropy in password recovery keys combined with no rate limiting enables brute-force administrative account takeover.",
+        "reason_zh": "密码恢复密钥熵值极低且缺乏速率限制机制，导致攻击者可轻易实施暴力破解并接管管理员账户。"
+      },
+      {
+        "id": "CVE-2026-90769",
+        "reason": "Unvalidated URL parameters in the sources endpoint facilitate server-side request forgery, exposing internal cloud metadata and services.",
+        "reason_en": "Unvalidated URL parameters in the sources endpoint facilitate server-side request forgery, exposing internal cloud metadata and services.",
+        "reason_zh": "sources端点未经验证的URL参数易引发服务器端请求伪造（SSRF），导致内部云元数据及服务泄露。"
+      },
+      {
+        "id": "CVE-2026-90492",
+        "reason": "Remote OS command injection in the web_robot framework allows attackers to execute arbitrary system commands on vulnerable web servers without authentication.",
+        "reason_en": "Remote OS command injection in the web_robot framework allows attackers to execute arbitrary system commands on vulnerable web servers without authentication.",
+        "reason_zh": "web_robot框架存在远程操作系统命令注入漏洞，允许攻击者在未认证情况下于目标Web服务器上执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-90491",
+        "reason": "Code injection in the Electron renderer component enables remote attackers to compromise client-side web applications and potentially steal user data.",
+        "reason_en": "Code injection in the Electron renderer component enables remote attackers to compromise client-side web applications and potentially steal user data.",
+        "reason_zh": "Electron渲染组件存在代码注入漏洞，使远程攻击者能够攻破客户端Web应用并窃取用户数据。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-82078",
+        "reason": "Known exploited vulnerability allows remote code execution by instantiating arbitrary database driver classes without allowlist validation.",
+        "reason_en": "Known exploited vulnerability allows remote code execution by instantiating arbitrary database driver classes without allowlist validation.",
+        "reason_zh": "该已知被利用的漏洞允许在未进行白名单校验的情况下实例化任意数据库驱动类，从而导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-89495",
+        "reason": "Bounds peer-controlled name lengths in OCFS2 DLM handlers, blocking remote buffer overflows in clustered storage environments.",
+        "reason_en": "Bounds peer-controlled name lengths in OCFS2 DLM handlers, blocking remote buffer overflows in clustered storage environments.",
+        "reason_zh": "对OCFS2 DLM处理程序中对等方控制的名称长度进行边界限制，阻断集群存储环境中的远程缓冲区溢出攻击。"
+      },
+      {
+        "id": "CVE-2026-89482",
+        "reason": "Enforces strict payload validation in NVMe-TCP, preventing malicious controllers from triggering kernel crashes or data corruption.",
+        "reason_en": "Enforces strict payload validation in NVMe-TCP, preventing malicious controllers from triggering kernel crashes or data corruption.",
+        "reason_zh": "在NVMe-TCP协议中实施严格的载荷校验，防止恶意控制器触发内核崩溃或数据损坏。"
+      },
+      {
+        "id": "CVE-2026-80962",
+        "reason": "Validates geometry fields in dm-pcache, avoiding out-of-bounds array indexing during cache device initialization.",
+        "reason_en": "Validates geometry fields in dm-pcache, avoiding out-of-bounds array indexing during cache device initialization.",
+        "reason_zh": "对dm-pcache中的几何字段进行校验，避免在缓存设备初始化过程中发生数组越界访问。"
+      },
+      {
+        "id": "CVE-2026-90678",
+        "reason": "Flawed handling of HTTP/3 QUIC traffic forwarded to HTTP/1.1 backends can cause proxy failures, session drops, or data corruption in enterprise reverse proxy deployments.",
+        "reason_en": "Flawed handling of HTTP/3 QUIC traffic forwarded to HTTP/1.1 backends can cause proxy failures, session drops, or data corruption in enterprise reverse proxy deployments.",
+        "reason_zh": "将HTTP/3 QUIC流量转发至HTTP/1.1后端时的处理缺陷，可能导致企业反向代理部署出现代理故障、会话中断或数据损坏。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-37008",
+        "reason": "Bypassing Python's import-time module blocklist allows attackers to load restricted libraries like ctypes for arbitrary code execution.",
+        "reason_en": "Bypassing Python's import-time module blocklist allows attackers to load restricted libraries like ctypes for arbitrary code execution.",
+        "reason_zh": "绕过Python导入阶段的模块黑名单机制，可使攻击者加载ctypes等受限库以实现任意代码执行。"
+      },
+      {
+        "id": "CVE-2026-90777",
+        "reason": "Insecure deserialization of pretrained model checkpoints using torch.load enables remote code execution from attacker-supplied files.",
+        "reason_en": "Insecure deserialization of pretrained model checkpoints using torch.load enables remote code execution from attacker-supplied files.",
+        "reason_zh": "使用 torch.load 对预训练模型检查点进行不安全的反序列化，可致使攻击者通过提供恶意文件实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-90768",
+        "reason": "Missing task ownership validation in the REST API allows authenticated users to read and delete other users' malware analysis submissions.",
+        "reason_en": "Missing task ownership validation in the REST API allows authenticated users to read and delete other users' malware analysis submissions.",
+        "reason_zh": "REST API 缺乏任务所有权验证机制，导致已认证用户可越权读取并删除其他用户的恶意软件分析提交数据。"
+      },
+      {
+        "id": "CVE-2026-89586",
+        "reason": "Firmware-supplied ACPI buffers copied without proper bounds checking can overwrite the kernel stack. Attackers with physical or firmware-level access can exploit this for local privilege escalation on systems relying on ACPI power management.",
+        "reason_en": "Firmware-supplied ACPI buffers copied without proper bounds checking can overwrite the kernel stack. Attackers with physical or firmware-level access can exploit this for local privilege escalation on systems relying on ACPI power management.",
+        "reason_zh": "未经适当边界检查直接复制的固件ACPI缓冲区可能导致内核栈被覆盖。具备物理或固件级访问权限的攻击者可利用该缺陷，在依赖ACPI电源管理的系统中实现本地提权。"
+      },
+      {
+        "id": "CVE-2026-89574",
+        "reason": "Insufficient validation of array block headers during read operations can corrupt device-mapper structures. This affects lower-level storage virtualization layers and may lead to data inconsistency or kernel panics in complex block stacking environments.",
+        "reason_en": "Insufficient validation of array block headers during read operations can corrupt device-mapper structures. This affects lower-level storage virtualization layers and may lead to data inconsistency or kernel panics in complex block stacking environments.",
+        "reason_zh": "读取操作中对阵列块头的验证不足可能导致 device-mapper 结构损坏。该问题影响底层存储虚拟化层，在复杂的块设备堆叠环境中可能引发数据不一致或内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-81008",
+        "reason": "Fixes a use-after-free in the interconnect framework on allocation failure, maintaining system bus stability.",
+        "reason_en": "Fixes a use-after-free in the interconnect framework on allocation failure, maintaining system bus stability.",
+        "reason_zh": "修复了互连框架在内存分配失败时触发的释放后使用漏洞，保障系统总线稳定性。"
+      },
+      {
+        "id": "CVE-2026-80971",
+        "reason": "Clears dangling URB pointers in the ALSA bcd2000 driver upon disconnect, preventing kernel panics during USB hotplug events.",
+        "reason_en": "Clears dangling URB pointers in the ALSA bcd2000 driver upon disconnect, preventing kernel panics during USB hotplug events.",
+        "reason_zh": "在设备断开连接时清理 ALSA bcd2000 驱动中的悬空 URB 指针，防止 USB 热插拔期间触发内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-80955",
+        "reason": "Use-after-free and invalid segment operations in the device mapper cache layer can crash storage stacks or corrupt cached data across various Linux-based infrastructure.",
+        "reason_en": "Use-after-free and invalid segment operations in the device mapper cache layer can crash storage stacks or corrupt cached data across various Linux-based infrastructure.",
+        "reason_zh": "device-mapper 缓存层中存在的释放后使用及无效段操作漏洞，可能导致存储栈崩溃，或在各类基于 Linux 的基础设施中造成缓存数据损坏。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability curation reveals a critical concentration of remote code execution and memory corruption flaws impacting network infrastructure, cloud environments, and web platforms. Prominent threats include unauthenticated RCE in SIP and SMB protocols, buffer overflows in Totolink routers, and code execution risks within Ceph storage clusters and database drivers, alongside significant kernel-level use-after-free and privilege escalation issues affecting desktop and mobile operating systems. Web security remains a major concern with known-exploited access control bypasses, cross-site scripting in tools like Strapi and Electron, and server-side request forgery, underscoring widespread exploitation opportunities across diverse attack surfaces.",
+  "summary_en": "Today's vulnerability curation reveals a critical concentration of remote code execution and memory corruption flaws impacting network infrastructure, cloud environments, and web platforms. Prominent threats include unauthenticated RCE in SIP and SMB protocols, buffer overflows in Totolink routers, and code execution risks within Ceph storage clusters and database drivers, alongside significant kernel-level use-after-free and privilege escalation issues affecting desktop and mobile operating systems. Web security remains a major concern with known-exploited access control bypasses, cross-site scripting in tools like Strapi and Electron, and server-side request forgery, underscoring widespread exploitation opportunities across diverse attack surfaces.",
+  "summary_zh": "本期漏洞情报显示，针对网络基础设施、云环境与 Web 平台的远程代码执行及内存破坏漏洞呈现高度集中态势。主要威胁包括 SIP 与 SMB 协议中的未授权 RCE、Totolink 路由器的缓冲区溢出漏洞，以及 Ceph 存储集群与数据库驱动中的代码执行风险；同时，影响桌面及移动操作系统的内核级释放后使用与提权漏洞亦不容忽视。Web 安全领域仍面临严峻挑战，已知遭利用的访问控制绕过、Strapi 与 Electron 等工具中的跨站脚本漏洞及服务器端请求伪造问题，凸显了攻击面广泛且利用门槛低的风险现状。"
+}
