@@ -1,0 +1,278 @@
+{
+  "analysis_date": "2026-09-20",
+  "total_analyzed": 125,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-88097",
+        "reason": "Microsoft Edge Chromium-based browser contains a use-after-free flaw that allows unauthorized local attackers to escalate privileges, posing a direct risk to endpoint security.",
+        "reason_en": "Microsoft Edge Chromium-based browser contains a use-after-free flaw that allows unauthorized local attackers to escalate privileges, posing a direct risk to endpoint security.",
+        "reason_zh": "Microsoft Edge Chromium内核浏览器存在释放后使用漏洞，允许未授权本地攻击者提权，对终端安全构成直接风险。"
+      }
+    ],
+    "Mobile Security": [],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-84398",
+        "reason": "Carecam IP cameras accept empty passwords for privileged ONVIF accounts, enabling unauthenticated attackers to fully control surveillance devices over the network.",
+        "reason_en": "Carecam IP cameras accept empty passwords for privileged ONVIF accounts, enabling unauthenticated attackers to fully control surveillance devices over the network.",
+        "reason_zh": "Carecam网络摄像机接受特权ONVIF账户的空密码，使未认证攻击者能够通过网络完全控制监控设备。"
+      },
+      {
+        "id": "CVE-2026-81321",
+        "reason": "Cleartext storage of Wi-Fi credentials on Carecam devices allows physically proximate attackers to extract network keys and pivot to broader infrastructure.",
+        "reason_en": "Cleartext storage of Wi-Fi credentials on Carecam devices allows physically proximate attackers to extract network keys and pivot to broader infrastructure.",
+        "reason_zh": "Carecam设备上Wi-Fi凭据的明文存储使得物理接近的攻击者能够提取网络密钥，并进一步向更广泛的内部基础设施渗透。"
+      },
+      {
+        "id": "CVE-2026-92792",
+        "reason": "Attacker-controlled evidence in OpenNHP forces fallback attestation verification, bypassing hardware security checks and compromising IoT device trust chains.",
+        "reason_en": "Attacker-controlled evidence in OpenNHP forces fallback attestation verification, bypassing hardware security checks and compromising IoT device trust chains.",
+        "reason_zh": "OpenNHP中受攻击者控制的证据会强制触发回退证明验证机制，绕过硬件安全检查，从而破坏物联网设备的信任链。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-83944",
+        "reason": "Azure Logic Apps lacks proper access controls, allowing unauthorized network-based privilege escalation that can disrupt automated cloud workflows.",
+        "reason_en": "Azure Logic Apps lacks proper access controls, allowing unauthorized network-based privilege escalation that can disrupt automated cloud workflows.",
+        "reason_zh": "Azure Logic Apps缺乏适当的访问控制，允许未授权的网络提权，可能导致自动化云工作流中断。"
+      },
+      {
+        "id": "CVE-2026-85885",
+        "reason": "M365 Copilot contains a command injection vulnerability that enables authorized users to escalate privileges and execute arbitrary commands over the network.",
+        "reason_en": "M365 Copilot contains a command injection vulnerability that enables authorized users to escalate privileges and execute arbitrary commands over the network.",
+        "reason_zh": "M365 Copilot存在命令注入漏洞，允许已授权用户提权并在网络上执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-87701",
+        "reason": "Azure Cosmos DB suffers from an injection flaw that allows authorized attackers to elevate privileges within the managed database service.",
+        "reason_en": "Azure Cosmos DB suffers from an injection flaw that allows authorized attackers to elevate privileges within the managed database service.",
+        "reason_zh": "Azure Cosmos DB存在注入漏洞，允许已授权攻击者在托管数据库服务内提权。"
+      },
+      {
+        "id": "CVE-2026-70009",
+        "reason": "Azure Arc path traversal vulnerability enables unauthorized network-based privilege escalation on hybrid and edge-managed infrastructure.",
+        "reason_en": "Azure Arc path traversal vulnerability enables unauthorized network-based privilege escalation on hybrid and edge-managed infrastructure.",
+        "reason_zh": "Azure Arc的路径遍历漏洞允许在未授权的情况下对混合及边缘管理基础设施进行网络提权。"
+      },
+      {
+        "id": "CVE-2026-70200",
+        "reason": "Path traversal in Azure Logic Apps enables unauthorized attackers to escalate privileges across cloud workflows, risking sensitive data and service disruption.",
+        "reason_en": "Path traversal in Azure Logic Apps enables unauthorized attackers to escalate privileges across cloud workflows, risking sensitive data and service disruption.",
+        "reason_zh": "Azure Logic Apps中的路径遍历漏洞使未授权攻击者能够在云工作流间提权，导致敏感数据泄露及服务中断风险。"
+      },
+      {
+        "id": "CVE-2026-69843",
+        "reason": "Authentication spoofing in Microsoft Fabric allows attackers to bypass identity controls, granting unauthorized access to enterprise analytics and data platforms.",
+        "reason_en": "Authentication spoofing in Microsoft Fabric allows attackers to bypass identity controls, granting unauthorized access to enterprise analytics and data platforms.",
+        "reason_zh": "Microsoft Fabric中的认证欺骗漏洞允许攻击者绕过身份控制，获取对企业分析与数据平台的未授权访问。"
+      },
+      {
+        "id": "CVE-2026-85889",
+        "reason": "Missing authentication in Azure AI Foundry permits unprivileged users to execute critical AI model functions, potentially compromising training pipelines and inference endpoints.",
+        "reason_en": "Missing authentication in Azure AI Foundry permits unprivileged users to execute critical AI model functions, potentially compromising training pipelines and inference endpoints.",
+        "reason_zh": "Azure AI Foundry缺失身份验证功能，允许低权限用户执行关键AI模型操作，可能危及训练管道与推理端点。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-93741",
+        "reason": "Totolink router firmware contains a remote buffer overflow in wireless setup functions, potentially leading to remote code execution and network compromise.",
+        "reason_en": "Totolink router firmware contains a remote buffer overflow in wireless setup functions, potentially leading to remote code execution and network compromise.",
+        "reason_zh": "Totolink路由器固件在无线设置功能中存在远程缓冲区溢出漏洞，可能导致远程代码执行及网络沦陷。"
+      },
+      {
+        "id": "CVE-2026-93742",
+        "reason": "Remote command injection in Totolink router firmware allows attackers to execute arbitrary system commands without authentication.",
+        "reason_en": "Remote command injection in Totolink router firmware allows attackers to execute arbitrary system commands without authentication.",
+        "reason_zh": "Totolink路由器固件中的远程命令注入漏洞允许攻击者在无需认证的情况下执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-61516",
+        "reason": "Netis NX10 router exposes administrator credentials unauthenticated via its web interface, facilitating immediate device takeover and lateral movement.",
+        "reason_en": "Netis NX10 router exposes administrator credentials unauthenticated via its web interface, facilitating immediate device takeover and lateral movement.",
+        "reason_zh": "Netis NX10路由器通过Web界面未认证暴露管理员凭据，便于攻击者立即接管设备并进行横向移动。"
+      },
+      {
+        "id": "CVE-2025-39682",
+        "reason": "Flawed TLS record handling in the Linux kernel is actively exploited in the wild, disrupting secure network communications and enabling potential man-in-the-middle attacks.",
+        "reason_en": "Flawed TLS record handling in the Linux kernel is actively exploited in the wild, disrupting secure network communications and enabling potential man-in-the-middle attacks.",
+        "reason_zh": "Linux内核中TLS记录处理的缺陷已在实际环境中被积极利用，不仅破坏安全网络通信，还可能导致中间人攻击。"
+      },
+      {
+        "id": "CVE-2026-53266",
+        "reason": "Known exploited vulnerability in Linux kernel netfilter bridge rules allows attackers to manipulate Ethernet source address rewrites, undermining firewall and routing integrity.",
+        "reason_en": "Known exploited vulnerability in Linux kernel netfilter bridge rules allows attackers to manipulate Ethernet source address rewrites, undermining firewall and routing integrity.",
+        "reason_zh": "Linux内核netfilter网桥规则中存在已知被利用的漏洞，允许攻击者操纵以太网源地址重写，破坏防火墙与路由完整性。"
+      },
+      {
+        "id": "CVE-2025-39964",
+        "reason": "Actively exploited race condition in Linux kernel crypto af_alg socket handling causes unpredictable data interleaving, weakening cryptographic operations in network services.",
+        "reason_en": "Actively exploited race condition in Linux kernel crypto af_alg socket handling causes unpredictable data interleaving, weakening cryptographic operations in network services.",
+        "reason_zh": "Linux内核crypto af_alg套接字处理中存在已被积极利用的竞态条件，会导致不可预测的数据交错，削弱网络服务的加密操作安全性。"
+      }
+    ],
+    "Industrial Control": [],
+    "Web Security": [
+      {
+        "id": "CVE-2026-45363",
+        "reason": "ruby-jwt accepts forged tokens with empty keys due to OpenSSL HMAC behavior, completely breaking OAuth authentication flows in modern web applications.",
+        "reason_en": "ruby-jwt accepts forged tokens with empty keys due to OpenSSL HMAC behavior, completely breaking OAuth authentication flows in modern web applications.",
+        "reason_zh": "由于OpenSSL HMAC的行为特性，ruby-jwt会接受带有空密钥的伪造令牌，彻底破坏现代Web应用中的OAuth认证流程。"
+      },
+      {
+        "id": "CVE-2026-84434",
+        "reason": "Gravity Forms WordPress plugin allows arbitrary file uploads via pipeline mismatches, enabling attackers to deploy webshells and compromise sites.",
+        "reason_en": "Gravity Forms WordPress plugin allows arbitrary file uploads via pipeline mismatches, enabling attackers to deploy webshells and compromise sites.",
+        "reason_zh": "Gravity Forms WordPress插件因处理流水线不匹配允许任意文件上传，使攻击者能够部署Webshell并入侵网站。"
+      },
+      {
+        "id": "CVE-2026-92229",
+        "reason": "Forminator plugin permits arbitrary shortcode execution without proper validation, leading to potential remote code execution in WordPress environments.",
+        "reason_en": "Forminator plugin permits arbitrary shortcode execution without proper validation, leading to potential remote code execution in WordPress environments.",
+        "reason_zh": "Forminator插件在未进行适当验证的情况下允许执行任意短代码，可能导致WordPress环境中的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-89274",
+        "reason": "WP Recipe Maker recursively processes shortcodes on metadata fields, allowing end users to execute unauthorized code through structured recipe inputs.",
+        "reason_en": "WP Recipe Maker recursively processes shortcodes on metadata fields, allowing end users to execute unauthorized code through structured recipe inputs.",
+        "reason_zh": "WP Recipe Maker会对元数据字段中的短代码进行递归处理，允许最终用户通过结构化的食谱输入执行未授权代码。"
+      },
+      {
+        "id": "CVE-2026-87909",
+        "reason": "WP Photo Album Plus concatenates unsanitized filenames into ImageMagick exec calls, resulting in remote code execution via multipart uploads.",
+        "reason_en": "WP Photo Album Plus concatenates unsanitized filenames into ImageMagick exec calls, resulting in remote code execution via multipart uploads.",
+        "reason_zh": "WP Photo Album Plus将未过滤的文件名拼接到ImageMagick执行调用中，导致通过多部分上传触发远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-89058",
+        "reason": "RESTEasy CorsFilter misconfiguration reflects Origin headers with credentials enabled, exposing backend APIs to cross-origin request forgery attacks.",
+        "reason_en": "RESTEasy CorsFilter misconfiguration reflects Origin headers with credentials enabled, exposing backend APIs to cross-origin request forgery attacks.",
+        "reason_zh": "RESTEasy CorsFilter的错误配置在启用凭据时反射Origin头，使后端API面临跨域请求伪造攻击的风险。"
+      },
+      {
+        "id": "CVE-2026-62104",
+        "reason": "Unauthenticated remote code execution in the Migratico Lite WordPress plugin enables immediate server compromise without any user interaction.",
+        "reason_en": "Unauthenticated remote code execution in the Migratico Lite WordPress plugin enables immediate server compromise without any user interaction.",
+        "reason_zh": "Migratico Lite WordPress插件中的未认证远程代码执行漏洞可在无需任何用户交互的情况下直接导致服务器沦陷。"
+      },
+      {
+        "id": "CVE-2026-87796",
+        "reason": "Insufficient file type validation in Gravity Forms Multi Uploader permits arbitrary file uploads, leading to full web application takeover.",
+        "reason_en": "Insufficient file type validation in Gravity Forms Multi Uploader permits arbitrary file uploads, leading to full web application takeover.",
+        "reason_zh": "Gravity Forms Multi Uploader的文件类型验证不足允许任意文件上传，进而导致Web应用被完全接管。"
+      },
+      {
+        "id": "CVE-2026-92580",
+        "reason": "Stored OS command injection in AVideo's CloneSite plugin executes system commands via unsanitized SSH passwords, facilitating complete server control.",
+        "reason_en": "Stored OS command injection in AVideo's CloneSite plugin executes system commands via unsanitized SSH passwords, facilitating complete server control.",
+        "reason_zh": "AVideo的CloneSite插件中存在存储型OS命令注入漏洞，可通过未过滤的SSH密码执行系统命令，从而实现完整的服务器控制。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-80442",
+        "reason": "IBM Guardium Data Protection contains an authenticated OS command injection in certificate export functionality, risking full system compromise.",
+        "reason_en": "IBM Guardium Data Protection contains an authenticated OS command injection in certificate export functionality, risking full system compromise.",
+        "reason_zh": "IBM Guardium Data Protection的证书导出功能中存在已认证OS命令注入漏洞，可能导致系统被完全入侵。"
+      },
+      {
+        "id": "CVE-2026-82340",
+        "reason": "Insecure deserialization in IBM Guardium Change Audit System allows network attackers to execute arbitrary code via crafted serialized TCP messages.",
+        "reason_en": "Insecure deserialization in IBM Guardium Change Audit System allows network attackers to execute arbitrary code via crafted serialized TCP messages.",
+        "reason_zh": "IBM Guardium Change Audit System存在不安全反序列化漏洞，允许网络攻击者通过构造的反序列化TCP消息执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-82967",
+        "reason": "IBM Guardium bypasses IP-based access controls unauthenticated, granting direct management interface access to external threat actors.",
+        "reason_en": "IBM Guardium bypasses IP-based access controls unauthenticated, granting direct management interface access to external threat actors.",
+        "reason_zh": "IBM Guardium在未认证的情况下绕过基于IP的访问控制，使外部威胁行为者能够直接访问管理界面。"
+      },
+      {
+        "id": "CVE-2026-10747",
+        "reason": "IBM MQ Appliance suffers a pre-authentication heap buffer overflow in protocol processing, enabling remote code execution without credentials.",
+        "reason_en": "IBM MQ Appliance suffers a pre-authentication heap buffer overflow in protocol processing, enabling remote code execution without credentials.",
+        "reason_zh": "IBM MQ Appliance在协议处理过程中存在认证前堆缓冲区溢出漏洞，可在无凭据的情况下实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-10858",
+        "reason": "IBM MQ for HPE NonStop experiences a heap buffer underflow during multi-segment message processing, allowing authenticated attackers to execute arbitrary code.",
+        "reason_en": "IBM MQ for HPE NonStop experiences a heap buffer underflow during multi-segment message processing, allowing authenticated attackers to execute arbitrary code.",
+        "reason_zh": "HPE NonStop 上的 IBM MQ 在多段消息处理期间发生堆缓冲区下溢，允许已认证的攻击者执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-61817",
+        "reason": "pg_partman interpolates unrestricted configuration text into dynamic SQL queries, permitting SQL injection by roles with partition management access.",
+        "reason_en": "pg_partman interpolates unrestricted configuration text into dynamic SQL queries, permitting SQL injection by roles with partition management access.",
+        "reason_zh": "pg_partman 将不受限制的配置文本拼接到动态 SQL 查询中，使具有分区管理访问权限的角色能够发起 SQL 注入攻击。"
+      },
+      {
+        "id": "CVE-2026-93761",
+        "reason": "Mongoid in-memory query evaluation suffers from inefficient regex complexity, enabling denial of service via crafted pattern-matching database queries.",
+        "reason_en": "Mongoid in-memory query evaluation suffers from inefficient regex complexity, enabling denial of service via crafted pattern-matching database queries.",
+        "reason_zh": "Mongoid 的内存查询评估存在正则表达式复杂度控制不佳的问题，攻击者可利用精心构造的模式匹配数据库查询导致拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-94056",
+        "reason": "Exim mail server reads uninitialized stack memory when Proxy-Protocol interacts with attacker-controlled proxies, leaking sensitive application data.",
+        "reason_en": "Exim mail server reads uninitialized stack memory when Proxy-Protocol interacts with attacker-controlled proxies, leaking sensitive application data.",
+        "reason_zh": "当 Proxy-Protocol 与攻击者控制的代理交互时，Exim 邮件服务器会读取未初始化的栈内存，从而泄露敏感的应用程序数据。"
+      },
+      {
+        "id": "CVE-2026-85878",
+        "reason": "Improper authorization in Azure Database for PostgreSQL allows elevated privilege escalation over the network, threatening managed relational database integrity.",
+        "reason_en": "Improper authorization in Azure Database for PostgreSQL allows elevated privilege escalation over the network, threatening managed relational database integrity.",
+        "reason_zh": "Azure Database for PostgreSQL 存在授权不当漏洞，允许通过网络进行提权，威胁托管关系型数据库的完整性。"
+      },
+      {
+        "id": "CVE-2026-75513",
+        "reason": "Unsafe SQL string interpolation in the Marten .NET document DB driver exposes PostgreSQL backends to remote code execution via crafted LINQ queries.",
+        "reason_en": "Unsafe SQL string interpolation in the Marten .NET document DB driver exposes PostgreSQL backends to remote code execution via crafted LINQ queries.",
+        "reason_zh": "Marten .NET 文档数据库驱动中存在不安全的 SQL 字符串插值问题，攻击者可通过精心构造的 LINQ 查询对 PostgreSQL 后端实施远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-92782",
+        "reason": "Inadequate tenant segmentation in Chroma vector database allows authenticated users to read and modify cross-tenant records, violating multi-tenancy isolation.",
+        "reason_en": "Inadequate tenant segmentation in Chroma vector database allows authenticated users to read and modify cross-tenant records, violating multi-tenancy isolation.",
+        "reason_zh": "Chroma 向量数据库的租户划分不足，允许已认证用户读取和修改跨租户记录，破坏了多租户隔离机制。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-93993",
+        "reason": "Mistral Vibe executes git hooks before trust validation during worktree creation, allowing attackers to run arbitrary shell commands with user privileges.",
+        "reason_en": "Mistral Vibe executes git hooks before trust validation during worktree creation, allowing attackers to run arbitrary shell commands with user privileges.",
+        "reason_zh": "Mistral Vibe 在创建 worktree 时，会在信任验证之前执行 git hooks，允许攻击者以用户权限运行任意 shell 命令。"
+      },
+      {
+        "id": "CVE-2026-82536",
+        "reason": "Roo-Code IDE bypasses auto-approval restrictions by exploiting missing pipe operator handling, enabling execution of previously denied shell commands.",
+        "reason_en": "Roo-Code IDE bypasses auto-approval restrictions by exploiting missing pipe operator handling, enabling execution of previously denied shell commands.",
+        "reason_zh": "Roo-Code IDE 通过利用未正确处理管道操作符的缺陷绕过自动批准限制，从而执行先前被拒绝的 shell 命令。"
+      },
+      {
+        "id": "CVE-2026-92944",
+        "reason": "Sandbox escape in vm2 Node.js runtime leverages V8 Promise chain flaws to break isolation boundaries, allowing arbitrary code execution in server environments.",
+        "reason_en": "Sandbox escape in vm2 Node.js runtime leverages V8 Promise chain flaws to break isolation boundaries, allowing arbitrary code execution in server environments.",
+        "reason_zh": "vm2 Node.js 运行时中的沙箱逃逸漏洞利用了 V8 Promise 链缺陷以突破隔离边界，允许在服务器环境中执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-92938",
+        "reason": "Misconfigured vm2 NodeVM instances expose privileged host modules like node:sqlite, enabling privilege escalation from restricted sandboxes to full system access.",
+        "reason_en": "Misconfigured vm2 NodeVM instances expose privileged host modules like node:sqlite, enabling privilege escalation from restricted sandboxes to full system access.",
+        "reason_zh": "配置错误的 vm2 NodeVM 实例暴露了如 node:sqlite 等特权主机模块，使得攻击者能够从受限沙箱实现权限提升至完全系统访问。"
+      },
+      {
+        "id": "CVE-2026-92787",
+        "reason": "Failure to verify JWT signatures in the Feast ML feature store allows attackers to forge identity tokens, bypassing role-based access controls entirely.",
+        "reason_en": "Failure to verify JWT signatures in the Feast ML feature store allows attackers to forge identity tokens, bypassing role-based access controls entirely.",
+        "reason_zh": "Feast ML 特征存储未能验证 JWT 签名，允许攻击者伪造身份令牌，从而完全绕过基于角色的访问控制。"
+      }
+    ]
+  },
+  "summary": "Today's curated vulnerabilities highlight a severe concentration of critical flaws across cloud security, web security, and databases and middleware, with Microsoft Azure services, WordPress plugins, and IBM systems representing the most targeted platforms. Attackers can exploit widespread authentication bypasses, privilege escalation paths, and remote code execution vectors to compromise enterprise environments and disrupt automated workflows. Additionally, actively exploited Linux kernel weaknesses and misconfigured IoT devices introduce immediate risks to network integrity and physical security perimeters. The overall threat landscape emphasizes the urgent need for patching identity controls, input validation mechanisms, and sandbox isolation across hybrid and cloud-native deployments.",
+  "summary_en": "Today's curated vulnerabilities highlight a severe concentration of critical flaws across cloud security, web security, and databases and middleware, with Microsoft Azure services, WordPress plugins, and IBM systems representing the most targeted platforms. Attackers can exploit widespread authentication bypasses, privilege escalation paths, and remote code execution vectors to compromise enterprise environments and disrupt automated workflows. Additionally, actively exploited Linux kernel weaknesses and misconfigured IoT devices introduce immediate risks to network integrity and physical security perimeters. The overall threat landscape emphasizes the urgent need for patching identity controls, input validation mechanisms, and sandbox isolation across hybrid and cloud-native deployments.",
+  "summary_zh": "今日精选漏洞显示，云安全、Web 安全以及数据库与中间件领域严重集中了大量关键缺陷，其中 Microsoft Azure 服务、WordPress 插件和 IBM 系统成为最受攻击的目标平台。攻击者可利用广泛的身份验证绕过、权限提升路径及远程代码执行向量来入侵企业环境并破坏自动化工作流。此外，已被利用的 Linux 内核弱点及配置错误的物联网设备给网络完整性和物理安全边界带来即时风险。整体威胁态势凸显出在混合架构与云原生部署中紧急修补身份控制、输入验证机制及沙箱隔离措施的迫切需求。"
+}
