@@ -78,9 +78,9 @@
         localStorage.setItem('cve-lang', lang);
         // Status lines are set via textContent at render time; refresh them
         refreshStatusLines();
-        // The weekday next to the date picker and in the dropdown options
+        // The weekday on the date chip and inside the dropdown panel
         // is language-dependent too
-        refreshDateTexts();
+        updateDateControl();
     }
 
     function scrollToTop() {
@@ -883,8 +883,7 @@
         else if (currentView === 'ai' && AI_DATA) switchView('ai'); // rebuild lazily
 
         document.title = 'CVE Daily - ' + currentDate;
-        const dateEl = document.getElementById('report-date');
-        if (dateEl) dateEl.textContent = currentDate;
+        updateDateControl();
         const genEl = document.getElementById('generated-time');
         if (genEl) genEl.textContent = data.generated || '';
         const rawLink = document.getElementById('raw-data-link');
@@ -898,7 +897,6 @@
             if (!resp.ok) throw new Error('HTTP ' + resp.status);
             const data = await resp.json();
             applyData(data);
-            setDateSelect(dateStr);
             return true;
         } catch (err) {
             st.status.classList.add('error');
@@ -917,25 +915,93 @@
         });
     }
 
-    function setDateSelect(dateStr) {
-        const sel = document.getElementById('date-select');
-        if (sel) sel.value = dateStr;
+    // Update the date chip label and (re)build the dropdown panel after
+    // a date switch, manifest load, or language flip.
+    function updateDateControl() {
+        const btn = document.getElementById('date-btn');
+        if (btn && currentDate) {
+            btn.textContent = currentDate + ' ' + weekdayLabel(currentDate);
+        }
+        buildDatePanel(manifestDates);
     }
 
-    // The weekday lives inside the option labels only (the closed select
-    // shows the selected label, so a separate weekday element next to it
-    // would render it twice). Labels are language-dependent and rebuilt
-    // on language flips; option values stay the bare date so switchDate
-    // / hash handling is unaffected.
-    function refreshDateTexts() {
-        const sel = document.getElementById('date-select');
-        if (sel && manifestDates.length) {
-            sel.innerHTML = manifestDates
-                .map(d => '<option value="' + d + '">' + d + ' ' + weekdayLabel(d) + '</option>')
-                .join('');
-            if (currentDate) sel.value = currentDate;
-        }
+    // Build the date dropdown panel: months (newest first) as collapsible
+    // sections, only the current month expanded by default, so an archive
+    // spanning many months stays scannable - every other month is a single
+    // header row until clicked.
+    function buildDatePanel(dates) {
+        const panel = document.getElementById('date-panel');
+        if (!panel) return;
+        const groups = [];
+        let month = null, days = [];
+        dates.forEach(function (d) {
+            const m = d.slice(0, 7);   // YYYY-MM
+            if (m !== month) {
+                if (month !== null) groups.push({ month: month, days: days });
+                month = m;
+                days = [];
+            }
+            days.push(d);
+        });
+        if (month !== null) groups.push({ month: month, days: days });
+
+        const curMonth = (currentDate || '').slice(0, 7);
+        panel.innerHTML = groups.map(function (g) {
+            const open = g.month === curMonth ? ' open' : '';
+            const items = g.days.map(function (d) {
+                return '<button type="button" class="day-item' + (d === currentDate ? ' current' : '') +
+                       '" data-date="' + d + '">' + d + ' ' + weekdayLabel(d) + '</button>';
+            }).join('');
+            return '<div class="month' + open + '"><button type="button" class="month-head">' + g.month +
+                   '<span class="month-count">' + g.days.length + t(' days', ' 天') + '</span></button>' +
+                   '<div class="days">' + items + '</div></div>';
+        }).join('');
     }
+
+    function toggleDatePanel(e) {
+        if (e) e.stopPropagation();
+        const panel = document.getElementById('date-panel');
+        if (!panel) return;
+        const open = panel.classList.toggle('show');
+        if (panel.parentNode) panel.parentNode.classList.toggle('panel-open', open);
+        const btn = document.getElementById('date-btn');
+        if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function closeDatePanel() {
+        const panel = document.getElementById('date-panel');
+        if (!panel || !panel.classList.contains('show')) return;
+        panel.classList.remove('show');
+        if (panel.parentNode) panel.parentNode.classList.remove('panel-open');
+        const btn = document.getElementById('date-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Panel interactions via delegation: month heads toggle their section,
+    // day items switch the date (and close the panel); clicks outside it
+    // and Escape close an open panel.
+    document.addEventListener('click', function (e) {
+        const panel = document.getElementById('date-panel');
+        if (!panel) return;
+        const head = e.target.closest('.month-head');
+        if (head && panel.contains(head)) {
+            head.parentNode.classList.toggle('open');
+            return;
+        }
+        const day = e.target.closest('.day-item');
+        if (day && panel.contains(day)) {
+            closeDatePanel();
+            switchDate(day.getAttribute('data-date'));
+            return;
+        }
+        if (panel.classList.contains('show') && panel.parentNode &&
+            !panel.parentNode.contains(e.target)) {
+            closeDatePanel();
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDatePanel();
+    });
 
     async function loadData() {
         const st = viewState.original;
@@ -951,7 +1017,9 @@
                 }
             } catch (e) { /* manifest optional - switcher just stays empty */ }
 
-            refreshDateTexts();
+            // Panel can be built as soon as the manifest is known (the
+            // chip keeps its server-rendered label until applyData runs)
+            buildDatePanel(manifestDates);
 
             const hashDate = decodeURIComponent(location.hash.replace(/^#/, ''));
             if (manifestDates.length && manifestDates.indexOf(hashDate) !== -1) {
@@ -970,7 +1038,6 @@
                 // keep the URL consistent with what's on screen
                 location.hash = initialDate;
             }
-            setDateSelect(currentDate);
         } catch (err) {
             st.status.classList.add('error');
             st.status.textContent = t(
@@ -1051,6 +1118,6 @@
         applySingleFilterByCVSS, applySingleFilterBySeverity,
         applySingleFilterByEPSS, clearAllFilters,
         switchView, scrollToCategory, applyAllFilters,
-        switchDate
+        switchDate, toggleDatePanel
     });
 })();

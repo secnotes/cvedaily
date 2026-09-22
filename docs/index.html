@@ -23,7 +23,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="assets/report.css?v=249f8e4908">
+    <link rel="stylesheet" href="assets/report.css?v=3d729f228b">
     <!-- Data pointers: the shell stays byte-identical across days except
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
@@ -69,9 +69,8 @@
                     <span class="title-text"><span class="lang-en">CVE Daily</span><span class="lang-zh">CVE日报</span></span>
                     <span class="title-date-sep" aria-hidden="true">·</span>
                     <span class="title-date">
-                        <select id="date-select" onchange="switchDate(this.value)" aria-label="Report date / 报告日期">
-                            <option value="2026-09-22">2026-09-22</option>
-                        </select>
+                        <button type="button" id="date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="Report date / 报告日期">2026-09-22</button>
+                        <div id="date-panel" class="date-panel" role="listbox"></div>
                     </span>
                 </h1>
             </header>
@@ -200,9 +199,9 @@
         <!-- id="generated-time" lives here: applyData() updates it when the
              date switcher loads another day (the summary-box copy was removed
              along with its heading, so this is the single timestamp display) -->
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-09-22 06:14:16</span></p>
+        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-09-22 05:39:32</span></p>
     </div>
 
-    <script src="assets/report.js?v=7f425b1f82"></script>
+    <script src="assets/report.js?v=c77c570ab1"></script>
 </body>
 </html>

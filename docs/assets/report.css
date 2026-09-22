@@ -1480,44 +1480,162 @@
 }
 
         /* ---- date picker inside the h1 line ---- */
-        /* The date control is typography, not chrome: the select carries
-           no border/background so the headline reads as one sentence,
-           with a hover underline as the click affordance. Sizing is
-           rem-based (NOT em of the 2.2em h1): the native dropdown
-           options inherit the select's font-size, so heading-scale
-           em sizing made the opened option list huge. */
+        /* A chip that opens a custom dropdown panel. A native <select>
+           can't collapse its options, and the archive now spans enough
+           months that a flat list gets unwieldy - the panel groups days
+           under collapsible month sections (only the current month
+           expanded by default). Sizing is rem-based, NOT em of the
+           2.2em h1. */
         .title-date-sep {
             color: var(--meta-text);
             font-size: 1rem;
         }
 
         .title-date {
+            position: relative;
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            white-space: nowrap;
         }
 
-        .title-date #date-select {
+        /* Chevron drawn with ::after so its color tracks the chip text;
+           flips from down to up while the panel is open */
+        .title-date::after {
+            content: "";
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-right: 1.5px solid var(--meta-text);
+            border-bottom: 1.5px solid var(--meta-text);
+            transform: translateY(-65%) rotate(45deg);
+            transition: transform 0.2s ease;
+            pointer-events: none;
+        }
+        .title-date.panel-open::after {
+            transform: translateY(-65%) rotate(225deg);
+        }
+
+        .title-date #date-btn {
             /* normal text size, decoupled from the heading scale */
             font-size: 1.1rem;
             font-weight: 600;
             font-family: inherit;
             color: var(--headline-color);
             /* pill highlight — same design language as the sidebar
-               filter tags (rounded chip, muted bg, hover deepen + lift),
-               so the date reads as a control without any underline */
+               filter tags (rounded chip, muted bg, hover deepen + lift) */
             background: var(--link-bg);
             border: none;
             border-radius: 15px;
-            padding: 4px 12px;
+            /* right padding reserves room for the ::after chevron */
+            padding: 4px 30px 4px 12px;
             cursor: pointer;
             transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .title-date #date-select:hover,
-        .title-date #date-select:focus {
+        .title-date #date-btn:hover,
+        .title-date #date-btn:focus {
             background: var(--link-hover-bg);
             transform: translateY(-1px);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
             outline: none;
+        }
+
+        /* Date dropdown panel: months as collapsible sections. Rides the
+           design tokens, so both themes work without overrides. */
+        .date-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 210px;
+            max-height: 340px;
+            overflow-y: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            padding: 4px;
+            /* above cards; below the mobile sidebar drawer */
+            z-index: 1200;
+            text-align: left;
+        }
+        .date-panel.show {
+            display: block;
+        }
+        .date-panel .month-head {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: var(--meta-text);
+            background: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+        }
+        .date-panel .month-head:hover {
+            background: var(--link-bg);
+        }
+        /* Fold arrow: CSS chevron rotated from "right" to "down" */
+        .date-panel .month-head::before {
+            content: "";
+            flex: none;
+            width: 6px;
+            height: 6px;
+            border-right: 1.5px solid var(--meta-text);
+            border-bottom: 1.5px solid var(--meta-text);
+            transform: rotate(-45deg);
+            transition: transform 0.15s ease;
+        }
+        .date-panel .month.open .month-head::before {
+            transform: rotate(45deg);
+        }
+        .date-panel .month-count {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--meta-text);
+        }
+        .date-panel .month .days {
+            display: none;
+        }
+        .date-panel .month.open .days {
+            display: block;
+        }
+        .date-panel .day-item {
+            display: block;
+            width: 100%;
+            padding: 5px 8px 5px 22px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .date-panel .day-item:hover {
+            background: var(--link-hover-bg);
+        }
+        .date-panel .day-item.current {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        @media (max-width: 480px) {
+            .title-date #date-btn {
+                font-size: 0.95rem;
+            }
+            .date-panel {
+                min-width: 180px;
+            }
         }
