@@ -1,0 +1,244 @@
+{
+  "analysis_date": "2026-09-27",
+  "total_analyzed": 173,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-100646",
+        "reason": "SiYuan's authentication guards fail open when the HTTP Origin header is absent, granting unauthorized users access to sensitive application features.",
+        "reason_en": "SiYuan's authentication guards fail open when the HTTP Origin header is absent, granting unauthorized users access to sensitive application features.",
+        "reason_zh": "当缺失HTTP Origin请求头时，SiYuan的身份验证守卫存在放行漏洞（Fail Open），致使未授权用户可访问敏感应用功能。"
+      },
+      {
+        "id": "CVE-2026-100645",
+        "reason": "Stored cross-site scripting in gallery and kanban renderers can execute arbitrary JavaScript due to enabled nodeIntegration in the underlying Electron desktop environment.",
+        "reason_en": "Stored cross-site scripting in gallery and kanban renderers can execute arbitrary JavaScript due to enabled nodeIntegration in the underlying Electron desktop environment.",
+        "reason_zh": "底层Electron桌面环境启用了nodeIntegration，导致图库与看板渲染器中存在存储型跨站脚本漏洞，攻击者可借此执行任意JavaScript代码。"
+      },
+      {
+        "id": "CVE-2026-100208",
+        "reason": "Network-triggered integer overflow in Microsoft Outlook allows unauthorized code execution, posing a critical risk to enterprise desktop environments.",
+        "reason_en": "Network-triggered integer overflow in Microsoft Outlook allows unauthorized code execution, posing a critical risk to enterprise desktop environments.",
+        "reason_zh": "Microsoft Outlook中存在网络触发型整数溢出漏洞，可导致未授权代码执行，对企业桌面环境构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-91840",
+        "reason": "Local unprivileged users can exploit newline injection in VPN username fields to manipulate vpnc configurations and escalate privileges to root.",
+        "reason_en": "Local unprivileged users can exploit newline injection in VPN username fields to manipulate vpnc configurations and escalate privileges to root.",
+        "reason_zh": "本地非特权用户可利用VPN用户名字段中的换行符注入漏洞篡改vpnc配置文件，从而将权限提升至root。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-100551",
+        "reason": "Omitted TLS fingerprint validation in iOS WebViews enables man-in-the-middle attacks against authenticated Gateway connections.",
+        "reason_en": "Omitted TLS fingerprint validation in iOS WebViews enables man-in-the-middle attacks against authenticated Gateway connections.",
+        "reason_zh": "iOS WebView中缺失TLS指纹验证机制，导致攻击者可对已认证的Gateway连接实施中间人攻击。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-80152",
+        "reason": "Lantronix IoT gateway firmware contains a command injection flaw that allows authenticated attackers with services permissions to execute arbitrary system commands.",
+        "reason_en": "Lantronix IoT gateway firmware contains a command injection flaw that allows authenticated attackers with services permissions to execute arbitrary system commands.",
+        "reason_zh": "Lantronix IoT网关固件存在命令注入漏洞，允许拥有services权限的已认证攻击者执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-80150",
+        "reason": "Unauthenticated server-side request forgery in the WebSSH/WebTelnet listener enables attackers to probe and interact with internal network resources.",
+        "reason_en": "Unauthenticated server-side request forgery in the WebSSH/WebTelnet listener enables attackers to probe and interact with internal network resources.",
+        "reason_zh": "WebSSH/WebTelnet监听器中存在未授权服务器端请求伪造（SSRF）漏洞，攻击者可借此探测并交互内部网络资源。"
+      },
+      {
+        "id": "CVE-2026-94367",
+        "reason": "Authenticated administrators can execute arbitrary OS commands via crafted backup-area inputs, directly compromising surveillance infrastructure integrity.",
+        "reason_en": "Authenticated administrators can execute arbitrary OS commands via crafted backup-area inputs, directly compromising surveillance infrastructure integrity.",
+        "reason_zh": "已认证管理员可通过构造的backup-area参数执行任意操作系统命令，直接破坏监控基础设施的完整性。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-100706",
+        "reason": "Kyverno Kubernetes policy engine fails to validate URL-encoded path segments, allowing namespace tenants to bypass isolation and create objects in other namespaces.",
+        "reason_en": "Kyverno Kubernetes policy engine fails to validate URL-encoded path segments, allowing namespace tenants to bypass isolation and create objects in other namespaces.",
+        "reason_zh": "Kyverno Kubernetes策略引擎未对URL编码路径段进行有效校验，导致命名空间租户可绕过隔离限制，在其他命名空间中创建资源对象。"
+      },
+      {
+        "id": "CVE-2026-97404",
+        "reason": "OpenStack Zaqar mishandles URL-Signature headers, enabling unauthenticated attackers to bypass Keystone authentication and pre-signed URL verification controls.",
+        "reason_en": "OpenStack Zaqar mishandles URL-Signature headers, enabling unauthenticated attackers to bypass Keystone authentication and pre-signed URL verification controls.",
+        "reason_zh": "OpenStack Zaqar对URL-Signature请求头处理不当，致使未认证攻击者可绕过Keystone身份认证及预签名URL验证机制。"
+      },
+      {
+        "id": "CVE-2026-69865",
+        "reason": "Critical authorization bypass in Microsoft Container Registry allows unauthorized network-based privilege escalation, severely compromising container orchestration security.",
+        "reason_en": "Critical authorization bypass in Microsoft Container Registry allows unauthorized network-based privilege escalation, severely compromising container orchestration security.",
+        "reason_zh": "Microsoft Container Registry存在关键权限绕过漏洞，允许未授权的攻击者通过网络实现提权，严重危及容器编排安全性。"
+      },
+      {
+        "id": "CVE-2026-100615",
+        "reason": "Flawed API key rotation logic permits lower-privileged managers to rotate and recover super-admin credentials, breaking cloud tenant isolation.",
+        "reason_en": "Flawed API key rotation logic permits lower-privileged managers to rotate and recover super-admin credentials, breaking cloud tenant isolation.",
+        "reason_zh": "API密钥轮换逻辑存在缺陷，允许低权限管理员轮换并恢复超级管理员凭据，破坏了云租户隔离机制。"
+      },
+      {
+        "id": "CVE-2026-85542",
+        "reason": "Crafted GIM bundle imports pass attacker-controlled arguments to system tar commands, enabling arbitrary command execution with elevated privileges.",
+        "reason_en": "Crafted GIM bundle imports pass attacker-controlled arguments to system tar commands, enabling arbitrary command execution with elevated privileges.",
+        "reason_zh": "恶意构造的GIM bundle导入会将攻击者可控的参数传入系统tar命令，从而导致以高权限执行任意命令。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-97730",
+        "reason": "pfSense Plus/CE dashboard widget sequence handling contains a Local File Inclusion flaw that allows authenticated attackers to execute arbitrary PHP code.",
+        "reason_en": "pfSense Plus/CE dashboard widget sequence handling contains a Local File Inclusion flaw that allows authenticated attackers to execute arbitrary PHP code.",
+        "reason_zh": "pfSense Plus/CE仪表板组件的序列化处理存在本地文件包含（LFI）漏洞，允许已认证攻击者执行任意PHP代码。"
+      },
+      {
+        "id": "CVE-2026-84388",
+        "reason": "Fortinet FortiPAM Chrome Extension improperly restricts rendered UI layers, exposing sensitive information to remote unauthenticated attackers.",
+        "reason_en": "Fortinet FortiPAM Chrome Extension improperly restricts rendered UI layers, exposing sensitive information to remote unauthenticated attackers.",
+        "reason_zh": "Fortinet FortiPAM Chrome扩展对渲染UI层的限制不当，导致敏感信息泄露给远程未认证攻击者。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-81473",
+        "reason": "Dell Rugged Control Center suffers from improper authorization allowing low-privileged local attackers to escalate privileges and compromise field operations.",
+        "reason_en": "Dell Rugged Control Center suffers from improper authorization allowing low-privileged local attackers to escalate privileges and compromise field operations.",
+        "reason_zh": "Dell Rugged Control Center存在权限校验不当漏洞，允许低权限本地攻击者提权并破坏现场作业安全。"
+      },
+      {
+        "id": "CVE-2026-93306",
+        "reason": "IBM Server Firmware ASMI web interface is vulnerable to malformed HTTPS request handling, causing denial of service in critical server management planes.",
+        "reason_en": "IBM Server Firmware ASMI web interface is vulnerable to malformed HTTPS request handling, causing denial of service in critical server management planes.",
+        "reason_zh": "IBM Server Firmware ASMI Web界面在处理畸形HTTPS请求时存在漏洞，会导致关键服务器管理平面发生拒绝服务（DoS）。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-97163",
+        "reason": "Joomla UP plugin allows unauthenticated remote code installation by exploiting insufficient validation in the update mechanism, posing a severe takeover risk.",
+        "reason_en": "Joomla UP plugin allows unauthenticated remote code installation by exploiting insufficient validation in the update mechanism, posing a severe takeover risk.",
+        "reason_zh": "Joomla UP插件因更新机制验证不足，允许未认证攻击者远程安装代码，面临严重的系统接管风险。"
+      },
+      {
+        "id": "CVE-2026-100382",
+        "reason": "MediaWiki ExternalData extension permits OS command injection, enabling attackers to execute arbitrary system commands via crafted external data queries.",
+        "reason_en": "MediaWiki ExternalData extension permits OS command injection, enabling attackers to execute arbitrary system commands via crafted external data queries.",
+        "reason_zh": "MediaWiki ExternalData扩展存在操作系统命令注入漏洞，攻击者可借助构造的外部数据查询执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-94132",
+        "reason": "Joomla AcyMailing Enterprise extension suffers from remote code execution due to missing file extension checks on uploaded MIME parts from monitored mailboxes.",
+        "reason_en": "Joomla AcyMailing Enterprise extension suffers from remote code execution due to missing file extension checks on uploaded MIME parts from monitored mailboxes.",
+        "reason_zh": "Joomla AcyMailing Enterprise扩展在监控邮箱上传的MIME附件中缺失文件扩展名校验，导致远程代码执行漏洞。"
+      },
+      {
+        "id": "CVE-2026-100714",
+        "reason": "Froxlor server administration panel concatenates unescaped settings into shell commands, leading to command injection and potential full system compromise.",
+        "reason_en": "Froxlor server administration panel concatenates unescaped settings into shell commands, leading to command injection and potential full system compromise.",
+        "reason_zh": "Froxlor服务器管理面板将未转义的配置参数直接拼接至Shell命令中，引发命令注入漏洞，可能导致整个系统被完全控制。"
+      },
+      {
+        "id": "CVE-2026-93643",
+        "reason": "Unauthenticated attackers can abuse unsigned save fields to perform path-traversal writes and execute commands as the zimbra user, representing a critical mail server compromise.",
+        "reason_en": "Unauthenticated attackers can abuse unsigned save fields to perform path-traversal writes and execute commands as the zimbra user, representing a critical mail server compromise.",
+        "reason_zh": "未认证攻击者可滥用未签名的保存字段进行目录遍历写入，并以zimbra用户身份执行命令，导致邮件服务器被严重入侵。"
+      },
+      {
+        "id": "CVE-2026-65660",
+        "reason": "Actively exploited code injection in Microsoft SharePoint allows network-wide code execution, posing an immediate threat to enterprise web deployments.",
+        "reason_en": "Actively exploited code injection in Microsoft SharePoint allows network-wide code execution, posing an immediate threat to enterprise web deployments.",
+        "reason_zh": "Microsoft SharePoint中存在已被活跃利用的代码注入漏洞，可实现全网范围代码执行，对企业Web部署构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-100639",
+        "reason": "High-severity stored XSS in SiYuan allows arbitrary JavaScript execution through pasted Markdown with inline attribute lists, compromising user sessions and data.",
+        "reason_en": "High-severity stored XSS in SiYuan allows arbitrary JavaScript execution through pasted Markdown with inline attribute lists, compromising user sessions and data.",
+        "reason_zh": "SiYuan存在高危存储型跨站脚本（XSS）漏洞，攻击者可通过粘贴含内联属性列表的Markdown文本执行任意JavaScript代码，窃取用户会话与数据。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-81537",
+        "reason": "IBM DataStage on Cloud Pak for Data allows authenticated attackers to execute arbitrary code via improper neutralization of special elements in OS commands.",
+        "reason_en": "IBM DataStage on Cloud Pak for Data allows authenticated attackers to execute arbitrary code via improper neutralization of special elements in OS commands.",
+        "reason_zh": "Cloud Pak for Data平台上的IBM DataStage存在特殊字符过滤不严漏洞，允许已认证攻击者在操作系统命令中注入并执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-83311",
+        "reason": "Oracle BI Platform Security vulnerability allows low-privileged attackers to compromise the analytics platform via easily exploitable SOAP requests.",
+        "reason_en": "Oracle BI Platform Security vulnerability allows low-privileged attackers to compromise the analytics platform via easily exploitable SOAP requests.",
+        "reason_zh": "Oracle BI Platform Security存在漏洞，低权限攻击者可利用构造的SOAP请求轻易攻破分析平台。"
+      },
+      {
+        "id": "CVE-2026-100693",
+        "reason": "Adminer database management tool is vulnerable to pre-authentication SSRF when using the ClickHouse driver plugin, enabling unauthorized internal network access.",
+        "reason_en": "Adminer database management tool is vulnerable to pre-authentication SSRF when using the ClickHouse driver plugin, enabling unauthorized internal network access.",
+        "reason_zh": "Adminer数据库管理工具在使用ClickHouse驱动插件时存在预认证服务器端请求伪造（SSRF）漏洞，可导致未授权的内部网络访问。"
+      },
+      {
+        "id": "CVE-2026-96749",
+        "reason": "Signed 32-bit arithmetic flaw in MongoDB's BSON encoding component may cause memory corruption or crashes when processing unusually large documents.",
+        "reason_en": "Signed 32-bit arithmetic flaw in MongoDB's BSON encoding component may cause memory corruption or crashes when processing unusually large documents.",
+        "reason_zh": "MongoDB的BSON编码组件存在有符号32位整型运算缺陷，在处理超大文档时可能引发内存损坏或服务崩溃。"
+      },
+      {
+        "id": "CVE-2026-84862",
+        "reason": "Insecure deserialization in IBM Guardium's Quartz JDBC job store enables authenticated attackers to execute arbitrary code on affected systems.",
+        "reason_en": "Insecure deserialization in IBM Guardium's Quartz JDBC job store enables authenticated attackers to execute arbitrary code on affected systems.",
+        "reason_zh": "IBM Guardium的Quartz JDBC任务存储区存在不安全的反序列化漏洞，允许已认证攻击者在受影响系统上执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-100631",
+        "reason": "Inadequate input validation in Parse Server's device token deduplication logic exposes the backend to NoSQL injection and unauthorized data manipulation.",
+        "reason_en": "Inadequate input validation in Parse Server's device token deduplication logic exposes the backend to NoSQL injection and unauthorized data manipulation.",
+        "reason_zh": "Parse Server设备令牌去重逻辑缺乏充分的输入校验，导致后端易受NoSQL注入攻击及未授权的数据篡改。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-39919",
+        "reason": "Ghostscript contains a heap-based buffer overflow in the JPEG 2000 output adapter, allowing memory corruption and potential code execution via crafted PDF images.",
+        "reason_en": "Ghostscript contains a heap-based buffer overflow in the JPEG 2000 output adapter, allowing memory corruption and potential code execution via crafted PDF images.",
+        "reason_zh": "Ghostscript 的 JPEG 2000 输出适配器中存在基于堆的缓冲区溢出漏洞，攻击者可通过构造的 PDF 图像导致内存损坏并可能实现代码执行。"
+      },
+      {
+        "id": "CVE-2026-92957",
+        "reason": "vm2 Node.js sandbox library fails to normalize node-prefixed builtin specifiers, enabling attackers to bypass denylists and escape the isolated execution environment.",
+        "reason_en": "vm2 Node.js sandbox library fails to normalize node-prefixed builtin specifiers, enabling attackers to bypass denylists and escape the isolated execution environment.",
+        "reason_zh": "vm2 Node.js 沙箱库未能正确规范化以 node- 为前缀的内置模块标识符，使攻击者能够绕过黑名单并逃逸至隔离的执行环境之外。"
+      },
+      {
+        "id": "CVE-2026-10758",
+        "reason": "Esri LERC raster format library suffers from an integer overflow leading to heap-based out-of-bounds writes via specifically crafted pixel data inputs.",
+        "reason_en": "Esri LERC raster format library suffers from an integer overflow leading to heap-based out-of-bounds writes via specifically crafted pixel data inputs.",
+        "reason_zh": "Esri LERC 栅格格式库存在整数溢出漏洞，攻击者可通过精心构造的像素数据输入触发基于堆的越界写入。"
+      },
+      {
+        "id": "CVE-2026-100504",
+        "reason": "Stack-based out-of-bounds write in Ghidra's decompiler triggers crashes or potential code execution when processing malicious binaries with negative shift amounts.",
+        "reason_en": "Stack-based out-of-bounds write in Ghidra's decompiler triggers crashes or potential code execution when processing malicious binaries with negative shift amounts.",
+        "reason_zh": "Ghidra 反编译器在处理包含负移位量的恶意二进制文件时，会因基于栈的越界写入触发崩溃或潜在代码执行。"
+      },
+      {
+        "id": "CVE-2026-100596",
+        "reason": "Non-owner users can persist arbitrary MCP configuration commands that execute with host privileges, compromising system integrity and multi-user isolation.",
+        "reason_en": "Non-owner users can persist arbitrary MCP configuration commands that execute with host privileges, compromising system integrity and multi-user isolation.",
+        "reason_zh": "非所有者用户可持久化任意 MCP 配置命令，这些命令将以主机权限执行，从而破坏系统完整性与多用户隔离机制。"
+      },
+      {
+        "id": "CVE-2026-100589",
+        "reason": "Sandboxed AI agent sessions can escape to paired node browser actions despite restrictive settings, exposing host resources and breaking containment guarantees.",
+        "reason_en": "Sandboxed AI agent sessions can escape to paired node browser actions despite restrictive settings, exposing host resources and breaking containment guarantees.",
+        "reason_zh": "尽管设置了严格的限制，沙箱化的 AI 代理会话仍可逃逸至配对的 Node.js 浏览器操作，暴露主机资源并破坏安全隔离保障。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by high-severity flaws in Web Security, Cloud Security, and Databases & Middleware, with command injection, authentication bypasses, and remote code execution representing the most prevalent attack vectors. Critical weaknesses affect major enterprise platforms from Microsoft, IBM, and Oracle, alongside infrastructure tools like Kyverno, pfSense, and MongoDB that could allow unauthenticated attackers to escalate privileges or compromise entire networks. Additional memory corruption bugs and sandbox escape vulnerabilities in desktop, industrial control, and AI agent environments further amplify systemic risk, emphasizing the urgent need to patch network-facing services and privileged components.",
+  "summary_en": "Today's vulnerability landscape is dominated by high-severity flaws in Web Security, Cloud Security, and Databases & Middleware, with command injection, authentication bypasses, and remote code execution representing the most prevalent attack vectors. Critical weaknesses affect major enterprise platforms from Microsoft, IBM, and Oracle, alongside infrastructure tools like Kyverno, pfSense, and MongoDB that could allow unauthenticated attackers to escalate privileges or compromise entire networks. Additional memory corruption bugs and sandbox escape vulnerabilities in desktop, industrial control, and AI agent environments further amplify systemic risk, emphasizing the urgent need to patch network-facing services and privileged components.",
+  "summary_zh": "当前的漏洞态势主要由 Web 安全、云安全以及数据库与中间件领域的高危缺陷主导，其中命令注入、身份验证绕过和远程代码执行是最常见的攻击向量。关键弱点影响了微软、IBM 和甲骨文的主要企业平台，以及 Kyverno、pfSense 和 MongoDB 等基础设施工具，未授权攻击者可借此提升权限或入侵整个网络。桌面端、工业控制系统及 AI 代理环境中额外的内存破坏漏洞和沙箱逃逸漏洞进一步放大了系统性风险，凸显了紧急修补面向网络的服务及特权组件的迫切性。"
+}
