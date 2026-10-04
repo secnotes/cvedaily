@@ -1,0 +1,387 @@
+{
+  "analysis_date": "2026-10-04",
+  "total_analyzed": 236,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-98130",
+        "reason": "Introduces a TOCTOU race condition in the Linux kernel SCTP timer handler that can cause unexpected state transitions or kernel panics when timers expire during concurrent operations.",
+        "reason_en": "Introduces a TOCTOU race condition in the Linux kernel SCTP timer handler that can cause unexpected state transitions or kernel panics when timers expire during concurrent operations.",
+        "reason_zh": "在Linux内核SCTP定时器处理程序中引入TOCTOU竞态条件，可能在并发操作期间定时器超时时引发意外状态转换或内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-98116",
+        "reason": "Fixes a use-after-free vulnerability in ALSA PCM mmap handling during buffer reallocation, which could be exploited for local privilege escalation or system instability.",
+        "reason_en": "Fixes a use-after-free vulnerability in ALSA PCM mmap handling during buffer reallocation, which could be exploited for local privilege escalation or system instability.",
+        "reason_zh": "修复了ALSA PCM mmap处理中缓冲区重新分配期间的释放后使用（use-after-free）漏洞，该漏洞可能被利用以实现本地权限提升或导致系统不稳定。"
+      },
+      {
+        "id": "CVE-2026-97496",
+        "reason": "Out-of-bounds memory exposure in AMDGPU wave state retrieval allows information disclosure to local users.",
+        "reason_en": "Out-of-bounds memory exposure in AMDGPU wave state retrieval allows information disclosure to local users.",
+        "reason_zh": "AMDGPU波状态检索过程中的越界内存访问可导致本地用户信息泄露。"
+      },
+      {
+        "id": "CVE-2026-97429",
+        "reason": "Race condition during queue destruction leads to use-after-free, potentially causing graphical subsystem crashes or exploitation.",
+        "reason_en": "Race condition during queue destruction leads to use-after-free, potentially causing graphical subsystem crashes or exploitation.",
+        "reason_zh": "队列销毁过程中的竞态条件会引发释放后使用漏洞，可能导致图形子系统崩溃或被攻击者利用。"
+      },
+      {
+        "id": "CVE-2026-89806",
+        "reason": "Integer overflow in framebuffer size calculation can destabilize display controllers and cause kernel panics.",
+        "reason_en": "Integer overflow in framebuffer size calculation can destabilize display controllers and cause kernel panics.",
+        "reason_zh": "帧缓冲区大小计算中的整数溢出可能导致显示控制器异常及内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-93813",
+        "reason": "Crafted Btrfs images trigger kernel panics due to unvalidated inode reference names during tree traversal.",
+        "reason_en": "Crafted Btrfs images trigger kernel panics due to unvalidated inode reference names during tree traversal.",
+        "reason_zh": "恶意构造的Btrfs文件系统镜像在树遍历过程中因未验证的inode引用名称而触发内核崩溃。"
+      },
+      {
+        "id": "CVE-2026-93816",
+        "reason": "Corrupted F2FS images can exploit unchecked inline dentry conversion for memory corruption and denial of service.",
+        "reason_en": "Corrupted F2FS images can exploit unchecked inline dentry conversion for memory corruption and denial of service.",
+        "reason_zh": "损坏的F2FS文件系统镜像可利用未经验证的内联目录项转换，导致内存破坏与拒绝服务（DoS）。"
+      },
+      {
+        "id": "CVE-2026-46242",
+        "reason": "Use-after-free in the epoll removal path poses local privilege escalation risks by allowing stale file descriptor reuse.",
+        "reason_en": "Use-after-free in the epoll removal path poses local privilege escalation risks by allowing stale file descriptor reuse.",
+        "reason_zh": "epoll删除路径中的释放后使用漏洞允许重用已失效的文件描述符，存在本地权限提升风险。"
+      },
+      {
+        "id": "CVE-2026-104983",
+        "reason": "Path traversal in Linux Mint Xreader allows remote attackers to access unauthorized files via PDF attachment handling, directly impacting desktop user data privacy.",
+        "reason_en": "Path traversal in Linux Mint Xreader allows remote attackers to access unauthorized files via PDF attachment handling, directly impacting desktop user data privacy.",
+        "reason_zh": "Linux Mint Xreader中存在的路径遍历漏洞允许远程攻击者通过PDF附件处理机制访问未授权文件，直接威胁桌面用户的数据隐私。"
+      },
+      {
+        "id": "CVE-2023-53707",
+        "reason": "Integer overflow in the AMDGPU driver can trigger uninitialized memory access, posing a risk for local privilege escalation on desktop graphics subsystems.",
+        "reason_en": "Integer overflow in the AMDGPU driver can trigger uninitialized memory access, posing a risk for local privilege escalation on desktop graphics subsystems.",
+        "reason_zh": "AMDGPU驱动中的整数溢出可能触发未初始化内存访问，对桌面图形子系统构成本地权限提升风险。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2023-53762",
+        "reason": "Use-after-free in the Bluetooth disconnect handler enables local attackers to crash the system or execute code via concurrent controller event processing.",
+        "reason_en": "Use-after-free in the Bluetooth disconnect handler enables local attackers to crash the system or execute code via concurrent controller event processing.",
+        "reason_zh": "蓝牙断开连接处理程序中的释放后使用漏洞允许本地攻击者通过并发控制器事件处理导致系统崩溃或执行任意代码。"
+      },
+      {
+        "id": "CVE-2024-41062",
+        "reason": "Race condition between socket closure and HCI RX work in Bluetooth L2CAP can cause use-after-free issues, threatening mobile wireless stack stability.",
+        "reason_en": "Race condition between socket closure and HCI RX work in Bluetooth L2CAP can cause use-after-free issues, threatening mobile wireless stack stability.",
+        "reason_zh": "蓝牙L2CAP层中套接字关闭与HCI接收工作队列之间的竞态条件可能引发释放后使用漏洞，危及移动无线协议栈的稳定性。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-75937",
+        "reason": "Allows unauthenticated attackers to execute arbitrary OS commands with root privileges on Digi International devices via crafted HTTP POST requests to the web administration interface.",
+        "reason_en": "Allows unauthenticated attackers to execute arbitrary OS commands with root privileges on Digi International devices via crafted HTTP POST requests to the web administration interface.",
+        "reason_zh": "攻击者可通过向Web管理接口发送精心构造的HTTP POST请求，在未认证的情况下于Digi International设备上以root权限执行任意操作系统命令。"
+      },
+      {
+        "id": "CVE-2026-95102",
+        "reason": "Lacks authentication on WebSocket endpoints, enabling attackers to impersonate EV charging stations and gain unauthorized access to sensitive operational data or trigger malicious actions.",
+        "reason_en": "Lacks authentication on WebSocket endpoints, enabling attackers to impersonate EV charging stations and gain unauthorized access to sensitive operational data or trigger malicious actions.",
+        "reason_zh": "WebSocket端点缺乏身份验证机制，攻击者可借此伪装成电动汽车充电桩，非法获取敏感运行数据或触发恶意操作。"
+      },
+      {
+        "id": "CVE-2026-80937",
+        "reason": "Unbounded EEPROM address copying in MediaTek Wi-Fi drivers enables buffer overflows in embedded network stacks.",
+        "reason_en": "Unbounded EEPROM address copying in MediaTek Wi-Fi drivers enables buffer overflows in embedded network stacks.",
+        "reason_zh": "MediaTek Wi-Fi驱动中未限制长度的EEPROM地址拷贝操作可在嵌入式网络协议栈中引发缓冲区溢出。"
+      },
+      {
+        "id": "CVE-2026-93287",
+        "reason": "Oversized SMBus block transfers bypass validation, risking memory corruption in low-level embedded communication buses.",
+        "reason_en": "Oversized SMBus block transfers bypass validation, risking memory corruption in low-level embedded communication buses.",
+        "reason_zh": "超大尺寸的SMBus块传输可绕过安全校验，导致底层嵌入式通信总线面临内存破坏风险。"
+      },
+      {
+        "id": "CVE-2026-89441",
+        "reason": "Card-detect work executing post-removal causes use-after-free in the MMC subsystem, affecting removable storage devices.",
+        "reason_en": "Card-detect work executing post-removal causes use-after-free in the MMC subsystem, affecting removable storage devices.",
+        "reason_zh": "设备移除后仍执行的卡检测任务会在MMC子系统中引发释放后使用漏洞，影响可移动存储设备的稳定性。"
+      },
+      {
+        "id": "CVE-2026-81015",
+        "reason": "Power management and debugfs resource leaks degrade system reliability and enable denial of service on AMD-based platforms.",
+        "reason_en": "Power management and debugfs resource leaks degrade system reliability and enable denial of service on AMD-based platforms.",
+        "reason_zh": "电源管理与debugfs的资源泄漏会降低系统可靠性，并在基于AMD的平台上导致拒绝服务（DoS）。"
+      },
+      {
+        "id": "CVE-2026-72485",
+        "reason": "Incorrect connection counter handling during allocation failures destabilizes CoreSight tracing infrastructure in SoCs.",
+        "reason_en": "Incorrect connection counter handling during allocation failures destabilizes CoreSight tracing infrastructure in SoCs.",
+        "reason_zh": "内存分配失败时错误的连接计数器处理会导致SoC中CoreSight追踪基础设施运行异常。"
+      },
+      {
+        "id": "CVE-2024-40979",
+        "reason": "Improper QMI target memory handling during resume causes kernel crashes on ath12k Wi-Fi chips, frequently deployed in IoT gateways and embedded networks.",
+        "reason_en": "Improper QMI target memory handling during resume causes kernel crashes on ath12k Wi-Fi chips, frequently deployed in IoT gateways and embedded networks.",
+        "reason_zh": "系统恢复期间对QMI目标内存的处理不当会导致ath12k Wi-Fi芯片内核崩溃，该类芯片广泛部署于物联网网关及嵌入式网络中。"
+      },
+      {
+        "id": "CVE-2022-48816",
+        "reason": "Asynchronous NULL pointer dereference in SUNRPC sysfs reads can trigger kernel oopses, impacting network-facing IoT services that rely on RPC interfaces.",
+        "reason_en": "Asynchronous NULL pointer dereference in SUNRPC sysfs reads can trigger kernel oopses, impacting network-facing IoT services that rely on RPC interfaces.",
+        "reason_zh": "SUNRPC sysfs读取过程中的异步空指针解引用可能触发内核Oops，影响依赖RPC接口的对外网络型IoT服务。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-80726",
+        "reason": "Invalid shadow page roles in KVM can lead to virtual machine escapes or host hypervisor crashes.",
+        "reason_en": "Invalid shadow page roles in KVM can lead to virtual machine escapes or host hypervisor crashes.",
+        "reason_zh": "KVM中无效的Shadow Page角色可能导致虚拟机逃逸或宿主机Hypervisor崩溃。"
+      },
+      {
+        "id": "CVE-2026-89972",
+        "reason": "Missing SRCU grace period in NVMe namespace handling causes critical use-after-free conditions in virtualized block storage.",
+        "reason_en": "Missing SRCU grace period in NVMe namespace handling causes critical use-after-free conditions in virtualized block storage.",
+        "reason_zh": "NVMe命名空间处理中缺失SRCU宽限期（Grace Period），会在虚拟化块存储中引发严重的释放后使用漏洞。"
+      },
+      {
+        "id": "CVE-2026-89445",
+        "reason": "Use-after-free in IOMMUFD selftest reporting may bypass device isolation mechanisms in containerized and virtualized environments.",
+        "reason_en": "Use-after-free in IOMMUFD selftest reporting may bypass device isolation mechanisms in containerized and virtualized environments.",
+        "reason_zh": "IOMMUFD自测报告模块中的释放后使用漏洞可能破坏容器化与虚拟化环境下的设备隔离机制。"
+      },
+      {
+        "id": "CVE-2026-93782",
+        "reason": "Asynchronous backend completion mismatches in vhost-scsi risk guest-host state desynchronization and data corruption.",
+        "reason_en": "Asynchronous backend completion mismatches in vhost-scsi risk guest-host state desynchronization and data corruption.",
+        "reason_zh": "vhost-scsi中异步后端完成状态的不匹配可能导致Guest与Host状态不同步及数据损坏。"
+      },
+      {
+        "id": "CVE-2026-68155",
+        "reason": "Accepting zero-monitor maps in Ceph clients compromises cluster topology validation and distributed storage stability.",
+        "reason_en": "Accepting zero-monitor maps in Ceph clients compromises cluster topology validation and distributed storage stability.",
+        "reason_zh": "Ceph客户端接受零Monitor映射会破坏集群拓扑校验机制，进而影响分布式存储的稳定性。"
+      },
+      {
+        "id": "CVE-2026-96940",
+        "reason": "Weak authorization in Microsoft Exchange Server allows authenticated attackers to elevate privileges over the network, compromising critical cloud email and collaboration infrastructure.",
+        "reason_en": "Weak authorization in Microsoft Exchange Server allows authenticated attackers to elevate privileges over the network, compromising critical cloud email and collaboration infrastructure.",
+        "reason_zh": "Microsoft Exchange Server中存在的弱授权缺陷允许已认证攻击者通过网络提升权限，从而危及关键的企业级云邮件与协作基础设施。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-84411",
+        "reason": "Contains an integer underflow in MikroTik RouterOS HTTP request handling that allows unauthenticated network attackers to achieve arbitrary code execution as root or cause a denial of service.",
+        "reason_en": "Contains an integer underflow in MikroTik RouterOS HTTP request handling that allows unauthenticated network attackers to achieve arbitrary code execution as root or cause a denial of service.",
+        "reason_zh": "MikroTik RouterOS在处理HTTP请求时存在整数下溢漏洞，未认证的网络攻击者可借此以root权限执行任意代码或导致拒绝服务（DoS）。"
+      },
+      {
+        "id": "CVE-2026-97413",
+        "reason": "Integer underflow in RDMA server processing allows remote attackers to corrupt memory via crafted network messages.",
+        "reason_en": "Integer underflow in RDMA server processing allows remote attackers to corrupt memory via crafted network messages.",
+        "reason_zh": "RDMA服务端处理过程中的整数下溢漏洞允许远程攻击者通过构造恶意网络报文破坏内存。"
+      },
+      {
+        "id": "CVE-2026-80980",
+        "reason": "Race condition in SMC connection state flags leads to concurrent memory corruption and potential remote code execution.",
+        "reason_en": "Race condition in SMC connection state flags leads to concurrent memory corruption and potential remote code execution.",
+        "reason_zh": "SMC连接状态标志位处理中的竞态条件会引发并发内存破坏，并可能导致远程代码执行（RCE）。"
+      },
+      {
+        "id": "CVE-2026-74743",
+        "reason": "Missing packet headroom and tailroom inheritance in macvlan triggers buffer overflows during network interface operations.",
+        "reason_en": "Missing packet headroom and tailroom inheritance in macvlan triggers buffer overflows during network interface operations.",
+        "reason_zh": "macvlan 中缺失的数据包头与尾部预留空间继承机制，会在网络接口操作时触发缓冲区溢出。"
+      },
+      {
+        "id": "CVE-2026-68161",
+        "reason": "Leaked SCTP UDP tunnel sockets during network namespace teardown cause severe resource exhaustion and denial of service.",
+        "reason_en": "Leaked SCTP UDP tunnel sockets during network namespace teardown cause severe resource exhaustion and denial of service.",
+        "reason_zh": "网络命名空间清理期间泄漏的 SCTP UDP 隧道套接字会引发严重的资源耗尽与拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-72463",
+        "reason": "Device use-after-free in XFRM async resumption enables remote exploitation of IPsec tunnel endpoints.",
+        "reason_en": "Device use-after-free in XFRM async resumption enables remote exploitation of IPsec tunnel endpoints.",
+        "reason_zh": "XFRM 异步恢复过程中的设备释放后使用漏洞，可导致远程利用 IPsec 隧道端点。"
+      },
+      {
+        "id": "CVE-2026-93799",
+        "reason": "Unvalidated station ID indexing in Intel Wi-Fi firmware notifications permits out-of-bounds writes to driver structures.",
+        "reason_en": "Unvalidated station ID indexing in Intel Wi-Fi firmware notifications permits out-of-bounds writes to driver structures.",
+        "reason_zh": "Intel Wi-Fi 固件通知中未经验证的站点 ID 索引机制，允许向驱动结构体执行越界写入。"
+      },
+      {
+        "id": "CVE-2025-40074",
+        "reason": "Prevents use-after-free in IPv4 ICMP and IP defragmentation paths by enforcing proper RCU locking, mitigating remote network stack exploitation vectors.",
+        "reason_en": "Prevents use-after-free in IPv4 ICMP and IP defragmentation paths by enforcing proper RCU locking, mitigating remote network stack exploitation vectors.",
+        "reason_zh": "通过强制实施正确的 RCU 锁机制，防止 IPv4 ICMP 及 IP 分片重组路径中出现释放后使用漏洞，从而降低远程网络栈被利用的风险。"
+      },
+      {
+        "id": "CVE-2024-49568",
+        "reason": "Validates untrusted proposal message fields in the SMC server implementation, preventing buffer overflows and memory corruption from malicious remote clients.",
+        "reason_en": "Validates untrusted proposal message fields in the SMC server implementation, preventing buffer overflows and memory corruption from malicious remote clients.",
+        "reason_zh": "对 SMC 服务器实现中不可信的提议消息字段进行验证，可防止恶意远程客户端引发的缓冲区溢出与内存损坏。"
+      },
+      {
+        "id": "CVE-2024-47408",
+        "reason": "Enforces strict bounds checking on SMC v2 extension offsets received from untrusted network peers, blocking potential remote code execution attempts.",
+        "reason_en": "Enforces strict bounds checking on SMC v2 extension offsets received from untrusted network peers, blocking potential remote code execution attempts.",
+        "reason_zh": "对从不可信网络节点接收的 SMC v2 扩展偏移量实施严格的边界检查，以阻断潜在的远程代码执行企图。"
+      }
+    ],
+    "Industrial Control": [],
+    "Web Security": [
+      {
+        "id": "CVE-2026-14378",
+        "reason": "Trusted attacker-controlled cookies bypass authentication checks, leading to full administrator account takeover and complete CMS compromise in the DevKit Pro WordPress plugin.",
+        "reason_en": "Trusted attacker-controlled cookies bypass authentication checks, leading to full administrator account takeover and complete CMS compromise in the DevKit Pro WordPress plugin.",
+        "reason_zh": "受信任但由攻击者控制的 Cookie 可绕过身份验证检查，致使 DevKit Pro WordPress 插件的管理员账户被完全接管，并导致整个 CMS 遭入侵。"
+      },
+      {
+        "id": "CVE-2026-92084",
+        "reason": "Permits arbitrary shortcode execution without proper validation, which can be chained to achieve remote code execution and full website takeover on sites using Beaver Builder.",
+        "reason_en": "Permits arbitrary shortcode execution without proper validation, which can be chained to achieve remote code execution and full website takeover on sites using Beaver Builder.",
+        "reason_zh": "在未经验证的情况下允许执行任意短代码，该漏洞可与其它漏洞结合利用，在使用 Beaver Builder 的网站上实现远程代码执行及网站完全接管。"
+      },
+      {
+        "id": "CVE-2026-105123",
+        "reason": "Allows authenticated editors to achieve remote code execution by uploading malicious PHP files through an unvalidated file upload path in the WCMS API endpoint.",
+        "reason_en": "Allows authenticated editors to achieve remote code execution by uploading malicious PHP files through an unvalidated file upload path in the WCMS API endpoint.",
+        "reason_zh": "已认证的编辑用户可通过 WCMS API 端点中未经验证的文件上传路径上传恶意 PHP 文件，从而实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-102490",
+        "reason": "Actively exploited in the wild (CISA KEV), allowing local Zammad users to escalate privileges to root, severely compromising helpdesk ticketing platforms.",
+        "reason_en": "Actively exploited in the wild (CISA KEV), allowing local Zammad users to escalate privileges to root, severely compromising helpdesk ticketing platforms.",
+        "reason_zh": "该漏洞已在野外被活跃利用（列入 CISA KEV），允许本地 Zammad 用户提权至 root 级别，严重破坏帮助台工单平台的完整性。"
+      },
+      {
+        "id": "CVE-2026-102489",
+        "reason": "Actively exploited in the wild (CISA KEV), enabling session hijacking and remote code execution as the Zammad application user, disrupting web-based operations.",
+        "reason_en": "Actively exploited in the wild (CISA KEV), enabling session hijacking and remote code execution as the Zammad application user, disrupting web-based operations.",
+        "reason_zh": "该漏洞已在野外被活跃利用（列入 CISA KEV），可导致会话劫持及以 Zammad 应用用户身份执行远程代码，严重干扰基于 Web 的业务运行。"
+      },
+      {
+        "id": "CVE-2024-34394",
+        "reason": "Type confusion in libxmljs2 during XML namespace parsing can lead to denial of service or remote code execution in web applications utilizing Node.js XML processing.",
+        "reason_en": "Type confusion in libxmljs2 during XML namespace parsing can lead to denial of service or remote code execution in web applications utilizing Node.js XML processing.",
+        "reason_zh": "libxmljs2 在处理 XML 命名空间解析时存在类型混淆漏洞，可能导致依赖 Node.js 进行 XML 处理的 Web 应用发生拒绝服务或远程代码执行。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-94593",
+        "reason": "Records full database connection commands including superuser passwords in plain text log files during backup routines, exposing critical credentials to any user with host access.",
+        "reason_en": "Records full database connection commands including superuser passwords in plain text log files during backup routines, exposing critical credentials to any user with host access.",
+        "reason_zh": "备份流程会将包含超级用户密码的完整数据库连接命令以明文形式记录至日志文件，导致任何拥有主机访问权限的用户均可获取关键凭据。"
+      },
+      {
+        "id": "CVE-2026-63772",
+        "reason": "Exposes Apache Thrift Go bindings to resource exhaustion attacks due to missing request throttling, potentially causing denial of service in microservices architectures relying on Thrift.",
+        "reason_en": "Exposes Apache Thrift Go bindings to resource exhaustion attacks due to missing request throttling, potentially causing denial of service in microservices architectures relying on Thrift.",
+        "reason_zh": "因缺乏请求限流机制，Apache Thrift Go 绑定易受资源耗尽攻击，可能导致依赖 Thrift 的微服务架构发生拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-97555",
+        "reason": "Heap overflow in SMB client DACL rewriting allows privilege escalation via malicious enterprise file shares.",
+        "reason_en": "Heap overflow in SMB client DACL rewriting allows privilege escalation via malicious enterprise file shares.",
+        "reason_zh": "SMB 客户端在重写 DACL 时存在堆溢出漏洞，攻击者可借此通过恶意企业文件共享实现权限提升。"
+      },
+      {
+        "id": "CVE-2026-93787",
+        "reason": "Unbounded directory entry name copying in SMB responses leads to kernel memory disclosure in file server clients.",
+        "reason_en": "Unbounded directory entry name copying in SMB responses leads to kernel memory disclosure in file server clients.",
+        "reason_zh": "SMB 响应中对目录条目名称进行无界复制，会导致文件服务器客户端发生内核内存信息泄露。"
+      },
+      {
+        "id": "CVE-2026-93786",
+        "reason": "Incorrect POSIX ACL mask inheritance in ksmbd breaks mandatory access control enforcement for shared directories.",
+        "reason_en": "Incorrect POSIX ACL mask inheritance in ksmbd breaks mandatory access control enforcement for shared directories.",
+        "reason_zh": "ksmbd 中错误的 POSIX ACL 掩码继承机制会破坏共享目录的强制访问控制策略执行。"
+      },
+      {
+        "id": "CVE-2026-97557",
+        "reason": "Reference count leak in CIFS oplock breaking causes denial of service through progressive resource exhaustion.",
+        "reason_en": "Reference count leak in CIFS oplock breaking causes denial of service through progressive resource exhaustion.",
+        "reason_zh": "CIFS 意向锁中断时的引用计数泄露会引发渐进式资源耗尽，最终导致拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-97531",
+        "reason": "Race condition during vport deletion in QLogic SCSI adapters risks storage controller instability and data loss.",
+        "reason_en": "Race condition during vport deletion in QLogic SCSI adapters risks storage controller instability and data loss.",
+        "reason_zh": "QLogic SCSI 适配器在执行 vport 删除时存在竞态条件，可能引发存储控制器不稳定及数据丢失风险。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-105105",
+        "reason": "Missing authentication on the ZeroMQ message bus allows unauthenticated remote attackers to inject spacecraft command data or exfiltrate sensitive telemetry information.",
+        "reason_en": "Missing authentication on the ZeroMQ message bus allows unauthenticated remote attackers to inject spacecraft command data or exfiltrate sensitive telemetry information.",
+        "reason_zh": "ZeroMQ 消息总线缺乏身份验证机制，致使未授权的远程攻击者可注入航天器控制指令或窃取敏感遥测数据。"
+      },
+      {
+        "id": "CVE-2026-97455",
+        "reason": "Use-after-free in ACPICA method termination exposes firmware execution paths to exploitation via malformed ACPI tables.",
+        "reason_en": "Use-after-free in ACPICA method termination exposes firmware execution paths to exploitation via malformed ACPI tables.",
+        "reason_zh": "ACPICA 方法终止阶段存在释放后使用漏洞，攻击者可借助畸形 ACPI 表利用固件执行路径。"
+      },
+      {
+        "id": "CVE-2026-97451",
+        "reason": "Integer overflow in ACPI opcode evaluation can pass negative sizes to memory functions, causing buffer corruption.",
+        "reason_en": "Integer overflow in ACPI opcode evaluation can pass negative sizes to memory functions, causing buffer corruption.",
+        "reason_zh": "ACPI 操作码求值过程中的整数溢出漏洞可能将负数长度传入内存函数，从而导致缓冲区损坏。"
+      },
+      {
+        "id": "CVE-2026-89560",
+        "reason": "Landlock sandbox bypass via unprivileged whiteout creation weakens container security boundaries and filesystem restrictions.",
+        "reason_en": "Landlock sandbox bypass via unprivileged whiteout creation weakens container security boundaries and filesystem restrictions.",
+        "reason_zh": "攻击者可通过非特权方式创建白出文件绕过 Landlock 沙箱，从而削弱容器安全边界与文件系统隔离限制。"
+      },
+      {
+        "id": "CVE-2026-90016",
+        "reason": "Out-of-bounds read in staging RTL8723BS Wi-Fi driver allows information leakage from kernel memory pools.",
+        "reason_en": "Out-of-bounds read in staging RTL8723BS Wi-Fi driver allows information leakage from kernel memory pools.",
+        "reason_zh": "staging 目录下的 RTL8723BS Wi-Fi 驱动存在越界读取漏洞，可导致内核内存池信息泄露。"
+      },
+      {
+        "id": "CVE-2026-74294",
+        "reason": "Unchecked user-space bounds in BPF uprobe multi data access risks kernel crashes and potential privilege escalation.",
+        "reason_en": "Unchecked user-space bounds in BPF uprobe multi data access risks kernel crashes and potential privilege escalation.",
+        "reason_zh": "BPF uprobe 多数据访问未校验用户空间边界，存在引发内核崩溃及潜在权限提升的风险。"
+      },
+      {
+        "id": "CVE-2026-71885",
+        "reason": "Bouncy Castle MLS implementation fails to bind X.509 credentials to leaf signatures, breaking cryptographic authentication guarantees and enabling identity spoofing.",
+        "reason_en": "Bouncy Castle MLS implementation fails to bind X.509 credentials to leaf signatures, breaking cryptographic authentication guarantees and enabling identity spoofing.",
+        "reason_zh": "Bouncy Castle 的 MLS 实现未能将 X.509 凭据与叶节点签名正确绑定，破坏了密码学认证保障，从而导致身份伪造风险。"
+      },
+      {
+        "id": "CVE-2026-71889",
+        "reason": "PKIX certificate path reviewers ignore X.509 name constraints on end-entity certificates, potentially allowing unauthorized certificate validation in enterprise environments.",
+        "reason_en": "PKIX certificate path reviewers ignore X.509 name constraints on end-entity certificates, potentially allowing unauthorized certificate validation in enterprise environments.",
+        "reason_zh": "PKIX 证书路径验证逻辑忽略了终端实体证书上的 X.509 名称约束，可能导致企业环境中出现未授权的证书验证。"
+      },
+      {
+        "id": "CVE-2025-68736",
+        "reason": "Fixes Landlock filesystem confinement logic for disconnected directories, ensuring sandboxed processes cannot escape mount namespace restrictions.",
+        "reason_en": "Fixes Landlock filesystem confinement logic for disconnected directories, ensuring sandboxed processes cannot escape mount namespace restrictions.",
+        "reason_zh": "修复了 Landlock 针对孤立目录的文件系统隔离逻辑，确保沙箱进程无法突破挂载命名空间的限制。"
+      },
+      {
+        "id": "CVE-2024-47702",
+        "reason": "Corrects BPF verifier sign-extension handling for packet data pointers, preventing kernel crashes and potential eBPF program exploitation.",
+        "reason_en": "Corrects BPF verifier sign-extension handling for packet data pointers, preventing kernel crashes and potential eBPF program exploitation.",
+        "reason_zh": "修正了 BPF 验证器对数据包数据指针的符号扩展处理逻辑，可有效防止内核崩溃及潜在的 eBPF 程序被利用。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by memory corruption flaws, including use-after-free errors, race conditions, and integer overflows, which pose severe risks of privilege escalation and system instability across desktop kernels, IoT devices, and network stacks. Prominent threats include unauthenticated remote code execution in MikroTik RouterOS and Digi International equipment, alongside actively exploited vulnerabilities in Zammad that grant attackers root access, while cloud and virtualization environments face dangers from KVM escapes and storage protocol weaknesses affecting SMB and SMC implementations. The day also highlights persistent web application risks through compromised WordPress plugins and insecure file uploads, underscoring the broad attack surface spanning embedded hardware, enterprise infrastructure, and user-facing services.",
+  "summary_en": "Today's vulnerability landscape is dominated by memory corruption flaws, including use-after-free errors, race conditions, and integer overflows, which pose severe risks of privilege escalation and system instability across desktop kernels, IoT devices, and network stacks. Prominent threats include unauthenticated remote code execution in MikroTik RouterOS and Digi International equipment, alongside actively exploited vulnerabilities in Zammad that grant attackers root access, while cloud and virtualization environments face dangers from KVM escapes and storage protocol weaknesses affecting SMB and SMC implementations. The day also highlights persistent web application risks through compromised WordPress plugins and insecure file uploads, underscoring the broad attack surface spanning embedded hardware, enterprise infrastructure, and user-facing services.",
+  "summary_zh": "当今的漏洞格局主要由内存破坏漏洞主导，包括释放后使用错误、竞态条件和整数溢出，这些漏洞在桌面内核、IoT设备和网络协议栈中构成严重的权限提升与系统不稳定风险。主要威胁包括MikroTik RouterOS和Digi International设备中的未授权远程代码执行，以及Zammad中遭主动利用并可赋予攻击者root权限的漏洞；同时，云与虚拟化环境面临KVM逃逸及影响SMB和SMC实现的存储协议弱点威胁。当日动态还凸显了由存在漏洞的WordPress插件和不安全文件上传引发的持续性Web应用风险，表明攻击面已广泛覆盖嵌入式硬件、企业基础设施和面向用户的服务。"
+}
