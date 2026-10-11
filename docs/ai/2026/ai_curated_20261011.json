@@ -1,0 +1,315 @@
+{
+  "analysis_date": "2026-10-11",
+  "total_analyzed": 257,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-106059",
+        "reason": "GitAhead on macOS suffers from command injection via crafted repository filenames, enabling arbitrary shell execution by malicious actors.",
+        "reason_en": "GitAhead on macOS suffers from command injection via crafted repository filenames, enabling arbitrary shell execution by malicious actors.",
+        "reason_zh": "macOS 上的 GitAhead 存在命令注入漏洞，攻击者可通过构造的仓库文件名实现任意 Shell 执行。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-101947",
+        "reason": "Android ExifTool constructs unescaped shell commands from file paths during CSV exports, allowing local privilege escalation or data exfiltration.",
+        "reason_en": "Android ExifTool constructs unescaped shell commands from file paths during CSV exports, allowing local privilege escalation or data exfiltration.",
+        "reason_zh": "Android ExifTool 在导出 CSV 时根据文件路径构造未转义的 Shell 命令，可导致本地权限提升或数据外泄。"
+      }
+    ],
+    "IoT Security": [],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-108598",
+        "reason": "CVSS 9.8 code injection in the Floci serverless framework allows unauthenticated attackers to execute arbitrary commands via manipulated Velocity templates in AWS Lambda functions.",
+        "reason_en": "CVSS 9.8 code injection in the Floci serverless framework allows unauthenticated attackers to execute arbitrary commands via manipulated Velocity templates in AWS Lambda functions.",
+        "reason_zh": "Floci 无服务器框架存在 CVSS 9.8 代码注入漏洞，未认证攻击者可通过篡改 AWS Lambda 函数中的 Velocity 模板执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-78401",
+        "reason": "CVSS 9.8 deserialization flaw in IBM Security Verify Access enables unauthenticated remote code execution on critical identity and access management infrastructure.",
+        "reason_en": "CVSS 9.8 deserialization flaw in IBM Security Verify Access enables unauthenticated remote code execution on critical identity and access management infrastructure.",
+        "reason_zh": "IBM Security Verify Access 存在 CVSS 9.8 反序列化缺陷，可在关键的身份与访问管理基础设施上导致未认证的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-19491",
+        "reason": "CVSS 9.1 authentication bypass in IBM Verify Access due to improper auth checks compromises secure access controls for enterprise cloud applications.",
+        "reason_en": "CVSS 9.1 authentication bypass in IBM Verify Access due to improper auth checks compromises secure access controls for enterprise cloud applications.",
+        "reason_zh": "IBM Verify Access 存在 CVSS 9.1 身份验证绕过漏洞，因身份检查机制不当，导致企业云应用的安全访问控制失效。"
+      },
+      {
+        "id": "CVE-2026-96207",
+        "reason": "Microsoft Partner Center improper certificate validation allows unauthenticated attackers to escalate privileges across cloud tenant environments.",
+        "reason_en": "Microsoft Partner Center improper certificate validation allows unauthenticated attackers to escalate privileges across cloud tenant environments.",
+        "reason_zh": "Microsoft Partner Center 证书验证机制不当，允许未认证攻击者在云租户环境中提升权限。"
+      },
+      {
+        "id": "CVE-2026-77900",
+        "reason": "Azure App Service missing authentication for critical functions permits remote code execution without valid credentials.",
+        "reason_en": "Azure App Service missing authentication for critical functions permits remote code execution without valid credentials.",
+        "reason_zh": "Azure App Service 关键功能缺失身份验证，允许在未提供有效凭据的情况下执行远程代码。"
+      },
+      {
+        "id": "CVE-2026-93017",
+        "reason": "Red Hat OpenShift insights-operator grants unrestricted cluster-wide secret access, severely compromising multi-tenant Kubernetes security boundaries.",
+        "reason_en": "Red Hat OpenShift insights-operator grants unrestricted cluster-wide secret access, severely compromising multi-tenant Kubernetes security boundaries.",
+        "reason_zh": "Red Hat OpenShift insights-operator 授予不受限制的集群级密钥访问权限，严重破坏了多租户 Kubernetes 的安全边界。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-108161",
+        "reason": "CVSS 7.5 OS command injection in FusionPBX via malicious caller ID values allows unauthenticated attackers to execute system commands on telephony gateways.",
+        "reason_en": "CVSS 7.5 OS command injection in FusionPBX via malicious caller ID values allows unauthenticated attackers to execute system commands on telephony gateways.",
+        "reason_zh": "FusionPBX 存在 CVSS 7.5 操作系统命令注入漏洞，攻击者可通过恶意的来电显示值在未认证的情况下于电话网关上执行系统命令。"
+      },
+      {
+        "id": "CVE-2026-14991",
+        "reason": "CVSS 9.8 buffer overflow in IBM DataPower Gateway caused by improper bounds checking can lead to local privilege escalation and potential remote code execution.",
+        "reason_en": "CVSS 9.8 buffer overflow in IBM DataPower Gateway caused by improper bounds checking can lead to local privilege escalation and potential remote code execution.",
+        "reason_zh": "IBM DataPower Gateway 存在 CVSS 9.8 缓冲区溢出漏洞，由边界检查不当引起，可能导致本地权限提升及潜在的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-78020",
+        "reason": "CVSS 7.5 improper certificate validation in Dell Secure Connect Gateway Policy Manager exposes network traffic to man-in-the-middle attacks and service disruption.",
+        "reason_en": "CVSS 7.5 improper certificate validation in Dell Secure Connect Gateway Policy Manager exposes network traffic to man-in-the-middle attacks and service disruption.",
+        "reason_zh": "Dell Secure Connect Gateway Policy Manager 存在 CVSS 7.5 证书验证不当漏洞，使网络流量面临中间人攻击及服务中断风险。"
+      },
+      {
+        "id": "CVE-2026-107406",
+        "reason": "NetScaler ADC memory overflow vulnerability enables remote code execution or denial of service, directly impacting enterprise traffic management.",
+        "reason_en": "NetScaler ADC memory overflow vulnerability enables remote code execution or denial of service, directly impacting enterprise traffic management.",
+        "reason_zh": "NetScaler ADC 内存溢出漏洞可导致远程代码执行或拒绝服务，直接影响企业流量管理。"
+      },
+      {
+        "id": "CVE-2026-79842",
+        "reason": "HPE Intelligent Management Center authentication bypass allows unauthorized administrative access to critical network monitoring systems.",
+        "reason_en": "HPE Intelligent Management Center authentication bypass allows unauthorized administrative access to critical network monitoring systems.",
+        "reason_zh": "HPE Intelligent Management Center 身份验证绕过漏洞允许未经授权的管理员访问关键网络监控系统。"
+      },
+      {
+        "id": "CVE-2026-14905",
+        "reason": "IBM DataPower Gateway XML external entity injection exposes sensitive internal data when processing untrusted XML payloads.",
+        "reason_en": "IBM DataPower Gateway XML external entity injection exposes sensitive internal data when processing untrusted XML payloads.",
+        "reason_zh": "IBM DataPower Gateway 在处理不可信的 XML 载荷时存在 XML 外部实体注入漏洞，会暴露敏感的内部数据。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-107194",
+        "reason": "Sungrow iSolarCloud authentication bypass enables account takeover, posing severe risks to distributed solar energy infrastructure and regional grid stability.",
+        "reason_en": "Sungrow iSolarCloud authentication bypass enables account takeover, posing severe risks to distributed solar energy infrastructure and regional grid stability.",
+        "reason_zh": "Sungrow iSolarCloud 身份验证绕过漏洞可导致账户接管，对分布式太阳能基础设施和区域电网稳定性构成严重威胁。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-81797",
+        "reason": "Unauthenticated PHP Object Injection allows remote code execution without credentials, directly compromising WordPress sites using the Buzz Stone theme.",
+        "reason_en": "Unauthenticated PHP Object Injection allows remote code execution without credentials, directly compromising WordPress sites using the Buzz Stone theme.",
+        "reason_zh": "无需身份验证的 PHP 对象注入漏洞允许在未提供凭据的情况下执行远程代码，直接危及使用 Buzz Stone 主题的 WordPress 站点。"
+      },
+      {
+        "id": "CVE-2026-62118",
+        "reason": "Contributor-level arbitrary file upload enables attackers to deploy malicious web shells, leading to full website compromise and data exfiltration.",
+        "reason_en": "Contributor-level arbitrary file upload enables attackers to deploy malicious web shells, leading to full website compromise and data exfiltration.",
+        "reason_zh": "贡献者级别的任意文件上传漏洞使攻击者能够部署恶意 Web 后门，导致网站完全沦陷及数据外泄。"
+      },
+      {
+        "id": "CVE-2026-62024",
+        "reason": "Subscriber-level arbitrary file upload in CodeBard Help Desk bypasses basic authentication controls, allowing low-privilege users to execute arbitrary code.",
+        "reason_en": "Subscriber-level arbitrary file upload in CodeBard Help Desk bypasses basic authentication controls, allowing low-privilege users to execute arbitrary code.",
+        "reason_zh": "CodeBard Help Desk 订阅者级别的任意文件上传漏洞绕过了基础身份验证控制，允许低权限用户执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-62031",
+        "reason": "Unauthenticated SQL injection in uListing permits direct extraction of sensitive database records, posing severe risks to user privacy and business data.",
+        "reason_en": "Unauthenticated SQL injection in uListing permits direct extraction of sensitive database records, posing severe risks to user privacy and business data.",
+        "reason_zh": "uListing 存在未认证的 SQL 注入漏洞，可直接提取敏感数据库记录，对用户隐私和商业数据构成严重风险。"
+      },
+      {
+        "id": "CVE-2026-62032",
+        "reason": "Unauthenticated local file inclusion in DirectoryPress allows attackers to read critical server files, including configuration and credential stores.",
+        "reason_en": "Unauthenticated local file inclusion in DirectoryPress allows attackers to read critical server files, including configuration and credential stores.",
+        "reason_zh": "DirectoryPress 存在未认证的本地文件包含漏洞，允许攻击者读取关键服务器文件，包括配置文件和凭据存储库。"
+      },
+      {
+        "id": "CVE-2026-62125",
+        "reason": "Unauthenticated PHP object injection in Asia Garden exploits insecure deserialization to achieve remote code execution on vulnerable WordPress environments.",
+        "reason_en": "Unauthenticated PHP object injection in Asia Garden exploits insecure deserialization to achieve remote code execution on vulnerable WordPress environments.",
+        "reason_zh": "Asia Garden 存在未认证的 PHP 对象注入漏洞，利用不安全的反序列化在易受攻击的 WordPress 环境中实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-42718",
+        "reason": "Unauthenticated PHP object injection in Booster for WooCommerce compromises core e-commerce functionality and grants unauthorized system access.",
+        "reason_en": "Unauthenticated PHP object injection in Booster for WooCommerce compromises core e-commerce functionality and grants unauthorized system access.",
+        "reason_zh": "Booster for WooCommerce 存在未认证的 PHP 对象注入漏洞，会破坏核心电商功能并授予未经授权的系统访问权限。"
+      },
+      {
+        "id": "CVE-2026-42716",
+        "reason": "Unauthenticated PHP object injection in Payever WooCommerce Gateway targets payment processing modules, potentially enabling financial fraud and data theft.",
+        "reason_en": "Unauthenticated PHP object injection in Payever WooCommerce Gateway targets payment processing modules, potentially enabling financial fraud and data theft.",
+        "reason_zh": "Payever WooCommerce Gateway 存在未认证的 PHP 对象注入漏洞，针对支付处理模块，可能导致金融欺诈和数据窃取。"
+      },
+      {
+        "id": "CVE-2026-108657",
+        "reason": "Missing authorization in JeecgBoot allows authenticated users to escalate privileges and approve tenant administrator applications, disrupting multi-tenant security models.",
+        "reason_en": "Missing authorization in JeecgBoot allows authenticated users to escalate privileges and approve tenant administrator applications, disrupting multi-tenant security models.",
+        "reason_zh": "JeecgBoot 存在授权缺失漏洞，允许已认证用户提升权限并审批租户管理员申请，破坏多租户安全模型。"
+      },
+      {
+        "id": "CVE-2026-62022",
+        "reason": "Unauthenticated privilege escalation in Tonda Membership bypasses role restrictions, granting administrative control over membership platforms without verification.",
+        "reason_en": "Unauthenticated privilege escalation in Tonda Membership bypasses role restrictions, granting administrative control over membership platforms without verification.",
+        "reason_zh": "Tonda Membership 存在未认证的权限提升漏洞，绕过了角色限制，允许在未经验证的情况下获得会员平台的管理控制权。"
+      },
+      {
+        "id": "CVE-2026-42696",
+        "reason": "CVSS 10 unauthenticated RCE in SiteVault backup plugin allows complete server compromise through malicious migration archive exploitation.",
+        "reason_en": "CVSS 10 unauthenticated RCE in SiteVault backup plugin allows complete server compromise through malicious migration archive exploitation.",
+        "reason_zh": "SiteVault 备份插件存在 CVSS 10 未认证远程代码执行漏洞，攻击者可通过利用恶意的迁移归档文件实现服务器完全沦陷。"
+      },
+      {
+        "id": "CVE-2026-39802",
+        "reason": "CVSS 8.1 unauthenticated RCE in Everest Backup plugin enables arbitrary code execution via crafted backup files targeting widely deployed WordPress sites.",
+        "reason_en": "CVSS 8.1 unauthenticated RCE in Everest Backup plugin enables arbitrary code execution via crafted backup files targeting widely deployed WordPress sites.",
+        "reason_zh": "Everest Backup 插件存在 CVSS 8.1 未认证远程代码执行漏洞，可通过构造的备份文件在广泛部署的 WordPress 站点上执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-104803",
+        "reason": "CVSS 9.8 authentication bypass in WPCOM Member plugin via social-login callback manipulation facilitates unauthorized account takeover across affected installations.",
+        "reason_en": "CVSS 9.8 authentication bypass in WPCOM Member plugin via social-login callback manipulation facilitates unauthorized account takeover across affected installations.",
+        "reason_zh": "WPCOM Member 插件存在 CVSS 9.8 身份验证绕过漏洞，通过操纵社交登录回调可实现受影响安装实例中的未经授权账户接管。"
+      },
+      {
+        "id": "CVE-2026-104801",
+        "reason": "CVSS 9.1 arbitrary file deletion in PPOM WooCommerce plugin due to insufficient path validation risks catastrophic loss of critical application data.",
+        "reason_en": "CVSS 9.1 arbitrary file deletion in PPOM WooCommerce plugin due to insufficient path validation risks catastrophic loss of critical application data.",
+        "reason_zh": "PPOM WooCommerce 插件存在 CVSS 9.1 任意文件删除漏洞，因路径验证不足，可能导致关键应用程序数据灾难性丢失。"
+      },
+      {
+        "id": "CVE-2026-83526",
+        "reason": "CVSS 8.8 arbitrary file upload in FV Player plugin bypasses MIME validation checks, enabling persistent web shell deployment on targeted websites.",
+        "reason_en": "CVSS 8.8 arbitrary file upload in FV Player plugin bypasses MIME validation checks, enabling persistent web shell deployment on targeted websites.",
+        "reason_zh": "FV Player 插件存在 CVSS 8.8 任意文件上传漏洞，绕过了 MIME 类型验证检查，可在目标网站上持久化部署 Web 后门。"
+      },
+      {
+        "id": "CVE-2026-104723",
+        "reason": "CVSS 8.8 PHP object injection in LifterLMS plugin via untrusted deserialization allows authenticated attackers to escalate privileges and potentially achieve RCE.",
+        "reason_en": "CVSS 8.8 PHP object injection in LifterLMS plugin via untrusted deserialization allows authenticated attackers to escalate privileges and potentially achieve RCE.",
+        "reason_zh": "CVSS评分为8.8的LifterLMS插件中存在PHP对象注入漏洞，经不可信反序列化可导致已认证攻击者提权并可能实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-93945",
+        "reason": "CVSS 9.8 object injection in Axiomthemes Balance theme/plugin represents a widespread deserialization vulnerability affecting multiple commercial WordPress products.",
+        "reason_en": "CVSS 9.8 object injection in Axiomthemes Balance theme/plugin represents a widespread deserialization vulnerability affecting multiple commercial WordPress products.",
+        "reason_zh": "CVSS评分为9.8的Axiomthemes Balance主题/插件中存在对象注入漏洞，该漏洞属于广泛存在的反序列化问题，影响多款商业WordPress产品。"
+      },
+      {
+        "id": "CVE-2026-104766",
+        "reason": "CVSS 8.8 privilege escalation in LatePoint booking plugin via unchecked settings parameters allows lower-privileged users to modify sensitive system configurations.",
+        "reason_en": "CVSS 8.8 privilege escalation in LatePoint booking plugin via unchecked settings parameters allows lower-privileged users to modify sensitive system configurations.",
+        "reason_zh": "CVSS评分为8.8的LatePoint预订插件中存在提权漏洞，未经校验的设置参数可被低权限用户利用以修改敏感系统配置。"
+      },
+      {
+        "id": "CVE-2026-102489",
+        "reason": "Zammad session hijacking leads to remote code execution; actively exploited in the wild per CISA KEV listings.",
+        "reason_en": "Zammad session hijacking leads to remote code execution; actively exploited in the wild per CISA KEV listings.",
+        "reason_zh": "Zammad存在会话劫持漏洞并可导致远程代码执行；据CISA KEV记录显示，该漏洞已在实际环境中被活跃利用。"
+      },
+      {
+        "id": "CVE-2026-103889",
+        "reason": "WooCommerce 3D Product configurator plugin lacks authentication and nonce validation, enabling unauthenticated remote code execution.",
+        "reason_en": "WooCommerce 3D Product configurator plugin lacks authentication and nonce validation, enabling unauthenticated remote code execution.",
+        "reason_zh": "WooCommerce 3D Product configurator插件缺少身份验证与nonce校验机制，可导致未授权远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-97670",
+        "reason": "Avada Builder authorization bypass exploits unchecked action hook dispatching, allowing privilege escalation in WordPress environments.",
+        "reason_en": "Avada Builder authorization bypass exploits unchecked action hook dispatching, allowing privilege escalation in WordPress environments.",
+        "reason_zh": "Avada Builder存在授权绕过漏洞，其利用未校验的动作钩子分发机制，可在WordPress环境中实现权限提升。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-84272",
+        "reason": "CVSS 9.8 missing authentication in IBM Guardium edge-controller allows unauthenticated attackers to deploy malicious container images and compromise data protection clusters.",
+        "reason_en": "CVSS 9.8 missing authentication in IBM Guardium edge-controller allows unauthenticated attackers to deploy malicious container images and compromise data protection clusters.",
+        "reason_zh": "CVSS评分为9.8的IBM Guardium edge-controller存在身份验证缺失漏洞，可使未授权攻击者部署恶意容器镜像并危及数据保护集群。"
+      },
+      {
+        "id": "CVE-2026-108553",
+        "reason": "CVSS 7.5 CSRF vulnerability in OpenRefine leads to Jython script execution, enabling cross-origin attacks to run arbitrary code during data processing workflows.",
+        "reason_en": "CVSS 7.5 CSRF vulnerability in OpenRefine leads to Jython script execution, enabling cross-origin attacks to run arbitrary code during data processing workflows.",
+        "reason_zh": "CVSS评分为7.5的OpenRefine存在CSRF漏洞，可导致Jython脚本执行，使跨站请求伪造攻击者在数据处理流程中运行任意代码。"
+      },
+      {
+        "id": "CVE-2026-82900",
+        "reason": "CVSS 8.1 path traversal in IBM Guardium permits arbitrary file deletion, threatening the integrity and audit trails of monitored database environments.",
+        "reason_en": "CVSS 8.1 path traversal in IBM Guardium permits arbitrary file deletion, threatening the integrity and audit trails of monitored database environments.",
+        "reason_zh": "CVSS评分为8.1的IBM Guardium存在路径遍历漏洞，可导致任意文件删除，严重威胁受管数据库环境的完整性与审计日志。"
+      },
+      {
+        "id": "CVE-2026-80381",
+        "reason": "IBM Guardium SQL injection vulnerability permits unauthorized execution of arbitrary database statements.",
+        "reason_en": "IBM Guardium SQL injection vulnerability permits unauthorized execution of arbitrary database statements.",
+        "reason_zh": "IBM Guardium存在SQL注入漏洞，可导致未授权执行任意数据库语句。"
+      },
+      {
+        "id": "CVE-2026-82335",
+        "reason": "Heap-based buffer overflow in IBM Guardium's MongoDB protocol parser allows remote memory corruption and potential service disruption.",
+        "reason_en": "Heap-based buffer overflow in IBM Guardium's MongoDB protocol parser allows remote memory corruption and potential service disruption.",
+        "reason_zh": "IBM Guardium的MongoDB协议解析器存在基于堆的缓冲区溢出漏洞，可导致远程内存破坏及服务中断。"
+      },
+      {
+        "id": "CVE-2026-75875",
+        "reason": "IBM Guardium path traversal flaw enables remote attackers to execute arbitrary system code outside intended directories.",
+        "reason_en": "IBM Guardium path traversal flaw enables remote attackers to execute arbitrary system code outside intended directories.",
+        "reason_zh": "IBM Guardium的路径遍历漏洞使远程攻击者得以在指定目录外执行任意系统代码。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-108548",
+        "reason": "CVSS 7.3 authentication bypass in AstronRPA gateway accepts invalid bearer tokens, compromising the control plane of robotic process automation deployments.",
+        "reason_en": "CVSS 7.3 authentication bypass in AstronRPA gateway accepts invalid bearer tokens, compromising the control plane of robotic process automation deployments.",
+        "reason_zh": "CVSS评分为7.3的AstronRPA网关存在身份验证绕过漏洞，其错误接受无效Bearer Token，危及机器人流程自动化部署的控制面。"
+      },
+      {
+        "id": "CVE-2026-108546",
+        "reason": "CVSS 7.5 OS command injection in Spotweb Usenet client via malicious spot titles allows remote command execution through compromised feed parsing routines.",
+        "reason_en": "CVSS 7.5 OS command injection in Spotweb Usenet client via malicious spot titles allows remote command execution through compromised feed parsing routines.",
+        "reason_zh": "CVSS评分为7.5的Spotweb Usenet客户端存在OS命令注入漏洞，攻击者可利用恶意spot标题，通过被篡改的Feed解析例程实现远程命令执行。"
+      },
+      {
+        "id": "CVE-2026-108551",
+        "reason": "CVSS 9.8 code injection in openapi-typescript-codegen via unescaped template interpolation risks supply chain compromise for developers generating API clients.",
+        "reason_en": "CVSS 9.8 code injection in openapi-typescript-codegen via unescaped template interpolation risks supply chain compromise for developers generating API clients.",
+        "reason_zh": "CVSS评分为9.8的openapi-typescript-codegen存在代码注入漏洞，其未转义的模板插值机制可能导致供应链遭入侵，影响使用该软件生成API客户端的开发者。"
+      },
+      {
+        "id": "CVE-2026-107282",
+        "reason": "AsyncHttpClient cross-host request replay bypasses proxy security controls, compromising request integrity in Java applications.",
+        "reason_en": "AsyncHttpClient cross-host request replay bypasses proxy security controls, compromising request integrity in Java applications.",
+        "reason_zh": "AsyncHttpClient存在跨主机请求重放漏洞，可绕过代理安全控制，破坏Java应用程序的请求完整性。"
+      },
+      {
+        "id": "CVE-2026-77214",
+        "reason": "libexpat heap buffer over-read during XML parsing poses foundational risks to any software relying on vulnerable XML libraries.",
+        "reason_en": "libexpat heap buffer over-read during XML parsing poses foundational risks to any software relying on vulnerable XML libraries.",
+        "reason_zh": "libexpat在XML解析过程中存在堆缓冲区越界读取漏洞，对任何依赖该脆弱XML库的软件均构成底层安全风险。"
+      },
+      {
+        "id": "CVE-2026-106558",
+        "reason": "Backstage developer portal improperly validates markdown extensions, allowing authenticated users to manipulate documentation rendering pipelines.",
+        "reason_en": "Backstage developer portal improperly validates markdown extensions, allowing authenticated users to manipulate documentation rendering pipelines.",
+        "reason_zh": "Backstage开发者门户对Markdown扩展的验证逻辑存在缺陷，允许已认证用户篡改文档渲染流水线。"
+      }
+    ]
+  },
+  "summary": "The day's threat landscape is dominated by web application vulnerabilities, particularly within the WordPress ecosystem where numerous plugins and themes suffer from unauthenticated remote code execution, file uploads, and SQL injection. Critical infrastructure remains under threat as major vendors like IBM, Microsoft, and Red Hat disclose high-severity flaws enabling authentication bypasses, privilege escalation, and remote code execution across cloud identity services, network gateways, and Kubernetes clusters. Additionally, network devices and industrial control systems present exploitable command injection and authentication weaknesses that could lead to unauthorized system access and operational disruption.",
+  "summary_en": "The day's threat landscape is dominated by web application vulnerabilities, particularly within the WordPress ecosystem where numerous plugins and themes suffer from unauthenticated remote code execution, file uploads, and SQL injection. Critical infrastructure remains under threat as major vendors like IBM, Microsoft, and Red Hat disclose high-severity flaws enabling authentication bypasses, privilege escalation, and remote code execution across cloud identity services, network gateways, and Kubernetes clusters. Additionally, network devices and industrial control systems present exploitable command injection and authentication weaknesses that could lead to unauthorized system access and operational disruption.",
+  "summary_zh": "今日威胁态势以Web应用漏洞为主导，尤其是WordPress生态系统中大量插件与主题存在未授权远程代码执行、任意文件上传及SQL注入漏洞。随着IBM、Microsoft和Red Hat等主流厂商披露高危缺陷，关键基础设施持续面临威胁，此类漏洞可导致云身份服务、网络网关及Kubernetes集群出现身份验证绕过、权限提升与远程代码执行。此外，网络设备与工业控制系统亦存在可利用的命令注入与身份验证缺陷，可能引发未授权系统访问及业务中断。"
+}
