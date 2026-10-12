@@ -113,6 +113,7 @@ if the target sources are unreachable from your network.
 - `docs/data/[year]/cves_[date].json`: The day's complete raw data — the single full-fidelity archive
 - `docs/data/index.json`: Manifest of available dates (powers the history switcher)
 - `docs/ai/[year]/ai_curated_[date].json`: Daily AI curation archive with bilingual reasons and summary (when AI is enabled)
+- `docs/ai/feed.xml` / `docs/ai/feed_zh.xml`: Language-specific RSS feeds of the current day's AI-curated CVEs (one item per CVE, NVD links; English and Chinese respectively, each falling back to the other language when a field is missing); rewritten daily, both discoverable from the report's `<head>` via `hreflang`-tagged links, and linked from the footer subscribe button (the visible target follows the UI language)
 
 Each generated report includes:
 - CVE identifier (e.g., CVE-2026-1234)

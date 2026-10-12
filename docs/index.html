@@ -23,7 +23,9 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="assets/report.css?v=3d729f228b">
+    <link rel="stylesheet" href="assets/report.css?v=8999322265">
+    <link rel="alternate" type="application/rss+xml" href="ai/feed.xml" hreflang="en" title="CVE Daily — AI Curated (English)">
+    <link rel="alternate" type="application/rss+xml" href="ai/feed_zh.xml" hreflang="zh-CN" title="CVE 日报 — AI 精选 (中文)">
     <!-- Data pointers: the shell stays byte-identical across days except
          these two URLs, so the browser caches the shell + assets and only
          re-downloads the (daily-changing) data files -->
@@ -187,7 +189,7 @@
             <span class="separator">|</span>
             <a href="https://github.com/secnotes/cvedaily" target="_blank" class="github-link">
                 <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.938 9.9 9.207 11.387.68.113.893-.261.893-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.218.694.825.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                 </svg>
                 Star on GitHub
             </a>
@@ -195,11 +197,29 @@
             <a href="data/2026/cves_20261012.json" id="raw-data-link" target="_blank" rel="noopener noreferrer">
                 📊 <span class="lang-en">Raw Data (JSON)</span><span class="lang-zh">原始数据 (JSON)</span>
             </a>
+            <span class="separator">|</span>
+            <!-- One visible subscribe entry whose target follows the UI
+                 language: the lang-en/lang-zh display rules show exactly
+                 one of the two anchors -->
+            <a href="ai/feed.xml" target="_blank" rel="noopener noreferrer" class="lang-en">
+                <svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                    <rect width="24" height="24" rx="5" fill="#F26522"></rect>
+                    <path fill="#fff" transform="translate(2.2 2.2) scale(0.817)" d="M6.18 17.36a2.82 2.82 0 1 1-5.638-.002 2.82 2.82 0 0 1 5.639 0zM1.803 8.697v4.132c5.06 0 9.17 4.11 9.17 9.171h4.13c0-7.333-5.965-13.303-13.3-13.303zM1.823.002v4.132c9.933 0 18.012 8.07 18.012 18.004h4.14c0-12.23-9.93-22.136-22.152-22.136z"></path>
+                </svg>
+                Subscribe RSS
+            </a>
+            <a href="ai/feed_zh.xml" target="_blank" rel="noopener noreferrer" class="lang-zh">
+                <svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                    <rect width="24" height="24" rx="5" fill="#F26522"></rect>
+                    <path fill="#fff" transform="translate(2.2 2.2) scale(0.817)" d="M6.18 17.36a2.82 2.82 0 1 1-5.638-.002 2.82 2.82 0 0 1 5.639 0zM1.803 8.697v4.132c5.06 0 9.17 4.11 9.17 9.171h4.13c0-7.333-5.965-13.303-13.3-13.303zM1.823.002v4.132c9.933 0 18.012 8.07 18.012 18.004h4.14c0-12.23-9.93-22.136-22.152-22.136z"></path>
+                </svg>
+                订阅 RSS
+            </a>
         </p>
         <!-- id="generated-time" lives here: applyData() updates it when the
              date switcher loads another day (the summary-box copy was removed
              along with its heading, so this is the single timestamp display) -->
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-10-12 06:54:44</span></p>
+        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">2026-10-12 05:28:44</span></p>
     </div>
 
     <script src="assets/report.js?v=c77c570ab1"></script>

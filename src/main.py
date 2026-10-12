@@ -50,6 +50,12 @@ def main():
         ai_curated = collector.load_ai_curated_cache()
     # --- END AI Curation ---
 
+    # RSS feeds (en + zh) from the day's AI curation (fresh results or the
+    # day's cache); left untouched when the day has no AI data at all
+    if ai_curated:
+        from feed import generate_feeds
+        generate_feeds(ai_curated)
+
     # Generate HTML report (static shell + daily JSON data file; the
     # markdown archive was replaced by the JSON as the single data source)
     generate_html_report(all_cves, Config.REPORT_HTML_PATH, total_cve_count, ai_curated=ai_curated)

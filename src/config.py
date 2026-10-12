@@ -16,6 +16,13 @@ class Config:
     # Output settings
     REPORT_HTML_PATH = "docs/index.html"
 
+    # RSS feed (AI-curated CVEs); SITE_URL must be absolute because RSS
+    # channel/item links are required to be absolute URLs. Defaults to the
+    # GitHub Pages project site; override for custom deployments.
+    SITE_URL = os.getenv('SITE_URL', 'https://secnotes.github.io/cvedaily/')
+    FEED_PATH = "docs/ai/feed.xml"        # English feed
+    FEED_PATH_ZH = "docs/ai/feed_zh.xml"  # Chinese feed
+
     # AI Curation settings (requires AI_API_KEY in environment)
     AI_CURATION_ENABLED = os.getenv('AI_API_KEY') is not None
     # Dated archives mirroring the markdown report layout:

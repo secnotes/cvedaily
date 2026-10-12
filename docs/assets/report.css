@@ -918,6 +918,13 @@
         .footer a {
             color: var(--secondary-color);
             text-decoration: none;
+            /* Keep icons/emoji vertically centered with the label and with
+               the "|" separators: every link becomes a flex row whose box
+               matches the separator's line box, so cross-axis centering in
+               the parent <p> aligns all of them */
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .footer a:hover {
@@ -943,11 +950,13 @@
             gap: 5px;
         }
 
-        .github-icon {
+        /* Inline SVG icons inside footer anchors; spacing comes from the
+           anchor's gap, no vertical-align/margin hacks (flex centers them) */
+        .github-icon,
+        .feed-icon {
             width: 16px;
             height: 16px;
-            vertical-align: -0.15em;
-            margin-right: 4px;
+            flex: 0 0 auto;
         }
 
         @media (max-width: 480px) {
@@ -1255,6 +1264,13 @@
         html.lang-mode-zh .lang-en { display: none; }
         html.lang-mode-zh .lang-zh { display: inline; }
         html.lang-mode-zh .lang-zh.lang-block { display: block; }
+
+        /* Footer anchors are display:inline-flex (vertical centering),
+           which out-specifies the generic language display rules above;
+           re-hide/show the language-variant footer links explicitly */
+        .footer a.lang-zh { display: none; }
+        html.lang-mode-zh .footer a.lang-en { display: none; }
+        html.lang-mode-zh .footer a.lang-zh { display: inline-flex; }
 
 /* ---- section split (was a separate <style> block) ---- */
 
