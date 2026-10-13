@@ -199,14 +199,8 @@
             color: var(--headline-color);
             margin: 0;
             font-size: 2.2em;
-            /* Title text and the inline date picker share one line (the
-               date is part of the headline, not a widget row below it).
-               Narrow screens wrap the date under the title. */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 4px 14px;
+            /* Headline only - the date picker lives on the meta row below
+               (see .meta-row), so it no longer shares the h1's line/scale */
         }
 
         .filter-status {
@@ -1332,11 +1326,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* kill the mobile WebKit tap-highlight (blue flash on touch) */
+            -webkit-tap-highlight-color: transparent;
             transition: all 0.2s ease;
         }
         .float-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        /* press feedback while the button is held down - works for mouse
+           and touch alike, so every float button answers a click */
+        .float-btn:active {
+            transform: scale(0.92);
         }
         .float-btn svg {
             width: 20px;
@@ -1390,8 +1391,8 @@
         @media (max-width: 768px) {
             #filter-fab {
                 display: flex; /* first button in .float-controls */
-                background: var(--show-more-btn-bg);
-                color: white;
+                /* no blue fill on mobile either - keep the same white
+                   card bg/border/shadow as the theme & language buttons */
             }
             /* Centered dialog panel. The base .sidebar sets
                height: fit-content, so a top:0/bottom:0 right drawer would
@@ -1494,17 +1495,92 @@
 .grid-status.error {
     color: var(--critical-fg);
 }
+/* "load all" as an inline text link inside the scroll-load-more status
+   sentence (still a <button> for keyboard access, just stripped of form
+   chrome) */
+.grid-status .load-all-link {
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+.grid-status .load-all-link:hover,
+.grid-status .load-all-link:focus {
+    color: var(--secondary-color);
+    outline: none;
+}
 
-        /* ---- date picker inside the h1 line ---- */
-        /* A chip that opens a custom dropdown panel. A native <select>
-           can't collapse its options, and the archive now spans enough
-           months that a flat list gets unwieldy - the panel groups days
-           under collapsible month sections (only the current month
-           expanded by default). Sizing is rem-based, NOT em of the
-           2.2em h1. */
-        .title-date-sep {
+        /* ---- date picker on the header meta row ---- */
+        /* The meta row centers under the headline: ‹/› quick-nav arrows,
+           the date chip (which opens a custom dropdown panel - a native
+           <select> can't collapse its options), and a count/generated
+           line. All sizing is rem-based, NOT em of the 2.2em h1. */
+        .meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* the column gap only ever applies BETWEEN the two clusters,
+               so it doubles as the visual break between date control and
+               count line; each cluster keeps its own tighter inner gap */
+            gap: 8px 24px;
+            margin-top: 12px;
+            font-size: 0.95rem;
             color: var(--meta-text);
-            font-size: 1rem;
+        }
+        .meta-row .meta-sep {
+            color: var(--border-color);
+        }
+        /* arrows + date chip: one unbreakable cluster */
+        .date-cluster {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        /* count + generated time: the other unbreakable cluster. No
+           margins here - a wrapped cluster is a lone flex item and
+           centers exactly */
+        .meta-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .date-nav {
+            /* circular ghost icon button flanking the date chip; disabled
+               at the ends of the archive */
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            font-size: 1.15rem;
+            line-height: 1;
+            font-family: inherit;
+            color: var(--meta-text);
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .date-nav:hover:not(:disabled),
+        .date-nav:focus:not(:disabled) {
+            color: var(--headline-color);
+            background: var(--link-bg);
+            border-color: transparent;
+            outline: none;
+        }
+        .date-nav:disabled {
+            opacity: 0.35;
+            cursor: default;
         }
 
         .title-date {
@@ -1535,8 +1611,10 @@
         }
 
         .title-date #date-btn {
-            /* normal text size, decoupled from the heading scale */
-            font-size: 1.1rem;
+            /* normal text size, decoupled from the heading scale; the pill
+               bg + weight already make the chip the row's focal point, so
+               it doesn't need to out-size the meta text by much */
+            font-size: 1rem;
             font-weight: 600;
             font-family: inherit;
             color: var(--headline-color);
@@ -1559,14 +1637,18 @@
             outline: none;
         }
 
-        /* Date dropdown panel: months as collapsible sections. Rides the
-           design tokens, so both themes work without overrides. */
+        /* Date dropdown panel: months as collapsible sections, days as a
+           two-column grid. Centered under the chip (the meta row is itself
+           centered, so left:0 would look lopsided). Rides the design
+           tokens, so both themes work without overrides. */
         .date-panel {
             display: none;
             position: absolute;
             top: calc(100% + 6px);
-            left: 0;
-            min-width: 210px;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 230px;
+            max-width: calc(100vw - 32px);
             max-height: 340px;
             overflow-y: auto;
             background: var(--card-bg);
@@ -1624,12 +1706,25 @@
             display: none;
         }
         .date-panel .month.open .days {
-            display: block;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 12px;
+            padding: 2px 4px 6px;
+        }
+        /* Each column reads top-down (newest -> oldest); the wider gap
+           between the two columns keeps a cell's weekday from visually
+           attaching to the next column's date */
+        .date-panel .days-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
         .date-panel .day-item {
-            display: block;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
             width: 100%;
-            padding: 5px 8px 5px 22px;
+            padding: 5px 8px;
             font-size: 0.9rem;
             font-family: inherit;
             color: var(--text-color);
@@ -1639,19 +1734,31 @@
             text-align: left;
             cursor: pointer;
         }
+        .date-panel .day-item .dw {
+            font-size: 0.78rem;
+            color: var(--meta-text);
+        }
+        /* weekend dates read a step lighter than weekdays */
+        .date-panel .day-item.weekend {
+            color: var(--meta-text);
+        }
         .date-panel .day-item:hover {
             background: var(--link-hover-bg);
         }
         .date-panel .day-item.current {
             color: var(--secondary-color);
             font-weight: 700;
+            background: var(--link-bg);
+        }
+        .date-panel .day-item.current .dw {
+            color: var(--secondary-color);
         }
 
         @media (max-width: 480px) {
             .title-date #date-btn {
                 font-size: 0.95rem;
             }
-            .date-panel {
-                min-width: 180px;
+            .meta-row {
+                font-size: 0.85rem;
             }
         }

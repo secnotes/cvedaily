@@ -44,7 +44,17 @@
     </a>
     <!-- Floating controls: theme + language (top-right), back-to-top (bottom-right) -->
     <div class="float-controls">
-        <button class="float-btn" id="filter-fab" onclick="toggleSidebar()" title="Filters / 筛选" aria-label="Open filters">☰</button>
+        <!-- SVG hamburger instead of the ☰ glyph: the trigram character
+             has asymmetric side bearings in mobile system fonts, so its
+             strokes look off-center even though the button centers its
+             em box -->
+        <button class="float-btn" id="filter-fab" onclick="toggleSidebar()" title="Filters / 筛选" aria-label="Open filters">
+            <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="2" rx="1"></rect>
+                <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                <rect x="3" y="17" width="18" height="2" rx="1"></rect>
+            </svg>
+        </button>
         <button class="float-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Dark mode / 深色模式">
             <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
@@ -63,18 +73,33 @@
     <div class="container">
         <div class="main-content">
             <header>
-                <!-- The date is part of the headline, not a separate widget
-                     row: the select is stripped of form chrome so it reads
-                     as "CVE Daily · 2026-08-21", while the date text
-                     itself is the picker -->
-                <h1>
-                    <span class="title-text"><span class="lang-en">CVE Daily</span><span class="lang-zh">CVE日报</span></span>
-                    <span class="title-date-sep" aria-hidden="true">·</span>
-                    <span class="title-date">
-                        <button type="button" id="date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="Report date / 报告日期">{{ date }}</button>
-                        <div id="date-panel" class="date-panel" role="listbox"></div>
+                <!-- The headline stands alone; the date lives on a meta row
+                     below it: prev/next day arrows, the date chip (which is
+                     the picker), and a count/generated line. This keeps the
+                     title from sharing its line - and scale - with a widget,
+                     and moves the footer's generated-time up where it is
+                     actually read -->
+                <h1><span class="lang-en">CVE Daily</span><span class="lang-zh">CVE日报</span></h1>
+                <div class="meta-row">
+                    <!-- two unbreakable clusters (date control | count +
+                         generated time): the meta-row gap separates the
+                         clusters, and when a narrow screen wraps the row,
+                         each cluster is a single flex item and centers on
+                         its own line exactly -->
+                    <span class="date-cluster">
+                        <button type="button" class="date-nav" id="date-prev" onclick="switchDateStep(-1)" aria-label="Previous day / 前一天" title="Previous day / 前一天" disabled>&#8249;</button>
+                        <span class="title-date">
+                            <button type="button" id="date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="Report date / 报告日期">{{ date }}</button>
+                            <div id="date-panel" class="date-panel" role="listbox"></div>
+                        </span>
+                        <button type="button" class="date-nav" id="date-next" onclick="switchDateStep(1)" aria-label="Next day / 后一天" title="Next day / 后一天" disabled>&#8250;</button>
                     </span>
-                </h1>
+                    <span class="meta-group">
+                        <span class="meta-info"><span id="meta-total">{{ cve_count }}</span> <span class="lang-en">CVEs</span><span class="lang-zh">条 CVE</span></span>
+                        <span class="meta-sep" aria-hidden="true">·</span>
+                        <span class="meta-info"><span class="lang-en">Generated</span><span class="lang-zh">生成于</span> <span id="generated-time">{{ generated_time.split(' ')[1][:5] if ' ' in generated_time else generated_time }}</span></span>
+                    </span>
+                </div>
             </header>
 
             <!-- No section heading here: the stat cards are self-labeled and
@@ -216,10 +241,6 @@
                 订阅 RSS
             </a>
         </p>
-        <!-- id="generated-time" lives here: applyData() updates it when the
-             date switcher loads another day (the summary-box copy was removed
-             along with its heading, so this is the single timestamp display) -->
-        <p><span class="lang-en">Generated on</span><span class="lang-zh">生成时间</span> <span id="generated-time">{{ generated_time }}</span></p>
     </div>
 
     <script src="assets/report.js?v={{ js_version }}"></script>

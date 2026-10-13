@@ -358,9 +358,41 @@
             return;
         }
         st.status.classList.remove('error');
-        st.status.textContent = t(
-            'Showing ' + st.rendered + ' of ' + st.items.length + ' vulnerabilities (scroll for more)',
-            '已显示 ' + st.rendered + ' / ' + st.items.length + ' 个漏洞（滚动加载更多）');
+        if (st.rendered < st.items.length) {
+            // "scroll for more, or load all" — the load-all trigger is a
+            // plain inline text link inside the status sentence, not a
+            // separate button
+            st.status.innerHTML = '';
+            st.status.appendChild(document.createTextNode(t(
+                'Showing ' + st.rendered + ' of ' + st.items.length + ' vulnerabilities (scroll for more, or ',
+                '已显示 ' + st.rendered + ' / ' + st.items.length + ' 个漏洞（滚动加载更多 或 ')));
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'load-all-link';
+            btn.textContent = t('load all', '加载所有');
+            btn.onclick = function () { loadAll(view); };
+            st.status.appendChild(btn);
+            st.status.appendChild(document.createTextNode(t(')', '）')));
+        } else {
+            st.status.textContent = t(
+                'Showing ' + st.rendered + ' of ' + st.items.length + ' vulnerabilities',
+                '已显示 ' + st.rendered + ' / ' + st.items.length + ' 个漏洞');
+        }
+    }
+
+    // "Load all": expand everything in one click instead of scroll-triggered
+    // batches. Loops renderMore so the DOM still appends in BATCH-sized
+    // fragments; the guard breaks if a pass renders nothing (safety).
+    function loadAll(view) {
+        const st = viewState[view];
+        if (!st.grid) return;
+        let guard = 0;
+        while (st.rendered < st.items.length && guard++ < 10000) {
+            const before = st.rendered;
+            renderMore(view);
+            if (st.rendered === before) break;
+        }
+        updateStatusLine(view);
     }
 
     function refreshStatusLines() {
@@ -375,7 +407,9 @@
     }
 
     function updateStatsDom(stats) {
-        setText('stat-total', stats.total != null ? stats.total : CVE_DATA.length);
+        const total = stats.total != null ? stats.total : CVE_DATA.length;
+        setText('stat-total', total);
+        setText('meta-total', total);
         setText('stat-high-risk', stats.high_risk != null ? stats.high_risk : '');
         setText('stat-cisa', stats.cisa != null ? stats.cisa : '');
         setText('stat-epss', stats.epss != null ? stats.epss : '');
@@ -884,8 +918,10 @@
 
         document.title = 'CVE Daily - ' + currentDate;
         updateDateControl();
+        // Meta row shows only the time part (HH:MM); the date itself is
+        // the chip right next to it
         const genEl = document.getElementById('generated-time');
-        if (genEl) genEl.textContent = data.generated || '';
+        if (genEl) genEl.textContent = ((data.generated || '').split(' ')[1] || '').slice(0, 5);
         const rawLink = document.getElementById('raw-data-link');
         if (rawLink) rawLink.setAttribute('href', dataUrlFor(currentDate));
     }
@@ -915,20 +951,41 @@
         });
     }
 
-    // Update the date chip label and (re)build the dropdown panel after
-    // a date switch, manifest load, or language flip.
+    // Update the date chip label, the prev/next quick-nav state, and
+    // (re)build the dropdown panel after a date switch, manifest load,
+    // or language flip.
     function updateDateControl() {
         const btn = document.getElementById('date-btn');
         if (btn && currentDate) {
             btn.textContent = currentDate + ' ' + weekdayLabel(currentDate);
         }
+        // manifestDates is newest-first: ‹ (previous/older day) moves deeper
+        // into the array, › (next/newer day) towards the front; disable at
+        // the ends and whenever the current date isn't in the manifest
+        const idx = manifestDates.indexOf(currentDate);
+        const prev = document.getElementById('date-prev');
+        const next = document.getElementById('date-next');
+        if (prev) prev.disabled = idx === -1 || idx >= manifestDates.length - 1;
+        if (next) next.disabled = idx === -1 || idx <= 0;
         buildDatePanel(manifestDates);
+    }
+
+    // ‹/› quick nav around the date chip: direction -1 = previous (older)
+    // day, +1 = next (newer) day, resolved against the manifest so gaps in
+    // the archive are skipped instead of hitting a missing data file
+    function switchDateStep(direction) {
+        const idx = manifestDates.indexOf(currentDate);
+        if (idx === -1) return;
+        const target = manifestDates[idx - direction];
+        if (target) switchDate(target);
     }
 
     // Build the date dropdown panel: months (newest first) as collapsible
     // sections, only the current month expanded by default, so an archive
     // spanning many months stays scannable - every other month is a single
-    // header row until clicked.
+    // header row until clicked. Each month splits its days into two
+    // columns that each read top-down (newest -> oldest), so "the next
+    // day" is always the row below, never the cell to the right.
     function buildDatePanel(dates) {
         const panel = document.getElementById('date-panel');
         if (!panel) return;
@@ -948,9 +1005,17 @@
         const curMonth = (currentDate || '').slice(0, 7);
         panel.innerHTML = groups.map(function (g) {
             const open = g.month === curMonth ? ' open' : '';
-            const items = g.days.map(function (d) {
-                return '<button type="button" class="day-item' + (d === currentDate ? ' current' : '') +
-                       '" data-date="' + d + '">' + d + ' ' + weekdayLabel(d) + '</button>';
+            const cell = function (d) {
+                const wd = new Date(d + 'T00:00:00').getDay();
+                const weekend = (wd === 0 || wd === 6) ? ' weekend' : '';
+                return '<button type="button" class="day-item' + (d === currentDate ? ' current' : '') + weekend +
+                       '" data-date="' + d + '"><span class="dd">' + d.slice(5) +
+                       '</span><span class="dw">' + weekdayLabel(d) + '</span></button>';
+            };
+            const half = Math.ceil(g.days.length / 2);
+            const cols = [g.days.slice(0, half), g.days.slice(half)];
+            const items = cols.map(function (col) {
+                return '<div class="days-col">' + col.map(cell).join('') + '</div>';
             }).join('');
             return '<div class="month' + open + '"><button type="button" class="month-head">' + g.month +
                    '<span class="month-count">' + g.days.length + t(' days', ' 天') + '</span></button>' +
@@ -1118,6 +1183,6 @@
         applySingleFilterByCVSS, applySingleFilterBySeverity,
         applySingleFilterByEPSS, clearAllFilters,
         switchView, scrollToCategory, applyAllFilters,
-        switchDate, toggleDatePanel
+        switchDate, switchDateStep, toggleDatePanel
     });
 })();
