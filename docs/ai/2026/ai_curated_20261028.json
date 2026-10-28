@@ -1,0 +1,1588 @@
+{
+  "analysis_date": "2026-10-28",
+  "total_analyzed": 1491,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-102210",
+        "reason": "Heap-based buffer overflow in Windows Text Shaping allows remote code execution without authentication, posing a critical threat to client endpoints.",
+        "reason_en": "Heap-based buffer overflow in Windows Text Shaping allows remote code execution without authentication, posing a critical threat to client endpoints.",
+        "reason_zh": "Windows Text Shaping中的基于堆的缓冲区溢出可导致无需身份验证的远程代码执行，对客户端终端构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-105010",
+        "reason": "Use-after-free in the Windows Search Component enables unauthorized privilege escalation over the network, impacting enterprise search infrastructure.",
+        "reason_en": "Use-after-free in the Windows Search Component enables unauthorized privilege escalation over the network, impacting enterprise search infrastructure.",
+        "reason_zh": "Windows Search Component中的释放后使用漏洞可允许通过网络进行未授权的权限提升，进而影响企业搜索基础设施。"
+      },
+      {
+        "id": "CVE-2026-97816",
+        "reason": "Use-after-free in OpenSSH for Windows permits remote code execution, directly compromising secure shell access on Windows servers.",
+        "reason_en": "Use-after-free in OpenSSH for Windows permits remote code execution, directly compromising secure shell access on Windows servers.",
+        "reason_zh": "OpenSSH for Windows中的释放后使用漏洞可导致远程代码执行，直接破坏Windows服务器上的安全Shell访问权限。"
+      },
+      {
+        "id": "CVE-2026-102214",
+        "reason": "Use-after-free in Windows Hyper-V can lead to local code execution, threatening virtualized workloads and host isolation boundaries.",
+        "reason_en": "Use-after-free in Windows Hyper-V can lead to local code execution, threatening virtualized workloads and host isolation boundaries.",
+        "reason_zh": "Windows Hyper-V中的释放后使用漏洞可能导致本地代码执行，威胁虚拟化工作负载和主机隔离边界。"
+      },
+      {
+        "id": "CVE-2026-62765",
+        "reason": "Type confusion in Chromium-based Microsoft Edge facilitates remote code execution via maliciously crafted web content.",
+        "reason_en": "Type confusion in Chromium-based Microsoft Edge facilitates remote code execution via maliciously crafted web content.",
+        "reason_zh": "Chromium-based Microsoft Edge中的类型混淆漏洞可通过恶意构造的Web内容实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-100219",
+        "reason": "Enables remote code execution over the network due to a use-after-free flaw in the QUIC protocol implementation, compromising modern Windows network stacks.",
+        "reason_en": "Enables remote code execution over the network due to a use-after-free flaw in the QUIC protocol implementation, compromising modern Windows network stacks.",
+        "reason_zh": "由于QUIC协议实现中存在释放后使用缺陷，可导致通过网络进行远程代码执行，从而破坏现代Windows网络协议栈。"
+      },
+      {
+        "id": "CVE-2026-96909",
+        "reason": "Allows remote attackers to execute arbitrary code by exploiting a heap-based buffer overflow in BitLocker, potentially bypassing disk encryption protections.",
+        "reason_en": "Allows remote attackers to execute arbitrary code by exploiting a heap-based buffer overflow in BitLocker, potentially bypassing disk encryption protections.",
+        "reason_zh": "攻击者可利用BitLocker中的基于堆的缓冲区溢出漏洞执行任意代码，从而可能绕过磁盘加密保护。"
+      },
+      {
+        "id": "CVE-2026-100212",
+        "reason": "Facilitates remote code execution via malicious Office documents through a use-after-free vulnerability in Excel, presenting a high phishing attack surface.",
+        "reason_en": "Facilitates remote code execution via malicious Office documents through a use-after-free vulnerability in Excel, presenting a high phishing attack surface.",
+        "reason_zh": "Excel中的释放后使用漏洞可通过恶意Office文档实现远程代码执行，显著扩大了网络钓鱼攻击面。"
+      },
+      {
+        "id": "CVE-2026-70242",
+        "reason": "Heap-based buffer overflow in Microsoft Office Outlook enables unauthenticated remote code execution via malicious emails, posing a severe threat to end-user workstations.",
+        "reason_en": "Heap-based buffer overflow in Microsoft Office Outlook enables unauthenticated remote code execution via malicious emails, posing a severe threat to end-user workstations.",
+        "reason_zh": "Microsoft Office Outlook中的基于堆的缓冲区溢出漏洞可通过恶意邮件实现无需身份验证的远程代码执行，对终端用户工作站构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-70153",
+        "reason": "Heap-based buffer overflow in the Microsoft PostScript Printer Driver allows remote code execution when processing crafted print jobs, compromising device security.",
+        "reason_en": "Heap-based buffer overflow in the Microsoft PostScript Printer Driver allows remote code execution when processing crafted print jobs, compromising device security.",
+        "reason_zh": "处理伪造打印作业时，Microsoft PostScript Printer Driver中的基于堆的缓冲区溢出漏洞可导致远程代码执行，从而破坏设备安全性。"
+      },
+      {
+        "id": "CVE-2026-88207",
+        "reason": "Heap-based buffer overflow in PowerPoint enables arbitrary code execution by tricking users into opening malicious presentations, targeting common productivity workflows.",
+        "reason_en": "Heap-based buffer overflow in PowerPoint enables arbitrary code execution by tricking users into opening malicious presentations, targeting common productivity workflows.",
+        "reason_zh": "PowerPoint中的基于堆的缓冲区溢出漏洞可通过诱骗用户打开恶意演示文稿来执行任意代码，针对常见的办公生产力工作流。"
+      },
+      {
+        "id": "CVE-2026-96249",
+        "reason": "Use-after-free vulnerability in the Win32 Kernel Subsystem permits local privilege escalation, undermining system integrity and enabling further lateral movement.",
+        "reason_en": "Use-after-free vulnerability in the Win32 Kernel Subsystem permits local privilege escalation, undermining system integrity and enabling further lateral movement.",
+        "reason_zh": "Win32 Kernel Subsystem中的释放后使用漏洞可允许本地权限提升，破坏系统完整性并支持进一步的横向移动。"
+      },
+      {
+        "id": "CVE-2026-83910",
+        "reason": "Critical heap-based buffer overflow in the RPC runtime allows unauthenticated remote code execution over the network. Its widespread use in Windows inter-process communication makes it a high-value target for wormable attacks.",
+        "reason_en": "Critical heap-based buffer overflow in the RPC runtime allows unauthenticated remote code execution over the network. Its widespread use in Windows inter-process communication makes it a high-value target for wormable attacks.",
+        "reason_zh": "RPC运行时中的关键性基于堆的缓冲区溢出漏洞可允许通过网络进行无需身份验证的远程代码执行。因其在Windows进程间通信中被广泛使用，成为蠕虫传播攻击的高价值目标。"
+      },
+      {
+        "id": "CVE-2026-83770",
+        "reason": "Severe heap overflow in the Windows Text Shaping component enables remote code execution via crafted text rendering requests. This affects core UI and document processing pipelines, significantly expanding the attack surface.",
+        "reason_en": "Severe heap overflow in the Windows Text Shaping component enables remote code execution via crafted text rendering requests. This affects core UI and document processing pipelines, significantly expanding the attack surface.",
+        "reason_zh": "Windows Text Shaping组件中的严重堆溢出漏洞可通过伪造的文本渲染请求实现远程代码执行。该漏洞影响核心UI和文档处理流水线，显著扩大了攻击面。"
+      },
+      {
+        "id": "CVE-2026-83935",
+        "reason": "Heap-based buffer overflow in Microsoft XML parsing can be triggered remotely to achieve arbitrary code execution. Many enterprise applications rely on MSXML, making this vulnerable to drive-by and phishing campaigns.",
+        "reason_en": "Heap-based buffer overflow in Microsoft XML parsing can be triggered remotely to achieve arbitrary code execution. Many enterprise applications rely on MSXML, making this vulnerable to drive-by and phishing campaigns.",
+        "reason_zh": "Microsoft XML解析中的基于堆的缓冲区溢出漏洞可被远程触发以执行任意代码。许多企业应用程序依赖MSXML，使其易受驱动下载和网络钓鱼攻击的影响。"
+      },
+      {
+        "id": "CVE-2026-83923",
+        "reason": "Relative path traversal in OpenSSH for Windows permits unauthenticated remote code execution over the network. Directly compromises remote administration capabilities and system integrity.",
+        "reason_en": "Relative path traversal in OpenSSH for Windows permits unauthenticated remote code execution over the network. Directly compromises remote administration capabilities and system integrity.",
+        "reason_zh": "OpenSSH for Windows中的相对路径遍历漏洞可允许通过网络进行无需身份验证的远程代码执行，直接破坏远程管理能力和系统完整性。"
+      },
+      {
+        "id": "CVE-2026-83789",
+        "reason": "Heap overflow in the SMB client enables privilege escalation over the network when connecting to malicious servers. Highly relevant for lateral movement and ransomware propagation in enterprise environments.",
+        "reason_en": "Heap overflow in the SMB client enables privilege escalation over the network when connecting to malicious servers. Highly relevant for lateral movement and ransomware propagation in enterprise environments.",
+        "reason_zh": "SMB客户端中的堆溢出漏洞在连接恶意服务器时可导致通过网络进行权限提升。该漏洞与企业环境中的横向移动和勒索软件传播高度相关。"
+      },
+      {
+        "id": "CVE-2026-85903",
+        "reason": "Untrusted pointer dereference in the DNS Server service allows unauthenticated remote code execution. Compromising DNS infrastructure can facilitate network reconnaissance, traffic interception, and service disruption.",
+        "reason_en": "Untrusted pointer dereference in the DNS Server service allows unauthenticated remote code execution. Compromising DNS infrastructure can facilitate network reconnaissance, traffic interception, and service disruption.",
+        "reason_zh": "DNS Server服务中的不受信任指针解引用漏洞可允许无需身份验证的远程代码执行。破坏DNS基础设施将有助于网络侦察、流量拦截和服务中断。"
+      },
+      {
+        "id": "CVE-2026-83934",
+        "reason": "Stack-based buffer overflow in GDI+ enables unauthenticated remote code execution through image processing. Its integration into web browsers and document viewers makes it easily exploitable via malicious media files.",
+        "reason_en": "Stack-based buffer overflow in GDI+ enables unauthenticated remote code execution through image processing. Its integration into web browsers and document viewers makes it easily exploitable via malicious media files.",
+        "reason_zh": "GDI+中的基于栈的缓冲区溢出漏洞可通过图像处理实现无需身份验证的远程代码执行。其集成于Web浏览器和文档查看器中，使得通过恶意媒体文件利用该漏洞变得轻而易举。"
+      },
+      {
+        "id": "CVE-2026-88142",
+        "reason": "Use-after-free in BITS allows unauthenticated remote code execution over the network. Attackers can leverage background download mechanisms for silent malware deployment and persistence.",
+        "reason_en": "Use-after-free in BITS allows unauthenticated remote code execution over the network. Attackers can leverage background download mechanisms for silent malware deployment and persistence.",
+        "reason_zh": "BITS中的释放后使用漏洞可允许通过网络进行无需身份验证的远程代码执行。攻击者可利用后台下载机制静默部署恶意软件并维持持久化。"
+      },
+      {
+        "id": "CVE-2026-83778",
+        "reason": "Heap overflow in the Microsoft Internet Messaging API facilitates remote code execution via crafted email messages. Directly impacts end-users opening malicious attachments or embedded content.",
+        "reason_en": "Heap overflow in the Microsoft Internet Messaging API facilitates remote code execution via crafted email messages. Directly impacts end-users opening malicious attachments or embedded content.",
+        "reason_zh": "Microsoft Internet Messaging API中的堆溢出漏洞可通过伪造的电子邮件消息实现远程代码执行，直接影响打开恶意附件或嵌入内容的终端用户。"
+      },
+      {
+        "id": "CVE-2026-83874",
+        "reason": "Heap-based buffer overflow in Event Tracing permits unauthenticated remote code execution. Exploiting logging frameworks can bypass security telemetry and establish covert access channels.",
+        "reason_en": "Heap-based buffer overflow in Event Tracing permits unauthenticated remote code execution. Exploiting logging frameworks can bypass security telemetry and establish covert access channels.",
+        "reason_zh": "Event Tracing中的基于堆的缓冲区溢出漏洞可允许无需身份验证的远程代码执行。利用日志记录框架可绕过安全遥测数据收集并建立隐蔽访问通道。"
+      },
+      {
+        "id": "CVE-2026-83797",
+        "reason": "Out-of-bounds read in the Partition Management Driver enables remote code execution over the network. Disk and partition handling routines are frequently targeted during post-exploitation lateral movement.",
+        "reason_en": "Out-of-bounds read in the Partition Management Driver enables remote code execution over the network. Disk and partition handling routines are frequently targeted during post-exploitation lateral movement.",
+        "reason_zh": "Partition Management Driver中的越界读取漏洞可允许通过网络进行远程代码执行。磁盘和分区处理例程在渗透后的横向移动阶段常被作为攻击目标。"
+      },
+      {
+        "id": "CVE-2026-83777",
+        "reason": "Heap overflow in the Bluetooth Service allows privilege escalation over an adjacent network. Threatens endpoints exposed to nearby attackers leveraging Bluetooth protocol stacks.",
+        "reason_en": "Heap overflow in the Bluetooth Service allows privilege escalation over an adjacent network. Threatens endpoints exposed to nearby attackers leveraging Bluetooth protocol stacks.",
+        "reason_zh": "Bluetooth Service中的堆溢出漏洞可允许通过相邻网络进行权限提升，威胁暴露在附近攻击者蓝牙协议栈利用下的终端设备。"
+      },
+      {
+        "id": "CVE-2026-88115",
+        "reason": "Out-of-bounds read in Windows Server for NFS permits unauthenticated remote code execution. Organizations deploying NFS shares face direct risks from malicious or compromised storage targets.",
+        "reason_en": "Out-of-bounds read in Windows Server for NFS permits unauthenticated remote code execution. Organizations deploying NFS shares face direct risks from malicious or compromised storage targets.",
+        "reason_zh": "Windows Server for NFS中的越界读取漏洞可允许无需身份验证的远程代码执行。部署NFS共享的组织将面临来自恶意或已受损存储目标的直接风险。"
+      },
+      {
+        "id": "CVE-2026-85941",
+        "reason": "Heap overflow in the Reliable Multicast Transport Driver allows remote code execution over an adjacent network. Network discovery and multicast services are common initial access vectors for internal pivoting.",
+        "reason_en": "Heap overflow in the Reliable Multicast Transport Driver allows remote code execution over an adjacent network. Network discovery and multicast services are common initial access vectors for internal pivoting.",
+        "reason_zh": "Reliable Multicast Transport Driver中的堆溢出漏洞可允许通过相邻网络进行远程代码执行。网络发现和组播服务是内部跳板攻击常见的初始访问向量。"
+      },
+      {
+        "id": "CVE-2026-83519",
+        "reason": "Critical remote code execution flaw in Windows Error Reporting that can be triggered without user interaction, posing a severe system compromise risk.",
+        "reason_en": "Critical remote code execution flaw in Windows Error Reporting that can be triggered without user interaction, posing a severe system compromise risk.",
+        "reason_zh": "Windows Error Reporting中的关键性远程代码执行漏洞可在无需用户交互的情况下触发，对系统造成严重破坏风险。"
+      },
+      {
+        "id": "CVE-2026-83517",
+        "reason": "High-severity heap overflow in Windows Media Foundation enables arbitrary code execution upon processing malicious media files delivered over the network.",
+        "reason_en": "High-severity heap overflow in Windows Media Foundation enables arbitrary code execution upon processing malicious media files delivered over the network.",
+        "reason_zh": "Windows Media Foundation中的高危堆溢出漏洞在处理通过网络交付的恶意媒体文件时可执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-69985",
+        "reason": "Remote code execution vulnerability in Windows Libarchive facilitates malware delivery and full system takeover when handling untrusted compressed archives.",
+        "reason_en": "Remote code execution vulnerability in Windows Libarchive facilitates malware delivery and full system takeover when handling untrusted compressed archives.",
+        "reason_zh": "Windows Libarchive中的远程代码执行漏洞在处理不受信任的压缩归档文件时会导致恶意软件投递及完整系统接管。"
+      },
+      {
+        "id": "CVE-2026-83725",
+        "reason": "Network-accessible memory corruption in the Windows Search Indexing service allows attackers to gain complete system control remotely.",
+        "reason_en": "Network-accessible memory corruption in the Windows Search Indexing service allows attackers to gain complete system control remotely.",
+        "reason_zh": "Windows Search Indexing服务中可通过网络访问的内存损坏漏洞使攻击者能够远程获取完整的系统控制权。"
+      },
+      {
+        "id": "CVE-2026-96219",
+        "reason": "Critical out-of-bounds write in LSASS enables remote attackers to execute arbitrary code and potentially harvest credentials, posing a severe threat to domain security.",
+        "reason_en": "Critical out-of-bounds write in LSASS enables remote attackers to execute arbitrary code and potentially harvest credentials, posing a severe threat to domain security.",
+        "reason_zh": "LSASS中的严重越界写入漏洞使远程攻击者能够执行任意代码并可能窃取凭据，对域安全构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-96864",
+        "reason": "A double free vulnerability in the Failover Cluster Virtual Driver allows remote code execution, which can disrupt critical cluster services and compromise host systems.",
+        "reason_en": "A double free vulnerability in the Failover Cluster Virtual Driver allows remote code execution, which can disrupt critical cluster services and compromise host systems.",
+        "reason_zh": "Failover Cluster Virtual Driver中的双重释放漏洞可导致远程代码执行，进而破坏关键集群服务并危及主机系统。"
+      },
+      {
+        "id": "CVE-2026-96943",
+        "reason": "Integer overflow in the Windows Raw Image Extension permits remote code execution through crafted image files, impacting a wide range of Windows endpoints.",
+        "reason_en": "Integer overflow in the Windows Raw Image Extension permits remote code execution through crafted image files, impacting a wide range of Windows endpoints.",
+        "reason_zh": "Windows Raw Image Extension中的整数溢出漏洞允许通过构造的图像文件实现远程代码执行，影响广泛的Windows终端。"
+      },
+      {
+        "id": "CVE-2026-97794",
+        "reason": "Heap-based buffer overflow in the Container Isolation FS Filter Driver facilitates local privilege escalation, undermining container security boundaries.",
+        "reason_en": "Heap-based buffer overflow in the Container Isolation FS Filter Driver facilitates local privilege escalation, undermining container security boundaries.",
+        "reason_zh": "Container Isolation FS Filter Driver中的基于堆的缓冲区溢出漏洞可促成本地权限提升，破坏容器安全边界。"
+      },
+      {
+        "id": "CVE-2026-96223",
+        "reason": "Use-after-free in Windows Hyper-V allows local privilege escalation, potentially enabling virtual machine escape or host system compromise.",
+        "reason_en": "Use-after-free in Windows Hyper-V allows local privilege escalation, potentially enabling virtual machine escape or host system compromise.",
+        "reason_zh": "Windows Hyper-V中的释放后使用漏洞可导致本地权限提升，可能实现虚拟机逃逸或导致主机系统被攻破。"
+      },
+      {
+        "id": "CVE-2026-70147",
+        "reason": "A critical heap-based buffer overflow in the PostScript Printer Driver enables remote code execution via crafted print jobs, a widely exploited attack vector in enterprise environments.",
+        "reason_en": "A critical heap-based buffer overflow in the PostScript Printer Driver enables remote code execution via crafted print jobs, a widely exploited attack vector in enterprise environments.",
+        "reason_zh": "PostScript Printer Driver中的严重基于堆的缓冲区溢出漏洞可通过构造的打印作业实现远程代码执行，这是企业环境中被广泛利用的攻击向量。"
+      },
+      {
+        "id": "CVE-2026-85928",
+        "reason": "The volume manager extension driver heap overflow allows network attackers to achieve remote code execution with kernel-level privileges, severely compromising system integrity.",
+        "reason_en": "The volume manager extension driver heap overflow allows network attackers to achieve remote code execution with kernel-level privileges, severely compromising system integrity.",
+        "reason_zh": "卷管理器扩展驱动程序的堆溢出漏洞允许网络攻击者以内核级权限实现远程代码执行，严重破坏系统完整性。"
+      },
+      {
+        "id": "CVE-2026-70256",
+        "reason": "Outlook's heap-based buffer overflow facilitates remote code execution when users interact with malicious email attachments or embedded links.",
+        "reason_en": "Outlook's heap-based buffer overflow facilitates remote code execution when users interact with malicious email attachments or embedded links.",
+        "reason_zh": "Outlook的基于堆的缓冲区溢出漏洞使用户在与恶意电子邮件附件或嵌入链接交互时易受远程代码执行攻击。"
+      },
+      {
+        "id": "CVE-2026-70268",
+        "reason": "Word's heap overflow vulnerability allows remote code execution upon opening specially crafted documents, posing a significant threat to end-user productivity suites.",
+        "reason_en": "Word's heap overflow vulnerability allows remote code execution upon opening specially crafted documents, posing a significant threat to end-user productivity suites.",
+        "reason_zh": "Word的堆溢出漏洞在打开特制文档时可导致远程代码执行，对最终用户办公套件构成重大威胁。"
+      },
+      {
+        "id": "CVE-2026-85814",
+        "reason": "Critical heap-based buffer overflow in Windows Media Foundation enables remote code execution over a network with a CVSS of 9.8, posing immediate exploitation risk.",
+        "reason_en": "Critical heap-based buffer overflow in Windows Media Foundation enables remote code execution over a network with a CVSS of 9.8, posing immediate exploitation risk.",
+        "reason_zh": "Windows Media Foundation中的严重基于堆的缓冲区溢出漏洞可在网络上实现远程代码执行（CVSS评分为9.8），存在即时利用风险。"
+      },
+      {
+        "id": "CVE-2026-85809",
+        "reason": "Remote code execution in Windows RRAS allows unauthorized machine access, severely compromising endpoint security and lateral movement defenses.",
+        "reason_en": "Remote code execution in Windows RRAS allows unauthorized machine access, severely compromising endpoint security and lateral movement defenses.",
+        "reason_zh": "Windows RRAS中的远程代码执行漏洞允许未授权访问计算机，严重破坏终端安全和横向移动防御机制。"
+      },
+      {
+        "id": "CVE-2026-85817",
+        "reason": "PowerShell security decision flaw allows unauthorized network code execution, effectively bypassing script execution policies and enabling remote takeover.",
+        "reason_en": "PowerShell security decision flaw allows unauthorized network code execution, effectively bypassing script execution policies and enabling remote takeover.",
+        "reason_zh": "PowerShell的安全决策缺陷允许未经授权的远程代码执行，有效绕过脚本执行策略并实现远程接管。"
+      },
+      {
+        "id": "CVE-2026-85836",
+        "reason": "Use-after-free vulnerability in the Windows Kernel can lead to local privilege escalation, undermining core OS security boundaries and enabling full system control.",
+        "reason_en": "Use-after-free vulnerability in the Windows Kernel can lead to local privilege escalation, undermining core OS security boundaries and enabling full system control.",
+        "reason_zh": "Windows内核中的释放后使用漏洞可导致本地权限提升，破坏核心操作系统安全边界并实现完全控制系统。"
+      },
+      {
+        "id": "CVE-2026-85327",
+        "reason": "Heap-based buffer overflow in Print Spooler components remains a high-risk vector for local privilege escalation, targeting a persistently targeted Windows service.",
+        "reason_en": "Heap-based buffer overflow in Print Spooler components remains a high-risk vector for local privilege escalation, targeting a persistently targeted Windows service.",
+        "reason_zh": "Print Spooler组件中的基于堆的缓冲区溢出漏洞仍是本地权限提升的高风险向量，针对的是持续被攻击的Windows服务。"
+      },
+      {
+        "id": "CVE-2026-84015",
+        "reason": "Critical CVSS 9.8 score enables unauthenticated remote code execution via PPP EAP-TLS, severely compromising network authentication infrastructure.",
+        "reason_en": "Critical CVSS 9.8 score enables unauthenticated remote code execution via PPP EAP-TLS, severely compromising network authentication infrastructure.",
+        "reason_zh": "高达9.8的CVSS评分意味着可通过PPP EAP-TLS实现未认证的远程代码执行，严重破坏网络认证基础设施。"
+      },
+      {
+        "id": "CVE-2026-84012",
+        "reason": "Double free flaw in the Remote Desktop Gateway Service allows remote attackers to execute arbitrary code, facilitating lateral movement across enterprise networks.",
+        "reason_en": "Double free flaw in the Remote Desktop Gateway Service allows remote attackers to execute arbitrary code, facilitating lateral movement across enterprise networks.",
+        "reason_zh": "Remote Desktop Gateway Service中的双重释放缺陷允许远程攻击者执行任意代码，促进在企业网络中进行横向移动。"
+      },
+      {
+        "id": "CVE-2026-69886",
+        "reason": "Heap-based overflow in the Windows Imaging Component permits unauthenticated network exploitation, allowing attackers to gain system control through routine image processing.",
+        "reason_en": "Heap-based overflow in the Windows Imaging Component permits unauthenticated network exploitation, allowing attackers to gain system control through routine image processing.",
+        "reason_zh": "Windows Imaging Component中的基于堆的溢出漏洞允许未认证的网络利用，使攻击者能够通过常规图像处理获取系统控制权。"
+      },
+      {
+        "id": "CVE-2026-83928",
+        "reason": "Out-of-bounds write in LSASS directly targets credential storage mechanisms, enabling memory dumping and potential domain-wide compromise.",
+        "reason_en": "Out-of-bounds write in LSASS directly targets credential storage mechanisms, enabling memory dumping and potential domain-wide compromise.",
+        "reason_zh": "LSASS中的越界写入直接针对凭据存储机制，可实现内存转储并可能导致整个域被攻破。"
+      },
+      {
+        "id": "CVE-2026-83869",
+        "reason": "Integer underflow in the DNS Server service allows remote code execution, disrupting critical name resolution and enabling widespread network attacks.",
+        "reason_en": "Integer underflow in the DNS Server service allows remote code execution, disrupting critical name resolution and enabling widespread network attacks.",
+        "reason_zh": "DNS Server服务中的整数下溢漏洞可导致远程代码执行，破坏关键名称解析功能并引发大规模网络攻击。"
+      },
+      {
+        "id": "CVE-2026-83782",
+        "reason": "Heap overflow in Windows Shell is exploitable over the network via malicious file interactions, granting immediate system-level control without user consent.",
+        "reason_en": "Heap overflow in Windows Shell is exploitable over the network via malicious file interactions, granting immediate system-level control without user consent.",
+        "reason_zh": "Windows Shell中的堆溢出漏洞可通过网络上的恶意文件交互进行利用，无需用户同意即可立即获取系统级控制权。"
+      },
+      {
+        "id": "CVE-2026-83780",
+        "reason": "Use-after-free vulnerability in the CCFFilter Driver permits unauthenticated remote code execution, bypassing standard Windows security boundaries.",
+        "reason_en": "Use-after-free vulnerability in the CCFFilter Driver permits unauthenticated remote code execution, bypassing standard Windows security boundaries.",
+        "reason_zh": "CCFFilter Driver中的释放后使用漏洞允许未认证的远程代码执行，从而绕过标准Windows安全边界。"
+      },
+      {
+        "id": "CVE-2026-83748",
+        "reason": "Heap overflow in Windows Error Reporting enables remote code execution when interacting with malformed reports, leveraging a trusted system service for initial access.",
+        "reason_en": "Heap overflow in Windows Error Reporting enables remote code execution when interacting with malformed reports, leveraging a trusted system service for initial access.",
+        "reason_zh": "Windows错误报告中的堆溢出漏洞在使用者与格式错误的报告交互时可导致远程代码执行，该漏洞利用了受信任的系统服务以实现初始访问。"
+      },
+      {
+        "id": "CVE-2026-83688",
+        "reason": "Heap-based overflow in the Remote Desktop Client allows remote code execution via crafted RDP sessions, directly impacting endpoint security and remote work environments.",
+        "reason_en": "Heap-based overflow in the Remote Desktop Client allows remote code execution via crafted RDP sessions, directly impacting endpoint security and remote work environments.",
+        "reason_zh": "Remote Desktop客户端中的基于堆的溢出漏洞可通过构造的RDP会话实现远程代码执行，直接影响终端安全和远程工作环境。"
+      },
+      {
+        "id": "CVE-2026-70096",
+        "reason": "Critical heap overflow in the Rich Text Edit Control enables remote code execution via malicious documents, posing a severe threat to end-user workstations.",
+        "reason_en": "Critical heap overflow in the Rich Text Edit Control enables remote code execution via malicious documents, posing a severe threat to end-user workstations.",
+        "reason_zh": "富文本编辑控件中的严重堆溢出漏洞可通过恶意文档实现远程代码执行，对最终用户工作站构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-83578",
+        "reason": "High-severity integer underflow in PowerShell allows remote code execution, compromising system integrity through a universally deployed scripting environment.",
+        "reason_en": "High-severity integer underflow in PowerShell allows remote code execution, compromising system integrity through a universally deployed scripting environment.",
+        "reason_zh": "PowerShell中的高严重性整数下溢漏洞可导致远程代码执行，通过普遍部署的脚本环境破坏系统完整性。"
+      },
+      {
+        "id": "CVE-2026-83652",
+        "reason": "Local privilege escalation via NTFS heap overflow impacts core filesystem operations, potentially allowing attackers to bypass mandatory integrity controls.",
+        "reason_en": "Local privilege escalation via NTFS heap overflow impacts core filesystem operations, potentially allowing attackers to bypass mandatory integrity controls.",
+        "reason_zh": "通过NTFS堆溢出实现的本地权限提升会影响核心文件系统操作，可能使攻击者能够绕过强制完整性控制。"
+      },
+      {
+        "id": "CVE-2026-70255",
+        "reason": "Buffer overflow in the Desktop Window Manager can lead to local privilege escalation, affecting graphical stability and user-mode security boundaries.",
+        "reason_en": "Buffer overflow in the Desktop Window Manager can lead to local privilege escalation, affecting graphical stability and user-mode security boundaries.",
+        "reason_zh": "桌面窗口管理器中的缓冲区溢出漏洞可导致本地权限提升，影响图形稳定性和用户模式安全边界。"
+      },
+      {
+        "id": "CVE-2026-70027",
+        "reason": "Heap overflow in Windows Subsystem for Linux (WSL) poses risks to cross-platform development environments and local privilege boundaries.",
+        "reason_en": "Heap overflow in Windows Subsystem for Linux (WSL) poses risks to cross-platform development environments and local privilege boundaries.",
+        "reason_zh": "适用于Linux的Windows子系统（WSL）中的堆溢出漏洞对跨平台开发环境和本地权限边界构成风险。"
+      },
+      {
+        "id": "CVE-2026-70015",
+        "reason": "Privilege escalation in LSASS is highly critical as it directly impacts credential protection and enables widespread lateral movement.",
+        "reason_en": "Privilege escalation in LSASS is highly critical as it directly impacts credential protection and enables widespread lateral movement.",
+        "reason_zh": "LSASS中的权限提升极为关键，因其直接影响凭据保护并支持大规模的横向移动。"
+      },
+      {
+        "id": "CVE-2026-69639",
+        "reason": "A network-reachable heap overflow in Libarchive with a CVSS of 9.8 poses an immediate remote code execution risk to end-user systems.",
+        "reason_en": "A network-reachable heap overflow in Libarchive with a CVSS of 9.8 poses an immediate remote code execution risk to end-user systems.",
+        "reason_zh": "Libarchive中网络可达且CVSS评分为9.8的堆溢出漏洞对最终用户系统构成即时的远程代码执行风险。"
+      },
+      {
+        "id": "CVE-2026-108450",
+        "reason": "Heap-based buffer overflow in Microsoft Word allows unauthorized remote code execution via malicious document attachments.",
+        "reason_en": "Heap-based buffer overflow in Microsoft Word allows unauthorized remote code execution via malicious document attachments.",
+        "reason_zh": "Microsoft Word 中的基于堆的缓冲区溢出漏洞允许通过恶意文档附件进行未经授权的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-108458",
+        "reason": "Use-after-free in the Remote Desktop Client enables remote code execution over the network, compromising interactive session security.",
+        "reason_en": "Use-after-free in the Remote Desktop Client enables remote code execution over the network, compromising interactive session security.",
+        "reason_zh": "Remote Desktop Client 中的释放后使用漏洞允许通过网络进行远程代码执行，破坏交互式会话安全性。"
+      },
+      {
+        "id": "CVE-2026-102238",
+        "reason": "Path traversal in Visual Studio Code enables remote code execution, severely compromising developer workstations and source code integrity.",
+        "reason_en": "Path traversal in Visual Studio Code enables remote code execution, severely compromising developer workstations and source code integrity.",
+        "reason_zh": "Visual Studio Code 中的路径遍历漏洞可导致远程代码执行，严重破坏开发机工作站和源代码完整性。"
+      },
+      {
+        "id": "CVE-2026-108400",
+        "reason": "Integer overflow in the Windows Codecs Library allows network-based code execution through maliciously crafted image files without user interaction.",
+        "reason_en": "Integer overflow in the Windows Codecs Library allows network-based code execution through maliciously crafted image files without user interaction.",
+        "reason_zh": "Windows Codecs Library 中的整数溢出漏洞允许通过网络构造的恶意图像文件在无需用户交互的情况下执行代码。"
+      },
+      {
+        "id": "CVE-2026-102850",
+        "reason": "Heap-based buffer overflow in Microsoft Office Access permits remote code execution when users open specially crafted database files.",
+        "reason_en": "Heap-based buffer overflow in Microsoft Office Access permits remote code execution when users open specially crafted database files.",
+        "reason_zh": "当用户打开特制的数据库文件时，Microsoft Office Access 中的基于堆的缓冲区溢出漏洞可导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-111585",
+        "reason": "Integer overflow in the screen processing component enables remote code execution or denial of service across host platforms, directly impacting remote desktop reliability.",
+        "reason_en": "Integer overflow in the screen processing component enables remote code execution or denial of service across host platforms, directly impacting remote desktop reliability.",
+        "reason_zh": "屏幕处理组件中的整数溢出漏洞可在主机平台上导致远程代码执行或拒绝服务，直接影响远程桌面可靠性。"
+      },
+      {
+        "id": "CVE-2026-107672",
+        "reason": "Markdown injection via crafted configuration files triggers arbitrary command execution within the desktop application context, bypassing sandbox expectations.",
+        "reason_en": "Markdown injection via crafted configuration files triggers arbitrary command execution within the desktop application context, bypassing sandbox expectations.",
+        "reason_zh": "通过特制配置文件进行的 Markdown 注入可在桌面应用程序上下文中触发任意命令执行，绕过沙箱隔离预期。"
+      },
+      {
+        "id": "CVE-2026-92372",
+        "reason": "Out-of-bounds write in the screen-image decoder allows remote attackers to execute arbitrary code during controlled sessions, compromising host integrity.",
+        "reason_en": "Out-of-bounds write in the screen-image decoder allows remote attackers to execute arbitrary code during controlled sessions, compromising host integrity.",
+        "reason_zh": "屏幕图像解码器中的越界写入漏洞允许远程攻击者在受控会话期间执行任意代码，破坏主机完整性。"
+      },
+      {
+        "id": "CVE-2026-104078",
+        "reason": "Obsidian Desktop allows arbitrary code execution via crafted Markdown notes exploiting insufficient sanitization of iframe attributes, bypassing DOMPurify. This poses a direct threat to users opening malicious documents locally.",
+        "reason_en": "Obsidian Desktop allows arbitrary code execution via crafted Markdown notes exploiting insufficient sanitization of iframe attributes, bypassing DOMPurify. This poses a direct threat to users opening malicious documents locally.",
+        "reason_zh": "Obsidian Desktop 允许通过特制的 Markdown 笔记利用 iframe 属性清理不足绕过 DOMPurify，从而导致任意代码执行。这对本地打开恶意文档的用户构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-50349",
+        "reason": "A race condition in the Windows WinSock Ancillary Function Driver enables local privilege escalation for authenticated attackers. Exploitation could lead to unauthorized system-level access on affected endpoints.",
+        "reason_en": "A race condition in the Windows WinSock Ancillary Function Driver enables local privilege escalation for authenticated attackers. Exploitation could lead to unauthorized system-level access on affected endpoints.",
+        "reason_zh": "Windows WinSock Ancillary Function Driver 中的竞争条件漏洞可使已认证的攻击者实现本地权限提升。利用该漏洞可能导致受影响终端上的未经授权的系统级访问。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-97800",
+        "reason": "Incorrect permissions in Windows Mobile Broadband allow local privilege escalation on devices relying on cellular connectivity modules.",
+        "reason_en": "Incorrect permissions in Windows Mobile Broadband allow local privilege escalation on devices relying on cellular connectivity modules.",
+        "reason_zh": "Windows Mobile Broadband 中的权限配置错误允许依赖蜂窝连接模块的设备发生本地权限提升。"
+      },
+      {
+        "id": "CVE-2026-117602",
+        "reason": "Authorization bypass in the plugin loader executes unsigned modules, directly compromising wallet integrity and exposing users to financial theft.",
+        "reason_en": "Authorization bypass in the plugin loader executes unsigned modules, directly compromising wallet integrity and exposing users to financial theft.",
+        "reason_zh": "插件加载器中的授权绕过漏洞可执行未签名模块，直接破坏钱包完整性并将用户暴露于资金被盗风险中。"
+      },
+      {
+        "id": "CVE-2026-117601",
+        "reason": "Failure to verify transaction signatures enables malicious servers to replace broadcasts, facilitating double-spending and fund interception attacks.",
+        "reason_en": "Failure to verify transaction signatures enables malicious servers to replace broadcasts, facilitating double-spending and fund interception attacks.",
+        "reason_zh": "未能验证交易签名使得恶意服务器能够替换广播数据，从而促成双重支付和资金拦截攻击。"
+      },
+      {
+        "id": "CVE-2026-117559",
+        "reason": "Command injection bypasses shell allowlists via substitution characters, granting attackers arbitrary execution capabilities on mobile and embedded targets.",
+        "reason_en": "Command injection bypasses shell allowlists via substitution characters, granting attackers arbitrary execution capabilities on mobile and embedded targets.",
+        "reason_zh": "命令注入通过替换字符绕过 Shell 白名单，使攻击者能够在移动和嵌入式目标上获得任意执行能力。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-112352",
+        "reason": "Authentication bypass in Sunhillo SureLine allows unauthenticated attackers to forge session cookies and impersonate any active user on surveillance systems.",
+        "reason_en": "Authentication bypass in Sunhillo SureLine allows unauthenticated attackers to forge session cookies and impersonate any active user on surveillance systems.",
+        "reason_zh": "Sunhillo SureLine 中的身份验证绕过漏洞允许未认证的攻击者伪造会话 Cookie，并在监控系统中冒充任何活跃用户。"
+      },
+      {
+        "id": "CVE-2026-102814",
+        "reason": "Derivable cryptographic key in TP-Link RE305’s TDDP v2 service enables local network attackers to forge packets and access privileged device operations.",
+        "reason_en": "Derivable cryptographic key in TP-Link RE305’s TDDP v2 service enables local network attackers to forge packets and access privileged device operations.",
+        "reason_zh": "TP-Link RE305 的 TDDP v2 服务中存在可推导的加密密钥，使局域网攻击者能够伪造数据包并访问特权设备操作。"
+      },
+      {
+        "id": "CVE-2026-18349",
+        "reason": "Lack of voltage and clock glitch protection in the Microchip SAMA5D4 MCU makes it vulnerable to hardware fault injection attacks targeting embedded firmware.",
+        "reason_en": "Lack of voltage and clock glitch protection in the Microchip SAMA5D4 MCU makes it vulnerable to hardware fault injection attacks targeting embedded firmware.",
+        "reason_zh": "Microchip SAMA5D4 MCU 缺乏电压和时钟毛刺保护，使其易受针对嵌入式固件的硬件故障注入攻击。"
+      },
+      {
+        "id": "CVE-2026-116504",
+        "reason": "Command injection in the cloud upgrade function permits remote attackers to execute arbitrary system commands on consumer network hardware.",
+        "reason_en": "Command injection in the cloud upgrade function permits remote attackers to execute arbitrary system commands on consumer network hardware.",
+        "reason_zh": "云升级功能中的命令注入漏洞允许远程攻击者在消费级网络硬件上执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-116371",
+        "reason": "Improper authentication logic allows remote exploitation via manipulated login parameters, compromising smart intercom and access control systems.",
+        "reason_en": "Improper authentication logic allows remote exploitation via manipulated login parameters, compromising smart intercom and access control systems.",
+        "reason_zh": "不正确的身份验证逻辑允许通过篡改登录参数进行远程利用，破坏智能对讲机和门禁控制系统的安全性。"
+      },
+      {
+        "id": "CVE-2026-117567",
+        "reason": "Unsanitized tool parameters enable command injection via prompt-injected agents, threatening embedded IoT controller safety and operational continuity.",
+        "reason_en": "Unsanitized tool parameters enable command injection via prompt-injected agents, threatening embedded IoT controller safety and operational continuity.",
+        "reason_zh": "未过滤的工具参数可通过提示词注入代理实现命令注入，威胁嵌入式物联网控制器的安全性和业务连续性。"
+      },
+      {
+        "id": "CVE-2026-13162",
+        "reason": "Authenticated users can execute arbitrary OS commands via the time synchronization handler, leading to full device compromise in critical industrial environments.",
+        "reason_en": "Authenticated users can execute arbitrary OS commands via the time synchronization handler, leading to full device compromise in critical industrial environments.",
+        "reason_zh": "已认证用户可通过时间同步处理程序执行任意操作系统命令，在关键工业环境中导致设备完全沦陷。"
+      },
+      {
+        "id": "CVE-2026-112345",
+        "reason": "Hardcoded static AES keys in smart-lock firmware allow Bluetooth-range attackers to decrypt pairing sessions and bypass physical security controls.",
+        "reason_en": "Hardcoded static AES keys in smart-lock firmware allow Bluetooth-range attackers to decrypt pairing sessions and bypass physical security controls.",
+        "reason_zh": "智能锁固件中硬编码的静态 AES 密钥允许蓝牙范围内的攻击者解密配对会话并绕过物理安全控制。"
+      },
+      {
+        "id": "CVE-2026-111460",
+        "reason": "Moxa LTE series devices contain hard-coded cryptographic keys, allowing unauthenticated attackers to impersonate devices and intercept communications. This severely compromises device authentication and data confidentiality in industrial IoT deployments.",
+        "reason_en": "Moxa LTE series devices contain hard-coded cryptographic keys, allowing unauthenticated attackers to impersonate devices and intercept communications. This severely compromises device authentication and data confidentiality in industrial IoT deployments.",
+        "reason_zh": "Moxa LTE 系列设备包含硬编码的加密密钥，允许未认证的攻击者伪装设备并拦截通信。这严重破坏了工业 IoT 部署中的设备认证和数据机密性。"
+      },
+      {
+        "id": "CVE-2026-111461",
+        "reason": "An OS command injection flaw in the Moxa OnCell SMS management functionality enables remote attackers to execute arbitrary commands when configured. This highlights critical input validation gaps in embedded cellular gateways.",
+        "reason_en": "An OS command injection flaw in the Moxa OnCell SMS management functionality enables remote attackers to execute arbitrary commands when configured. This highlights critical input validation gaps in embedded cellular gateways.",
+        "reason_zh": "Moxa OnCell SMS 管理功能中存在操作系统命令注入漏洞，配置后可使远程攻击者执行任意命令。这凸显了嵌入式蜂窝网关中关键的输入验证缺陷。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-71195",
+        "reason": "Authorization bypass on OpenStack Manila public shares allows attackers to manipulate storage resources outside their designated project context.",
+        "reason_en": "Authorization bypass on OpenStack Manila public shares allows attackers to manipulate storage resources outside their designated project context.",
+        "reason_zh": "OpenStack Manila 公共共享中的授权绕过漏洞允许攻击者在指定项目上下文之外操纵存储资源。"
+      },
+      {
+        "id": "CVE-2026-77900",
+        "reason": "Missing authentication for critical functions in Azure App Service enables unauthenticated remote code execution in cloud hosting environments.",
+        "reason_en": "Missing authentication for critical functions in Azure App Service enables unauthenticated remote code execution in cloud hosting environments.",
+        "reason_zh": "Azure App Service 中关键功能缺少身份验证，导致云托管环境中出现未认证的远程代码执行漏洞。"
+      },
+      {
+        "id": "CVE-2026-96207",
+        "reason": "Improper certificate validation in Microsoft Partner Center allows unauthorized privilege escalation over the network, risking tenant compromise.",
+        "reason_en": "Improper certificate validation in Microsoft Partner Center allows unauthorized privilege escalation over the network, risking tenant compromise.",
+        "reason_zh": "Microsoft Partner Center 中的证书验证不当允许通过网络进行未经授权的权限提升，危及租户安全。"
+      },
+      {
+        "id": "CVE-2026-88131",
+        "reason": "Deserialization of untrusted data in Microsoft Dataverse leads to remote code execution, endangering low-code application platforms.",
+        "reason_en": "Deserialization of untrusted data in Microsoft Dataverse leads to remote code execution, endangering low-code application platforms.",
+        "reason_zh": "Microsoft Dataverse 中对不可信数据的反序列化可导致远程代码执行，危及低代码应用平台的安全。"
+      },
+      {
+        "id": "CVE-2026-62146",
+        "reason": "Trust-boundary flaw in CRI-O sandbox state persistence allows attacker-influenced metadata to overwrite runtime bookkeeping, increasing container escape risk.",
+        "reason_en": "Trust-boundary flaw in CRI-O sandbox state persistence allows attacker-influenced metadata to overwrite runtime bookkeeping, increasing container escape risk.",
+        "reason_zh": "CRI-O 沙箱状态持久化机制中的信任边界缺陷允许受攻击者影响的元数据覆盖运行时状态记录，增加容器逃逸风险。"
+      },
+      {
+        "id": "CVE-2026-100203",
+        "reason": "Introduces operating system command injection in Azure CycleCloud, allowing authenticated attackers to execute arbitrary commands on managed cloud workloads.",
+        "reason_en": "Introduces operating system command injection in Azure CycleCloud, allowing authenticated attackers to execute arbitrary commands on managed cloud workloads.",
+        "reason_zh": "Azure CycleCloud 中引入操作系统命令注入漏洞，允许已认证的攻击者在托管云工作负载上执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-100214",
+        "reason": "Permits remote code execution through insecure deserialization in Dynamics Business Central, threatening enterprise cloud ERP environments.",
+        "reason_en": "Permits remote code execution through insecure deserialization in Dynamics Business Central, threatening enterprise cloud ERP environments.",
+        "reason_zh": "允许通过 Dynamics Business Central 中的不安全反序列化实现远程代码执行，威胁企业云 ERP 环境。"
+      },
+      {
+        "id": "CVE-2026-96252",
+        "reason": "Improper cryptographic signature verification in Active Directory Federation Services allows network spoofing attacks, severely weakening enterprise identity and access management.",
+        "reason_en": "Improper cryptographic signature verification in Active Directory Federation Services allows network spoofing attacks, severely weakening enterprise identity and access management.",
+        "reason_zh": "Active Directory Federation Services 中错误的加密签名验证会导致网络欺骗攻击，严重削弱企业身份与访问管理。"
+      },
+      {
+        "id": "CVE-2026-85925",
+        "reason": "Improper communication channel restriction in Azure Key Vault enables unauthorized privilege escalation, risking exposure of critical cloud-managed secrets and keys.",
+        "reason_en": "Improper communication channel restriction in Azure Key Vault enables unauthorized privilege escalation, risking exposure of critical cloud-managed secrets and keys.",
+        "reason_zh": "Azure Key Vault 中不正确的通信通道限制可导致未授权的特权提升，危及关键云托管密钥和机密的泄露。"
+      },
+      {
+        "id": "CVE-2026-85922",
+        "reason": "Weak authentication mechanisms in Azure Key Vault allow attackers to bypass security controls, directly threatening cloud-based cryptographic operations and compliance.",
+        "reason_en": "Weak authentication mechanisms in Azure Key Vault allow attackers to bypass security controls, directly threatening cloud-based cryptographic operations and compliance.",
+        "reason_zh": "Azure Key Vault 中脆弱的认证机制使攻击者能够绕过安全控制，直接威胁基于云的加密操作及合规性。"
+      },
+      {
+        "id": "CVE-2026-69454",
+        "reason": "Information disclosure flaw in Azure Attestation and Device Health services could expose sensitive device posture data, undermining cloud security postures.",
+        "reason_en": "Information disclosure flaw in Azure Attestation and Device Health services could expose sensitive device posture data, undermining cloud security postures.",
+        "reason_zh": "Azure Attestation 和 Device Health 服务中的信息泄露漏洞可能暴露敏感的设备状态数据，破坏云安全态势。"
+      },
+      {
+        "id": "CVE-2026-83645",
+        "reason": "Denial-of-service vulnerability in Active Directory Federation Services (AD FS) that could disrupt enterprise identity management and access controls.",
+        "reason_en": "Denial-of-service vulnerability in Active Directory Federation Services (AD FS) that could disrupt enterprise identity management and access controls.",
+        "reason_zh": "Active Directory Federation Services (AD FS) 中的拒绝服务漏洞可能中断企业身份管理与访问控制。"
+      },
+      {
+        "id": "CVE-2026-83511",
+        "reason": "Authentication bypass weakness in AD FS enables identity spoofing attacks, potentially granting unauthorized access to federated cloud resources.",
+        "reason_en": "Authentication bypass weakness in AD FS enables identity spoofing attacks, potentially granting unauthorized access to federated cloud resources.",
+        "reason_zh": "AD FS 中的认证绕过缺陷可启用身份欺骗攻击，可能导致未授权访问联合云资源。"
+      },
+      {
+        "id": "CVE-2026-83674",
+        "reason": "Weak authentication mechanisms in Active Directory Federation Services allow network spoofing and identity theft across hybrid cloud directories.",
+        "reason_en": "Weak authentication mechanisms in Active Directory Federation Services allow network spoofing and identity theft across hybrid cloud directories.",
+        "reason_zh": "Active Directory Federation Services 中脆弱的认证机制允许在混合云目录中进行网络欺骗和身份窃取。"
+      },
+      {
+        "id": "CVE-2026-88159",
+        "reason": "Use-after-free in the Background Intelligent Transfer Service enables remote code execution during scheduled cloud synchronization tasks.",
+        "reason_en": "Use-after-free in the Background Intelligent Transfer Service enables remote code execution during scheduled cloud synchronization tasks.",
+        "reason_zh": "Background Intelligent Transfer Service 中的释放后使用漏洞可在计划内的云同步任务期间触发远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-88071",
+        "reason": "Hyper-V double free flaw permits local privilege escalation within virtualized cloud workloads, threatening multi-tenant infrastructure isolation.",
+        "reason_en": "Hyper-V double free flaw permits local privilege escalation within virtualized cloud workloads, threatening multi-tenant infrastructure isolation.",
+        "reason_zh": "Hyper-V 中的双重释放漏洞允许在虚拟化云工作负载内发生本地特权提升，威胁多租户基础设施隔离。"
+      },
+      {
+        "id": "CVE-2026-85891",
+        "reason": "Information disclosure in Azure HDInsight exposes sensitive data to unauthorized network actors, directly impacting cloud analytics and big data environments.",
+        "reason_en": "Information disclosure in Azure HDInsight exposes sensitive data to unauthorized network actors, directly impacting cloud analytics and big data environments.",
+        "reason_zh": "Azure HDInsight 中的信息泄露会将敏感数据暴露给未授权的网络实体，直接影响云分析和大数据环境。"
+      },
+      {
+        "id": "CVE-2026-85324",
+        "reason": "Resource exhaustion flaw in Active Directory Federation Services can trigger denial-of-service conditions, disrupting identity management and cloud authentication workflows.",
+        "reason_en": "Resource exhaustion flaw in Active Directory Federation Services can trigger denial-of-service conditions, disrupting identity management and cloud authentication workflows.",
+        "reason_zh": "Active Directory Federation Services 中的资源耗尽漏洞可能触发拒绝服务状况，中断身份管理与云认证工作流程。"
+      },
+      {
+        "id": "CVE-2026-105733",
+        "reason": "Improper access control in Hyper-V allows local code execution, potentially breaking isolation between host and guest virtual machines.",
+        "reason_en": "Improper access control in Hyper-V allows local code execution, potentially breaking isolation between host and guest virtual machines.",
+        "reason_zh": "Hyper-V 中不正确的访问控制允许本地代码执行，可能破坏主机与客户虚拟机之间的隔离。"
+      },
+      {
+        "id": "CVE-2026-108399",
+        "reason": "Heap overflow in Hyper-V enables privilege escalation, increasing the attack surface for cloud-hosted virtualized workloads.",
+        "reason_en": "Heap overflow in Hyper-V enables privilege escalation, increasing the attack surface for cloud-hosted virtualized workloads.",
+        "reason_zh": "Hyper-V 中的堆溢出可导致特权提升，增加云托管虚拟化工作负载的攻击面。"
+      },
+      {
+        "id": "CVE-2026-110063",
+        "reason": "Link following flaw in Azure VM Inspector allows unauthenticated attackers to escalate privileges and potentially compromise underlying hypervisor resources.",
+        "reason_en": "Link following flaw in Azure VM Inspector allows unauthenticated attackers to escalate privileges and potentially compromise underlying hypervisor resources.",
+        "reason_zh": "Azure VM Inspector 中的链接跟随漏洞允许未认证的攻击者提升权限，并可能破坏底层 Hypervisor 资源。"
+      },
+      {
+        "id": "CVE-2026-83938",
+        "reason": "Missing authentication in Azure Kubernetes Configuration Service enables unauthenticated privilege escalation, jeopardizing entire managed Kubernetes deployments.",
+        "reason_en": "Missing authentication in Azure Kubernetes Configuration Service enables unauthenticated privilege escalation, jeopardizing entire managed Kubernetes deployments.",
+        "reason_zh": "Azure Kubernetes Configuration Service 中缺失的认证机制可导致未授权的特权提升，危及整个托管 Kubernetes 部署。"
+      },
+      {
+        "id": "CVE-2026-115413",
+        "reason": "Missing token audience validation in AWS API MCP Server allows local users to misuse configured cloud credentials across different applications.",
+        "reason_en": "Missing token audience validation in AWS API MCP Server allows local users to misuse configured cloud credentials across different applications.",
+        "reason_zh": "AWS API MCP Server 中缺失的令牌受众验证允许本地用户在不同应用程序间滥用已配置的云凭据。"
+      },
+      {
+        "id": "CVE-2026-108142",
+        "reason": "Unauthenticated authorization bypass on the CDP Coordinator Service grants attackers direct control over continuous data protection workflows.",
+        "reason_en": "Unauthenticated authorization bypass on the CDP Coordinator Service grants attackers direct control over continuous data protection workflows.",
+        "reason_zh": "CDP Coordinator Service 上的未认证授权绕过漏洞使攻击者能够直接控制连续数据保护工作流程。"
+      },
+      {
+        "id": "CVE-2026-106076",
+        "reason": "SQL injection in configuration databases leads to remote code execution as the service account, jeopardizing entire backup infrastructures and tenant data.",
+        "reason_en": "SQL injection in configuration databases leads to remote code execution as the service account, jeopardizing entire backup infrastructures and tenant data.",
+        "reason_zh": "配置数据库中的 SQL 注入可导致以服务账户身份执行远程代码，危及整个备份基础设施及租户数据。"
+      },
+      {
+        "id": "CVE-2026-104189",
+        "reason": "Missing authorization on public file endpoints allows token-based access to restricted shared content, violating cloud storage isolation policies.",
+        "reason_en": "Missing authorization on public file endpoints allows token-based access to restricted shared content, violating cloud storage isolation policies.",
+        "reason_zh": "公共文件端点缺失的授权机制允许基于令牌的受限共享内容访问，违反云存储隔离策略。"
+      },
+      {
+        "id": "CVE-2026-63146",
+        "reason": "Code injection during installation writes unescaped attacker-controlled values to config files, combined with SQL injection for full system compromise.",
+        "reason_en": "Code injection during installation writes unescaped attacker-controlled values to config files, combined with SQL injection for full system compromise.",
+        "reason_zh": "安装期间的代码注入会将未转义的受攻击者控制的值写入配置文件，结合 SQL 注入可实现系统完全沦陷。"
+      },
+      {
+        "id": "CVE-2026-115216",
+        "reason": "Disabled TLS certificate verification enables on-path attackers to capture OAuth secrets or control tokens, severely compromising edge-to-cloud communications.",
+        "reason_en": "Disabled TLS certificate verification enables on-path attackers to capture OAuth secrets or control tokens, severely compromising edge-to-cloud communications.",
+        "reason_zh": "禁用的 TLS 证书验证使中间人攻击者能够捕获 OAuth 密钥或控制令牌，严重损害边缘到云通信。"
+      },
+      {
+        "id": "CVE-2026-85610",
+        "reason": "Invalidated chart formula expressions allow authenticated members to execute arbitrary JavaScript code via recovered Function constructors.",
+        "reason_en": "Invalidated chart formula expressions allow authenticated members to execute arbitrary JavaScript code via recovered Function constructors.",
+        "reason_zh": "失效的图表公式表达式允许已认证成员通过恢复的 Function 构造函数执行任意 JavaScript 代码。"
+      },
+      {
+        "id": "CVE-2026-85299",
+        "reason": "Missing authorization in Google Compute Engine snapshot APIs allows authenticated attackers to exfiltrate cross-project disk data. This breaks multi-tenant isolation and risks sensitive cloud storage exposure.",
+        "reason_en": "Missing authorization in Google Compute Engine snapshot APIs allows authenticated attackers to exfiltrate cross-project disk data. This breaks multi-tenant isolation and risks sensitive cloud storage exposure.",
+        "reason_zh": "Google Compute Engine 快照 API 中缺失的授权机制允许已认证的攻击者外泄跨项目磁盘数据。这破坏了多租户隔离，并导致敏感云存储面临泄露风险。"
+      },
+      {
+        "id": "CVE-2020-37281",
+        "reason": "Gravitee API Management suffers from an authentication bypass due to forged JWTs signed with a default secret. Attackers can impersonate any user, compromising API governance and backend services.",
+        "reason_en": "Gravitee API Management suffers from an authentication bypass due to forged JWTs signed with a default secret. Attackers can impersonate any user, compromising API governance and backend services.",
+        "reason_zh": "Gravitee API Management 存在因使用默认密钥签名的伪造 JWT 导致的认证绕过漏洞。攻击者可冒充任何用户，从而破坏 API 治理及后端服务。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-96113",
+        "reason": "Heap-based buffer overflow in Microsoft DNS Server enables remote code execution via crafted DNS queries, disrupting critical network infrastructure.",
+        "reason_en": "Heap-based buffer overflow in Microsoft DNS Server enables remote code execution via crafted DNS queries, disrupting critical network infrastructure.",
+        "reason_zh": "Microsoft DNS Server 中的基于堆的缓冲区溢出漏洞可通过构造的 DNS 查询实现远程代码执行，破坏关键网络基础设施。"
+      },
+      {
+        "id": "CVE-2026-16445",
+        "reason": "Malicious DHCP options trigger code execution during network boot, severely affecting PXE deployments and bare-metal provisioning workflows.",
+        "reason_en": "Malicious DHCP options trigger code execution during network boot, severely affecting PXE deployments and bare-metal provisioning workflows.",
+        "reason_zh": "恶意的 DHCP 选项会在网络启动期间触发代码执行，严重影响 PXE 部署及裸机配置工作流程。"
+      },
+      {
+        "id": "CVE-2026-105005",
+        "reason": "Out-of-bounds write in Microsoft Schannel's TLS implementation allows remote code execution, undermining encrypted communications.",
+        "reason_en": "Out-of-bounds write in Microsoft Schannel's TLS implementation allows remote code execution, undermining encrypted communications.",
+        "reason_zh": "Microsoft Schannel 的 TLS 实现中存在越界写入漏洞，可导致远程代码执行，破坏加密通信。"
+      },
+      {
+        "id": "CVE-2026-57190",
+        "reason": "Flawed PostgreSQL and TDS/MSSQL backends in Asterisk permit arbitrary SQL execution, risking call routing manipulation and data exfiltration.",
+        "reason_en": "Flawed PostgreSQL and TDS/MSSQL backends in Asterisk permit arbitrary SQL execution, risking call routing manipulation and data exfiltration.",
+        "reason_zh": "Asterisk 中缺陷的 PostgreSQL 和 TDS/MSSQL 后端允许任意 SQL 执行，可能导致呼叫路由被操纵及数据外泄。"
+      },
+      {
+        "id": "CVE-2026-100222",
+        "reason": "Enables remote code execution via a heap-based buffer overflow in the Network Policy Server, directly impacting network authentication infrastructure.",
+        "reason_en": "Enables remote code execution via a heap-based buffer overflow in the Network Policy Server, directly impacting network authentication infrastructure.",
+        "reason_zh": "允许通过 Network Policy Server 中的基于堆的缓冲区溢出实现远程代码执行，直接影响网络认证基础设施。"
+      },
+      {
+        "id": "CVE-2026-96934",
+        "reason": "Allows remote code execution over the network due to a use-after-free flaw in the DHCP Server service, disrupting critical IP address management.",
+        "reason_en": "Allows remote code execution over the network due to a use-after-free flaw in the DHCP Server service, disrupting critical IP address management.",
+        "reason_zh": "DHCP Server 服务中存在释放后使用漏洞，可导致通过网络执行远程代码，进而破坏关键的 IP 地址管理功能。"
+      },
+      {
+        "id": "CVE-2026-96320",
+        "reason": "Heap-based buffer overflow in the Windows DHCP Server enables unauthenticated remote code execution over the network, disrupting critical IP address management services.",
+        "reason_en": "Heap-based buffer overflow in the Windows DHCP Server enables unauthenticated remote code execution over the network, disrupting critical IP address management services.",
+        "reason_zh": "Windows DHCP Server 中存在基于堆的缓冲区溢出漏洞，可导致未经身份验证的远程代码执行，进而破坏关键的 IP 地址管理服务。"
+      },
+      {
+        "id": "CVE-2026-88116",
+        "reason": "Untrusted pointer dereference in the Windows DNS Server allows remote code execution, potentially hijacking domain resolution and redirecting internal network traffic.",
+        "reason_en": "Untrusted pointer dereference in the Windows DNS Server allows remote code execution, potentially hijacking domain resolution and redirecting internal network traffic.",
+        "reason_zh": "Windows DNS Server 中存在不可信指针解引用漏洞，可导致远程代码执行，可能劫持域名解析并重定向内部网络流量。"
+      },
+      {
+        "id": "CVE-2026-70158",
+        "reason": "Remote code execution flaw in Windows Routing and Remote Access Service (RRAS) grants unauthorized access to victim machines, compromising core network routing infrastructure.",
+        "reason_en": "Remote code execution flaw in Windows Routing and Remote Access Service (RRAS) grants unauthorized access to victim machines, compromising core network routing infrastructure.",
+        "reason_zh": "Windows Routing and Remote Access Service (RRAS) 中存在远程代码执行漏洞，可导致未经授权的主机访问，进而破坏核心网络路由基础设施。"
+      },
+      {
+        "id": "CVE-2026-96325",
+        "reason": "Missing reference to active allocated resource in SMB Server causes denial of service, impacting file sharing and inter-server communications across enterprise networks.",
+        "reason_en": "Missing reference to active allocated resource in SMB Server causes denial of service, impacting file sharing and inter-server communications across enterprise networks.",
+        "reason_zh": "SMB Server 中缺失对已分配活跃资源的引用会导致拒绝服务，影响企业网络内的文件共享及服务器间通信。"
+      },
+      {
+        "id": "CVE-2026-83677",
+        "reason": "Memory exhaustion vulnerability in the Windows DHCP client service can be leveraged for remote denial-of-service attacks affecting network connectivity.",
+        "reason_en": "Memory exhaustion vulnerability in the Windows DHCP client service can be leveraged for remote denial-of-service attacks affecting network connectivity.",
+        "reason_zh": "Windows DHCP 客户端服务中存在内存耗尽漏洞，可被利用发起远程拒绝服务攻击，影响网络连接。"
+      },
+      {
+        "id": "CVE-2026-83665",
+        "reason": "Remote null pointer dereference in the Windows DHCP server role disrupts IP address allocation and causes widespread network availability issues.",
+        "reason_en": "Remote null pointer dereference in the Windows DHCP server role disrupts IP address allocation and causes widespread network availability issues.",
+        "reason_zh": "Windows DHCP 服务器角色中存在远程空指针解引用漏洞，会中断 IP 地址分配并引发广泛的网络可用性故障。"
+      },
+      {
+        "id": "CVE-2026-70207",
+        "reason": "Network-facing heap overflow in Windows Network Policy Server compromises RADIUS authentication services and network access control infrastructure.",
+        "reason_en": "Network-facing heap overflow in Windows Network Policy Server compromises RADIUS authentication services and network access control infrastructure.",
+        "reason_zh": "Windows Network Policy Server 中存在面向网络的堆溢出漏洞，会破坏 RADIUS 认证服务及网络访问控制基础设施。"
+      },
+      {
+        "id": "CVE-2026-70167",
+        "reason": "Type confusion in the DNS Server component allows remote code execution by crafting malicious DNS responses targeting authoritative resolvers.",
+        "reason_en": "Type confusion in the DNS Server component allows remote code execution by crafting malicious DNS responses targeting authoritative resolvers.",
+        "reason_zh": "DNS Server 组件中存在类型混淆漏洞，攻击者可通过构造针对权威解析器的恶意 DNS 响应实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-88157",
+        "reason": "OpenSSH for Windows heap overflow enables remote attackers to execute code over active SSH sessions, compromising network management tools.",
+        "reason_en": "OpenSSH for Windows heap overflow enables remote attackers to execute code over active SSH sessions, compromising network management tools.",
+        "reason_zh": "Windows 版 OpenSSH 存在堆溢出漏洞，可使远程攻击者通过活跃的 SSH 会话执行代码，进而危及网络管理工具。"
+      },
+      {
+        "id": "CVE-2026-85926",
+        "reason": "SSTP use-after-free vulnerability targets VPN tunnel endpoints, allowing remote code execution against secure network access gateways.",
+        "reason_en": "SSTP use-after-free vulnerability targets VPN tunnel endpoints, allowing remote code execution against secure network access gateways.",
+        "reason_zh": "SSTP 存在释放后使用漏洞，目标为 VPN 隧道端点，可导致针对安全网络访问网关的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-85808",
+        "reason": "Integer overflow in Network Policy Server enables remote code execution over the network, critically compromising authentication infrastructure and network access controls.",
+        "reason_en": "Integer overflow in Network Policy Server enables remote code execution over the network, critically compromising authentication infrastructure and network access controls.",
+        "reason_zh": "Network Policy Server 中存在整数溢出漏洞，可导致通过网络执行远程代码，严重破坏认证基础设施与网络访问控制机制。"
+      },
+      {
+        "id": "CVE-2026-85834",
+        "reason": "Heap-based buffer overflow in the Windows TCP/IP stack allows local privilege escalation, affecting fundamental network communication reliability and host security.",
+        "reason_en": "Heap-based buffer overflow in the Windows TCP/IP stack allows local privilege escalation, affecting fundamental network communication reliability and host security.",
+        "reason_zh": "Windows TCP/IP 协议栈中存在基于堆的缓冲区溢出漏洞，可导致本地权限提升，影响基础网络通信可靠性与主机安全。"
+      },
+      {
+        "id": "CVE-2026-85828",
+        "reason": "WebDAV heap overflow facilitates local privilege escalation, targeting a widely used network file sharing protocol often exposed in enterprise environments.",
+        "reason_en": "WebDAV heap overflow facilitates local privilege escalation, targeting a widely used network file sharing protocol often exposed in enterprise environments.",
+        "reason_zh": "WebDAV 存在堆溢出漏洞，可导致本地权限提升，该漏洞针对在企业环境中广泛使用且常暴露的网络文件共享协议。"
+      },
+      {
+        "id": "CVE-2026-83642",
+        "reason": "Type confusion in the DNS Server enables remote code execution, directly threatening critical network resolution infrastructure.",
+        "reason_en": "Type confusion in the DNS Server enables remote code execution, directly threatening critical network resolution infrastructure.",
+        "reason_zh": "DNS Server 中存在类型混淆漏洞，可导致远程代码执行，直接威胁关键的网络解析基础设施。"
+      },
+      {
+        "id": "CVE-2026-69883",
+        "reason": "Use-after-free in Windows iSCSI allows remote code execution over storage networks, risking data center availability and storage integrity.",
+        "reason_en": "Use-after-free in Windows iSCSI allows remote code execution over storage networks, risking data center availability and storage integrity.",
+        "reason_zh": "Windows iSCSI 存在释放后使用漏洞，可导致在存储网络上执行远程代码，危及数据中心可用性与存储完整性。"
+      },
+      {
+        "id": "CVE-2026-70058",
+        "reason": "Out-of-bounds write in the DHCP Server permits remote code execution, jeopardizing dynamic IP address management and network connectivity.",
+        "reason_en": "Out-of-bounds write in the DHCP Server permits remote code execution, jeopardizing dynamic IP address management and network connectivity.",
+        "reason_zh": "DHCP Server 中存在越界写入漏洞，可导致远程代码执行，危及动态 IP 地址管理与网络连接。"
+      },
+      {
+        "id": "CVE-2026-70133",
+        "reason": "Resource exhaustion in the SMB Server enables denial of service, echoing historical ransomware propagation vectors and disrupting file sharing.",
+        "reason_en": "Resource exhaustion in the SMB Server enables denial of service, echoing historical ransomware propagation vectors and disrupting file sharing.",
+        "reason_zh": "SMB Server 中存在资源耗尽漏洞，可导致拒绝服务，重现历史勒索软件传播途径并破坏文件共享功能。"
+      },
+      {
+        "id": "CVE-2026-70033",
+        "reason": "Memory leak in the Remote Desktop Gateway Service causes denial of service, blocking secure remote access for distributed enterprises.",
+        "reason_en": "Memory leak in the Remote Desktop Gateway Service causes denial of service, blocking secure remote access for distributed enterprises.",
+        "reason_zh": "Remote Desktop Gateway Service 中存在内存泄漏漏洞，可导致拒绝服务，阻断分布式企业的安全远程访问。"
+      },
+      {
+        "id": "CVE-2026-69913",
+        "reason": "Use-after-free in the Windows TCP/IP stack enables remote code execution over the network, impacting core routing and communication functionality.",
+        "reason_en": "Use-after-free in the Windows TCP/IP stack enables remote code execution over the network, impacting core routing and communication functionality.",
+        "reason_zh": "Windows TCP/IP 协议栈中存在释放后使用漏洞，可导致通过网络执行远程代码，影响核心路由与通信功能。"
+      },
+      {
+        "id": "CVE-2026-76473",
+        "reason": "Critical vulnerabilities across Cisco Unified Communications Manager and related suites allow remote code execution and service disruption in enterprise telephony networks.",
+        "reason_en": "Critical vulnerabilities across Cisco Unified Communications Manager and related suites allow remote code execution and service disruption in enterprise telephony networks.",
+        "reason_zh": "Cisco Unified Communications Manager 及相关套件中存在关键漏洞，可在企业语音通信网络中导致远程代码执行与服务中断。"
+      },
+      {
+        "id": "CVE-2026-57186",
+        "reason": "Forward-porting omission in Asterisk’s Q.931 party-number parser leaves legacy telephony gateways exposed to known parsing flaws and potential crashes.",
+        "reason_en": "Forward-porting omission in Asterisk’s Q.931 party-number parser leaves legacy telephony gateways exposed to known parsing flaws and potential crashes.",
+        "reason_zh": "Asterisk 的 Q.931 主被叫号码解析器存在前向移植遗漏，导致传统语音网关暴露于已知解析缺陷及潜在崩溃风险中。"
+      },
+      {
+        "id": "CVE-2026-103594",
+        "reason": "Stack-based buffer overflow in WireGuard configuration processing enables remote code execution via man-in-the-middle TLS traffic between firewalls and cloud.",
+        "reason_en": "Stack-based buffer overflow in WireGuard configuration processing enables remote code execution via man-in-the-middle TLS traffic between firewalls and cloud.",
+        "reason_zh": "WireGuard 配置处理过程中存在基于栈的缓冲区溢出漏洞，攻击者可通过防火墙与云端间的中间人 TLS 流量实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-93857",
+        "reason": "Stack overflow in the SIP proxy allows unauthenticated remote attackers to execute arbitrary code through policy-driven voice traffic.",
+        "reason_en": "Stack overflow in the SIP proxy allows unauthenticated remote attackers to execute arbitrary code through policy-driven voice traffic.",
+        "reason_zh": "SIP 代理中存在栈溢出漏洞，可使未经身份验证的远程攻击者通过基于策略的语音流量执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-93865",
+        "reason": "Missing authentication in the cluster synchronization daemon permits unprivileged network actors to invoke critical firewall management actions.",
+        "reason_en": "Missing authentication in the cluster synchronization daemon permits unprivileged network actors to invoke critical firewall management actions.",
+        "reason_zh": "集群同步守护进程缺失身份验证机制，允许低权限网络实体调用关键的防火墙管理操作。"
+      },
+      {
+        "id": "CVE-2026-89035",
+        "reason": "Session token replay vulnerability in WebFig allows attackers to bypass authentication by replaying captured tokens across new ECDH sessions.",
+        "reason_en": "Session token replay vulnerability in WebFig allows attackers to bypass authentication by replaying captured tokens across new ECDH sessions.",
+        "reason_zh": "WebFig 存在会话令牌重放漏洞，攻击者可通过在新 ECDH 会话中重放抓取的令牌绕过身份验证。"
+      },
+      {
+        "id": "CVE-2026-67352",
+        "reason": "Stored XSS in the HTTPS DNS Proxy status page allows authenticated administrators to execute malicious scripts when viewing resolver URLs.",
+        "reason_en": "Stored XSS in the HTTPS DNS Proxy status page allows authenticated administrators to execute malicious scripts when viewing resolver URLs.",
+        "reason_zh": "HTTPS DNS Proxy 状态页面存在存储型 XSS 漏洞，经身份验证的管理员在查看解析器 URL 时将面临恶意脚本执行风险。"
+      },
+      {
+        "id": "CVE-2026-107656",
+        "reason": "FortiSandbox contains an authentication bypass using an alternate channel, allowing unauthenticated remote attackers to compromise the appliance. This undermines critical network traffic analysis and threat detection capabilities.",
+        "reason_en": "FortiSandbox contains an authentication bypass using an alternate channel, allowing unauthenticated remote attackers to compromise the appliance. This undermines critical network traffic analysis and threat detection capabilities.",
+        "reason_zh": "FortiSandbox 存在通过备用通道绕过身份验证的漏洞，可使未经身份验证的远程攻击者入侵该设备，进而削弱关键的网络流量分析与威胁检测能力。"
+      },
+      {
+        "id": "CVE-2026-116837",
+        "reason": "A heap-based buffer overflow in Ubiquiti airMAX and related networking firmware enables remote code execution for adjacent network attackers. This directly impacts wireless infrastructure stability and security.",
+        "reason_en": "A heap-based buffer overflow in Ubiquiti airMAX and related networking firmware enables remote code execution for adjacent network attackers. This directly impacts wireless infrastructure stability and security.",
+        "reason_zh": "Ubiquiti airMAX 及相关网络固件中存在基于堆的缓冲区溢出漏洞，可使相邻网络攻击者执行远程代码，直接影响无线基础设施的稳定性与安全性。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-114595",
+        "reason": "Integer overflow in EPICS Base network request processing allocates incorrectly sized memory buffers, enabling remote code execution in industrial control environments.",
+        "reason_en": "Integer overflow in EPICS Base network request processing allocates incorrectly sized memory buffers, enabling remote code execution in industrial control environments.",
+        "reason_zh": "EPICS Base 在网络请求处理过程中存在整数溢出漏洞，会导致分配尺寸错误的内存缓冲区，进而在工业控制系统中引发远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-114596",
+        "reason": "Improper message length validation during EPICS protocol parsing triggers out-of-bounds writes, causing process instability or denial of service in SCADA systems.",
+        "reason_en": "Improper message length validation during EPICS protocol parsing triggers out-of-bounds writes, causing process instability or denial of service in SCADA systems.",
+        "reason_zh": "EPICS协议解析过程中消息长度验证不当会触发越界写入，导致SCADA系统进程不稳定或拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-106087",
+        "reason": "Unauthenticated arbitrary file read exposes sensitive configuration files and credential stores, risking operational technology sabotage and production downtime.",
+        "reason_en": "Unauthenticated arbitrary file read exposes sensitive configuration files and credential stores, risking operational technology sabotage and production downtime.",
+        "reason_zh": "未授权任意文件读取漏洞会暴露敏感配置文件和凭据存储库，可能导致运营技术（OT）遭破坏及生产停机。"
+      },
+      {
+        "id": "CVE-2026-10756",
+        "reason": "Allows authenticated attackers to bypass network restrictions and access localhost services via port forwarding, compromising critical ICS isolation.",
+        "reason_en": "Allows authenticated attackers to bypass network restrictions and access localhost services via port forwarding, compromising critical ICS isolation.",
+        "reason_zh": "允许已认证攻击者通过端口转发绕过网络限制并访问本地主机服务，破坏关键工业控制系统（ICS）的网络隔离。"
+      },
+      {
+        "id": "CVE-2026-41020",
+        "reason": "Static nonce during authentication enables replay attacks, allowing unauthenticated actors to gain unauthorized access to industrial controllers.",
+        "reason_en": "Static nonce during authentication enables replay attacks, allowing unauthenticated actors to gain unauthorized access to industrial controllers.",
+        "reason_zh": "身份验证过程中的静态随机数（nonce）会导致重放攻击，使未认证攻击者能够未经授权访问工业控制器。"
+      },
+      {
+        "id": "CVE-2026-18450",
+        "reason": "BMC IPMI implementation fails to enforce integrity and encryption, allowing attackers to craft packets that execute arbitrary commands on active sessions. This grants full control over server hardware management interfaces.",
+        "reason_en": "BMC IPMI implementation fails to enforce integrity and encryption, allowing attackers to craft packets that execute arbitrary commands on active sessions. This grants full control over server hardware management interfaces.",
+        "reason_zh": "BMC IPMI实现未能强制实施完整性校验和加密，攻击者可构造数据包在活跃会话中执行任意命令，从而完全控制服务器硬件管理接口。"
+      },
+      {
+        "id": "CVE-2022-50926",
+        "reason": "WAGO PLC firmware contains a privilege escalation vulnerability via manipulated session cookies, enabling administrative access without authentication. This exposes critical manufacturing control systems to unauthorized configuration changes.",
+        "reason_en": "WAGO PLC firmware contains a privilege escalation vulnerability via manipulated session cookies, enabling administrative access without authentication. This exposes critical manufacturing control systems to unauthorized configuration changes.",
+        "reason_zh": "WAGO PLC固件中存在通过篡改会话Cookie提权的漏洞，可在未认证的情况下获取管理员权限，使关键制造控制系统面临未经授权的配置更改风险。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-58256",
+        "reason": "LDAP configuration injection in GRR permits remote code execution, completely compromising the resource management application.",
+        "reason_en": "LDAP configuration injection in GRR permits remote code execution, completely compromising the resource management application.",
+        "reason_zh": "GRR中的LDAP配置注入漏洞可导致远程代码执行，致使资源管理应用被完全攻陷。"
+      },
+      {
+        "id": "CVE-2026-114108",
+        "reason": "Missing authentication combined with early return logic exposes an unauthenticated path to root shell execution in Vibe-Trading.",
+        "reason_en": "Missing authentication combined with early return logic exposes an unauthenticated path to root shell execution in Vibe-Trading.",
+        "reason_zh": "Vibe-Trading中缺失的身份验证与提前返回逻辑结合，暴露了可未认证执行root Shell的路径。"
+      },
+      {
+        "id": "CVE-2026-114387",
+        "reason": "Missing authorization allows dashboard users to escalate privileges and create administrators, breaking multi-tenant isolation in Shopper.",
+        "reason_en": "Missing authorization allows dashboard users to escalate privileges and create administrators, breaking multi-tenant isolation in Shopper.",
+        "reason_zh": "Shopper中缺失的授权检查允许仪表板用户提权并创建管理员账号，破坏了多租户隔离机制。"
+      },
+      {
+        "id": "CVE-2026-114397",
+        "reason": "Debug routes enabled by default in Trudesk allow unauthenticated attackers to wipe ticketing data and reset administrative credentials.",
+        "reason_en": "Debug routes enabled by default in Trudesk allow unauthenticated attackers to wipe ticketing data and reset administrative credentials.",
+        "reason_zh": "Trudesk默认启用的调试路由允许未认证攻击者清除工单数据并重置管理员凭据。"
+      },
+      {
+        "id": "CVE-2026-102870",
+        "reason": "Allows remote code execution through code injection in ASP.NET Core, directly compromising web applications built on this framework.",
+        "reason_en": "Allows remote code execution through code injection in ASP.NET Core, directly compromising web applications built on this framework.",
+        "reason_zh": "ASP.NET Core中的代码注入漏洞可导致远程代码执行，直接危及基于该框架构建的Web应用。"
+      },
+      {
+        "id": "CVE-2026-96843",
+        "reason": "Leads to local privilege escalation via a heap-based buffer overflow in WebDAV, which is frequently exposed for web-based file access and collaboration.",
+        "reason_en": "Leads to local privilege escalation via a heap-based buffer overflow in WebDAV, which is frequently exposed for web-based file access and collaboration.",
+        "reason_zh": "WebDAV中的堆缓冲区溢出漏洞可导致本地提权，该组件常用于提供基于Web的文件访问与协作功能。"
+      },
+      {
+        "id": "CVE-2026-88092",
+        "reason": "HTTP request/response smuggling in ASP.NET Core allows attackers to bypass security filters and perform request tampering against web applications and APIs.",
+        "reason_en": "HTTP request/response smuggling in ASP.NET Core allows attackers to bypass security filters and perform request tampering against web applications and APIs.",
+        "reason_zh": "ASP.NET Core中的HTTP请求/响应走私漏洞允许攻击者绕过安全过滤器，对Web应用和API进行请求篡改。"
+      },
+      {
+        "id": "CVE-2026-70279",
+        "reason": "Cross-site scripting in Microsoft Exchange Server enables phishing and session hijacking attacks targeting email users and administrators, compromising corporate communications.",
+        "reason_en": "Cross-site scripting in Microsoft Exchange Server enables phishing and session hijacking attacks targeting email users and administrators, compromising corporate communications.",
+        "reason_zh": "Microsoft Exchange Server中的跨站脚本（XSS）漏洞可针对邮件用户和管理员发起钓鱼与会话劫持攻击，危及企业通信安全。"
+      },
+      {
+        "id": "CVE-2026-96230",
+        "reason": "Cross-site scripting in ASP.NET Core during dynamic web page generation allows remote attackers to inject malicious scripts into trusted enterprise sites.",
+        "reason_en": "Cross-site scripting in ASP.NET Core during dynamic web page generation allows remote attackers to inject malicious scripts into trusted enterprise sites.",
+        "reason_zh": "ASP.NET Core在动态生成Web页面时存在跨站脚本（XSS）漏洞，允许远程攻击者将恶意脚本注入受信任的企业网站。"
+      },
+      {
+        "id": "CVE-2026-88166",
+        "reason": "Integer overflow in Microsoft Office SharePoint permits remote code execution, jeopardizing enterprise document management, intranets, and collaboration platforms.",
+        "reason_en": "Integer overflow in Microsoft Office SharePoint permits remote code execution, jeopardizing enterprise document management, intranets, and collaboration platforms.",
+        "reason_zh": "Microsoft Office SharePoint中的整数溢出漏洞可导致远程代码执行，威胁企业文档管理、内网及协作平台的安全。"
+      },
+      {
+        "id": "CVE-2026-78459",
+        "reason": "Heap-based buffer overflow in Internet Information Services (IIS) can lead to local privilege escalation and compromise web server integrity despite requiring initial authorization.",
+        "reason_en": "Heap-based buffer overflow in Internet Information Services (IIS) can lead to local privilege escalation and compromise web server integrity despite requiring initial authorization.",
+        "reason_zh": "Internet Information Services (IIS)中的堆缓冲区溢出漏洞可导致本地提权并破坏Web服务器完整性，尽管该漏洞需要初始授权才能利用。"
+      },
+      {
+        "id": "CVE-2026-85900",
+        "reason": "Deserialization of untrusted data in SharePoint enables remote code execution, allowing attackers to fully compromise web application infrastructure.",
+        "reason_en": "Deserialization of untrusted data in SharePoint enables remote code execution, allowing attackers to fully compromise web application infrastructure.",
+        "reason_zh": "SharePoint中对不可信数据的反序列化漏洞可导致远程代码执行，使攻击者能够完全攻陷Web应用基础设施。"
+      },
+      {
+        "id": "CVE-2026-70266",
+        "reason": "SQL injection in SharePoint grants authenticated attackers elevated privileges over the network, risking unauthorized data access and system manipulation.",
+        "reason_en": "SQL injection in SharePoint grants authenticated attackers elevated privileges over the network, risking unauthorized data access and system manipulation.",
+        "reason_zh": "SharePoint中的SQL注入漏洞可为已认证攻击者提供网络层面的高权限，导致未经授权的数据访问和系统操纵风险。"
+      },
+      {
+        "id": "CVE-2026-96236",
+        "reason": "Unthrottled resource allocation in ASP.NET Core leads to denial of service attacks, severely impacting web application availability.",
+        "reason_en": "Unthrottled resource allocation in ASP.NET Core leads to denial of service attacks, severely impacting web application availability.",
+        "reason_zh": "ASP.NET Core中缺乏速率限制的资源分配会导致拒绝服务（DoS）攻击，严重影响Web应用的可用性。"
+      },
+      {
+        "id": "CVE-2026-96222",
+        "reason": "Improper certificate validation in Active Directory Federation Services allows network attackers to perform authentication spoofing and bypass identity controls.",
+        "reason_en": "Improper certificate validation in Active Directory Federation Services allows network attackers to perform authentication spoofing and bypass identity controls.",
+        "reason_zh": "Active Directory Federation Services中的证书验证不当漏洞允许网络攻击者伪造身份认证并绕过身份控制。"
+      },
+      {
+        "id": "CVE-2026-97783",
+        "reason": "Cross-site scripting in SharePoint facilitates network-based spoofing attacks, compromising user trust and potentially stealing session credentials.",
+        "reason_en": "Cross-site scripting in SharePoint facilitates network-based spoofing attacks, compromising user trust and potentially stealing session credentials.",
+        "reason_zh": "SharePoint中的跨站脚本（XSS）漏洞助长了基于网络的欺骗攻击，破坏用户信任并可能导致会话凭据被盗。"
+      },
+      {
+        "id": "CVE-2026-70188",
+        "reason": "HTTP request/response smuggling in ASP.NET Core enables attackers to bypass security gateways and manipulate backend application logic.",
+        "reason_en": "HTTP request/response smuggling in ASP.NET Core enables attackers to bypass security gateways and manipulate backend application logic.",
+        "reason_zh": "ASP.NET Core中的HTTP请求/响应走私漏洞使攻击者能够绕过安全网关并操纵后端应用逻辑。"
+      },
+      {
+        "id": "CVE-2026-88136",
+        "reason": "Improper path equivalence resolution in WebDAV allows remote attackers to execute code by exploiting misconfigured file sharing endpoints.",
+        "reason_en": "Improper path equivalence resolution in WebDAV allows remote attackers to execute code by exploiting misconfigured file sharing endpoints.",
+        "reason_zh": "WebDAV中的路径等价性解析不当漏洞允许远程攻击者通过利用配置错误的文件共享端点来执行代码。"
+      },
+      {
+        "id": "CVE-2026-69943",
+        "reason": "Path traversal in Microsoft SharePoint permits unauthorized directory access and remote code execution on affected web servers.",
+        "reason_en": "Path traversal in Microsoft SharePoint permits unauthorized directory access and remote code execution on affected web servers.",
+        "reason_zh": "Microsoft SharePoint中的目录遍历漏洞允许未经授权访问目录并在受影响Web服务器上执行远程代码。"
+      },
+      {
+        "id": "CVE-2026-70213",
+        "reason": "Origin validation errors in Power Apps allow cross-origin attacks that lead to remote code execution in cloud-hosted business applications.",
+        "reason_en": "Origin validation errors in Power Apps allow cross-origin attacks that lead to remote code execution in cloud-hosted business applications.",
+        "reason_zh": "Power Apps中的源验证错误漏洞允许跨域攻击，导致云托管业务应用中发生远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-85898",
+        "reason": "Type confusion in Microsoft Edge allows remote code execution within the browser sandbox, posing a direct threat to web browsing security.",
+        "reason_en": "Type confusion in Microsoft Edge allows remote code execution within the browser sandbox, posing a direct threat to web browsing security.",
+        "reason_zh": "Microsoft Edge中的类型混淆漏洞允许在浏览器沙箱内执行远程代码，直接威胁网页浏览安全。"
+      },
+      {
+        "id": "CVE-2026-109468",
+        "reason": "Unthrottled resource allocation in ASP.NET Core enables network-based denial of service attacks against web applications.",
+        "reason_en": "Unthrottled resource allocation in ASP.NET Core enables network-based denial of service attacks against web applications.",
+        "reason_zh": "ASP.NET Core中缺乏速率限制的资源分配可导致针对Web应用的基于网络的拒绝服务（DoS）攻击。"
+      },
+      {
+        "id": "CVE-2026-108452",
+        "reason": "Path traversal in SharePoint allows unauthorized remote code execution, potentially compromising enterprise web portals and shared resources.",
+        "reason_en": "Path traversal in SharePoint allows unauthorized remote code execution, potentially compromising enterprise web portals and shared resources.",
+        "reason_zh": "SharePoint中的目录遍历漏洞允许未经授权的远程代码执行，可能危及企业Web门户和共享资源。"
+      },
+      {
+        "id": "CVE-2026-48356",
+        "reason": "Actively exploited unrestricted file upload in Adobe Commerce enables direct web shell deployment and complete platform compromise.",
+        "reason_en": "Actively exploited unrestricted file upload in Adobe Commerce enables direct web shell deployment and complete platform compromise.",
+        "reason_zh": "Adobe Commerce中处于活跃利用状态的不受限文件上传漏洞可直接部署Web Shell，导致整个平台被完全攻陷。"
+      },
+      {
+        "id": "CVE-2026-104353",
+        "reason": "OS command injection in Adobe Campaign Classic allows low-privileged attackers to execute arbitrary system commands with elevated permissions.",
+        "reason_en": "OS command injection in Adobe Campaign Classic allows low-privileged attackers to execute arbitrary system commands with elevated permissions.",
+        "reason_zh": "Adobe Campaign Classic 中的操作系统命令注入漏洞允许低权限攻击者以高权限执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-116692",
+        "reason": "Insecure third-party scorer deserialization in MLflow permits arbitrary code execution via attacker-controlled machine learning model requests.",
+        "reason_en": "Insecure third-party scorer deserialization in MLflow permits arbitrary code execution via attacker-controlled machine learning model requests.",
+        "reason_zh": "MLflow 中不安全的第三方评分器反序列化漏洞允许通过攻击者控制的机器学习模型请求执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-116688",
+        "reason": "Prototype pollution in CKEditor 5 via es-toolkit allows cross-site scripting attacks through crafted style attribute values in rich-text content.",
+        "reason_en": "Prototype pollution in CKEditor 5 via es-toolkit allows cross-site scripting attacks through crafted style attribute values in rich-text content.",
+        "reason_zh": "通过 es-toolkit 在 CKEditor 5 中存在的原型链污染漏洞，允许通过在富文本内容中构造样式属性值来实施跨站脚本攻击。"
+      },
+      {
+        "id": "CVE-2026-109619",
+        "reason": "Known exploited global state reset flaw corrupts request memory, leading to unpredictable application behavior and potential remote code execution across requests.",
+        "reason_en": "Known exploited global state reset flaw corrupts request memory, leading to unpredictable application behavior and potential remote code execution across requests.",
+        "reason_zh": "已知被利用的全局状态重置缺陷会破坏请求内存，导致应用程序行为不可预测，并可能在请求间引发潜在的远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-109618",
+        "reason": "Known exploited out-of-memory handling leaves memory uninitialized, enabling data leakage or remote code execution during subsequent request cycles.",
+        "reason_en": "Known exploited out-of-memory handling leaves memory uninitialized, enabling data leakage or remote code execution during subsequent request cycles.",
+        "reason_zh": "已知被利用的内存溢出处理缺陷会导致内存未初始化，从而在后续请求周期中引发数据泄露或远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-92885",
+        "reason": "Authentication bypass in the WordPress membership plugin enables complete account takeover via flawed OAuth token verification logic.",
+        "reason_en": "Authentication bypass in the WordPress membership plugin enables complete account takeover via flawed OAuth token verification logic.",
+        "reason_zh": "WordPress 会员插件中的身份验证绕过漏洞可通过有缺陷的 OAuth 令牌验证逻辑实现完整的账户接管。"
+      },
+      {
+        "id": "CVE-2026-117564",
+        "reason": "Hardcoded JWT secret allows unauthenticated attackers to forge administrator tokens, achieving full backend control and data exfiltration.",
+        "reason_en": "Hardcoded JWT secret allows unauthenticated attackers to forge administrator tokens, achieving full backend control and data exfiltration.",
+        "reason_zh": "硬编码的 JWT 密钥允许未认证的攻击者伪造管理员令牌，从而获得完整的后端控制权并窃取数据。"
+      },
+      {
+        "id": "CVE-2026-117532",
+        "reason": "Authentication bypass allows unauthenticated attackers to forge temporary login tokens, potentially gaining administrative access to the CMS.",
+        "reason_en": "Authentication bypass allows unauthenticated attackers to forge temporary login tokens, potentially gaining administrative access to the CMS.",
+        "reason_zh": "身份验证绕过漏洞允许未认证的攻击者伪造临时登录令牌，从而可能获取 CMS 的管理员访问权限。"
+      },
+      {
+        "id": "CVE-2026-102788",
+        "reason": "Unauthenticated SQL injection in product list sorting allows attackers to extract or manipulate database contents directly.",
+        "reason_en": "Unauthenticated SQL injection in product list sorting allows attackers to extract or manipulate database contents directly.",
+        "reason_zh": "产品列表排序功能中的未认证 SQL 注入漏洞允许攻击者直接提取或篡改数据库内容。"
+      },
+      {
+        "id": "CVE-2026-112362",
+        "reason": "Path-scoped middleware matching flaw with duplicate-slash normalization can lead to unexpected request routing and security bypasses in web frameworks.",
+        "reason_en": "Path-scoped middleware matching flaw with duplicate-slash normalization can lead to unexpected request routing and security bypasses in web frameworks.",
+        "reason_zh": "带有重复斜杠规范化机制的路径作用域中间件匹配缺陷可能导致 Web 框架中出现意外的请求路由和安全绕过。"
+      },
+      {
+        "id": "CVE-2026-75891",
+        "reason": "The Kirki WordPress plugin allows privilege escalation via PHP object injection due to missing capability checks during AJAX dispatch. Attackers can escalate to admin rights and fully compromise WordPress installations.",
+        "reason_en": "The Kirki WordPress plugin allows privilege escalation via PHP object injection due to missing capability checks during AJAX dispatch. Attackers can escalate to admin rights and fully compromise WordPress installations.",
+        "reason_zh": "Kirki WordPress 插件由于在 AJAX 分发期间缺少权限检查，允许通过 PHP 对象注入实现提权。攻击者可提升至管理员权限并完全控制 WordPress 安装环境。"
+      },
+      {
+        "id": "CVE-2017-20252",
+        "reason": "Joomla NextGen Editor contains an unauthenticated SQL injection vulnerability in its configuration parameters. Attackers can extract database contents or modify site data without valid credentials.",
+        "reason_en": "Joomla NextGen Editor contains an unauthenticated SQL injection vulnerability in its configuration parameters. Attackers can extract database contents or modify site data without valid credentials.",
+        "reason_zh": "Joomla NextGen Editor 的配置参数中存在未认证的 SQL 注入漏洞。攻击者无需有效凭据即可提取数据库内容或修改站点数据。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-114053",
+        "reason": "Forwarding untrusted model revision parameters to dynamic processors in vLLM enables remote code execution when trust_remote_code is active.",
+        "reason_en": "Forwarding untrusted model revision parameters to dynamic processors in vLLM enables remote code execution when trust_remote_code is active.",
+        "reason_zh": "当启用 trust_remote_code 时，将不受信任的模型修订参数转发至 vLLM 的动态处理器可触发远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-102226",
+        "reason": "Path traversal in Dynamics Business Central allows authorized attackers to traverse restricted directories and elevate privileges over the network.",
+        "reason_en": "Path traversal in Dynamics Business Central allows authorized attackers to traverse restricted directories and elevate privileges over the network.",
+        "reason_zh": "Dynamics Business Central 中的路径遍历漏洞允许已认证的攻击者遍历受限目录并通过网络提升权限。"
+      },
+      {
+        "id": "CVE-2026-105013",
+        "reason": "Deserialization of untrusted data in Office SharePoint enables remote code execution, targeting enterprise document management systems.",
+        "reason_en": "Deserialization of untrusted data in Office SharePoint enables remote code execution, targeting enterprise document management systems.",
+        "reason_zh": "Office SharePoint 中对不受信任数据进行反序列化可触发远程代码执行，主要影响企业文档管理系统。"
+      },
+      {
+        "id": "CVE-2026-96957",
+        "reason": "Bypasses cryptographic signature verification in the .NET runtime, undermining integrity checks for deployed middleware and applications.",
+        "reason_en": "Bypasses cryptographic signature verification in the .NET runtime, undermining integrity checks for deployed middleware and applications.",
+        "reason_zh": "绕过 .NET 运行时中的加密签名验证，破坏了已部署中间件和应用程序的完整性校验。"
+      },
+      {
+        "id": "CVE-2026-58280",
+        "reason": "Causes denial of service through uncontrolled recursion in the .NET runtime, threatening availability of backend services and APIs.",
+        "reason_en": "Causes denial of service through uncontrolled recursion in the .NET runtime, threatening availability of backend services and APIs.",
+        "reason_zh": "在 .NET 运行时中因不受控递归导致拒绝服务，威胁后端服务和 API 的可用性。"
+      },
+      {
+        "id": "CVE-2026-94512",
+        "reason": "Heap-based buffer overflow in SQL Server allows authenticated attackers to execute code remotely, threatening database integrity and exposing sensitive organizational data.",
+        "reason_en": "Heap-based buffer overflow in SQL Server allows authenticated attackers to execute code remotely, threatening database integrity and exposing sensitive organizational data.",
+        "reason_zh": "SQL Server 中的基于堆的缓冲区溢出漏洞允许已认证的攻击者远程执行代码，威胁数据库完整性并暴露敏感的组织数据。"
+      },
+      {
+        "id": "CVE-2026-88083",
+        "reason": "Stack-based buffer overflow in SQL Server enables unauthenticated remote code execution, directly impacting database availability, performance, and security posture.",
+        "reason_en": "Stack-based buffer overflow in SQL Server enables unauthenticated remote code execution, directly impacting database availability, performance, and security posture.",
+        "reason_zh": "SQL Server 中的基于栈的缓冲区溢出漏洞允许未认证的远程代码执行，直接影响数据库的可用性、性能和安全态势。"
+      },
+      {
+        "id": "CVE-2026-87692",
+        "reason": "Deserialization of untrusted data in Microsoft Exchange Server allows local privilege escalation, compromising mail server infrastructure and enabling deeper system compromise.",
+        "reason_en": "Deserialization of untrusted data in Microsoft Exchange Server allows local privilege escalation, compromising mail server infrastructure and enabling deeper system compromise.",
+        "reason_zh": "Microsoft Exchange Server 中对不受信任数据进行反序列化可导致本地提权，破坏邮件服务器基础设施并实现更深层次的系统入侵。"
+      },
+      {
+        "id": "CVE-2026-65674",
+        "reason": "Critical remote code execution via insecure deserialization in Microsoft SQL Server allows attackers to fully compromise database servers and exfiltrate data.",
+        "reason_en": "Critical remote code execution via insecure deserialization in Microsoft SQL Server allows attackers to fully compromise database servers and exfiltrate data.",
+        "reason_zh": "Microsoft SQL Server 中通过不安全的反序列化导致的严重远程代码执行漏洞，使攻击者能够完全控制数据库服务器并窃取数据。"
+      },
+      {
+        "id": "CVE-2026-57191",
+        "reason": "Unauthenticated memory corruption in Asterisk's SIP subscription module could lead to remote code execution or complete telephony service disruption.",
+        "reason_en": "Unauthenticated memory corruption in Asterisk's SIP subscription module could lead to remote code execution or complete telephony service disruption.",
+        "reason_zh": "Asterisk 的 SIP 订阅模块中存在未认证的内存损坏漏洞，可能导致远程代码执行或语音通信服务完全中断。"
+      },
+      {
+        "id": "CVE-2026-96940",
+        "reason": "Weak authentication mechanisms in Microsoft Exchange Server allow authorized attackers to escalate privileges over the network, jeopardizing email infrastructure security.",
+        "reason_en": "Weak authentication mechanisms in Microsoft Exchange Server allow authorized attackers to escalate privileges over the network, jeopardizing email infrastructure security.",
+        "reason_zh": "Microsoft Exchange Server 中的弱身份验证机制允许已认证的攻击者通过网络提升权限，危及电子邮件基础设施的安全。"
+      },
+      {
+        "id": "CVE-2026-96224",
+        "reason": "Out-of-bounds write in the .NET runtime enables remote code execution across multiple operating systems, affecting a vast ecosystem of enterprise applications.",
+        "reason_en": "Out-of-bounds write in the .NET runtime enables remote code execution across multiple operating systems, affecting a vast ecosystem of enterprise applications.",
+        "reason_zh": ".NET 运行时中的越界写入漏洞可在多种操作系统上触发远程代码执行，影响庞大的企业应用生态系统。"
+      },
+      {
+        "id": "CVE-2026-96318",
+        "reason": "SQL injection in Oracle Data Integrator allows low-privileged network attackers to compromise database integrity and extract sensitive information.",
+        "reason_en": "SQL injection in Oracle Data Integrator allows low-privileged network attackers to compromise database integrity and extract sensitive information.",
+        "reason_zh": "Oracle Data Integrator 中的 SQL 注入漏洞允许低权限的网络攻击者破坏数据库完整性并提取敏感信息。"
+      },
+      {
+        "id": "CVE-2026-70049",
+        "reason": "SQL injection in Microsoft Configuration Manager enables adjacent network attackers to elevate privileges, disrupting enterprise device management operations.",
+        "reason_en": "SQL injection in Microsoft Configuration Manager enables adjacent network attackers to elevate privileges, disrupting enterprise device management operations.",
+        "reason_zh": "Microsoft Configuration Manager 中的 SQL 注入漏洞允许相邻网络攻击者提升权限，破坏企业设备管理操作。"
+      },
+      {
+        "id": "CVE-2026-85886",
+        "reason": "SQL Server heap-based buffer overflow allows authenticated attackers to execute arbitrary code remotely through malicious T-SQL queries.",
+        "reason_en": "SQL Server heap-based buffer overflow allows authenticated attackers to execute arbitrary code remotely through malicious T-SQL queries.",
+        "reason_zh": "SQL Server 的基于堆的缓冲区溢出漏洞允许已认证的攻击者通过恶意 T-SQL 查询远程执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-87697",
+        "reason": "Deserialization of untrusted data in .NET enables remote code execution without adequate input sanitization, affecting modern middleware stacks.",
+        "reason_en": "Deserialization of untrusted data in .NET enables remote code execution without adequate input sanitization, affecting modern middleware stacks.",
+        "reason_zh": ".NET 中对不受信任数据进行反序列化且缺乏充分的输入清理时，可触发远程代码执行，影响现代中间件架构。"
+      },
+      {
+        "id": "CVE-2026-68883",
+        "reason": "Another SQL Server heap overflow grants elevated network privileges to attackers exploiting database service routines and stored procedures.",
+        "reason_en": "Another SQL Server heap overflow grants elevated network privileges to attackers exploiting database service routines and stored procedures.",
+        "reason_zh": "另一处 SQL Server 堆溢出漏洞可使攻击者在利用数据库服务例程和存储过程时获得提升的网络权限。"
+      },
+      {
+        "id": "CVE-2026-91661",
+        "reason": "Low-privileged attacker can compromise Oracle Essbase via HTTP, risking data integrity and availability in analytical workloads and business intelligence systems.",
+        "reason_en": "Low-privileged attacker can compromise Oracle Essbase via HTTP, risking data integrity and availability in analytical workloads and business intelligence systems.",
+        "reason_zh": "低权限攻击者可通过 HTTP 入侵 Oracle Essbase，危及分析负载和商业智能系统中的数据完整性与可用性。"
+      },
+      {
+        "id": "CVE-2026-91659",
+        "reason": "Allows low-privileged attackers to compromise Oracle Essbase over HTTP, risking unauthorized data access and disruption of enterprise analytics platforms.",
+        "reason_en": "Allows low-privileged attackers to compromise Oracle Essbase over HTTP, risking unauthorized data access and disruption of enterprise analytics platforms.",
+        "reason_zh": "允许低权限攻击者通过HTTP协议入侵Oracle Essbase，可能导致未授权的数据访问及企业分析平台中断。"
+      },
+      {
+        "id": "CVE-2026-67625",
+        "reason": "Heap overflow in SQL Server allows remote code execution, directly endangering enterprise data storage and processing layers.",
+        "reason_en": "Heap overflow in SQL Server allows remote code execution, directly endangering enterprise data storage and processing layers.",
+        "reason_zh": "SQL Server中的堆溢出漏洞允许远程代码执行，直接危及企业数据存储与处理层。"
+      },
+      {
+        "id": "CVE-2026-69651",
+        "reason": "Algorithmic complexity flaw in the .NET runtime enables remote denial of service, significantly impacting application performance and availability.",
+        "reason_en": "Algorithmic complexity flaw in the .NET runtime enables remote denial of service, significantly impacting application performance and availability.",
+        "reason_zh": ".NET运行时中的算法复杂度缺陷可导致远程拒绝服务，严重影响应用程序的性能与可用性。"
+      },
+      {
+        "id": "CVE-2026-91656",
+        "reason": "Low-privileged network access to Oracle Essbase via HTTP creates an easily exploitable pathway for full database compromise.",
+        "reason_en": "Low-privileged network access to Oracle Essbase via HTTP creates an easily exploitable pathway for full database compromise.",
+        "reason_zh": "通过HTTP协议以低权限网络访问Oracle Essbase，为完全攻陷数据库提供了易于利用的路径。"
+      },
+      {
+        "id": "CVE-2026-96956",
+        "reason": "Stack-based buffer overflow in SQL Server enables remote privilege escalation, threatening core enterprise data infrastructure.",
+        "reason_en": "Stack-based buffer overflow in SQL Server enables remote privilege escalation, threatening core enterprise data infrastructure.",
+        "reason_zh": "SQL Server中的基于栈的缓冲区溢出漏洞可实现远程权限提升，威胁核心企业数据基础设施。"
+      },
+      {
+        "id": "CVE-2026-69867",
+        "reason": "Out-of-bounds read in SQLite permits local privilege escalation, affecting applications that embed or rely on lightweight database engines.",
+        "reason_en": "Out-of-bounds read in SQLite permits local privilege escalation, affecting applications that embed or rely on lightweight database engines.",
+        "reason_zh": "SQLite中的越界读取漏洞可允许本地权限提升，影响嵌入或依赖轻量级数据库引擎的应用程序。"
+      },
+      {
+        "id": "CVE-2026-96185",
+        "reason": "Stack-based buffer overflow in Microsoft Exchange Online allows authorized attackers to execute code remotely, threatening email infrastructure stability.",
+        "reason_en": "Stack-based buffer overflow in Microsoft Exchange Online allows authorized attackers to execute code remotely, threatening email infrastructure stability.",
+        "reason_zh": "Microsoft Exchange Online中的基于栈的缓冲区溢出漏洞允许已认证攻击者远程执行代码，威胁电子邮件基础设施的稳定性。"
+      },
+      {
+        "id": "CVE-2026-83403",
+        "reason": "Easily exploitable vulnerability in Oracle Identity Manager’s legacy UI enables low-privileged network attackers to compromise identity management services.",
+        "reason_en": "Easily exploitable vulnerability in Oracle Identity Manager’s legacy UI enables low-privileged network attackers to compromise identity management services.",
+        "reason_zh": "Oracle Identity Manager旧版UI中易于利用的漏洞使低权限网络攻击者能够入侵身份管理服务。"
+      },
+      {
+        "id": "CVE-2026-87306",
+        "reason": "Network-accessible flaw in Oracle JD Edwards Interoperability SEC component allows low-privileged attackers to compromise enterprise resource planning systems.",
+        "reason_en": "Network-accessible flaw in Oracle JD Edwards Interoperability SEC component allows low-privileged attackers to compromise enterprise resource planning systems.",
+        "reason_zh": "Oracle JD Edwards Interoperability SEC组件中存在网络可访问缺陷，允许低权限攻击者入侵企业资源规划系统。"
+      },
+      {
+        "id": "CVE-2026-91644",
+        "reason": "Easily exploitable unauthenticated HTTP vulnerability compromises the security module, risking unauthorized access to enterprise analytical data and reports.",
+        "reason_en": "Easily exploitable unauthenticated HTTP vulnerability compromises the security module, risking unauthorized access to enterprise analytical data and reports.",
+        "reason_zh": "易于利用的未认证HTTP漏洞会破坏安全模块，导致企业分析数据和报告面临未授权访问风险。"
+      },
+      {
+        "id": "CVE-2026-83398",
+        "reason": "Unauthenticated network access allows attackers to compromise data transformation pipelines and underlying middleware configurations without credentials.",
+        "reason_en": "Unauthenticated network access allows attackers to compromise data transformation pipelines and underlying middleware configurations without credentials.",
+        "reason_zh": "未经认证的网络访问允许攻击者在无凭据的情况下入侵数据转换管道及底层中间件配置。"
+      },
+      {
+        "id": "CVE-2026-65151",
+        "reason": "SQL injection in the AI toolkit enables data tampering and denial of service within machine learning training environments and metadata stores.",
+        "reason_en": "SQL injection in the AI toolkit enables data tampering and denial of service within machine learning training environments and metadata stores.",
+        "reason_zh": "AI工具包中的SQL注入漏洞可在机器学习训练环境与元数据存储中实现数据篡改与拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-82119",
+        "reason": "OS command injection in HiRDB allows attackers to execute arbitrary system commands via vulnerable database interface parameters.",
+        "reason_en": "OS command injection in HiRDB allows attackers to execute arbitrary system commands via vulnerable database interface parameters.",
+        "reason_zh": "HiRDB中的操作系统命令注入漏洞允许攻击者通过存在缺陷的数据库接口参数执行任意系统命令。"
+      },
+      {
+        "id": "CVE-2026-82117",
+        "reason": "Authentication bypass by spoofing in HiRDB database server allows unauthorized access to critical enterprise data stores.",
+        "reason_en": "Authentication bypass by spoofing in HiRDB database server allows unauthorized access to critical enterprise data stores.",
+        "reason_zh": "HiRDB数据库服务器中的欺骗绕过认证漏洞可允许未经授权访问关键企业数据存储。"
+      },
+      {
+        "id": "CVE-2026-101835",
+        "reason": "Unauthenticated attacker can compromise Shipping Execution workflow events over HTTP, posing a severe risk to supply chain management systems.",
+        "reason_en": "Unauthenticated attacker can compromise Shipping Execution workflow events over HTTP, posing a severe risk to supply chain management systems.",
+        "reason_zh": "未认证攻击者可通过HTTP协议入侵Shipping Execution工作流事件，对供应链管理系统构成严重风险。"
+      },
+      {
+        "id": "CVE-2026-91323",
+        "reason": "Oracle WebLogic Server core component allows unauthenticated remote code execution via HTTP. This provides immediate full system compromise for widely deployed enterprise application servers.",
+        "reason_en": "Oracle WebLogic Server core component allows unauthenticated remote code execution via HTTP. This provides immediate full system compromise for widely deployed enterprise application servers.",
+        "reason_zh": "Oracle WebLogic Server核心组件允许通过HTTP进行未认证的远程代码执行。这将导致广泛部署的企业应用服务器立即被完全攻陷。"
+      },
+      {
+        "id": "CVE-2026-67631",
+        "reason": "Microsoft SQL Server suffers from a network-accessible heap buffer overflow enabling unauthorized code execution. Given SQL Server's ubiquity, this poses a severe risk to enterprise data infrastructure.",
+        "reason_en": "Microsoft SQL Server suffers from a network-accessible heap buffer overflow enabling unauthorized code execution. Given SQL Server's ubiquity, this poses a severe risk to enterprise data infrastructure.",
+        "reason_zh": "Microsoft SQL Server存在网络可访问的堆缓冲区溢出漏洞，可导致未授权代码执行。鉴于SQL Server的广泛使用，该漏洞对企业数据基础设施构成严重风险。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-96442",
+        "reason": "Flymake mode in GNU Emacs executes arbitrary code from syntax-checked files, exposing developers to RCE when editing untrusted sources.",
+        "reason_en": "Flymake mode in GNU Emacs executes arbitrary code from syntax-checked files, exposing developers to RCE when editing untrusted sources.",
+        "reason_zh": "GNU Emacs中的Flymake模式会从语法检查文件中执行任意代码，使开发人员在编辑不受信任的代码源时面临RCE风险。"
+      },
+      {
+        "id": "CVE-2026-114113",
+        "reason": "Bundled vulnerable image decoders in Sharp/libvips allow memory corruption via crafted GIF/TIFF/VIPS files, impacting Node.js processing pipelines.",
+        "reason_en": "Bundled vulnerable image decoders in Sharp/libvips allow memory corruption via crafted GIF/TIFF/VIPS files, impacting Node.js processing pipelines.",
+        "reason_zh": "Sharp/libvips中捆绑的易受攻击图像解码器可通过构造的GIF/TIFF/VIPS文件导致内存损坏，影响Node.js处理管道。"
+      },
+      {
+        "id": "CVE-2026-113743",
+        "reason": "Path traversal in Tenstorrent tt-metal checkpoint loading affects AI accelerator software, potentially allowing unauthorized file system access during inference.",
+        "reason_en": "Path traversal in Tenstorrent tt-metal checkpoint loading affects AI accelerator software, potentially allowing unauthorized file system access during inference.",
+        "reason_zh": "Tenstorrent tt-metal在加载检查点时的路径遍历漏洞会影响AI加速器软件，可能在推理过程中导致未授权的文件系统访问。"
+      },
+      {
+        "id": "CVE-2026-96913",
+        "reason": "Grants local privilege escalation via a heap-based buffer overflow in the Windows Kernel, affecting foundational OS stability and security.",
+        "reason_en": "Grants local privilege escalation via a heap-based buffer overflow in the Windows Kernel, affecting foundational OS stability and security.",
+        "reason_zh": "通过Windows Kernel中的基于堆的缓冲区溢出漏洞实现本地权限提升，影响操作系统的基础稳定性与安全性。"
+      },
+      {
+        "id": "CVE-2026-96914",
+        "reason": "Enables local privilege escalation through an integer overflow in Virtualization-Based Security enclaves, weakening hardware-enforced isolation.",
+        "reason_en": "Enables local privilege escalation through an integer overflow in Virtualization-Based Security enclaves, weakening hardware-enforced isolation.",
+        "reason_zh": "通过Virtualization-Based Security隔离区中的整数溢出漏洞实现本地权限提升，削弱了硬件强制执行的隔离机制。"
+      },
+      {
+        "id": "CVE-2026-102203",
+        "reason": "Allows remote code execution via type confusion in the RPC Runtime, compromising a core Windows inter-process communication mechanism.",
+        "reason_en": "Allows remote code execution via type confusion in the RPC Runtime, compromising a core Windows inter-process communication mechanism.",
+        "reason_zh": "通过RPC Runtime中的类型混淆漏洞实现远程代码执行，破坏了Windows核心的进程间通信机制。"
+      },
+      {
+        "id": "CVE-2026-70007",
+        "reason": "Out-of-bounds write in .NET Framework enables remote code execution, affecting a broad spectrum of cross-platform applications relying on this foundational runtime.",
+        "reason_en": "Out-of-bounds write in .NET Framework enables remote code execution, affecting a broad spectrum of cross-platform applications relying on this foundational runtime.",
+        "reason_zh": ".NET Framework中的越界写入漏洞可导致远程代码执行，影响大量依赖该基础运行时的跨平台应用程序。"
+      },
+      {
+        "id": "CVE-2026-83520",
+        "reason": "Deserialization of untrusted data in .NET allows remote code execution, posing significant architectural risks to modern microservices and backend applications.",
+        "reason_en": "Deserialization of untrusted data in .NET allows remote code execution, posing significant architectural risks to modern microservices and backend applications.",
+        "reason_zh": ".NET中对不受信任数据的反序列化可导致远程代码执行，对现代微服务和后端应用构成显著的架构安全风险。"
+      },
+      {
+        "id": "CVE-2026-70111",
+        "reason": "Untrusted pointer dereference in the Windows Kernel permits network-based privilege escalation, undermining core operating system security boundaries and isolation.",
+        "reason_en": "Untrusted pointer dereference in the Windows Kernel permits network-based privilege escalation, undermining core operating system security boundaries and isolation.",
+        "reason_zh": "Windows Kernel中的不受信任指针解引用漏洞可允许基于网络的权限提升，破坏操作系统的核心安全边界与隔离机制。"
+      },
+      {
+        "id": "CVE-2026-88174",
+        "reason": "Race condition in Windows Deployment Services allows unauthenticated remote code execution, threatening enterprise software distribution pipelines and patch management.",
+        "reason_en": "Race condition in Windows Deployment Services allows unauthenticated remote code execution, threatening enterprise software distribution pipelines and patch management.",
+        "reason_zh": "Windows Deployment Services中的竞争条件漏洞可允许未认证的远程代码执行，威胁企业软件分发管道与补丁管理。"
+      },
+      {
+        "id": "CVE-2026-62840",
+        "reason": "ToCTOU race condition in the Linux Kernel enables local privilege escalation. Although requiring local access, kernel-level races frequently lead to full system compromise in containerized or hybrid workloads.",
+        "reason_en": "ToCTOU race condition in the Linux Kernel enables local privilege escalation. Although requiring local access, kernel-level races frequently lead to full system compromise in containerized or hybrid workloads.",
+        "reason_zh": "Linux Kernel中的ToCTOU竞争条件漏洞可实现本地权限提升。尽管需要本地访问权限，但内核级竞争条件在容器化或混合负载环境中经常导致系统被完全攻陷。"
+      },
+      {
+        "id": "CVE-2026-113726",
+        "reason": "Shell injection vulnerability in PyPA virtualenv activation scripts allows command execution during Python development workflows due to improper string escaping.",
+        "reason_en": "Shell injection vulnerability in PyPA virtualenv activation scripts allows command execution during Python development workflows due to improper string escaping.",
+        "reason_zh": "PyPA virtualenv激活脚本中的Shell注入漏洞因字符串转义不当，可在Python开发工作流中导致命令执行。"
+      },
+      {
+        "id": "CVE-2026-97789",
+        "reason": "Use-after-free in the Remote Desktop Client permits remote code execution over network connections, directly threatening endpoint accessibility and security.",
+        "reason_en": "Use-after-free in the Remote Desktop Client permits remote code execution over network connections, directly threatening endpoint accessibility and security.",
+        "reason_zh": "Remote Desktop Client中的释放后使用漏洞允许通过网络连接进行远程代码执行，直接威胁终端的可访问性与安全性。"
+      },
+      {
+        "id": "CVE-2026-96096",
+        "reason": "Heap-based buffer overflow in Windows Media Player allows remote code execution via malicious media files, impacting a widely used desktop component.",
+        "reason_en": "Heap-based buffer overflow in Windows Media Player allows remote code execution via malicious media files, impacting a widely used desktop component.",
+        "reason_zh": "Windows Media Player 中的基于堆的缓冲区溢出漏洞允许通过恶意媒体文件实现远程代码执行，影响一个广泛使用的桌面组件。"
+      },
+      {
+        "id": "CVE-2026-96861",
+        "reason": "Out-of-bounds read in the Network Device Enrollment Service enables remote denial of service attacks, disrupting secure device onboarding processes.",
+        "reason_en": "Out-of-bounds read in the Network Device Enrollment Service enables remote denial of service attacks, disrupting secure device onboarding processes.",
+        "reason_zh": "Network Device Enrollment Service 中的越界读取漏洞可引发远程拒绝服务攻击，中断安全设备入网流程。"
+      },
+      {
+        "id": "CVE-2026-96248",
+        "reason": "Stack-based buffer overflow in the Windows Host Guardian Service allows remote denial of service, compromising hardware-backed attestation and security policies.",
+        "reason_en": "Stack-based buffer overflow in the Windows Host Guardian Service allows remote denial of service, compromising hardware-backed attestation and security policies.",
+        "reason_zh": "Windows Host Guardian Service 中的基于栈的缓冲区溢出漏洞可导致远程拒绝服务，破坏硬件支持的证明机制与安全策略。"
+      },
+      {
+        "id": "CVE-2026-83666",
+        "reason": "Race condition in Active Directory Certificate Services (AD CS) facilitates local privilege escalation, threatening certificate issuance and PKI trust chains.",
+        "reason_en": "Race condition in Active Directory Certificate Services (AD CS) facilitates local privilege escalation, threatening certificate issuance and PKI trust chains.",
+        "reason_zh": "Active Directory Certificate Services (AD CS) 中的竞态条件漏洞可导致本地权限提升，威胁证书颁发与公钥基础设施（PKI）信任链。"
+      },
+      {
+        "id": "CVE-2026-83654",
+        "reason": "Missing authentication in Windows Modern Device Management (MDM) allows privilege escalation, compromising enterprise mobile device control frameworks.",
+        "reason_en": "Missing authentication in Windows Modern Device Management (MDM) allows privilege escalation, compromising enterprise mobile device control frameworks.",
+        "reason_zh": "Windows Modern Device Management (MDM) 中缺失身份验证可导致权限提升，破坏企业移动设备管控框架。"
+      },
+      {
+        "id": "CVE-2026-70064",
+        "reason": "Integer underflow in Windows Kerberos enables local privilege escalation, undermining core network authentication and directory services.",
+        "reason_en": "Integer underflow in Windows Kerberos enables local privilege escalation, undermining core network authentication and directory services.",
+        "reason_zh": "Windows Kerberos 中的整数下溢漏洞可导致本地权限提升，削弱核心网络身份验证与目录服务。"
+      },
+      {
+        "id": "CVE-2026-70142",
+        "reason": "Untrusted search path in Windows Update Service permits privilege escalation, risking patch deployment integrity and system compliance.",
+        "reason_en": "Untrusted search path in Windows Update Service permits privilege escalation, risking patch deployment integrity and system compliance.",
+        "reason_zh": "Windows Update Service 中的不受信任的搜索路径漏洞可导致权限提升，危及补丁部署完整性与系统合规性。"
+      },
+      {
+        "id": "CVE-2026-69370",
+        "reason": "Command injection in Visual Studio Code allows remote code execution during development workflows, risking source code and build environment integrity.",
+        "reason_en": "Command injection in Visual Studio Code allows remote code execution during development workflows, risking source code and build environment integrity.",
+        "reason_zh": "Visual Studio Code 中的命令注入漏洞可在开发工作流中导致远程代码执行，危及源代码与构建环境的完整性。"
+      },
+      {
+        "id": "CVE-2026-49785",
+        "reason": "Improper resource release in Windows UEFI permits local security feature bypass at the firmware level before OS initialization.",
+        "reason_en": "Improper resource release in Windows UEFI permits local security feature bypass at the firmware level before OS initialization.",
+        "reason_zh": "Windows UEFI 中的资源释放不当漏洞可在操作系统初始化前于固件层面绕过本地安全特性。"
+      },
+      {
+        "id": "CVE-2026-111497",
+        "reason": "Actively exploited buffer overflow in Google Brotli decoder corrupts adjacent memory, enabling information disclosure or remote code execution across platforms.",
+        "reason_en": "Actively exploited buffer overflow in Google Brotli decoder corrupts adjacent memory, enabling information disclosure or remote code execution across platforms.",
+        "reason_zh": "Google Brotli 解码器中存在被活跃利用的缓冲区溢出漏洞，可破坏相邻内存，从而实现跨平台的信息泄露或远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-108014",
+        "reason": "Compromised private keys for eight eMudhra intermediate CA certificates undermine certificate trust validation for outbound requests in HCL Domino Server.",
+        "reason_en": "Compromised private keys for eight eMudhra intermediate CA certificates undermine certificate trust validation for outbound requests in HCL Domino Server.",
+        "reason_zh": "八个 eMudhra 中间 CA 证书的私钥遭泄露，破坏了 HCL Domino Server 出站请求的证书信任验证。"
+      },
+      {
+        "id": "CVE-2026-116676",
+        "reason": "Passing pull-request-controlled workspace values directly into Terraform CLI arguments in Atlantis enables command injection in self-hosted CI/CD pipelines.",
+        "reason_en": "Passing pull-request-controlled workspace values directly into Terraform CLI arguments in Atlantis enables command injection in self-hosted CI/CD pipelines.",
+        "reason_zh": "在 Atlantis 中将受拉取请求控制的 Workspace 值直接传入 Terraform CLI 参数，可在自托管 CI/CD 流水线中触发命令注入。"
+      },
+      {
+        "id": "CVE-2026-65145",
+        "reason": "Missing authentication in the agent toolkit permits unrestricted code execution and privilege escalation in AI deployment frameworks and development sandboxes.",
+        "reason_en": "Missing authentication in the agent toolkit permits unrestricted code execution and privilege escalation in AI deployment frameworks and development sandboxes.",
+        "reason_zh": "Agent Toolkit 中缺失身份验证允许在 AI 部署框架和开发沙箱中进行无限制代码执行与权限提升。"
+      },
+      {
+        "id": "CVE-2024-38564",
+        "reason": "Enforced BPF attach type restrictions prevent misuse of cgroup skb programs, significantly hardening kernel-level networking security against eBPF abuse.",
+        "reason_en": "Enforced BPF attach type restrictions prevent misuse of cgroup skb programs, significantly hardening kernel-level networking security against eBPF abuse.",
+        "reason_zh": "强制实施 BPF 附加类型限制可防止 cgroup skb 程序被滥用，显著增强内核级网络安全以抵御 eBPF 滥用。"
+      },
+      {
+        "id": "CVE-2026-117511",
+        "reason": "Remote command injection via manipulated image arguments compromises Node.js applications relying on OCR processing services for document workflows.",
+        "reason_en": "Remote command injection via manipulated image arguments compromises Node.js applications relying on OCR processing services for document workflows.",
+        "reason_zh": "通过篡改图像参数实现的远程命令注入可破坏依赖文档工作流 OCR 处理服务的 Node.js 应用程序。"
+      },
+      {
+        "id": "CVE-2026-75143",
+        "reason": "Heap buffer overflow in the RIST protocol reader ignores size arguments, enabling remote code execution when processing oversized media payloads.",
+        "reason_en": "Heap buffer overflow in the RIST protocol reader ignores size arguments, enabling remote code execution when processing oversized media payloads.",
+        "reason_zh": "RIST 协议读取器中的堆缓冲区溢出漏洞忽略大小参数，在处理超大媒体载荷时可导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-76832",
+        "reason": "Path traversal in PythonTools allows attackers to read, write, or execute arbitrary files by manipulating file_name arguments in AI agent workflows.",
+        "reason_en": "Path traversal in PythonTools allows attackers to read, write, or execute arbitrary files by manipulating file_name arguments in AI agent workflows.",
+        "reason_zh": "PythonTools 中的路径遍历漏洞允许攻击者在 AI 代理工作流中通过操纵 file_name 参数读取、写入或执行任意文件。"
+      },
+      {
+        "id": "CVE-2026-76938",
+        "reason": "Authentication bypass in JP1 job management system allows unauthorized users to control critical automated enterprise workflows.",
+        "reason_en": "Authentication bypass in JP1 job management system allows unauthorized users to control critical automated enterprise workflows.",
+        "reason_zh": "JP1 作业管理系统中的身份验证绕过漏洞允许未授权用户控制关键的企业自动化工作流。"
+      },
+      {
+        "id": "CVE-2026-115557",
+        "reason": "Python's SSL module now enforces a denylist for known compromised certificates, automatically rejecting them regardless of context policy. This mitigates widespread trust issues stemming from certificate authority breaches.",
+        "reason_en": "Python's SSL module now enforces a denylist for known compromised certificates, automatically rejecting them regardless of context policy. This mitigates widespread trust issues stemming from certificate authority breaches.",
+        "reason_zh": "Python 的 SSL 模块现已对已知受损证书强制执行黑名单，无论上下文策略如何均自动拒绝。此举缓解了由证书颁发机构（CA）泄露引发的广泛信任问题。"
+      },
+      {
+        "id": "CVE-2026-116816",
+        "reason": "llama.cpp contains a heap out-of-bounds write triggered by crafted GGUF model files, allowing memory corruption via token parsing. This threatens AI inference workloads processing untrusted model weights.",
+        "reason_en": "llama.cpp contains a heap out-of-bounds write triggered by crafted GGUF model files, allowing memory corruption via token parsing. This threatens AI inference workloads processing untrusted model weights.",
+        "reason_zh": "llama.cpp 存在由精心构造的 GGUF 模型文件触发的堆越界写入漏洞，可通过 Token 解析导致内存损坏。这威胁到处理不受信任模型权重的 AI 推理工作负载。"
+      }
+    ]
+  },
+  "summary": "A massive wave of remote code execution vulnerabilities threatens global enterprise infrastructure today, driven primarily by heap-based buffer overflows, use-after-free flaws, and insecure deserialization in Microsoft's Windows kernel, network services, SQL Server, and Exchange ecosystem. Critical authentication bypasses and weak cryptographic validation in Active Directory Federation Services and Azure Key Vault expose identity management and cloud secrets to spoofing and unauthorized access, while wormable exploits in RPC and DNS protocols amplify the risk of rapid lateral movement. Beyond Microsoft environments, significant risks persist in third-party IoT devices containing hardcoded keys and command injection flaws, alongside widespread SQL injection and cross-site scripting attacks compromising web applications and database middleware. The concentration of high-severity flaws in foundational networking, virtualization, and industrial control systems demands immediate remediation to prevent widespread service disruption and hardware compromise.",
+  "summary_en": "A massive wave of remote code execution vulnerabilities threatens global enterprise infrastructure today, driven primarily by heap-based buffer overflows, use-after-free flaws, and insecure deserialization in Microsoft's Windows kernel, network services, SQL Server, and Exchange ecosystem. Critical authentication bypasses and weak cryptographic validation in Active Directory Federation Services and Azure Key Vault expose identity management and cloud secrets to spoofing and unauthorized access, while wormable exploits in RPC and DNS protocols amplify the risk of rapid lateral movement. Beyond Microsoft environments, significant risks persist in third-party IoT devices containing hardcoded keys and command injection flaws, alongside widespread SQL injection and cross-site scripting attacks compromising web applications and database middleware. The concentration of high-severity flaws in foundational networking, virtualization, and industrial control systems demands immediate remediation to prevent widespread service disruption and hardware compromise.",
+  "summary_zh": "今日全球企业基础设施正面临大规模远程代码执行漏洞的威胁，主要源于微软 Windows 内核、网络服务、SQL Server 及 Exchange 生态中的基于堆的缓冲区溢出、释放后使用（UAF）及不安全的反序列化漏洞。Active Directory Federation Services 与 Azure Key Vault 中关键的认证绕过及弱加密验证使身份管理与云密钥面临伪造与未授权访问风险，而 RPC 与 DNS 协议中可蠕虫化的漏洞加剧了快速横向移动的威胁。除微软环境外，第三方物联网设备中存在的硬编码密钥与命令注入漏洞，以及广泛存在的 SQL 注入与跨站脚本攻击，仍在严重危害 Web 应用与数据库中间件。基础网络、虚拟化及工业控制系统中高危漏洞的高度集中，要求立即修复以防止大规模服务中断与硬件受损。"
+}
