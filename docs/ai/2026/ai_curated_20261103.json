@@ -1,0 +1,676 @@
+{
+  "analysis_date": "2026-11-03",
+  "total_analyzed": 437,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2022-34717",
+        "reason": "Microsoft Office Remote Code Execution (CVSS 8.8) poses a critical risk due to widespread enterprise adoption and the ability to execute arbitrary code via crafted documents.",
+        "reason_en": "Microsoft Office Remote Code Execution (CVSS 8.8) poses a critical risk due to widespread enterprise adoption and the ability to execute arbitrary code via crafted documents.",
+        "reason_zh": "Microsoft Office 远程代码执行漏洞（CVSS 8.8）因在企业中广泛部署且可通过构造文档执行任意代码，构成严重风险。"
+      },
+      {
+        "id": "CVE-2023-36049",
+        "reason": ".NET Framework Elevation of Privilege (CVSS 7.6) affects core Windows components, enabling attackers to escalate privileges and compromise system integrity.",
+        "reason_en": ".NET Framework Elevation of Privilege (CVSS 7.6) affects core Windows components, enabling attackers to escalate privileges and compromise system integrity.",
+        "reason_zh": ".NET Framework 权限提升漏洞（CVSS 7.6）影响核心 Windows 组件，使攻击者得以提升权限并破坏系统完整性。"
+      },
+      {
+        "id": "CVE-2022-41083",
+        "reason": "Visual Studio Code Elevation of Privilege (CVSS 7.8) impacts a globally popular development environment, potentially allowing local privilege escalation.",
+        "reason_en": "Visual Studio Code Elevation of Privilege (CVSS 7.8) impacts a globally popular development environment, potentially allowing local privilege escalation.",
+        "reason_zh": "Visual Studio Code 权限提升漏洞（CVSS 7.8）影响全球流行的开发环境，可能导致本地权限提升。"
+      },
+      {
+        "id": "CVE-2026-104061",
+        "reason": "Scribus heap out-of-bounds write (CVSS 7.8) in the PSD loader risks memory corruption and code execution when users import crafted design files.",
+        "reason_en": "Scribus heap out-of-bounds write (CVSS 7.8) in the PSD loader risks memory corruption and code execution when users import crafted design files.",
+        "reason_zh": "Scribus PSD 加载器中的堆越界写入漏洞（CVSS 7.8）在用户导入构造的设计文件时，存在内存损坏与代码执行风险。"
+      },
+      {
+        "id": "CVE-2021-34528",
+        "reason": "Visual Studio Code Remote Code Execution (CVSS 7.8). Exploitation allows attackers to execute arbitrary commands on developer machines, compromising source code and build environments.",
+        "reason_en": "Visual Studio Code Remote Code Execution (CVSS 7.8). Exploitation allows attackers to execute arbitrary commands on developer machines, compromising source code and build environments.",
+        "reason_zh": "Visual Studio Code 远程代码执行漏洞（CVSS 7.8）。利用该漏洞可使攻击者在开发者主机上执行任意命令，从而危及源代码与构建环境。"
+      },
+      {
+        "id": "CVE-2022-26931",
+        "reason": "Windows Kerberos Elevation of Privilege (CVSS 7.5). Enables local attackers to escalate privileges within Active Directory environments, posing a significant enterprise security risk.",
+        "reason_en": "Windows Kerberos Elevation of Privilege (CVSS 7.5). Enables local attackers to escalate privileges within Active Directory environments, posing a significant enterprise security risk.",
+        "reason_zh": "Windows Kerberos 权限提升漏洞（CVSS 7.5）。允许本地攻击者在 Active Directory 环境中提升权限，对企业安全构成重大风险。"
+      },
+      {
+        "id": "CVE-2026-118697",
+        "reason": "The compromised jetbrainsd daemon across major IDEs allows arbitrary code execution under trusted contexts, posing a severe risk to developer workflows and software supply chains.",
+        "reason_en": "The compromised jetbrainsd daemon across major IDEs allows arbitrary code execution under trusted contexts, posing a severe risk to developer workflows and software supply chains.",
+        "reason_zh": "跨主流 IDE 的 jetbrainsd 守护进程遭篡改，可在受信任上下文中执行任意代码，对开发者工作流及软件供应链构成严重威胁。"
+      },
+      {
+        "id": "CVE-2021-1636",
+        "reason": "This elevation of privilege flaw in Microsoft SQL Server enables local attackers to gain elevated system rights, potentially compromising workstation security and sensitive data stores.",
+        "reason_en": "This elevation of privilege flaw in Microsoft SQL Server enables local attackers to gain elevated system rights, potentially compromising workstation security and sensitive data stores.",
+        "reason_zh": "Microsoft SQL Server 中的此权限提升缺陷使本地攻击者能够获得提升的系统权限，可能危及工作站安全与敏感数据存储。"
+      },
+      {
+        "id": "CVE-2026-96275",
+        "reason": "A malicious Flatpak repository can write attacker-controlled content to arbitrary host locations as root, completely breaking container sandbox isolation.",
+        "reason_en": "A malicious Flatpak repository can write attacker-controlled content to arbitrary host locations as root, completely breaking container sandbox isolation.",
+        "reason_zh": "恶意 Flatpak 仓库可凭借 root 权限将攻击者控制的內容写入任意主机位置，彻底破坏容器沙箱隔离机制。"
+      },
+      {
+        "id": "CVE-2026-59090",
+        "reason": "GIMP's PSD parser contains an unsigned integer underflow that allows injecting arbitrary data as layer resources, potentially triggering memory corruption and code execution.",
+        "reason_en": "GIMP's PSD parser contains an unsigned integer underflow that allows injecting arbitrary data as layer resources, potentially triggering memory corruption and code execution.",
+        "reason_zh": "GIMP 的 PSD 解析器存在无符号整数下溢漏洞，允许将任意数据注入为图层资源，可能触发内存损坏和代码执行。"
+      },
+      {
+        "id": "CVE-2026-120435",
+        "reason": "Netpbm's XPM parser suffers from a heap buffer overflow due to unvalidated characters-per-pixel values, enabling remote code execution when processing crafted image files.",
+        "reason_en": "Netpbm's XPM parser suffers from a heap buffer overflow due to unvalidated characters-per-pixel values, enabling remote code execution when processing crafted image files.",
+        "reason_zh": "Netpbm 的 XPM 解析器因未验证每像素字符数导致堆缓冲区溢出，在处理构造的图像文件时可实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-78408",
+        "reason": "Local unprivileged users can escalate privileges by exploiting a file descriptor leak during namespace transitions, effectively bypassing cgroup isolation mechanisms.",
+        "reason_en": "Local unprivileged users can escalate privileges by exploiting a file descriptor leak during namespace transitions, effectively bypassing cgroup isolation mechanisms.",
+        "reason_zh": "本地非特权用户可利用命名空间转换期间的文件描述符泄漏漏洞提升权限，从而有效绕过 cgroup 隔离机制。"
+      },
+      {
+        "id": "CVE-2026-83596",
+        "reason": "Processing malicious web content triggers memory corruption in WebKitGTK, posing a significant risk to desktop browsers and applications relying on this rendering engine.",
+        "reason_en": "Processing malicious web content triggers memory corruption in WebKitGTK, posing a significant risk to desktop browsers and applications relying on this rendering engine.",
+        "reason_zh": "处理恶意网页内容会在 WebKitGTK 中触发内存损坏，对依赖该渲染引擎的桌面浏览器及应用构成重大风险。"
+      },
+      {
+        "id": "CVE-2025-46397",
+        "reason": "Local input manipulation within the xfig vector graphics editor can lead to arbitrary code execution via the bezier_spline function, affecting desktop workstations.",
+        "reason_en": "Local input manipulation within the xfig vector graphics editor can lead to arbitrary code execution via the bezier_spline function, affecting desktop workstations.",
+        "reason_zh": "在 xfig 矢量图形编辑器中进行本地输入操纵可通过 bezier_spline 函数导致任意代码执行，影响桌面工作站。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2023-39214",
+        "reason": "Zoom Client SDK information disclosure and denial of service (CVSS 7.6) can expose sensitive data and disrupt mobile communication applications.",
+        "reason_en": "Zoom Client SDK information disclosure and denial of service (CVSS 7.6) can expose sensitive data and disrupt mobile communication applications.",
+        "reason_zh": "Zoom Client SDK 信息泄露与拒绝服务漏洞（CVSS 7.6）可能暴露敏感数据并中断移动通信应用。"
+      },
+      {
+        "id": "CVE-2026-120447",
+        "reason": "HotGo SMS login verification bypass (CVSS 8.1) allows attackers to hijack mobile user accounts by manipulating verification code delivery flows.",
+        "reason_en": "HotGo SMS login verification bypass (CVSS 8.1) allows attackers to hijack mobile user accounts by manipulating verification code delivery flows.",
+        "reason_zh": "HotGo SMS 登录验证绕过漏洞（CVSS 8.1）允许攻击者通过操纵验证码下发流程劫持移动用户账户。"
+      },
+      {
+        "id": "CVE-2026-119736",
+        "reason": "Petpooja Attendo Android App Hardcoded Credentials (CVSS 8.2). Decompiling the APK reveals production MQTT broker credentials, allowing unauthorized remote access to backend systems.",
+        "reason_en": "Petpooja Attendo Android App Hardcoded Credentials (CVSS 8.2). Decompiling the APK reveals production MQTT broker credentials, allowing unauthorized remote access to backend systems.",
+        "reason_zh": "Petpooja Attendo Android 应用硬编码凭据漏洞（CVSS 8.2）。反编译 APK 可发现生产环境 MQTT 代理凭据，允许未经授权远程访问后端系统。"
+      },
+      {
+        "id": "CVE-2026-120322",
+        "reason": "Path traversal in the Termix-SSH file manager permits unauthenticated attackers to read or modify arbitrary device files, undermining Android sandbox isolation.",
+        "reason_en": "Path traversal in the Termix-SSH file manager permits unauthenticated attackers to read or modify arbitrary device files, undermining Android sandbox isolation.",
+        "reason_zh": "Termix-SSH 文件管理器中的路径遍历漏洞允许未认证攻击者读取或修改任意设备文件，破坏 Android 沙箱隔离。"
+      },
+      {
+        "id": "CVE-2026-116110",
+        "reason": "Missing authentication in the LiveWallPaper SignalR hub exposes device configuration endpoints, allowing remote attackers to manipulate system settings without credentials.",
+        "reason_en": "Missing authentication in the LiveWallPaper SignalR hub exposes device configuration endpoints, allowing remote attackers to manipulate system settings without credentials.",
+        "reason_zh": "LiveWallPaper SignalR 中心缺少身份验证会暴露设备配置端点，使远程攻击者无需凭据即可操纵系统设置。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-89091",
+        "reason": "TP-Link Tapo authentication bypass (CVSS 8.7) compromises smart home cameras due to inconsistent JSON authorization logic during HTTP requests.",
+        "reason_en": "TP-Link Tapo authentication bypass (CVSS 8.7) compromises smart home cameras due to inconsistent JSON authorization logic during HTTP requests.",
+        "reason_zh": "TP-Link Tapo 身份验证绕过漏洞（CVSS 8.7）因 HTTP 请求期间 JSON 授权逻辑不一致而危及智能家庭摄像头。"
+      },
+      {
+        "id": "CVE-2026-119737",
+        "reason": "Amlogic TV Box pppoe_wrapper command injection (CVSS 7.8) grants local root access on Android-based streaming devices via crafted socket messages.",
+        "reason_en": "Amlogic TV Box pppoe_wrapper command injection (CVSS 7.8) grants local root access on Android-based streaming devices via crafted socket messages.",
+        "reason_zh": "Amlogic TV Box pppoe_wrapper 命令注入漏洞（CVSS 7.8）可通过构造的 Socket 消息在基于 Android 的流媒体设备上获取本地 root 权限。"
+      },
+      {
+        "id": "CVE-2026-59177",
+        "reason": "ESPHome Dashboard unauthenticated binding (CVSS 8.8) exposes home automation control panels to local networks by skipping expected supervisor authentication.",
+        "reason_en": "ESPHome Dashboard unauthenticated binding (CVSS 8.8) exposes home automation control panels to local networks by skipping expected supervisor authentication.",
+        "reason_zh": "ESPHome Dashboard 未认证绑定漏洞（CVSS 8.8）通过跳过预期的管理员认证，将智能家居控制面板暴露于局域网中。"
+      },
+      {
+        "id": "CVE-2026-59107",
+        "reason": "WolfVision vSolution Matrix cryptographic trust flaw (CVSS 9.8) allows SSH root authentication on AV/display hardware using shared private keys.",
+        "reason_en": "WolfVision vSolution Matrix cryptographic trust flaw (CVSS 9.8) allows SSH root authentication on AV/display hardware using shared private keys.",
+        "reason_zh": "WolfVision vSolution Matrix 加密信任缺陷（CVSS 9.8）允许使用共享私钥在音视频/显示硬件上进行 SSH root 认证。"
+      },
+      {
+        "id": "CVE-2026-77053",
+        "reason": "boneIO Black Firmware Default Disabled Authentication (CVSS 8.7). Exposes management APIs without credentials, enabling unauthenticated remote attackers to fully control the device and modify configurations.",
+        "reason_en": "boneIO Black Firmware Default Disabled Authentication (CVSS 8.7). Exposes management APIs without credentials, enabling unauthenticated remote attackers to fully control the device and modify configurations.",
+        "reason_zh": "boneIO Black 固件默认禁用身份验证漏洞（CVSS 8.7）。在无凭据情况下暴露管理 API，使未认证远程攻击者能够完全控制设备并修改配置。"
+      },
+      {
+        "id": "CVE-2026-116506",
+        "reason": "TOTOLINK A950RG Command Injection (CVSS 9.0). Publicly disclosed exploits allow remote attackers to execute arbitrary OS commands on widely deployed home routers.",
+        "reason_en": "TOTOLINK A950RG Command Injection (CVSS 9.0). Publicly disclosed exploits allow remote attackers to execute arbitrary OS commands on widely deployed home routers.",
+        "reason_zh": "TOTOLINK A950RG 命令注入漏洞（CVSS 9.0）。公开披露的利用工具允许远程攻击者在广泛部署的家庭路由器上执行任意操作系统命令。"
+      },
+      {
+        "id": "CVE-2026-111048",
+        "reason": "Multiple OS command injection flaws in WAVLINK router firmware enable unauthenticated remote attackers to execute arbitrary commands, fully compromising home network devices.",
+        "reason_en": "Multiple OS command injection flaws in WAVLINK router firmware enable unauthenticated remote attackers to execute arbitrary commands, fully compromising home network devices.",
+        "reason_zh": "WAVLINK 路由器固件中存在多个操作系统命令注入缺陷，使未认证远程攻击者能够执行任意命令，完全危及家庭网络设备。"
+      },
+      {
+        "id": "CVE-2026-55981",
+        "reason": "The firmware verification bypass in Creative Sound Blaster Katana allows attackers to flash malicious firmware, permanently altering hardware behavior and security boundaries.",
+        "reason_en": "The firmware verification bypass in Creative Sound Blaster Katana allows attackers to flash malicious firmware, permanently altering hardware behavior and security boundaries.",
+        "reason_zh": "Creative Sound Blaster Katana 的固件验证绕过漏洞允许攻击者刷入恶意固件，永久改变硬件行为与安全边界。"
+      },
+      {
+        "id": "CVE-2026-116231",
+        "reason": "CRLF injection in the Oray Ser2net component allows remote attackers to manipulate HTTP headers and potentially hijack serial-to-network sessions.",
+        "reason_en": "CRLF injection in the Oray Ser2net component allows remote attackers to manipulate HTTP headers and potentially hijack serial-to-network sessions.",
+        "reason_zh": "Oray Ser2net 组件中的 CRLF 注入漏洞允许远程攻击者操纵 HTTP 头，并可能劫持串口到网络会话。"
+      },
+      {
+        "id": "CVE-2026-120279",
+        "reason": "Wavlink router firmware contains a remote OS command injection via the OpenVPN CLI handler, granting attackers full device control and network pivoting capabilities.",
+        "reason_en": "Wavlink router firmware contains a remote OS command injection via the OpenVPN CLI handler, granting attackers full device control and network pivoting capabilities.",
+        "reason_zh": "Wavlink 路由器固件在 OpenVPN CLI 处理器中存在远程操作系统命令注入漏洞，赋予攻击者完全的设备控制权及网络跳板能力。"
+      },
+      {
+        "id": "CVE-2026-120344",
+        "reason": "Another Wavlink router flaw allows remote command injection through the WireGuard CLI Group Handler, severely compromising device integrity and user privacy.",
+        "reason_en": "Another Wavlink router flaw allows remote command injection through the WireGuard CLI Group Handler, severely compromising device integrity and user privacy.",
+        "reason_zh": "另一处 Wavlink 路由器缺陷允许通过 WireGuard CLI 组处理器进行远程命令注入，严重危及设备完整性与用户隐私。"
+      },
+      {
+        "id": "CVE-2026-120283",
+        "reason": "Linksys E8450 router suffers from a stack-based buffer overflow in its CGI portal, enabling unauthenticated remote code execution with root privileges.",
+        "reason_en": "Linksys E8450 router suffers from a stack-based buffer overflow in its CGI portal, enabling unauthenticated remote code execution with root privileges.",
+        "reason_zh": "Linksys E8450 路由器的 CGI 门户存在基于栈的缓冲区溢出漏洞，使攻击者无需认证即可远程执行代码并获得 root 权限。"
+      },
+      {
+        "id": "CVE-2026-75779",
+        "reason": "ASUS routers allow CSRF combined with OS command injection, tricking logged-in administrators into executing arbitrary commands that compromise the local network.",
+        "reason_en": "ASUS routers allow CSRF combined with OS command injection, tricking logged-in administrators into executing arbitrary commands that compromise the local network.",
+        "reason_zh": "ASUS 路由器存在结合 CSRF 与操作系统命令注入的漏洞，可诱使已登录管理员执行任意命令，进而导致本地网络被攻破。"
+      },
+      {
+        "id": "CVE-2026-120345",
+        "reason": "Critical remote OS command injection in WAVLINK router firmware allows attackers to fully compromise the device and pivot to internal networks without authentication.",
+        "reason_en": "Critical remote OS command injection in WAVLINK router firmware allows attackers to fully compromise the device and pivot to internal networks without authentication.",
+        "reason_zh": "WAVLINK 路由器固件中存在严重的远程操作系统命令注入漏洞，攻击者无需认证即可完全控制设备并横向移动至内部网络。"
+      },
+      {
+        "id": "CVE-2026-120281",
+        "reason": "A stack-based buffer overflow in the OpenVPN handler of another WAVLINK model enables immediate remote code execution, impacting consumer network hardware.",
+        "reason_en": "A stack-based buffer overflow in the OpenVPN handler of another WAVLINK model enables immediate remote code execution, impacting consumer network hardware.",
+        "reason_zh": "另一款 WAVLINK 型号的 OpenVPN 处理程序存在基于栈的缓冲区溢出漏洞，可导致即时远程代码执行，影响消费级网络设备。"
+      },
+      {
+        "id": "CVE-2026-120337",
+        "reason": "Remote use-after-free in VStarcam IP camera firmware could allow attackers to execute arbitrary code during P2P session teardown, compromising surveillance deployments.",
+        "reason_en": "Remote use-after-free in VStarcam IP camera firmware could allow attackers to execute arbitrary code during P2P session teardown, compromising surveillance deployments.",
+        "reason_zh": "VStarcam IP 摄像机固件中存在远程释放后使用（use-after-free）漏洞，攻击者可在 P2P 会话终止期间执行任意代码，从而破坏监控部署。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-116964",
+        "reason": "Konflux CI arbitrary code execution (CVSS 8.4) enables repository writers to inject shell commands into CI/CD workflows, compromising build pipelines.",
+        "reason_en": "Konflux CI arbitrary code execution (CVSS 8.4) enables repository writers to inject shell commands into CI/CD workflows, compromising build pipelines.",
+        "reason_zh": "Konflux CI 任意代码执行漏洞（CVSS 8.4）允许仓库写入者向 CI/CD 工作流中注入 Shell 命令，从而破坏构建流水线。"
+      },
+      {
+        "id": "CVE-2026-11332",
+        "reason": "Ansible Galaxy role command injection (CVSS 7.8) allows malicious role authors to inject git configuration flags during cloud infrastructure provisioning.",
+        "reason_en": "Ansible Galaxy role command injection (CVSS 7.8) allows malicious role authors to inject git configuration flags during cloud infrastructure provisioning.",
+        "reason_zh": "Ansible Galaxy 角色命令注入漏洞（CVSS 7.8）允许恶意角色作者在云基础设施配置期间注入 Git 配置参数。"
+      },
+      {
+        "id": "CVE-2026-85297",
+        "reason": "Google Cloud Run bucket squatting (CVSS 7.7) facilitates source code interception and data exfiltration through predictable container registry naming.",
+        "reason_en": "Google Cloud Run bucket squatting (CVSS 7.7) facilitates source code interception and data exfiltration through predictable container registry naming.",
+        "reason_zh": "Google Cloud Run 存储桶抢注漏洞（CVSS 7.7）利用可预测的容器注册表命名规则，便于拦截源代码和窃取数据。"
+      },
+      {
+        "id": "CVE-2026-13451",
+        "reason": "KServe server-side request forgery (CVSS 7.7) lets namespace-scoped users redirect storage-initializer containers to probe internal cloud services.",
+        "reason_en": "KServe server-side request forgery (CVSS 7.7) lets namespace-scoped users redirect storage-initializer containers to probe internal cloud services.",
+        "reason_zh": "KServe 服务端请求伪造漏洞（CVSS 7.7）允许命名空间范围的用户重定向存储初始化容器，以探测内部云服务。"
+      },
+      {
+        "id": "CVE-2026-119085",
+        "reason": "AWS Virtual Engineering Workbench Template Injection (CVSS 9.4). Allows authenticated third parties to run arbitrary code using the publishing Lambda's IAM role permissions, risking data exfiltration.",
+        "reason_en": "AWS Virtual Engineering Workbench Template Injection (CVSS 9.4). Allows authenticated third parties to run arbitrary code using the publishing Lambda's IAM role permissions, risking data exfiltration.",
+        "reason_zh": "AWS Virtual Engineering Workbench 模板注入漏洞（CVSS 9.4）。允许经过身份验证的第三方使用发布 Lambda 函数的 IAM 角色权限运行任意代码，存在数据泄露风险。"
+      },
+      {
+        "id": "CVE-2026-120338",
+        "reason": "Prefab UI Generative UI Sandbox Escape (CVSS 9.9). Unrestricted Deno subprocess execution breaks container isolation, enabling full host compromise from untrusted AI-generated UI code.",
+        "reason_en": "Prefab UI Generative UI Sandbox Escape (CVSS 9.9). Unrestricted Deno subprocess execution breaks container isolation, enabling full host compromise from untrusted AI-generated UI code.",
+        "reason_zh": "Prefab UI 生成式 UI 沙箱逃逸漏洞（CVSS 9.9）。不受限制的 Deno 子进程执行破坏了容器隔离机制，使得从不可信的 AI 生成 UI 代码中实现完全的主机接管成为可能。"
+      },
+      {
+        "id": "CVE-2026-84502",
+        "reason": "Unvalidated SCM URLs passed directly to Git modules in Red Hat Ansible Controller enable command injection during automated project synchronization tasks.",
+        "reason_en": "Unvalidated SCM URLs passed directly to Git modules in Red Hat Ansible Controller enable command injection during automated project synchronization tasks.",
+        "reason_zh": "Red Hat Ansible Controller 将未经验证的 SCM URL 直接传递给 Git 模块，在自动化项目同步任务中可导致命令注入。"
+      },
+      {
+        "id": "CVE-2026-12564",
+        "reason": "A flawed HashiCorp Vault credential plugin in AAP Controller exfiltrates Kubernetes service account tokens to attacker-controlled endpoints, risking cluster-wide compromise.",
+        "reason_en": "A flawed HashiCorp Vault credential plugin in AAP Controller exfiltrates Kubernetes service account tokens to attacker-controlled endpoints, risking cluster-wide compromise.",
+        "reason_zh": "AAP Controller 中缺陷的 HashiCorp Vault 凭证插件会将 Kubernetes 服务账户令牌外泄至攻击者控制的端点，面临集群范围被攻破的风险。"
+      },
+      {
+        "id": "CVE-2026-88811",
+        "reason": "Missing filtering in SUSE Rancher Manager's meta proxy inadvertently leaks cloud provider credentials, exposing orchestration infrastructure to unauthorized access.",
+        "reason_en": "Missing filtering in SUSE Rancher Manager's meta proxy inadvertently leaks cloud provider credentials, exposing orchestration infrastructure to unauthorized access.",
+        "reason_zh": "SUSE Rancher Manager 的元代理缺少过滤机制，会意外泄露云提供商凭据，导致编排基础设施暴露于未授权访问之下。"
+      },
+      {
+        "id": "CVE-2026-115812",
+        "reason": "AWS Multi Model Server allows relative path traversal during model archive extraction, enabling remote attackers to execute arbitrary code on AI inference endpoints.",
+        "reason_en": "AWS Multi Model Server allows relative path traversal during model archive extraction, enabling remote attackers to execute arbitrary code on AI inference endpoints.",
+        "reason_zh": "AWS Multi Model Server 在模型归档解压过程中允许相对路径遍历，使远程攻击者能够在 AI 推理端点上执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-86567",
+        "reason": "A guest VM can trigger a use-after-unmap in the host DPDK process, potentially leading to hypervisor escape and complete host system compromise.",
+        "reason_en": "A guest VM can trigger a use-after-unmap in the host DPDK process, potentially leading to hypervisor escape and complete host system compromise.",
+        "reason_zh": "客户机虚拟机可触发主机 DPDK 进程中的解除映射后使用（use-after-unmap）漏洞，可能导致 Hypervisor 逃逸及主机系统完全被控。"
+      },
+      {
+        "id": "CVE-2026-76578",
+        "reason": "Unauthenticated LDAP clients can manipulate OTP token attributes due to flawed ACI checks, severely undermining FreeIPA identity management infrastructure.",
+        "reason_en": "Unauthenticated LDAP clients can manipulate OTP token attributes due to flawed ACI checks, severely undermining FreeIPA identity management infrastructure.",
+        "reason_zh": "由于 ACI 检查存在缺陷，未经身份验证的 LDAP 客户端可操纵 OTP 令牌属性，严重破坏 FreeIPA 身份管理基础设施。"
+      },
+      {
+        "id": "CVE-2026-11861",
+        "reason": "Active Directory users can bypass FreeIPA authentication entirely by impersonating client names in ticket requests, enabling unauthorized access to enterprise cloud services.",
+        "reason_en": "Active Directory users can bypass FreeIPA authentication entirely by impersonating client names in ticket requests, enabling unauthorized access to enterprise cloud services.",
+        "reason_zh": "Active Directory 用户可通过在票据请求中伪装客户端名称来完全绕过 FreeIPA 身份验证，从而实现对企业云服务的未授权访问。"
+      },
+      {
+        "id": "CVE-2023-4379",
+        "reason": "GitLab fails to remove code owner approvals when target branches update, creating risks for unintended merge approvals and supply chain integrity in CI/CD pipelines.",
+        "reason_en": "GitLab fails to remove code owner approvals when target branches update, creating risks for unintended merge approvals and supply chain integrity in CI/CD pipelines.",
+        "reason_zh": "GitLab 在目标分支更新时未能移除代码所有者审批，导致 CI/CD 流水线中出现非预期合并审批风险，威胁供应链完整性。"
+      },
+      {
+        "id": "CVE-2026-75888",
+        "reason": "Authenticated OpenShift console users can exploit an SSRF vulnerability via Helm charts to access internal cluster resources and sensitive metadata.",
+        "reason_en": "Authenticated OpenShift console users can exploit an SSRF vulnerability via Helm charts to access internal cluster resources and sensitive metadata.",
+        "reason_zh": "已认证的 OpenShift 控制台用户可通过 Helm 图表利用 SSRF 漏洞访问内部集群资源及敏感元数据。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-115215",
+        "reason": "Eclipse ThreadX NetX Duo DTLS session leak (CVSS 8.7) causes resource exhaustion and denial of service by failing to release stalled handshake sessions.",
+        "reason_en": "Eclipse ThreadX NetX Duo DTLS session leak (CVSS 8.7) causes resource exhaustion and denial of service by failing to release stalled handshake sessions.",
+        "reason_zh": "Eclipse ThreadX NetX Duo DTLS 会话泄漏漏洞（CVSS 8.7）因未能释放停滞的握手会话而导致资源耗尽和拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-115403",
+        "reason": "NetX Duo IPv6 raw socket path flaw (CVSS 8.2) ignores destination table addition failures, leading to routing instability and packet loss.",
+        "reason_en": "NetX Duo IPv6 raw socket path flaw (CVSS 8.2) ignores destination table addition failures, leading to routing instability and packet loss.",
+        "reason_zh": "NetX Duo IPv6 原始套接字路径缺陷（CVSS 8.2）忽略目标表添加失败的情况，导致路由不稳定和数据包丢失。"
+      },
+      {
+        "id": "CVE-2026-115486",
+        "reason": "open-iscsi IPv6 neighbor discovery handler flaw (CVSS 7.1) permits ARP table poisoning and traffic interception due to unvalidated link-layer options.",
+        "reason_en": "open-iscsi IPv6 neighbor discovery handler flaw (CVSS 7.1) permits ARP table poisoning and traffic interception due to unvalidated link-layer options.",
+        "reason_zh": "open-iscsi IPv6 邻居发现处理程序缺陷（CVSS 7.1）因未验证链路层选项，允许 ARP 表投毒和流量拦截。"
+      },
+      {
+        "id": "CVE-2026-116606",
+        "reason": "Barracuda Email Security Gateway Authentication Bypass (CVSS 9.3). Unauthenticated attackers can import crafted backups to overwrite global appliance configurations, disrupting email security policies.",
+        "reason_en": "Barracuda Email Security Gateway Authentication Bypass (CVSS 9.3). Unauthenticated attackers can import crafted backups to overwrite global appliance configurations, disrupting email security policies.",
+        "reason_zh": "Barracuda Email Security Gateway 身份验证绕过漏洞（CVSS 9.3）。未经身份验证的攻击者可导入精心构造的备份文件以覆盖全局设备配置，破坏邮件安全策略。"
+      },
+      {
+        "id": "CVE-2026-90717",
+        "reason": "Dell PowerProtect Data Domain Management Center Auth Spoofing (CVSS 9.1). Bypasses authentication mechanisms, granting unauthorized administrators full control over enterprise storage networks.",
+        "reason_en": "Dell PowerProtect Data Domain Management Center Auth Spoofing (CVSS 9.1). Bypasses authentication mechanisms, granting unauthorized administrators full control over enterprise storage networks.",
+        "reason_zh": "Dell PowerProtect Data Domain Management Center 身份伪造漏洞（CVSS 9.1）。该漏洞绕过了身份验证机制，使未授权管理员能够完全控制企业存储网络。"
+      },
+      {
+        "id": "CVE-2026-116543",
+        "reason": "A heap out-of-bounds write in Open5GS via crafted multipart requests allows unauthenticated attackers to corrupt memory and disrupt 5G core network operations.",
+        "reason_en": "A heap out-of-bounds write in Open5GS via crafted multipart requests allows unauthenticated attackers to corrupt memory and disrupt 5G core network operations.",
+        "reason_zh": "通过精心构造的多部分请求，Open5GS 中存在堆越界写入漏洞，允许未经身份验证的攻击者破坏内存并干扰 5G 核心网运行。"
+      },
+      {
+        "id": "CVE-2026-80186",
+        "reason": "Crafted Bluetooth Extended Inquiry Response packets trigger a stack buffer overflow in BlueZ, enabling remote code execution during device discovery phases.",
+        "reason_en": "Crafted Bluetooth Extended Inquiry Response packets trigger a stack buffer overflow in BlueZ, enabling remote code execution during device discovery phases.",
+        "reason_zh": "精心构造的蓝牙扩展查询响应数据包会触发 BlueZ 中的栈缓冲区溢出漏洞，使攻击者在设备发现阶段即可远程执行代码。"
+      },
+      {
+        "id": "CVE-2026-94349",
+        "reason": "OS command injection in Dell OpenManage Enterprise allows low-privileged adjacent attackers to execute system commands, jeopardizing enterprise infrastructure management.",
+        "reason_en": "OS command injection in Dell OpenManage Enterprise allows low-privileged adjacent attackers to execute system commands, jeopardizing enterprise infrastructure management.",
+        "reason_zh": "Dell OpenManage Enterprise 中存在操作系统命令注入漏洞，低权限的相邻攻击者可执行系统命令，危及企业基础设施管理。"
+      },
+      {
+        "id": "CVE-2026-79872",
+        "reason": "HPE AOS underlying OS contains a buffer overflow exploitable by unauthenticated remote attackers, leading to complete system takeover and data exfiltration.",
+        "reason_en": "HPE AOS underlying OS contains a buffer overflow exploitable by unauthenticated remote attackers, leading to complete system takeover and data exfiltration.",
+        "reason_zh": "HPE AOS 底层操作系统存在缓冲区溢出漏洞，可被未经身份验证的远程攻击者利用，导致系统完全被控及数据外泄。"
+      },
+      {
+        "id": "CVE-2026-79870",
+        "reason": "HPE AOS PAPI protocol authentication bypass allows adjacent attackers to circumvent controls, modify configurations, and access sensitive network infrastructure data.",
+        "reason_en": "HPE AOS PAPI protocol authentication bypass allows adjacent attackers to circumvent controls, modify configurations, and access sensitive network infrastructure data.",
+        "reason_zh": "HPE AOS PAPI 协议身份验证绕过漏洞允许相邻攻击者规避控制、修改配置并访问敏感的网络基础设施数据。"
+      },
+      {
+        "id": "CVE-2026-3868",
+        "reason": "Improper length parameter validation in Moxa Secure Router's HTTPS interface allows unauthenticated remote attackers to trigger buffer overflows and disrupt network operations.",
+        "reason_en": "Improper length parameter validation in Moxa Secure Router's HTTPS interface allows unauthenticated remote attackers to trigger buffer overflows and disrupt network operations.",
+        "reason_zh": "Moxa Secure Router的HTTPS接口中长度参数验证不当，允许未认证的远程攻击者触发缓冲区溢出并破坏网络运行。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2026-71450",
+        "reason": "Johnson Controls EasyIO Neo authentication bypass (CVSS 8.7) compromises HVAC and building management controllers via alternate authentication channels.",
+        "reason_en": "Johnson Controls EasyIO Neo authentication bypass (CVSS 8.7) compromises HVAC and building management controllers via alternate authentication channels.",
+        "reason_zh": "Johnson Controls EasyIO Neo身份验证绕过漏洞（CVSS 8.7）通过备用认证通道危及HVAC及楼宇管理控制器。"
+      },
+      {
+        "id": "CVE-2026-82944",
+        "reason": "SOEM multi-segment buffer overflow (CVSS 8.8) corrupts memory in industrial EtherCAT masters when processing maliciously sized device messages.",
+        "reason_en": "SOEM multi-segment buffer overflow (CVSS 8.8) corrupts memory in industrial EtherCAT masters when processing maliciously sized device messages.",
+        "reason_zh": "SOEM多段缓冲区溢出漏洞（CVSS 8.8）在处理恶意尺寸的设备消息时会损坏工业EtherCAT主站的内存。"
+      },
+      {
+        "id": "CVE-2026-82947",
+        "reason": "SOEM frame processing buffer read overflow (CVSS 7.1) allows reading outside allocated buffers due to missing length validation on field device inputs.",
+        "reason_en": "SOEM frame processing buffer read overflow (CVSS 7.1) allows reading outside allocated buffers due to missing length validation on field device inputs.",
+        "reason_zh": "SOEM帧处理缓冲区读取越界漏洞（CVSS 7.1）因缺少对现场设备输入的长度验证，导致可读取已分配缓冲区之外的数据。"
+      },
+      {
+        "id": "CVE-2026-71456",
+        "reason": "Johnson Controls Kantech Entrapass Padding Oracle Attack (CVSS 8.5). Exploits hard-coded cryptographic keys to decrypt sensitive access control data, compromising physical security systems.",
+        "reason_en": "Johnson Controls Kantech Entrapass Padding Oracle Attack (CVSS 8.5). Exploits hard-coded cryptographic keys to decrypt sensitive access control data, compromising physical security systems.",
+        "reason_zh": "Johnson Controls Kantech Entrapass填充预言机攻击漏洞（CVSS 8.5）。利用硬编码的加密密钥解密敏感门禁控制数据，危及物理安全系统。"
+      },
+      {
+        "id": "CVE-2026-10825",
+        "reason": "Insufficient JSON validation in Moxa's WebSocket API enables authenticated attackers to cause denial-of-service and unexpected device reboots in industrial automation environments.",
+        "reason_en": "Insufficient JSON validation in Moxa's WebSocket API enables authenticated attackers to cause denial-of-service and unexpected device reboots in industrial automation environments.",
+        "reason_zh": "Moxa的WebSocket API中JSON验证不足，使已认证的攻击者能够在工业自动化环境中引发拒绝服务攻击及设备意外重启。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-86596",
+        "reason": "WordPress s2Member plugin remote code execution (CVSS 9.8) stems from insufficient sanitization of the item_name parameter across millions of sites.",
+        "reason_en": "WordPress s2Member plugin remote code execution (CVSS 9.8) stems from insufficient sanitization of the item_name parameter across millions of sites.",
+        "reason_zh": "WordPress s2Member插件远程代码执行漏洞（CVSS 9.8）源于数百万站点中item_name参数过滤不足。"
+      },
+      {
+        "id": "CVE-2026-105606",
+        "reason": "Joomla Custom Tables unauthenticated file upload (CVSS 9.5) enables immediate webshell deployment via polyglot files submitted through public forms.",
+        "reason_en": "Joomla Custom Tables unauthenticated file upload (CVSS 9.5) enables immediate webshell deployment via polyglot files submitted through public forms.",
+        "reason_zh": "Joomla Custom Tables未授权文件上传漏洞（CVSS 9.5）允许通过公共表单提交的多格式文件立即部署Webshell。"
+      },
+      {
+        "id": "CVE-2026-119978",
+        "reason": "FlowiseAI sandbox escape (CVSS 8.5) allows authenticated users to execute OS commands by abusing built-in dependency modules and custom function endpoints.",
+        "reason_en": "FlowiseAI sandbox escape (CVSS 8.5) allows authenticated users to execute OS commands by abusing built-in dependency modules and custom function endpoints.",
+        "reason_zh": "FlowiseAI沙箱逃逸漏洞（CVSS 8.5）允许已认证用户滥用内置依赖模块和自定义函数端点以执行操作系统命令。"
+      },
+      {
+        "id": "CVE-2026-119716",
+        "reason": "pybars3/pybars4 template code injection (CVSS 9.8) enables arbitrary Python execution through unescaped bracketed path segments in Handlebars templates.",
+        "reason_en": "pybars3/pybars4 template code injection (CVSS 9.8) enables arbitrary Python execution through unescaped bracketed path segments in Handlebars templates.",
+        "reason_zh": "pybars3/pybars4模板代码注入漏洞（CVSS 9.8）可通过Handlebars模板中未转义的中括号路径段实现任意Python代码执行。"
+      },
+      {
+        "id": "CVE-2026-118650",
+        "reason": "Echo Go framework path encoding bypass (CVSS 7.5) creates a router vs static handler mismatch that facilitates directory traversal attacks.",
+        "reason_en": "Echo Go framework path encoding bypass (CVSS 7.5) creates a router vs static handler mismatch that facilitates directory traversal attacks.",
+        "reason_zh": "Echo Go框架路径编码绕过漏洞（CVSS 7.5）导致路由与静态处理器不匹配，从而助长目录遍历攻击。"
+      },
+      {
+        "id": "CVE-2026-105780",
+        "reason": "Adobe Campaign Classic Incorrect Authorization (CVSS 9.9). Low-privileged users can bypass authorization checks to execute arbitrary code, potentially taking over marketing automation platforms.",
+        "reason_en": "Adobe Campaign Classic Incorrect Authorization (CVSS 9.9). Low-privileged users can bypass authorization checks to execute arbitrary code, potentially taking over marketing automation platforms.",
+        "reason_zh": "Adobe Campaign Classic授权校验错误漏洞（CVSS 9.9）。低权限用户可绕过授权检查以执行任意代码，可能导致营销自动化平台被接管。"
+      },
+      {
+        "id": "CVE-2026-105603",
+        "reason": "Joomla DJ-Classifieds Arbitrary File Upload (CVSS 9.4). Unprivileged file upload leads to full remote code execution on vulnerable Joomla websites, a common target for web attacks.",
+        "reason_en": "Joomla DJ-Classifieds Arbitrary File Upload (CVSS 9.4). Unprivileged file upload leads to full remote code execution on vulnerable Joomla websites, a common target for web attacks.",
+        "reason_zh": "Joomla DJ-Classifieds任意文件上传漏洞（CVSS 9.4）。非特权文件上传可导致易受攻击的Joomla网站发生完整的远程代码执行，此类网站常成为Web攻击目标。"
+      },
+      {
+        "id": "CVE-2026-119096",
+        "reason": "A parser-differential flaw in the LearnDash WordPress plugin bypasses account verification gates, granting unauthenticated attackers administrative access.",
+        "reason_en": "A parser-differential flaw in the LearnDash WordPress plugin bypasses account verification gates, granting unauthenticated attackers administrative access.",
+        "reason_zh": "LearnDash WordPress插件中的解析器差异缺陷可绕过账户验证机制，授予未认证攻击者管理员权限。"
+      },
+      {
+        "id": "CVE-2026-77876",
+        "reason": "Unescaped file parameters in Control Web Panel's protected directory module lead to root-level OS command injection, completely breaking web hosting panel security.",
+        "reason_en": "Unescaped file parameters in Control Web Panel's protected directory module lead to root-level OS command injection, completely breaking web hosting panel security.",
+        "reason_zh": "Control Web Panel受保护目录模块中未转义的文件参数会导致最高权限操作系统命令注入，彻底破坏虚拟主机面板的安全性。"
+      },
+      {
+        "id": "CVE-2026-120213",
+        "reason": "Improper URL decoding in @fastify/http-proxy circumvents upstream path restrictions, facilitating server-side request forgery and proxy abuse attacks.",
+        "reason_en": "Improper URL decoding in @fastify/http-proxy circumvents upstream path restrictions, facilitating server-side request forgery and proxy abuse attacks.",
+        "reason_zh": "@fastify/http-proxy中URL解码不当会规避上游路径限制，助长服务器端请求伪造及代理滥用攻击。"
+      },
+      {
+        "id": "CVE-2026-63244",
+        "reason": "WizLearn LMS authentication bypass allows unauthenticated attackers to bypass password and OAuth flows, granting unauthorized access to sensitive educational data.",
+        "reason_en": "WizLearn LMS authentication bypass allows unauthenticated attackers to bypass password and OAuth flows, granting unauthorized access to sensitive educational data.",
+        "reason_zh": "WizLearn LMS身份验证绕过漏洞允许未认证攻击者绕过密码及OAuth流程，获取敏感教育数据的未授权访问权限。"
+      },
+      {
+        "id": "CVE-2026-116512",
+        "reason": "A widely used WordPress project management plugin suffers from unsanitized parameter handling leading to remote code execution, impacting numerous self-hosted deployments.",
+        "reason_en": "A widely used WordPress project management plugin suffers from unsanitized parameter handling leading to remote code execution, impacting numerous self-hosted deployments.",
+        "reason_zh": "一款广泛使用的WordPress项目管理插件存在参数处理未过滤缺陷，导致远程代码执行，影响大量自托管部署环境。"
+      },
+      {
+        "id": "CVE-2026-120209",
+        "reason": "AJ-Report uses a hardcoded JWT secret for share tokens, enabling offline token forgery and unauthenticated remote code execution via Groovy scripting.",
+        "reason_en": "AJ-Report uses a hardcoded JWT secret for share tokens, enabling offline token forgery and unauthenticated remote code execution via Groovy scripting.",
+        "reason_zh": "AJ-Report在分享令牌中使用硬编码的JWT密钥，支持离线令牌伪造并通过Groovy脚本实现未认证远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-19677",
+        "reason": "onPhase frevvo registration form authentication bypass allows unauthenticated users to escalate to tenant admin and execute arbitrary OS commands.",
+        "reason_en": "onPhase frevvo registration form authentication bypass allows unauthenticated users to escalate to tenant admin and execute arbitrary OS commands.",
+        "reason_zh": "onPhase frevvo注册表单身份验证绕过漏洞允许未认证用户提权至租户管理员并执行任意操作系统命令。"
+      },
+      {
+        "id": "CVE-2026-81799",
+        "reason": "Missing authorization controls in a popular WooCommerce plugin allow attackers to bypass access restrictions and manipulate financial refund and exchange processes.",
+        "reason_en": "Missing authorization controls in a popular WooCommerce plugin allow attackers to bypass access restrictions and manipulate financial refund and exchange processes.",
+        "reason_zh": "一款流行的WooCommerce插件缺失授权控制，允许攻击者绕过访问限制并操纵财务退款及兑换流程。"
+      },
+      {
+        "id": "CVE-2026-120315",
+        "reason": "LobeHub Chat suffers from a path traversal vulnerability that permits authenticated users to write arbitrary files, potentially leading to remote code execution.",
+        "reason_en": "LobeHub Chat suffers from a path traversal vulnerability that permits authenticated users to write arbitrary files, potentially leading to remote code execution.",
+        "reason_zh": "LobeHub Chat存在路径遍历漏洞，允许已认证用户写入任意文件，可能导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-120347",
+        "reason": "Remote SQL injection in XunRuiCMS allows attackers to extract sensitive database contents or manipulate application logic without authentication.",
+        "reason_en": "Remote SQL injection in XunRuiCMS allows attackers to extract sensitive database contents or manipulate application logic without authentication.",
+        "reason_zh": "XunRuiCMS中的远程SQL注入漏洞允许攻击者在无需认证的情况下提取敏感数据库内容或操纵应用逻辑。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2023-5869",
+        "reason": "PostgreSQL integer overflow during array modification (CVSS 8.8) allows authenticated users to execute arbitrary code within the database process.",
+        "reason_en": "PostgreSQL integer overflow during array modification (CVSS 8.8) allows authenticated users to execute arbitrary code within the database process.",
+        "reason_zh": "PostgreSQL数组修改期间的整数溢出漏洞（CVSS 8.8）允许已认证用户在数据库进程内执行任意代码。"
+      },
+      {
+        "id": "CVE-2023-21713",
+        "reason": "Microsoft SQL Server remote code execution (CVSS 8.8) represents a critical threat to enterprise data layers with potential for unauthenticated exploitation.",
+        "reason_en": "Microsoft SQL Server remote code execution (CVSS 8.8) represents a critical threat to enterprise data layers with potential for unauthenticated exploitation.",
+        "reason_zh": "Microsoft SQL Server远程代码执行漏洞（CVSS 8.8）对企业数据层构成严重威胁，且存在未认证利用风险。"
+      },
+      {
+        "id": "CVE-2026-114488",
+        "reason": "Wildfly IIOP authentication bypass (CVSS 7.4) accepts unverified identity assertions, allowing pre-auth attackers to impersonate legitimate users.",
+        "reason_en": "Wildfly IIOP authentication bypass (CVSS 7.4) accepts unverified identity assertions, allowing pre-auth attackers to impersonate legitimate users.",
+        "reason_zh": "Wildfly IIOP身份验证绕过漏洞（CVSS 7.4）接受未经验证的身份断言，允许预认证攻击者冒充合法用户。"
+      },
+      {
+        "id": "CVE-2026-84725",
+        "reason": "Wildfly JDKBridge class loading flaw (CVSS 8.1) loads arbitrary remote classes before EJB security interceptors run, bypassing middleware protections.",
+        "reason_en": "Wildfly JDKBridge class loading flaw (CVSS 8.1) loads arbitrary remote classes before EJB security interceptors run, bypassing middleware protections.",
+        "reason_zh": "Wildfly JDKBridge类加载缺陷在EJB安全拦截器运行前加载任意远程类，从而绕过中间件防护。"
+      },
+      {
+        "id": "CVE-2026-115748",
+        "reason": "Apache Vysper authorization bypass (CVSS 8.8) lacks authentication checks on XMPP in-band registration, enabling account takeover and message interception.",
+        "reason_en": "Apache Vysper authorization bypass (CVSS 8.8) lacks authentication checks on XMPP in-band registration, enabling account takeover and message interception.",
+        "reason_zh": "Apache Vysper授权绕过漏洞（CVSS 8.8）在XMPP带内注册时缺乏身份验证检查，导致账户接管和消息拦截。"
+      },
+      {
+        "id": "CVE-2026-95519",
+        "reason": "WSO2 System REST API Access Control Failure (CVSS 9.4). Lower-privileged roles can execute restricted administrative actions, undermining multi-tenant middleware security models.",
+        "reason_en": "WSO2 System REST API Access Control Failure (CVSS 9.4). Lower-privileged roles can execute restricted administrative actions, undermining multi-tenant middleware security models.",
+        "reason_zh": "WSO2 System REST API访问控制失效漏洞（CVSS 9.4）。低权限角色可执行受限的管理操作，破坏多租户中间件安全模型。"
+      },
+      {
+        "id": "CVE-2026-105765",
+        "reason": "HashiCorp Consul Service Mesh Certificate Leak (CVSS 8.1). Authorization bypass in the leaf certificate API exposes private keys, breaking zero-trust service mesh encryption.",
+        "reason_en": "HashiCorp Consul Service Mesh Certificate Leak (CVSS 8.1). Authorization bypass in the leaf certificate API exposes private keys, breaking zero-trust service mesh encryption.",
+        "reason_zh": "HashiCorp Consul Service Mesh证书泄露漏洞（CVSS 8.1）。叶子证书API中的授权绕过会暴露私钥，破坏零信任服务网格加密。"
+      },
+      {
+        "id": "CVE-2021-2351",
+        "reason": "Unauthenticated network-accessible attackers can compromise Oracle Database's Advanced Networking Option, disrupting critical data services and potentially gaining system access.",
+        "reason_en": "Unauthenticated network-accessible attackers can compromise Oracle Database's Advanced Networking Option, disrupting critical data services and potentially gaining system access.",
+        "reason_zh": "未授权的网络可访问攻击者可利用Oracle Database的Advanced Networking Option，破坏关键数据服务并可能获取系统访问权限。"
+      },
+      {
+        "id": "CVE-2026-2613",
+        "reason": "Blind SQL injection in WSO2's Admin REST API allows privileged users to manipulate query structures and extract sensitive database information undetected.",
+        "reason_en": "Blind SQL injection in WSO2's Admin REST API allows privileged users to manipulate query structures and extract sensitive database information undetected.",
+        "reason_zh": "WSO2的Admin REST API存在盲SQL注入漏洞，允许特权用户在未被察觉的情况下操纵查询结构并提取敏感数据库信息。"
+      },
+      {
+        "id": "CVE-2026-93569",
+        "reason": "Flawed HTTP/1 to HTTP/2 conversion logic in Netty enables request smuggling attacks, bypassing security controls in modern web application firewalls and proxies.",
+        "reason_en": "Flawed HTTP/1 to HTTP/2 conversion logic in Netty enables request smuggling attacks, bypassing security controls in modern web application firewalls and proxies.",
+        "reason_zh": "Netty中HTTP/1到HTTP/2的转换逻辑存在缺陷，可导致请求走私攻击，从而绕过现代Web应用防火墙和代理的安全控制。"
+      },
+      {
+        "id": "CVE-2026-63393",
+        "reason": "OpenSearch SQL cursor parameter manipulation allows authenticated users with basic read permissions to bypass access controls and exfiltrate sensitive cluster data.",
+        "reason_en": "OpenSearch SQL cursor parameter manipulation allows authenticated users with basic read permissions to bypass access controls and exfiltrate sensitive cluster data.",
+        "reason_zh": "通过操纵OpenSearch SQL的游标参数，具有基本读取权限的已认证用户可绕过访问控制并窃取敏感集群数据。"
+      },
+      {
+        "id": "CVE-2026-114648",
+        "reason": "MongoDB C# Driver fails to neutralize special characters in LINQ queries, enabling query injection attacks that can redirect data operations or extract unauthorized information.",
+        "reason_en": "MongoDB C# Driver fails to neutralize special characters in LINQ queries, enabling query injection attacks that can redirect data operations or extract unauthorized information.",
+        "reason_zh": "MongoDB C# Driver未能对LINQ查询中的特殊字符进行转义处理，导致查询注入攻击，攻击者可重定向数据操作或提取未授权信息。"
+      },
+      {
+        "id": "CVE-2026-120324",
+        "reason": "Path traversal in Aklivity Zilla's HTTP filesystem binding allows remote attackers to access restricted files, compromising middleware data integrity and routing logic.",
+        "reason_en": "Path traversal in Aklivity Zilla's HTTP filesystem binding allows remote attackers to access restricted files, compromising middleware data integrity and routing logic.",
+        "reason_zh": "Aklivity Zilla的HTTP文件系统绑定存在路径遍历漏洞，允许远程攻击者访问受限文件，从而破坏中间件的数据完整性与路由逻辑。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2023-5197",
+        "reason": "Linux kernel netfilter use-after-free (CVSS 7.8) in nf_tables chain bindings enables local privilege escalation and kernel instability.",
+        "reason_en": "Linux kernel netfilter use-after-free (CVSS 7.8) in nf_tables chain bindings enables local privilege escalation and kernel instability.",
+        "reason_zh": "Linux内核netfilter中nf_tables链绑定的释放后使用（UAF）漏洞（CVSS 7.8）可导致本地提权及内核不稳定。"
+      },
+      {
+        "id": "CVE-2023-29007",
+        "reason": "Git config copy bug (CVSS 7.0) triggers buffer issues when parsing oversized submodule URLs, potentially disrupting version control workflows.",
+        "reason_en": "Git config copy bug (CVSS 7.0) triggers buffer issues when parsing oversized submodule URLs, potentially disrupting version control workflows.",
+        "reason_zh": "Git配置复制漏洞（CVSS 7.0）在解析过大的子模块URL时会触发缓冲区问题，可能破坏版本控制工作流。"
+      },
+      {
+        "id": "CVE-2026-11460",
+        "reason": "Boost Serialization input validation flaw (CVSS 7.5) improperly validates input types, risking unexpected behavior or exploitation in C++ applications.",
+        "reason_en": "Boost Serialization input validation flaw (CVSS 7.5) improperly validates input types, risking unexpected behavior or exploitation in C++ applications.",
+        "reason_zh": "Boost Serialization输入验证缺陷（CVSS 7.5）未能正确验证输入类型，可能导致C++应用程序出现意外行为或被利用。"
+      },
+      {
+        "id": "CVE-2026-116692",
+        "reason": "MLflow Third-Party Scorer Deserialization (CVSS 9.8). Accepts request-selected module descendants instead of strict allowlists, enabling remote code execution via malicious AI model scorers.",
+        "reason_en": "MLflow Third-Party Scorer Deserialization (CVSS 9.8). Accepts request-selected module descendants instead of strict allowlists, enabling remote code execution via malicious AI model scorers.",
+        "reason_zh": "MLflow第三方评分器反序列化漏洞（CVSS 9.8）接受请求动态选择的模块后代而非严格白名单，攻击者可借助恶意AI模型评分器实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-116588",
+        "reason": "Datadog dd-trace-py Regex ReDoS (CVSS 8.7). Excessive backtracking on attacker-controlled query strings causes synchronous CPU exhaustion, impacting application performance monitoring reliability.",
+        "reason_en": "Datadog dd-trace-py Regex ReDoS (CVSS 8.7). Excessive backtracking on attacker-controlled query strings causes synchronous CPU exhaustion, impacting application performance monitoring reliability.",
+        "reason_zh": "Datadog dd-trace-py正则表达式拒绝服务（ReDoS）漏洞（CVSS 8.7）在攻击者控制的查询字符串上发生过度回溯，导致同步CPU耗尽，影响应用性能监控的可靠性。"
+      },
+      {
+        "id": "CVE-2026-115905",
+        "reason": "Reconciling discrepancies between central and local ZIP headers leads to path traversal, allowing attackers to overwrite arbitrary files on the host system.",
+        "reason_en": "Reconciling discrepancies between central and local ZIP headers leads to path traversal, allowing attackers to overwrite arbitrary files on the host system.",
+        "reason_zh": "处理ZIP中央目录与本地文件头之间的差异时会导致路径遍历漏洞，使攻击者能够覆盖主机系统中的任意文件。"
+      },
+      {
+        "id": "CVE-2026-105483",
+        "reason": "Non-ASCII fullwidth digit handling in Node.js TLS breaks hostname verification, enabling certificate spoofing and man-in-the-middle attacks against secure connections.",
+        "reason_en": "Non-ASCII fullwidth digit handling in Node.js TLS breaks hostname verification, enabling certificate spoofing and man-in-the-middle attacks against secure connections.",
+        "reason_zh": "Node.js TLS在处理非ASCII全角数字时破坏了主机名验证机制，可导致证书伪造及针对安全连接的中间人攻击。"
+      },
+      {
+        "id": "CVE-2026-116367",
+        "reason": "A sandbox escape vulnerability in the DeepSeek Harness framework permits remote code execution within isolated AI agent environments, bypassing intended security boundaries.",
+        "reason_en": "A sandbox escape vulnerability in the DeepSeek Harness framework permits remote code execution within isolated AI agent environments, bypassing intended security boundaries.",
+        "reason_zh": "DeepSeek Harness框架存在沙箱逃逸漏洞，可在隔离的AI智能体环境中实现远程代码执行，从而绕过预期的安全边界。"
+      },
+      {
+        "id": "CVE-2026-115557",
+        "reason": "Python's SSL module now enforces a denylist for known compromised certificates, preventing automatic acceptance of revoked keys regardless of application configuration.",
+        "reason_en": "Python's SSL module now enforces a denylist for known compromised certificates, preventing automatic acceptance of revoked keys regardless of application configuration.",
+        "reason_zh": "Python的SSL模块现已对已知受损证书强制执行黑名单机制，无论应用程序如何配置，均会阻止自动接受已吊销的密钥。"
+      },
+      {
+        "id": "CVE-2026-89320",
+        "reason": "Eclipse gose JWE implementation returns a constant HMAC tag independent of the message, completely breaking ciphertext integrity and enabling undetected tampering.",
+        "reason_en": "Eclipse gose JWE implementation returns a constant HMAC tag independent of the message, completely breaking ciphertext integrity and enabling undetected tampering.",
+        "reason_zh": "Eclipse gose的JWE实现返回与消息内容无关的恒定HMAC标签，彻底破坏了密文完整性，使得篡改行为无法被检测。"
+      },
+      {
+        "id": "CVE-2026-71226",
+        "reason": "Uncanceled AIO requests in libkcapi can return errors prematurely, leading to kernel memory corruption when writing to caller-owned buffers during cryptographic operations.",
+        "reason_en": "Uncanceled AIO requests in libkcapi can return errors prematurely, leading to kernel memory corruption when writing to caller-owned buffers during cryptographic operations.",
+        "reason_zh": "libkcapi中未取消的异步I/O（AIO）请求可能提前返回错误，在加密操作期间向调用方缓冲区写入数据时将导致内核内存损坏。"
+      },
+      {
+        "id": "CVE-2026-120311",
+        "reason": "Path traversal in Network-AI's FileJobStore enables attackers to read or delete arbitrary JSON configuration files, disrupting AI task orchestration and data pipelines.",
+        "reason_en": "Path traversal in Network-AI's FileJobStore enables attackers to read or delete arbitrary JSON configuration files, disrupting AI task orchestration and data pipelines.",
+        "reason_zh": "Network-AI的FileJobStore存在路径遍历漏洞，攻击者可读取或删除任意JSON配置文件，从而破坏AI任务编排与数据管道。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by critical remote code execution, command injection, and authentication bypass flaws spanning Web Security, IoT, Cloud, and Desktop OS categories. High-impact issues affect widely deployed products including Microsoft Office and Windows components, consumer networking hardware from TP-Link and ASUS, developer tools like Visual Studio Code and JetBrains IDEs, and major cloud orchestration platforms. These vulnerabilities primarily exploit memory corruption, privilege escalation pathways, and misconfigured access controls, allowing unauthenticated or low-privileged attackers to compromise system integrity, exfiltrate data, and pivot across internal networks. Immediate remediation is essential to prevent active exploitation and maintain operational security across modern technology infrastructures.",
+  "summary_en": "Today's vulnerability landscape is dominated by critical remote code execution, command injection, and authentication bypass flaws spanning Web Security, IoT, Cloud, and Desktop OS categories. High-impact issues affect widely deployed products including Microsoft Office and Windows components, consumer networking hardware from TP-Link and ASUS, developer tools like Visual Studio Code and JetBrains IDEs, and major cloud orchestration platforms. These vulnerabilities primarily exploit memory corruption, privilege escalation pathways, and misconfigured access controls, allowing unauthenticated or low-privileged attackers to compromise system integrity, exfiltrate data, and pivot across internal networks. Immediate remediation is essential to prevent active exploitation and maintain operational security across modern technology infrastructures.",
+  "summary_zh": "当前漏洞态势以跨Web安全、物联网、云平台和桌面操作系统的严重远程代码执行、命令注入及身份验证绕过漏洞为主。高影响漏洞波及广泛部署的产品，包括Microsoft Office与Windows组件、TP-Link和ASUS的消费级网络设备、Visual Studio Code与JetBrains IDE等开发工具，以及主流云编排平台。此类漏洞主要利用内存损坏、提权路径及配置错误的访问控制，使未授权或低权限攻击者能够破坏系统完整性、窃取数据并在内网横向移动。必须立即实施修复措施，以防止漏洞被活跃利用，并确保现代技术基础设施的运营安全。"
+}
