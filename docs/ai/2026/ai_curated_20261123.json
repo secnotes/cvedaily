@@ -1,0 +1,278 @@
+{
+  "analysis_date": "2026-11-23",
+  "total_analyzed": 207,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-134793",
+        "reason": "Electerm terminal emulator on Windows suffers from OS command injection via crafted filenames containing Unicode quotes, enabling unauthorized PowerShell execution.",
+        "reason_en": "Electerm terminal emulator on Windows suffers from OS command injection via crafted filenames containing Unicode quotes, enabling unauthorized PowerShell execution.",
+        "reason_zh": "Windows 版 Electerm 终端模拟器存在操作系统命令注入漏洞，攻击者可通过包含 Unicode 引号的构造文件名实现未授权的 PowerShell 执行。"
+      },
+      {
+        "id": "CVE-2026-99592",
+        "reason": "AMD CPU global ASID collision flaw allows cross-process TLB poisoning, risking memory corruption and data leakage on modern workstations and servers.",
+        "reason_en": "AMD CPU global ASID collision flaw allows cross-process TLB poisoning, risking memory corruption and data leakage on modern workstations and servers.",
+        "reason_zh": "AMD CPU 全局 ASID 碰撞缺陷可导致跨进程 TLB 投毒，危及现代工作站和服务器的内存完整性与数据泄露风险。"
+      },
+      {
+        "id": "CVE-2026-134704",
+        "reason": "OpenShot's unsafe deserialization allows attackers to execute arbitrary code by tricking users into opening crafted project files.",
+        "reason_en": "OpenShot's unsafe deserialization allows attackers to execute arbitrary code by tricking users into opening crafted project files.",
+        "reason_zh": "OpenShot 的不安全反序列化漏洞允许攻击者通过诱骗用户打开构造的项目文件来执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-99480",
+        "reason": "A TOCTOU race condition in the Panthor DRM driver can corrupt GPU state and crash the system during handle destruction.",
+        "reason_en": "A TOCTOU race condition in the Panthor DRM driver can corrupt GPU state and crash the system during handle destruction.",
+        "reason_zh": "Panthor DRM 驱动中的 TOCTOU 竞态条件可在句柄销毁期间损坏 GPU 状态并导致系统崩溃。"
+      }
+    ],
+    "Mobile Security": [],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-99454",
+        "reason": "The RTL8723BS WiFi driver mishandles crafted protected frames from malicious APs, enabling denial-of-service or information disclosure on connected IoT devices.",
+        "reason_en": "The RTL8723BS WiFi driver mishandles crafted protected frames from malicious APs, enabling denial-of-service or information disclosure on connected IoT devices.",
+        "reason_zh": "RTL8723BS WiFi 驱动程序未能正确处理来自恶意接入点的构造保护帧，可能导致已连接物联网设备发生拒绝服务或信息泄露。"
+      },
+      {
+        "id": "CVE-2026-99451",
+        "reason": "The MT76 WiFi driver fails to unlink rejected Time Wheel TWT flows, leading to resource leaks and potential driver instability on mobile/IoT hardware.",
+        "reason_en": "The MT76 WiFi driver fails to unlink rejected Time Wheel TWT flows, leading to resource leaks and potential driver instability on mobile/IoT hardware.",
+        "reason_zh": "MT76 WiFi 驱动程序未能解除被拒绝的 Time Wheel TWT 流关联，导致资源泄漏及移动/物联网硬件上潜在的驱动不稳定问题。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-134804",
+        "reason": "Portainer authorization bypass allows standard users to attach to and exec into other tenants' containers via WebSocket, severely impacting multi-tenant Kubernetes security.",
+        "reason_en": "Portainer authorization bypass allows standard users to attach to and exec into other tenants' containers via WebSocket, severely impacting multi-tenant Kubernetes security.",
+        "reason_zh": "Portainer 授权绕过漏洞允许普通用户通过 WebSocket 附加并执行进入其他租户的容器，严重破坏多租户 Kubernetes 的安全性。"
+      },
+      {
+        "id": "CVE-2026-134817",
+        "reason": "Argument injection in Kubernetes MCP server allows remote clients to pass malicious flags to kubectl, escalating to cluster control and workload manipulation.",
+        "reason_en": "Argument injection in Kubernetes MCP server allows remote clients to pass malicious flags to kubectl, escalating to cluster control and workload manipulation.",
+        "reason_zh": "Kubernetes MCP 服务器中的参数注入漏洞允许远程客户端向 kubectl 传递恶意标志，进而升级为集群控制与工作负载篡改。"
+      },
+      {
+        "id": "CVE-2026-99544",
+        "reason": "Unbounded VMBus ring buffer indices in confidential computing VMs allow untrusted hosts to manipulate guest memory, risking data exfiltration or escape.",
+        "reason_en": "Unbounded VMBus ring buffer indices in confidential computing VMs allow untrusted hosts to manipulate guest memory, risking data exfiltration or escape.",
+        "reason_zh": "机密计算虚拟机中无限制的 VMBus 环形缓冲区索引允许不受信任的主机操纵客户机内存，面临数据外泄或逃逸风险。"
+      },
+      {
+        "id": "CVE-2026-99346",
+        "reason": "KVM SVM fails to reset ASID generation on physical CPU switches, which can break address space isolation between co-located virtual machines.",
+        "reason_en": "KVM SVM fails to reset ASID generation on physical CPU switches, which can break address space isolation between co-located virtual machines.",
+        "reason_zh": "KVM SVM 在物理 CPU 切换时未能重置 ASID 生成，可能破坏共址虚拟机之间的地址空间隔离。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-134624",
+        "reason": "N-able MailAssure LDAP sync misconfiguration enables internal network probing and port scanning by authenticated API users, aiding lateral movement.",
+        "reason_en": "N-able MailAssure LDAP sync misconfiguration enables internal network probing and port scanning by authenticated API users, aiding lateral movement.",
+        "reason_zh": "N-able MailAssure 的 LDAP 同步配置错误允许经过身份验证的 API 用户进行内部网络探测和端口扫描，辅助横向移动。"
+      },
+      {
+        "id": "CVE-2026-99792",
+        "reason": "Linux kernel SMB race condition during tree disconnect allows unauthorized file publication, exposing sensitive data over network shares.",
+        "reason_en": "Linux kernel SMB race condition during tree disconnect allows unauthorized file publication, exposing sensitive data over network shares.",
+        "reason_zh": "Linux 内核 SMB 树断开期间的竞态条件可导致未授权的文件发布，使敏感数据在网络共享中暴露。"
+      },
+      {
+        "id": "CVE-2026-99634",
+        "reason": "MPTCP Fast Open implementation flaw triggers fatal kernel crashes on MP_JOIN requests, disrupting multipath network stability and reliability.",
+        "reason_en": "MPTCP Fast Open implementation flaw triggers fatal kernel crashes on MP_JOIN requests, disrupting multipath network stability and reliability.",
+        "reason_zh": "MPTCP Fast Open 实现缺陷会在 MP_JOIN 请求时触发致命内核崩溃，破坏多路径网络的稳定性与可靠性。"
+      },
+      {
+        "id": "CVE-2026-99385",
+        "reason": "A buffer overflow in the SMB client during tree connection allows remote code execution via maliciously long UNC paths sent by servers.",
+        "reason_en": "A buffer overflow in the SMB client during tree connection allows remote code execution via maliciously long UNC paths sent by servers.",
+        "reason_zh": "SMB 客户端在树连接过程中存在缓冲区溢出漏洞，攻击者可利用服务器发送的超长 UNC 路径实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-99322",
+        "reason": "ksmbd incorrectly rebonds completed CREATE replays without draining old channels, causing session state corruption and potential authentication bypass.",
+        "reason_en": "ksmbd incorrectly rebonds completed CREATE replays without draining old channels, causing session state corruption and potential authentication bypass.",
+        "reason_zh": "ksmbd 在未清空旧通道的情况下错误地重新绑定已完成的 CREATE 重放操作，导致会话状态损坏及潜在的认证绕过。"
+      },
+      {
+        "id": "CVE-2026-99441",
+        "reason": "Concurrent DH-HMAC-CHAP authentication commands trigger a use-after-free in nvmet-auth, risking kernel panic or privilege escalation on NVMe-over-Fabrics targets.",
+        "reason_en": "Concurrent DH-HMAC-CHAP authentication commands trigger a use-after-free in nvmet-auth, risking kernel panic or privilege escalation on NVMe-over-Fabrics targets.",
+        "reason_zh": "并发的 DH-HMAC-CHAP 认证命令会在 nvmet-auth 中触发释放后使用漏洞，危及 NVMe-over-Fabrics 目标设备的内核恐慌或权限提升。"
+      }
+    ],
+    "Industrial Control": [],
+    "Web Security": [
+      {
+        "id": "CVE-2026-133968",
+        "reason": "Actively exploited directory traversal in MONAI Label enables remote code execution, posing immediate threats to AI/ML deployment pipelines and web applications.",
+        "reason_en": "Actively exploited directory traversal in MONAI Label enables remote code execution, posing immediate threats to AI/ML deployment pipelines and web applications.",
+        "reason_zh": "MONAI Label 中正在被利用的路径遍历漏洞可实现远程代码执行，对 AI/ML 部署流水线及 Web 应用构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-131754",
+        "reason": "Critical deserialization flaw in APCu Manager allows object injection, potentially leading to full WordPress site compromise and remote code execution.",
+        "reason_en": "Critical deserialization flaw in APCu Manager allows object injection, potentially leading to full WordPress site compromise and remote code execution.",
+        "reason_zh": "APCu Manager 中的关键反序列化漏洞允许对象注入，可能导致整个 WordPress 站点沦陷及远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-131782",
+        "reason": "Similar high-severity deserialization vulnerability in Simple Shopping Cart exposes e-commerce platforms to critical RCE attacks via untrusted data parsing.",
+        "reason_en": "Similar high-severity deserialization vulnerability in Simple Shopping Cart exposes e-commerce platforms to critical RCE attacks via untrusted data parsing.",
+        "reason_zh": "Simple Shopping Cart 中类似的高危反序列化漏洞使电商平台因解析不可信数据而面临严重的远程代码执行攻击。"
+      },
+      {
+        "id": "CVE-2026-134836",
+        "reason": "Flawed prefix-only origin validation in Dashy captures bearer tokens and credentials via lookalike URLs, facilitating widespread session hijacking.",
+        "reason_en": "Flawed prefix-only origin validation in Dashy captures bearer tokens and credentials via lookalike URLs, facilitating widespread session hijacking.",
+        "reason_zh": "Dashy 仅基于前缀的源验证缺陷可捕获伪装 URL 中的 Bearer Token 和凭据，助长广泛的会话劫持。"
+      },
+      {
+        "id": "CVE-2026-134813",
+        "reason": "Unauthenticated WebSocket clients can trigger memory exhaustion via fully inflated messages before length enforcement, disrupting real-time web services.",
+        "reason_en": "Unauthenticated WebSocket clients can trigger memory exhaustion via fully inflated messages before length enforcement, disrupting real-time web services.",
+        "reason_zh": "未经认证的 WebSocket 客户端可在长度限制生效前通过完全解压的消息耗尽内存，破坏实时 Web 服务。"
+      },
+      {
+        "id": "CVE-2026-131707",
+        "reason": "ProfileGrid's insecure deserialization allows object injection, enabling unauthenticated attackers to achieve remote code execution on WordPress sites.",
+        "reason_en": "ProfileGrid's insecure deserialization allows object injection, enabling unauthenticated attackers to achieve remote code execution on WordPress sites.",
+        "reason_zh": "ProfileGrid 的不安全反序列化漏洞允许对象注入，使未认证攻击者能够在 WordPress 站点上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-131701",
+        "reason": "Blind SQL injection in the WP Media folder plugin allows attackers to extract sensitive database contents or escalate privileges.",
+        "reason_en": "Blind SQL injection in the WP Media folder plugin allows attackers to extract sensitive database contents or escalate privileges.",
+        "reason_zh": "WP Media folder 插件中的盲注 SQL 注入漏洞允许攻击者提取敏感数据库内容或提升权限。"
+      },
+      {
+        "id": "CVE-2026-134654",
+        "reason": "Host header injection in Mailflare's password reset handler lets attackers poison reset URLs, facilitating account takeover via phishing.",
+        "reason_en": "Host header injection in Mailflare's password reset handler lets attackers poison reset URLs, facilitating account takeover via phishing.",
+        "reason_zh": "Mailflare 密码重置处理程序中的 Host 头注入漏洞可使攻击者污染重置 URL，通过钓鱼手段协助接管账户。"
+      },
+      {
+        "id": "CVE-2026-93491",
+        "reason": "Enables remote denial-of-service via HTTP pipelining abuse that exhausts server heap memory.",
+        "reason_en": "Enables remote denial-of-service via HTTP pipelining abuse that exhausts server heap memory.",
+        "reason_zh": "滥用 HTTP 管道化机制可耗尽服务器堆内存，从而引发远程拒绝服务攻击。"
+      },
+      {
+        "id": "CVE-2026-93488",
+        "reason": "Allows resource exhaustion by accepting unlimited concurrent SPDY streams, leading to service disruption.",
+        "reason_en": "Allows resource exhaustion by accepting unlimited concurrent SPDY streams, leading to service disruption.",
+        "reason_zh": "接受无限并发的 SPDY 流会导致资源耗尽，进而引发服务中断。"
+      },
+      {
+        "id": "CVE-2026-89059",
+        "reason": "Unrestricted image decoding permits unauthenticated attackers to trigger severe memory exhaustion and crashes.",
+        "reason_en": "Unrestricted image decoding permits unauthenticated attackers to trigger severe memory exhaustion and crashes.",
+        "reason_zh": "无限制的图片解码功能允许未认证攻击者触发严重的内存耗尽与程序崩溃。"
+      },
+      {
+        "id": "CVE-2026-17615",
+        "reason": "Exploits external entity parsing in XML processing to enable unauthenticated remote file reads on the server.",
+        "reason_en": "Exploits external entity parsing in XML processing to enable unauthenticated remote file reads on the server.",
+        "reason_zh": "利用 XML 处理中的外部实体解析漏洞，可实现服务器端未认证的远程文件读取。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-134803",
+        "reason": "Bytebase DBHub bypasses read-only restrictions via backslash-escaped quotes, allowing unauthorized DDL and write executions that threaten database integrity.",
+        "reason_en": "Bytebase DBHub bypasses read-only restrictions via backslash-escaped quotes, allowing unauthorized DDL and write executions that threaten database integrity.",
+        "reason_zh": "Bytebase DBHub 通过反斜杠转义引号绕过只读限制，允许未授权的 DDL 与写入操作，威胁数据库完整性。"
+      },
+      {
+        "id": "CVE-2026-15565",
+        "reason": "Red Hat Undertow WebSocket endpoint lacks memory limits on @OnMessage methods, enabling unauthenticated denial-of-service attacks against Java web servers.",
+        "reason_en": "Red Hat Undertow WebSocket endpoint lacks memory limits on @OnMessage methods, enabling unauthenticated denial-of-service attacks against Java web servers.",
+        "reason_zh": "Red Hat Undertow 的 WebSocket 端点未在 @OnMessage 方法中设置内存限制，使未认证攻击者能够对 Java Web 服务器发起拒绝服务攻击。"
+      },
+      {
+        "id": "CVE-2026-129474",
+        "reason": "Use-after-free in PHP's magic method backtraces yields a high EPSS score, allowing remote code execution when fatal errors occur during method calls.",
+        "reason_en": "Use-after-free in PHP's magic method backtraces yields a high EPSS score, allowing remote code execution when fatal errors occur during method calls.",
+        "reason_zh": "PHP魔术方法回溯中的释放后使用漏洞会导致较高的EPSS评分，在方法调用期间发生致命错误时可导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-115560",
+        "reason": "Session serializer mismatch enables attackers to inject controlled data into PHP sessions, leading to session fixation or remote code execution.",
+        "reason_en": "Session serializer mismatch enables attackers to inject controlled data into PHP sessions, leading to session fixation or remote code execution.",
+        "reason_zh": "会话序列化程序不匹配使攻击者能够将可控数据注入PHP会话中，从而导致会话固定或远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-2818",
+        "reason": "Zip-slip path traversal in Spring Data Geode's snapshot import allows writing files outside intended directories, compromising application integrity.",
+        "reason_en": "Zip-slip path traversal in Spring Data Geode's snapshot import allows writing files outside intended directories, compromising application integrity.",
+        "reason_zh": "Spring Data Geode快照导入功能中的Zip-slip路径遍历漏洞允许将文件写入预期目录之外，从而破坏应用程序完整性。"
+      },
+      {
+        "id": "CVE-2026-85634",
+        "reason": "Missing path validation in deployment handling allows unauthorized file system access and potential code execution.",
+        "reason_en": "Missing path validation in deployment handling allows unauthorized file system access and potential code execution.",
+        "reason_zh": "部署处理过程中缺少路径验证可导致未授权的文件系统访问及潜在的代码执行。"
+      },
+      {
+        "id": "CVE-2026-84725",
+        "reason": "Bypasses security interceptors by loading arbitrary classes via malicious IIOP object unmarshalling, enabling pre-auth RCE.",
+        "reason_en": "Bypasses security interceptors by loading arbitrary classes via malicious IIOP object unmarshalling, enabling pre-auth RCE.",
+        "reason_zh": "通过恶意IIOP对象反序列化加载任意类以绕过安全拦截器，从而实现认证前远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-15560",
+        "reason": "Identical to CVE-2026-84725; represents a duplicate entry for the same pre-auth remote code execution flaw in JBoss EAP.",
+        "reason_en": "Identical to CVE-2026-84725; represents a duplicate entry for the same pre-auth remote code execution flaw in JBoss EAP.",
+        "reason_zh": "与CVE-2026-84725相同；代表JBoss EAP中同一认证前远程代码执行漏洞的重复条目。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-99676",
+        "reason": "Critical Linux kernel socket refcounting regression can cause use-after-free conditions in lockless access paths, potentially leading to privilege escalation.",
+        "reason_en": "Critical Linux kernel socket refcounting regression can cause use-after-free conditions in lockless access paths, potentially leading to privilege escalation.",
+        "reason_zh": "关键的Linux内核套接字引用计数回归缺陷可在无锁访问路径中引发释放后使用问题，可能导致权限提升。"
+      },
+      {
+        "id": "CVE-2026-99618",
+        "reason": "NVMe target driver leaks uninitialized memory beyond valid data in ANA log pages, exposing sensitive host storage metadata to connected initiators.",
+        "reason_en": "NVMe target driver leaks uninitialized memory beyond valid data in ANA log pages, exposing sensitive host storage metadata to connected initiators.",
+        "reason_zh": "NVMe目标驱动在ANA日志页的有效数据之外泄露未初始化内存，向已连接的发起方暴露敏感的主机存储元数据。"
+      },
+      {
+        "id": "CVE-2026-99591",
+        "reason": "AMD IOMMU out-of-bounds read in device table access threatens virtualization isolation by leaking adjacent memory contents during DMA operations.",
+        "reason_en": "AMD IOMMU out-of-bounds read in device table access threatens virtualization isolation by leaking adjacent memory contents during DMA operations.",
+        "reason_zh": "AMD IOMMU在设备表访问时发生越界读取，通过在DMA操作中泄露相邻内存内容而威胁虚拟化隔离。"
+      },
+      {
+        "id": "CVE-2026-99590",
+        "reason": "Ceph client parses inline data lengths without upper bounds, risking kernel memory corruption when interacting with compromised or malformed metadata servers.",
+        "reason_en": "Ceph client parses inline data lengths without upper bounds, risking kernel memory corruption when interacting with compromised or malformed metadata servers.",
+        "reason_zh": "Ceph客户端解析内联数据长度时未设置上限，在与受损或格式错误的元数据服务器交互时存在内核内存损坏风险。"
+      },
+      {
+        "id": "CVE-2026-125396",
+        "reason": "Ghostscript bypasses the -dSAFER sandbox by exploiting type errors in .putgstringcopy, allowing privileged operators to escape restricted execution environments.",
+        "reason_en": "Ghostscript bypasses the -dSAFER sandbox by exploiting type errors in .putgstringcopy, allowing privileged operators to escape restricted execution environments.",
+        "reason_zh": "Ghostscript通过利用.putgstringcopy中的类型错误绕过-dSAFER沙箱，使特权操作符能够逃逸受限执行环境。"
+      },
+      {
+        "id": "CVE-2026-134694",
+        "reason": "Gammapy passes untrusted FITS header values directly to Python's eval(), enabling arbitrary code execution when researchers load malicious astronomical datasets.",
+        "reason_en": "Gammapy passes untrusted FITS header values directly to Python's eval(), enabling arbitrary code execution when researchers load malicious astronomical datasets.",
+        "reason_zh": "Gammapy将不受信任的FITS头值直接传递给Python的eval()函数，当研究人员加载恶意天文数据集时将导致任意代码执行。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by remote code execution and unsafe deserialization flaws across web applications, middleware, and cloud platforms, with notable impacts on WordPress ecosystems, PHP runtimes, and Kubernetes orchestration. Significant network and storage security issues include SMB protocol race conditions, NVMe-over-Fabrics memory corruption, and confidential computing virtual machine isolation breaks that threaten multi-tenant infrastructure. Additionally, critical desktop and kernel-level flaws affecting AMD processors, Linux socket handling, and Ghostscript sandboxing highlight persistent risks in system software and developer toolchains. These findings underscore widespread exploitation vectors targeting authentication bypasses, untrusted data parsing, and resource exhaustion across enterprise and open-source stacks.",
+  "summary_en": "Today's vulnerability landscape is dominated by remote code execution and unsafe deserialization flaws across web applications, middleware, and cloud platforms, with notable impacts on WordPress ecosystems, PHP runtimes, and Kubernetes orchestration. Significant network and storage security issues include SMB protocol race conditions, NVMe-over-Fabrics memory corruption, and confidential computing virtual machine isolation breaks that threaten multi-tenant infrastructure. Additionally, critical desktop and kernel-level flaws affecting AMD processors, Linux socket handling, and Ghostscript sandboxing highlight persistent risks in system software and developer toolchains. These findings underscore widespread exploitation vectors targeting authentication bypasses, untrusted data parsing, and resource exhaustion across enterprise and open-source stacks.",
+  "summary_zh": "今日漏洞态势主要由Web应用、中间件及云平台中的远程代码执行与不安全反序列化漏洞主导，对WordPress生态、PHP运行时及Kubernetes编排产生显著影响。重大的网络与存储安全问题包括SMB协议竞争条件、NVMe-over-Fabrics内存损坏，以及威胁多租户基础设施的机密计算虚拟机隔离突破。此外，影响AMD处理器、Linux套接字处理及Ghostscript沙箱的关键桌面级与内核级漏洞，凸显了系统软件与开发者工具链中持续存在的风险。这些发现强调了在企业级与开源技术栈中，针对身份验证绕过、不可信数据解析和资源耗尽的广泛利用途径。"
+}
