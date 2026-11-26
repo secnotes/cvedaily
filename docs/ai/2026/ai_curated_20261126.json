@@ -1,0 +1,616 @@
+{
+  "analysis_date": "2026-11-26",
+  "total_analyzed": 374,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-133445",
+        "reason": "Local privilege escalation to root via a malicious environment variable during GDM session reauthentication directly compromises desktop security boundaries.",
+        "reason_en": "Local privilege escalation to root via a malicious environment variable during GDM session reauthentication directly compromises desktop security boundaries.",
+        "reason_zh": "在GDM会话重新认证期间，通过恶意环境变量实现本地提权至root，直接破坏了桌面安全边界。"
+      },
+      {
+        "id": "CVE-2026-131827",
+        "reason": "Missing authorization in the Windows registry recovery feature allows local attackers to escalate privileges within the RustDesk remote desktop client.",
+        "reason_en": "Missing authorization in the Windows registry recovery feature allows local attackers to escalate privileges within the RustDesk remote desktop client.",
+        "reason_zh": "Windows注册表恢复功能中缺失授权检查，允许本地攻击者在RustDesk远程桌面客户端内提升权限。"
+      },
+      {
+        "id": "CVE-2026-137077",
+        "reason": "Heap out-of-bounds write in the H.264 codec enables memory corruption and potential code execution via malicious RDP video streams.",
+        "reason_en": "Heap out-of-bounds write in the H.264 codec enables memory corruption and potential code execution via malicious RDP video streams.",
+        "reason_zh": "H.264编解码器中的堆越界写入漏洞可导致内存损坏，并通过恶意RDP视频流实现潜在代码执行。"
+      },
+      {
+        "id": "CVE-2026-112261",
+        "reason": "Crafted XCF files trigger a use-after-free in GIMP's main process, potentially leading to arbitrary code execution or application crashes.",
+        "reason_en": "Crafted XCF files trigger a use-after-free in GIMP's main process, potentially leading to arbitrary code execution or application crashes.",
+        "reason_zh": "构造的XCF文件会触发GIMP主进程中的释放后使用漏洞，可能导致任意代码执行或应用程序崩溃。"
+      },
+      {
+        "id": "CVE-2026-80724",
+        "reason": "Fixes a kernel memory protection bypass where read-only vmclock mappings could be made writable, significantly reducing exploitation risk for local attackers.",
+        "reason_en": "Fixes a kernel memory protection bypass where read-only vmclock mappings could be made writable, significantly reducing exploitation risk for local attackers.",
+        "reason_zh": "修复了内核内存保护绕过漏洞，该漏洞允许将只读的vmclock映射改为可写，显著降低了本地攻击者的利用风险。"
+      },
+      {
+        "id": "CVE-2026-97024",
+        "reason": "Path traversal during Flatpak app deployment can replace or empty critical host system files like passwd and resolv.conf, posing a severe risk to desktop integrity.",
+        "reason_en": "Path traversal during Flatpak app deployment can replace or empty critical host system files like passwd and resolv.conf, posing a severe risk to desktop integrity.",
+        "reason_zh": "Flatpak应用部署过程中的路径遍历漏洞可替换或清空passwd和resolv.conf等关键主机系统文件，对桌面完整性构成严重威胁。"
+      },
+      {
+        "id": "CVE-2026-132858",
+        "reason": "GDM's CreateRemoteDisplay method fails to enforce proper authorization, allowing local attackers to bypass automatic login verification and hijack remote display sessions.",
+        "reason_en": "GDM's CreateRemoteDisplay method fails to enforce proper authorization, allowing local attackers to bypass automatic login verification and hijack remote display sessions.",
+        "reason_zh": "GDM的CreateRemoteDisplay方法未能强制执行正确的授权检查，允许本地攻击者绕过自动登录验证并劫持远程显示会话。"
+      },
+      {
+        "id": "CVE-2026-104715",
+        "reason": "Unsanitized user-controlled values in cifs-utils credentials files enable unprivileged users to escalate privileges during privileged CIFS share mounting operations.",
+        "reason_en": "Unsanitized user-controlled values in cifs-utils credentials files enable unprivileged users to escalate privileges during privileged CIFS share mounting operations.",
+        "reason_zh": "cifs-utils凭据文件中未清理的用户可控值，使无特权用户能够在执行特权CIFS共享挂载操作时提升权限。"
+      },
+      {
+        "id": "CVE-2026-61512",
+        "reason": "Local command injection in VeraCrypt's filesystem check routine allows same-UID attackers to execute arbitrary commands via an elevated CoreService session.",
+        "reason_en": "Local command injection in VeraCrypt's filesystem check routine allows same-UID attackers to execute arbitrary commands via an elevated CoreService session.",
+        "reason_zh": "VeraCrypt文件系统检查例程中的本地命令注入漏洞，允许同UID攻击者通过提升权限的CoreService会话执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-112732",
+        "reason": "Double free vulnerability in Microsoft Office Visio enables remote code execution when processing malicious documents, directly compromising end-user desktop environments.",
+        "reason_en": "Double free vulnerability in Microsoft Office Visio enables remote code execution when processing malicious documents, directly compromising end-user desktop environments.",
+        "reason_zh": "Microsoft Office Visio中的双重释放漏洞在处理恶意文档时可导致远程代码执行，直接危及终端用户的桌面环境。"
+      },
+      {
+        "id": "CVE-2026-120787",
+        "reason": "Insecure certificate validation in PowerPoint allows attackers to bypass trust mechanisms and execute arbitrary code via malicious presentations.",
+        "reason_en": "Insecure certificate validation in PowerPoint allows attackers to bypass trust mechanisms and execute arbitrary code via malicious presentations.",
+        "reason_zh": "PowerPoint中不安全的证书验证机制允许攻击者绕过信任机制，并通过恶意演示文稿执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-133528",
+        "reason": "Sandbox escape in BeamNG.drive game engine permits untrusted Lua mods to execute arbitrary code, impacting desktop gaming and development setups.",
+        "reason_en": "Sandbox escape in BeamNG.drive game engine permits untrusted Lua mods to execute arbitrary code, impacting desktop gaming and development setups.",
+        "reason_zh": "BeamNG.drive游戏引擎中的沙箱逃逸漏洞允许不受信任的Lua模组执行任意代码，影响桌面游戏与开发环境。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-128796",
+        "reason": "Exposes modem AT commands to any installed app without requiring sensitive permissions, enabling IMEI/IMSI theft and unauthorized SMS operations.",
+        "reason_en": "Exposes modem AT commands to any installed app without requiring sensitive permissions, enabling IMEI/IMSI theft and unauthorized SMS operations.",
+        "reason_zh": "无需敏感权限即可向任何已安装的应用程序暴露调制解调器AT指令，从而导致IMEI/IMSI信息泄露及未经授权的短信操作。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-136823",
+        "reason": "Unauthenticated remote command injection in the D-Link router HTTP daemon allows full device compromise and network pivoting.",
+        "reason_en": "Unauthenticated remote command injection in the D-Link router HTTP daemon allows full device compromise and network pivoting.",
+        "reason_zh": "D-Link路由器HTTP守护进程中存在未认证的远程命令注入漏洞，可导致设备完全沦陷及网络横向移动。"
+      },
+      {
+        "id": "CVE-2026-131817",
+        "reason": "Network-adjacent command injection in ChargePoint EV chargers enables remote code execution without requiring authentication.",
+        "reason_en": "Network-adjacent command injection in ChargePoint EV chargers enables remote code execution without requiring authentication.",
+        "reason_zh": "ChargePoint电动汽车充电桩中存在网络邻近的命令注入漏洞，可在无需认证的情况下实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-136821",
+        "reason": "Remote command injection via timezone argument manipulation in D-Link firmware grants attackers unrestricted OS control over connected routers.",
+        "reason_en": "Remote command injection via timezone argument manipulation in D-Link firmware grants attackers unrestricted OS control over connected routers.",
+        "reason_zh": "通过操纵D-Link固件中的时区参数实现远程命令注入，使攻击者能够完全控制所连接路由器的操作系统。"
+      },
+      {
+        "id": "CVE-2026-137086",
+        "reason": "Predictable session cookies derived from device uptime allow unauthenticated attackers to hijack administrator sessions on cable modems.",
+        "reason_en": "Predictable session cookies derived from device uptime allow unauthenticated attackers to hijack administrator sessions on cable modems.",
+        "reason_zh": "基于设备运行时间生成的可预测会话Cookie，使未认证的攻击者能够劫持电缆调制解调器上的管理员会话。"
+      },
+      {
+        "id": "CVE-2026-134897",
+        "reason": "Authenticated administrators can inject shell metacharacters into iSCSI LUN names, which are executed as root by the cron scheduler, leading to full device compromise.",
+        "reason_en": "Authenticated administrators can inject shell metacharacters into iSCSI LUN names, which are executed as root by the cron scheduler, leading to full device compromise.",
+        "reason_zh": "已认证的管理员可将Shell元字符注入iSCSI LUN名称中，这些内容会被cron调度器以root身份执行，从而导致设备完全沦陷。"
+      },
+      {
+        "id": "CVE-2026-97180",
+        "reason": "Lack of input sanitization in the server parameter allows remote attackers to execute arbitrary commands as root on smart door controllers.",
+        "reason_en": "Lack of input sanitization in the server parameter allows remote attackers to execute arbitrary commands as root on smart door controllers.",
+        "reason_zh": "server参数缺乏输入过滤机制，允许远程攻击者在智能门控制器上以root权限执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-136547",
+        "reason": "Publicly disclosed improper authentication bypass in Tenda RX3 routers allows remote attackers to gain unauthorized administrative access without valid credentials.",
+        "reason_en": "Publicly disclosed improper authentication bypass in Tenda RX3 routers allows remote attackers to gain unauthorized administrative access without valid credentials.",
+        "reason_zh": "Tenda RX3路由器公开披露的不当认证绕过漏洞，允许远程攻击者在无有效凭据的情况下获取未授权的管理员访问权限。"
+      },
+      {
+        "id": "CVE-2026-136552",
+        "reason": "Remote command injection in the Tenda RX3 IPv6 status handler enables attackers to execute system commands directly through manipulated network configuration parameters.",
+        "reason_en": "Remote command injection in the Tenda RX3 IPv6 status handler enables attackers to execute system commands directly through manipulated network configuration parameters.",
+        "reason_zh": "Tenda RX3的IPv6状态处理程序中存在的远程命令注入漏洞，使攻击者能够通过篡改网络配置参数直接执行系统命令。"
+      },
+      {
+        "id": "CVE-2026-120948",
+        "reason": "Authenticated administrators can inject shell syntax into Asustor ADM PPPoE configurations, resulting in arbitrary command execution with root privileges upon service reload.",
+        "reason_en": "Authenticated administrators can inject shell syntax into Asustor ADM PPPoE configurations, resulting in arbitrary command execution with root privileges upon service reload.",
+        "reason_zh": "已认证的管理员可将Shell语法注入Asustor ADM的PPPoE配置中，在服务重载时将以root权限执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-29004",
+        "reason": "Heap buffer overflow in BusyBox's DHCPv6 client DNS_SERVERS handler allows network-adjacent attackers to trigger memory corruption and potentially execute arbitrary code.",
+        "reason_en": "Heap buffer overflow in BusyBox's DHCPv6 client DNS_SERVERS handler allows network-adjacent attackers to trigger memory corruption and potentially execute arbitrary code.",
+        "reason_zh": "BusyBox的DHCPv6客户端DNS_SERVERS处理程序中存在堆缓冲区溢出漏洞，允许网络邻近的攻击者触发内存损坏并可能执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-136553",
+        "reason": "Critical remote authentication bypass in Tenda RX3 routers enables unauthorized network access and potential device takeover by unauthenticated attackers.",
+        "reason_en": "Critical remote authentication bypass in Tenda RX3 routers enables unauthorized network access and potential device takeover by unauthenticated attackers.",
+        "reason_zh": "Tenda RX3路由器中存在严重的远程认证绕过漏洞，可使未认证的攻击者获得未授权的网络访问权限并潜在接管设备。"
+      },
+      {
+        "id": "CVE-2026-136550",
+        "reason": "Remote command injection in Tenda router firmware allows attackers to execute arbitrary system commands, facilitating full device compromise.",
+        "reason_en": "Remote command injection in Tenda router firmware allows attackers to execute arbitrary system commands, facilitating full device compromise.",
+        "reason_zh": "Tenda路由器固件中存在远程命令注入漏洞，使攻击者能够执行任意系统命令，从而促成设备完全沦陷。"
+      },
+      {
+        "id": "CVE-2026-133500",
+        "reason": "OS command injection in Gladys Assistant backup module exposes smart home hubs to remote exploitation, threatening home automation infrastructure.",
+        "reason_en": "OS command injection in Gladys Assistant backup module exposes smart home hubs to remote exploitation, threatening home automation infrastructure.",
+        "reason_zh": "Gladys Assistant备份模块中的OS命令注入漏洞使智能家居网关面临远程利用风险，威胁家庭自动化基础设施。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-133469",
+        "reason": "REST cookie parsing flaw bypasses authentication in Xen Orchestra, granting unauthorized administrative access to virtualization infrastructure. (CISA KEV)",
+        "reason_en": "REST cookie parsing flaw bypasses authentication in Xen Orchestra, granting unauthorized administrative access to virtualization infrastructure. (CISA KEV)",
+        "reason_zh": "Xen Orchestra中的REST Cookie解析缺陷可绕过身份验证，为虚拟化基础设施授予未授权的管理员访问权限。(CISA KEV)"
+      },
+      {
+        "id": "CVE-2025-10622",
+        "reason": "Insufficient validation of command whitelisting in Red Hat Satellite allows authenticated users to execute arbitrary OS commands on managed hosts.",
+        "reason_en": "Insufficient validation of command whitelisting in Red Hat Satellite allows authenticated users to execute arbitrary OS commands on managed hosts.",
+        "reason_zh": "Red Hat Satellite中命令白名单验证不足，允许已认证用户在受管主机上执行任意OS命令。"
+      },
+      {
+        "id": "CVE-2026-134070",
+        "reason": "Improper input validation in AWS Systems Manager runbooks may misconfigure regional session manager audit logs, weakening cloud compliance and visibility.",
+        "reason_en": "Improper input validation in AWS Systems Manager runbooks may misconfigure regional session manager audit logs, weakening cloud compliance and visibility.",
+        "reason_zh": "AWS Systems Manager运行手册中输入验证不当可能导致区域Session Manager审计日志配置错误，削弱云合规性与可见性。"
+      },
+      {
+        "id": "CVE-2024-3727",
+        "reason": "Manipulates authenticated registry access logic, enabling attackers to force victims into unexpected registry calls that cause path traversal and resource exhaustion.",
+        "reason_en": "Manipulates authenticated registry access logic, enabling attackers to force victims into unexpected registry calls that cause path traversal and resource exhaustion.",
+        "reason_zh": "篡改了已认证的注册表访问逻辑，使攻击者能够迫使受害者发起意外的注册表调用，从而导致路径遍历和资源耗尽。"
+      },
+      {
+        "id": "CVE-2026-80283",
+        "reason": "Missing authentication checks on critical virtual gateway functions allow local attackers to extract sensitive data and modify system configurations.",
+        "reason_en": "Missing authentication checks on critical virtual gateway functions allow local attackers to extract sensitive data and modify system configurations.",
+        "reason_zh": "关键虚拟网关功能缺少身份验证检查，允许本地攻击者提取敏感数据并修改系统配置。"
+      },
+      {
+        "id": "CVE-2026-73517",
+        "reason": "Command injection in KubeSphere's terminal file download endpoint allows attackers to execute arbitrary commands inside target containers by manipulating query parameters.",
+        "reason_en": "Command injection in KubeSphere's terminal file download endpoint allows attackers to execute arbitrary commands inside target containers by manipulating query parameters.",
+        "reason_zh": "KubeSphere 终端文件下载端点存在命令注入漏洞，攻击者可通过操纵查询参数在目标容器内执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-64845",
+        "reason": "Missing authorization in the CertificateSigningRequest controller enables privilege escalation by exploiting automatic approval mechanisms for malicious certificate requests.",
+        "reason_en": "Missing authorization in the CertificateSigningRequest controller enables privilege escalation by exploiting automatic approval mechanisms for malicious certificate requests.",
+        "reason_zh": "CertificateSigningRequest 控制器缺少授权检查，可利用恶意证书请求的自动批准机制实现权限提升。"
+      },
+      {
+        "id": "CVE-2026-4631",
+        "reason": "Cockpit passes unsanitized hostnames and usernames directly to the SSH client, allowing network-accessible attackers to inject malicious SSH options and compromise managed systems.",
+        "reason_en": "Cockpit passes unsanitized hostnames and usernames directly to the SSH client, allowing network-accessible attackers to inject malicious SSH options and compromise managed systems.",
+        "reason_zh": "Cockpit 将未过滤的主机名和用户名直接传递给 SSH 客户端，使网络可达的攻击者能够注入恶意 SSH 选项并控制受管系统。"
+      },
+      {
+        "id": "CVE-2025-12805",
+        "reason": "Missing NetworkPolicy in Red Hat OpenShift AI allows unauthorized cross-namespace access to Llama Stack services, exposing sensitive AI workloads to lateral movement.",
+        "reason_en": "Missing NetworkPolicy in Red Hat OpenShift AI allows unauthorized cross-namespace access to Llama Stack services, exposing sensitive AI workloads to lateral movement.",
+        "reason_zh": "Red Hat OpenShift AI 中缺少 NetworkPolicy，允许未经授权跨命名空间访问 Llama Stack 服务，使敏感 AI 工作负载面临横向移动风险。"
+      },
+      {
+        "id": "CVE-2025-14459",
+        "reason": "KubeVirt CDI flaw permits users to clone PersistentVolumeClaims from unauthorized namespaces, leading to unauthorized data exfiltration across cluster boundaries.",
+        "reason_en": "KubeVirt CDI flaw permits users to clone PersistentVolumeClaims from unauthorized namespaces, leading to unauthorized data exfiltration across cluster boundaries.",
+        "reason_zh": "KubeVirt CDI 缺陷允许用户从未经授权的命名空间克隆 PersistentVolumeClaims，导致跨集群边界的数据非法外泄。"
+      },
+      {
+        "id": "CVE-2026-109484",
+        "reason": "Unsanitized special elements in Azure App Service allow privilege escalation, breaking multi-tenant isolation and risking broader cloud environment compromise.",
+        "reason_en": "Unsanitized special elements in Azure App Service allow privilege escalation, breaking multi-tenant isolation and risking broader cloud environment compromise.",
+        "reason_zh": "Azure App Service 中未过滤的特殊元素可导致权限提升，破坏多租户隔离性，并危及更广泛的云环境安全。"
+      },
+      {
+        "id": "CVE-2026-62841",
+        "reason": "Authentication bypass in Azure Event Grid enables unauthorized message routing, disrupting event-driven architectures and data pipelines.",
+        "reason_en": "Authentication bypass in Azure Event Grid enables unauthorized message routing, disrupting event-driven architectures and data pipelines.",
+        "reason_zh": "Azure Event Grid 存在身份验证绕过漏洞，可导致未经授权的消息路由，破坏事件驱动架构和数据管道。"
+      },
+      {
+        "id": "CVE-2026-133553",
+        "reason": "Race condition in Red Hat crun container runtime facilitates host filesystem writes, enabling container escape and underlying infrastructure compromise.",
+        "reason_en": "Race condition in Red Hat crun container runtime facilitates host filesystem writes, enabling container escape and underlying infrastructure compromise.",
+        "reason_zh": "Red Hat crun 容器运行时存在竞态条件，可实现对主机文件系统的写入，从而达成容器逃逸并攻陷底层基础设施。"
+      },
+      {
+        "id": "CVE-2026-83535",
+        "reason": "Silent TLS bypass in OpenStack network exporter exposes sensitive virtual switch metrics, revealing critical cloud network topology to adjacent attackers.",
+        "reason_en": "Silent TLS bypass in OpenStack network exporter exposes sensitive virtual switch metrics, revealing critical cloud network topology to adjacent attackers.",
+        "reason_zh": "OpenStack network exporter 存在静默 TLS 绕过漏洞，会暴露敏感的虚拟交换机指标，向相邻攻击者泄露关键云网络拓扑。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2026-133973",
+        "reason": "Unauthenticated command injection in HPE Airwave's web management interface permits immediate remote code execution on network controllers.",
+        "reason_en": "Unauthenticated command injection in HPE Airwave's web management interface permits immediate remote code execution on network controllers.",
+        "reason_zh": "HPE Airwave Web 管理界面存在未认证命令注入漏洞，可直接在网络控制器上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-133323",
+        "reason": "Blind command injection in Mitel MiCollab's conferencing component allows unauthenticated remote code execution across enterprise communication systems. (CISA KEV)",
+        "reason_en": "Blind command injection in Mitel MiCollab's conferencing component allows unauthenticated remote code execution across enterprise communication systems. (CISA KEV)",
+        "reason_zh": "Mitel MiCollab 会议组件存在盲命令注入漏洞，可在企业通信系统中实现未经认证的远程代码执行。（CISA KEV）"
+      },
+      {
+        "id": "CVE-2026-120941",
+        "reason": "Low-privileged users can bypass shared-folder access controls in Asustor NAS devices by exploiting root-privilege CGI processing workflows.",
+        "reason_en": "Low-privileged users can bypass shared-folder access controls in Asustor NAS devices by exploiting root-privilege CGI processing workflows.",
+        "reason_zh": "低权限用户可通过利用 Asustor NAS 设备中的 root 权限 CGI 处理流程，绕过共享文件夹访问控制。"
+      },
+      {
+        "id": "CVE-2026-103406",
+        "reason": "Actively exploited in the wild; allows remote attackers to execute arbitrary commands as root via crafted salt minion IDs in Juniper's Session Smart Conductor.",
+        "reason_en": "Actively exploited in the wild; allows remote attackers to execute arbitrary commands as root via crafted salt minion IDs in Juniper's Session Smart Conductor.",
+        "reason_zh": "已在实际环境中被主动利用；允许远程攻击者通过 Juniper Session Smart Conductor 中构造的 salt minion ID 以 root 权限执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-80926",
+        "reason": "Resolves a use-after-free in the SMB oplock break notification handler, preventing remote code execution when durable handles disconnect unexpectedly.",
+        "reason_en": "Resolves a use-after-free in the SMB oplock break notification handler, preventing remote code execution when durable handles disconnect unexpectedly.",
+        "reason_zh": "修复了 SMB oplock 中断通知处理程序中的释放后使用（use-after-free）漏洞，防止在持久句柄意外断开时发生远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-103788",
+        "reason": "Unauthenticated adjacent network attackers can execute arbitrary OS commands on Dell Enterprise Sonic Distribution, fully compromising network appliance confidentiality and integrity.",
+        "reason_en": "Unauthenticated adjacent network attackers can execute arbitrary OS commands on Dell Enterprise Sonic Distribution, fully compromising network appliance confidentiality and integrity.",
+        "reason_zh": "未认证的相邻网络攻击者可在 Dell Enterprise Sonic Distribution 上执行任意操作系统命令，完全破坏网络设备的机密性与完整性。"
+      },
+      {
+        "id": "CVE-2026-136404",
+        "reason": "Stack-based buffer overflow in ntop n2n supernode allows remote unauthenticated attackers to leak memory and achieve remote code execution via crafted registration datagrams.",
+        "reason_en": "Stack-based buffer overflow in ntop n2n supernode allows remote unauthenticated attackers to leak memory and achieve remote code execution via crafted registration datagrams.",
+        "reason_zh": "ntop n2n supernode 存在基于栈的缓冲区溢出漏洞，远程未认证攻击者可通过构造的注册数据报泄露内存并实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-126256",
+        "reason": "Out-of-bounds read in Fortinet FortiOS may allow unauthenticated attackers to execute arbitrary code or commands by sending specially crafted network packets.",
+        "reason_en": "Out-of-bounds read in Fortinet FortiOS may allow unauthenticated attackers to execute arbitrary code or commands by sending specially crafted network packets.",
+        "reason_zh": "Fortinet FortiOS 存在越界读取漏洞，攻击者可通过发送特制的网络包以未认证方式执行任意代码或命令。"
+      },
+      {
+        "id": "CVE-2026-0980",
+        "reason": "Crafted usernames in rubyipmi can trigger command injection in Red Hat Satellite's BMC component, granting authenticated attackers remote code execution on managed hardware.",
+        "reason_en": "Crafted usernames in rubyipmi can trigger command injection in Red Hat Satellite's BMC component, granting authenticated attackers remote code execution on managed hardware.",
+        "reason_zh": "rubyipmi 中构造的用户名可触发 Red Hat Satellite BMC 组件的命令注入，使已认证攻击者能够在受管硬件上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-134639",
+        "reason": "Webmin ships with insecure default configurations provisioning an admin account with unchanged credentials and disabled SSL, enabling trivial remote unauthorized access.",
+        "reason_en": "Webmin ships with insecure default configurations provisioning an admin account with unchanged credentials and disabled SSL, enabling trivial remote unauthorized access.",
+        "reason_zh": "Webmin 默认配置不安全，预置了凭据未更改且禁用 SSL 的管理员账户，导致极易遭受远程未授权访问。"
+      },
+      {
+        "id": "CVE-2026-111546",
+        "reason": "OS command injection in Dell PowerStore storage arrays allows privilege escalation to root, jeopardizing enterprise data protection and management planes.",
+        "reason_en": "OS command injection in Dell PowerStore storage arrays allows privilege escalation to root, jeopardizing enterprise data protection and management planes.",
+        "reason_zh": "Dell PowerStore 存储阵列存在操作系统命令注入漏洞，可导致权限提升至 root，危及企业数据保护与管理平面。"
+      },
+      {
+        "id": "CVE-2026-62321",
+        "reason": "Stack buffer overflow in Netatalk Spotlight RPC handler enables remote code execution, impacting Unix-to-Mac file sharing infrastructure.",
+        "reason_en": "Stack buffer overflow in Netatalk Spotlight RPC handler enables remote code execution, impacting Unix-to-Mac file sharing infrastructure.",
+        "reason_zh": "Netatalk Spotlight RPC 处理器存在栈缓冲区溢出漏洞，可实现远程代码执行，影响 Unix 到 Mac 的文件共享基础设施。"
+      },
+      {
+        "id": "CVE-2026-134642",
+        "reason": "Missing authentication in Webmin fastrpc.cgi allows unauthenticated network peers to perform file transfers, exposing server management interfaces.",
+        "reason_en": "Missing authentication in Webmin fastrpc.cgi allows unauthenticated network peers to perform file transfers, exposing server management interfaces.",
+        "reason_zh": "Webmin fastrpc.cgi 缺少身份验证检查，允许未认证的网络对等体执行文件传输，从而暴露服务器管理接口。"
+      },
+      {
+        "id": "CVE-2026-136626",
+        "reason": "Heap-based buffer overflow in OSSRS WebRTC streaming server permits remote code execution, threatening live broadcast and real-time communication services.",
+        "reason_en": "Heap-based buffer overflow in OSSRS WebRTC streaming server permits remote code execution, threatening live broadcast and real-time communication services.",
+        "reason_zh": "OSSRS WebRTC 流媒体服务器存在基于堆的缓冲区溢出漏洞，可导致远程代码执行，威胁直播与实时通信服务。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2023-25915",
+        "reason": "Improper input validation in Danfoss controllers allows authenticated attackers to execute arbitrary commands, disrupting industrial operations. (CISA KEV)",
+        "reason_en": "Improper input validation in Danfoss controllers allows authenticated attackers to execute arbitrary commands, disrupting industrial operations. (CISA KEV)",
+        "reason_zh": "Danfoss 控制器存在输入验证不当漏洞，允许已认证攻击者执行任意命令，破坏工业运行。（CISA KEV）"
+      },
+      {
+        "id": "CVE-2023-25914",
+        "reason": "Authenticated file read via XML interface in Danfoss systems exposes sensitive configuration data, leading to full system compromise. (CISA KEV)",
+        "reason_en": "Authenticated file read via XML interface in Danfoss systems exposes sensitive configuration data, leading to full system compromise. (CISA KEV)",
+        "reason_zh": "Danfoss 系统通过 XML 接口存在已认证文件读取漏洞，会暴露敏感配置数据，导致系统完全沦陷。（CISA KEV）"
+      },
+      {
+        "id": "CVE-2025-41450",
+        "reason": "Improper authentication in Danfoss AKSM series controllers permits unauthorized access to critical industrial monitoring and control functions. (CISA KEV)",
+        "reason_en": "Improper authentication in Danfoss AKSM series controllers permits unauthorized access to critical industrial monitoring and control functions. (CISA KEV)",
+        "reason_zh": "Danfoss AKSM 系列控制器存在身份验证不当漏洞，允许未经授权访问关键的工业监控与控制功能。（CISA KEV）"
+      },
+      {
+        "id": "CVE-2026-127280",
+        "reason": "Opening crafted HMI project files triggers a heap buffer overrun, which can corrupt application memory and potentially lead to unstable behavior or code execution.",
+        "reason_en": "Opening crafted HMI project files triggers a heap buffer overrun, which can corrupt application memory and potentially lead to unstable behavior or code execution.",
+        "reason_zh": "打开构造的 HMI 项目文件会触发堆缓冲区溢出，可能损坏应用程序内存，进而导致运行不稳定或代码执行。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-66052",
+        "reason": "Expression language injection in Comviva's user administration module enables server-side Java code execution via crafted POST requests.",
+        "reason_en": "Expression language injection in Comviva's user administration module enables server-side Java code execution via crafted POST requests.",
+        "reason_zh": "Comviva 用户管理模块存在表达式语言注入漏洞，攻击者可通过构造的 POST 请求在服务端执行 Java 代码。"
+      },
+      {
+        "id": "CVE-2026-135400",
+        "reason": "Flawed per-request JWT validation in Ever Gauzy accepts unauthorized tokens, effectively bypassing application authentication mechanisms.",
+        "reason_en": "Flawed per-request JWT validation in Ever Gauzy accepts unauthorized tokens, effectively bypassing application authentication mechanisms.",
+        "reason_zh": "Ever Gauzy 存在有缺陷的逐请求 JWT 验证机制，会接受未授权令牌，从而有效绕过应用身份验证机制。"
+      },
+      {
+        "id": "CVE-2026-132726",
+        "reason": "Deserialization of untrusted data in MediaWiki's Echo extension allows remote attackers to execute arbitrary code via malicious notification payloads.",
+        "reason_en": "Deserialization of untrusted data in MediaWiki's Echo extension allows remote attackers to execute arbitrary code via malicious notification payloads.",
+        "reason_zh": "MediaWiki的Echo扩展中存在不信任数据反序列化漏洞，攻击者可通过恶意通知载荷远程执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-132697",
+        "reason": "Missing authorization checks in MediaWiki's EmailAuth extension bypass secondary authentication requirements, compromising account security.",
+        "reason_en": "Missing authorization checks in MediaWiki's EmailAuth extension bypass secondary authentication requirements, compromising account security.",
+        "reason_zh": "MediaWiki的EmailAuth扩展中缺少授权检查，可绕过二次认证要求，导致账户安全风险。"
+      },
+      {
+        "id": "CVE-2026-123723",
+        "reason": "Enables low-privileged attackers to inject and execute arbitrary code within the Adobe Campaign Classic web application context, compromising entire marketing workflows.",
+        "reason_en": "Enables low-privileged attackers to inject and execute arbitrary code within the Adobe Campaign Classic web application context, compromising entire marketing workflows.",
+        "reason_zh": "允许低权限攻击者在Adobe Campaign Classic Web应用上下文中注入并执行任意代码，从而破坏整个营销工作流。"
+      },
+      {
+        "id": "CVE-2026-133335",
+        "reason": "Unauthenticated attackers can exploit an unfiltered controller fallback to perform local file inclusion, directly resulting in remote code execution on vulnerable Joomla stores.",
+        "reason_en": "Unauthenticated attackers can exploit an unfiltered controller fallback to perform local file inclusion, directly resulting in remote code execution on vulnerable Joomla stores.",
+        "reason_zh": "未授权攻击者可利用未过滤的控制器回退机制进行本地文件包含，直接在易受攻击的Joomla商店上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-82489",
+        "reason": "Unauthenticated remote code execution in openIMIS occurs via unsafe server-side evaluation of printIf expressions, allowing attackers to fully compromise the application.",
+        "reason_en": "Unauthenticated remote code execution in openIMIS occurs via unsafe server-side evaluation of printIf expressions, allowing attackers to fully compromise the application.",
+        "reason_zh": "openIMIS中存在未授权远程代码执行漏洞，攻击者可通过不安全地服务端评估printIf表达式完全控制该应用。"
+      },
+      {
+        "id": "CVE-2026-125812",
+        "reason": "Critical path traversal in WP Rocket allows attackers to read, modify, or delete restricted files on the hosting server, bypassing directory restrictions entirely.",
+        "reason_en": "Critical path traversal in WP Rocket allows attackers to read, modify, or delete restricted files on the hosting server, bypassing directory restrictions entirely.",
+        "reason_zh": "WP Rocket中存在严重路径遍历漏洞，攻击者可完全绕过目录限制，读取、修改或删除托管服务器上的受限文件。"
+      },
+      {
+        "id": "CVE-2026-114346",
+        "reason": "Missing authorization on the PrestaShop phsuperpack controller enables unauthenticated attackers to manipulate, create, or delete products and associated module data.",
+        "reason_en": "Missing authorization on the PrestaShop phsuperpack controller enables unauthenticated attackers to manipulate, create, or delete products and associated module data.",
+        "reason_zh": "PrestaShop的phsuperpack控制器缺少授权验证，使未授权攻击者可操纵、创建或删除商品及相关模块数据。"
+      },
+      {
+        "id": "CVE-2026-78114",
+        "reason": "Session fixation in Apache JSPWiki allows attackers to maintain a known session identifier across authentication, facilitating straightforward account takeover attacks.",
+        "reason_en": "Session fixation in Apache JSPWiki allows attackers to maintain a known session identifier across authentication, facilitating straightforward account takeover attacks.",
+        "reason_zh": "Apache JSPWiki存在会话固定漏洞，攻击者可在认证过程中保持已知的会话标识符，从而轻松实施账户接管攻击。"
+      },
+      {
+        "id": "CVE-2026-136522",
+        "reason": "Unauthenticated stored cross-site scripting in CubeWP Forms bypasses nonce validation, allowing attackers to inject malicious JavaScript via public REST endpoints.",
+        "reason_en": "Unauthenticated stored cross-site scripting in CubeWP Forms bypasses nonce validation, allowing attackers to inject malicious JavaScript via public REST endpoints.",
+        "reason_zh": "CubeWP Forms中存在未授权的存储型跨站脚本漏洞，攻击者可绕过nonce验证，通过公开REST端点注入恶意JavaScript。"
+      },
+      {
+        "id": "CVE-2026-133757",
+        "reason": "Flawed redirect handling in Symfony's NoPrivateNetworkHttpClient fails to strip sensitive headers on cross-origin hops, potentially leaking authentication tokens to external sites.",
+        "reason_en": "Flawed redirect handling in Symfony's NoPrivateNetworkHttpClient fails to strip sensitive headers on cross-origin hops, potentially leaking authentication tokens to external sites.",
+        "reason_zh": "Symfony的NoPrivateNetworkHttpClient中重定向处理存在缺陷，在跨域跳转时未能剥离敏感头信息，可能导致认证令牌泄露至外部站点。"
+      },
+      {
+        "id": "CVE-2026-131914",
+        "reason": "Actively exploited deserialization flaw in Idunno.AntiCsrf ASP.NET library allows remote code execution, posing immediate threat to web application security.",
+        "reason_en": "Actively exploited deserialization flaw in Idunno.AntiCsrf ASP.NET library allows remote code execution, posing immediate threat to web application security.",
+        "reason_zh": "Idunno.AntiCsrf ASP.NET库中存在被主动利用的反序列化漏洞，可导致远程代码执行，对Web应用安全构成直接威胁。"
+      },
+      {
+        "id": "CVE-2026-132224",
+        "reason": "Exploited signup flow flaw in Optimizely allows injection of attacker-controlled JavaScript into CDN assets, compromising user sessions and site integrity.",
+        "reason_en": "Exploited signup flow flaw in Optimizely allows injection of attacker-controlled JavaScript into CDN assets, compromising user sessions and site integrity.",
+        "reason_zh": "Optimizely中已被利用的注册流程缺陷允许将攻击者控制的JavaScript注入CDN资源，危及用户会话和网站完整性。"
+      },
+      {
+        "id": "CVE-2026-70193",
+        "reason": "Critical path traversal in Microsoft SharePoint enables remote code execution, severely impacting enterprise document management and collaboration platforms.",
+        "reason_en": "Critical path traversal in Microsoft SharePoint enables remote code execution, severely impacting enterprise document management and collaboration platforms.",
+        "reason_zh": "Microsoft SharePoint中存在严重路径遍历漏洞，可导致远程代码执行，严重影响企业文档管理与协作平台。"
+      },
+      {
+        "id": "CVE-2026-94597",
+        "reason": "Malicious file upload bypass in NukeViet CMS allows attackers to inject PHP code via image files, compromising lightweight web deployments.",
+        "reason_en": "Malicious file upload bypass in NukeViet CMS allows attackers to inject PHP code via image files, compromising lightweight web deployments.",
+        "reason_zh": "NukeViet CMS中存在恶意文件上传绕过漏洞，攻击者可通过图片文件注入PHP代码，危及轻量级Web部署环境。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2026-136502",
+        "reason": "Query rewriting flaws in PostgreSQL's psqlODBC driver can cause text intended as data to execute as SQL, enabling potential code execution.",
+        "reason_en": "Query rewriting flaws in PostgreSQL's psqlODBC driver can cause text intended as data to execute as SQL, enabling potential code execution.",
+        "reason_zh": "PostgreSQL的psqlODBC驱动中存在查询重写缺陷，可能导致本应作为数据的文本被当作SQL执行，从而引发潜在代码执行风险。"
+      },
+      {
+        "id": "CVE-2026-134337",
+        "reason": "Authorization bypass in ArcadeDB allows authenticated clients to perform writes through read-only paths via AST inspection failures.",
+        "reason_en": "Authorization bypass in ArcadeDB allows authenticated clients to perform writes through read-only paths via AST inspection failures.",
+        "reason_zh": "ArcadeDB中存在授权绕过漏洞，客户端可通过AST检查失败，经由只读路径执行写操作。"
+      },
+      {
+        "id": "CVE-2026-135141",
+        "reason": "Logic flaws in Mongoid's query builder silently discard default restrictions, exposing unintended database records to basic application users.",
+        "reason_en": "Logic flaws in Mongoid's query builder silently discard default restrictions, exposing unintended database records to basic application users.",
+        "reason_zh": "Mongoid的查询构建器中存在逻辑缺陷，会静默丢弃默认限制条件，导致基础应用用户意外暴露数据库记录。"
+      },
+      {
+        "id": "CVE-2026-135224",
+        "reason": "Fails to validate the authorization of certificate revocation status responders, allowing attackers to bypass TLS security by presenting withdrawn certificates.",
+        "reason_en": "Fails to validate the authorization of certificate revocation status responders, allowing attackers to bypass TLS security by presenting withdrawn certificates.",
+        "reason_zh": "未能验证证书吊销状态响应者的授权，攻击者可通过出示已撤销的证书来绕过TLS安全机制。"
+      },
+      {
+        "id": "CVE-2026-134068",
+        "reason": "A stack-based buffer overflow in PostgreSQL replication parsing allows authenticated users to execute operating system commands with database privileges.",
+        "reason_en": "A stack-based buffer overflow in PostgreSQL replication parsing allows authenticated users to execute operating system commands with database privileges.",
+        "reason_zh": "PostgreSQL复制解析中存在基于栈的缓冲区溢出漏洞，经身份验证的用户可利用数据库权限执行操作系统命令。"
+      },
+      {
+        "id": "CVE-2026-59415",
+        "reason": "Document ID injection in TypesenseVectorStore's delete operation causes unintended mass deletion of documents by raw string concatenation instead of safe filtering.",
+        "reason_en": "Document ID injection in TypesenseVectorStore's delete operation causes unintended mass deletion of documents by raw string concatenation instead of safe filtering.",
+        "reason_zh": "TypesenseVectorStore的删除操作中存在文档ID注入漏洞，由于使用原始字符串拼接而非安全过滤，会导致意外的批量文档删除。"
+      },
+      {
+        "id": "CVE-2026-88031",
+        "reason": "The MongoDB Go Driver misinterprets structured file identifiers as query conditions in GridFS, allowing authenticated users to manipulate database queries and extract data.",
+        "reason_en": "The MongoDB Go Driver misinterprets structured file identifiers as query conditions in GridFS, allowing authenticated users to manipulate database queries and extract data.",
+        "reason_zh": "MongoDB Go Driver在GridFS中将结构化文件标识符误解释为查询条件，允许经身份验证的用户操纵数据库查询并提取数据。"
+      },
+      {
+        "id": "CVE-2026-4636",
+        "reason": "Keycloak's UMA policy validation bypass allows attackers to include resource identifiers owned by other users, undermining user-managed access controls.",
+        "reason_en": "Keycloak's UMA policy validation bypass allows attackers to include resource identifiers owned by other users, undermining user-managed access controls.",
+        "reason_zh": "Keycloak的UMA策略验证绕过漏洞允许攻击者包含其他用户拥有的资源标识符，破坏了用户管理的访问控制机制。"
+      },
+      {
+        "id": "CVE-2026-136433",
+        "reason": "Deserialization of untrusted data in PyTorch torch_save_to_dcp allows remote code execution when loading malicious model artifacts, threatening AI/ML infrastructure.",
+        "reason_en": "Deserialization of untrusted data in PyTorch torch_save_to_dcp allows remote code execution when loading malicious model artifacts, threatening AI/ML infrastructure.",
+        "reason_zh": "PyTorch的torch_save_to_dcp中存在不信任数据反序列化漏洞，加载恶意模型工件时可导致远程代码执行，威胁AI/ML基础设施。"
+      },
+      {
+        "id": "CVE-2026-82321",
+        "reason": "Type confusion in SolarWinds Serv-U FTP server enables domain administrators to escalate privileges to system level, securing critical file transfer operations.",
+        "reason_en": "Type confusion in SolarWinds Serv-U FTP server enables domain administrators to escalate privileges to system level, securing critical file transfer operations.",
+        "reason_zh": "SolarWinds Serv-U FTP服务器中存在类型混淆漏洞，允许域管理员将权限提升至系统级，危及关键文件传输操作的安全。"
+      },
+      {
+        "id": "CVE-2026-134167",
+        "reason": "Unauthenticated path traversal in devpi-web exposes sensitive repository files, compromising Python package dependency management workflows.",
+        "reason_en": "Unauthenticated path traversal in devpi-web exposes sensitive repository files, compromising Python package dependency management workflows.",
+        "reason_zh": "devpi-web中存在未授权路径遍历漏洞，会暴露敏感的仓库文件，破坏Python包依赖管理工作流。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-137060",
+        "reason": "Insecure deserialization via unrestricted pickle.load in paramz allows remote code execution through crafted Python model files.",
+        "reason_en": "Insecure deserialization via unrestricted pickle.load in paramz allows remote code execution through crafted Python model files.",
+        "reason_zh": "paramz中不受限制的pickle.load调用导致不安全的反序列化，可通过构造的Python模型文件实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-137090",
+        "reason": "OS command injection in build-git-clone permits arbitrary command execution via crafted repository URLs containing shell metacharacters.",
+        "reason_en": "OS command injection in build-git-clone permits arbitrary command execution via crafted repository URLs containing shell metacharacters.",
+        "reason_zh": "build-git-clone中存在操作系统命令注入漏洞，攻击者可通过包含Shell元字符的构造仓库URL执行任意命令。"
+      },
+      {
+        "id": "CVE-2026-136439",
+        "reason": "Deserialization of untrusted data in DeepSpeed enables remote code execution when users interact with maliciously crafted model states.",
+        "reason_en": "Deserialization of untrusted data in DeepSpeed enables remote code execution when users interact with maliciously crafted model states.",
+        "reason_zh": "DeepSpeed中存在不信任数据反序列化漏洞，当用户与恶意构造的模型状态交互时可导致远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-133453",
+        "reason": "Allows malicious actors to hijack AI agent marketplace listings by injecting versions under another user's workflow ID, disrupting automated deployment pipelines.",
+        "reason_en": "Allows malicious actors to hijack AI agent marketplace listings by injecting versions under another user's workflow ID, disrupting automated deployment pipelines.",
+        "reason_zh": "允许恶意攻击者通过在另一用户的工作流ID下注入版本来劫持AI代理市场列表，破坏自动化部署流水线。"
+      },
+      {
+        "id": "CVE-2026-136881",
+        "reason": "Inserts unvalidated ORT Server versions into shell scripts during GitHub Actions setup, enabling command injection attacks within CI/CD environments.",
+        "reason_en": "Inserts unvalidated ORT Server versions into shell scripts during GitHub Actions setup, enabling command injection attacks within CI/CD environments.",
+        "reason_zh": "在GitHub Actions配置期间将未经验证的ORT Server版本插入Shell脚本，从而在CI/CD环境中启用命令注入攻击。"
+      },
+      {
+        "id": "CVE-2026-133462",
+        "reason": "AutoGPT's MCPToolBlock auto-lookup allows shared agent authors to misuse the runtime user's MCP credentials, compromising isolated AI agent workflows.",
+        "reason_en": "AutoGPT's MCPToolBlock auto-lookup allows shared agent authors to misuse the runtime user's MCP credentials, compromising isolated AI agent workflows.",
+        "reason_zh": "AutoGPT 的 MCPToolBlock 自动查找功能允许共享代理作者滥用运行时用户的 MCP 凭据，破坏隔离的 AI 代理工作流。"
+      },
+      {
+        "id": "CVE-2026-123177",
+        "reason": "Unauthenticated D-Bus methods in dnf5daemon-server pass caller-controlled patterns to root-privileged loaders, enabling local attackers to force unauthorized package operations.",
+        "reason_en": "Unauthenticated D-Bus methods in dnf5daemon-server pass caller-controlled patterns to root-privileged loaders, enabling local attackers to force unauthorized package operations.",
+        "reason_zh": "dnf5daemon-server 中未经验证的 D-Bus 方法将调用者可控的模式传递给具有 root 权限的加载器，使本地攻击者能够强制执行未授权的软件包操作。"
+      },
+      {
+        "id": "CVE-2026-136632",
+        "reason": "Externally controlled method selection in OpenProject allows project viewers to manipulate backend controllers, potentially altering application state beyond intended permissions.",
+        "reason_en": "Externally controlled method selection in OpenProject allows project viewers to manipulate backend controllers, potentially altering application state beyond intended permissions.",
+        "reason_zh": "OpenProject 中外部控制的方法选择允许项目查看者操纵后端控制器，可能超出预期权限范围更改应用程序状态。"
+      },
+      {
+        "id": "CVE-2026-129975",
+        "reason": "Early return following memory reallocation in gpgme leaves internal pointers referencing freed memory, triggering double-free conditions exploitable for process memory corruption.",
+        "reason_en": "Early return following memory reallocation in gpgme leaves internal pointers referencing freed memory, triggering double-free conditions exploitable for process memory corruption.",
+        "reason_zh": "gpgme 在内存重新分配后过早返回，导致内部指针引用已释放的内存，触发可被利用以造成进程内存损坏的双重释放条件。"
+      },
+      {
+        "id": "CVE-2026-118898",
+        "reason": "Unsafe deserialization in lasp-lang partisan framework causes Erlang VM crashes via excessive allocation, disrupting distributed peer-to-peer communications.",
+        "reason_en": "Unsafe deserialization in lasp-lang partisan framework causes Erlang VM crashes via excessive allocation, disrupting distributed peer-to-peer communications.",
+        "reason_zh": "lasp-lang partisan 框架中的不安全反序列化会导致因过度分配而引发 Erlang VM 崩溃，从而中断分布式点对点通信。"
+      },
+      {
+        "id": "CVE-2026-84837",
+        "reason": "Command injection in Red Hat RPM tarball processing compromises CI/CD pipelines, risking supply chain integrity during automated package building.",
+        "reason_en": "Command injection in Red Hat RPM tarball processing compromises CI/CD pipelines, risking supply chain integrity during automated package building.",
+        "reason_zh": "Red Hat RPM tarball 处理过程中的命令注入漏洞会破坏 CI/CD 流水线，在自动化软件包构建期间危及供应链完整性。"
+      },
+      {
+        "id": "CVE-2026-102010",
+        "reason": "Use-after-free vulnerability in GCC libstdc++ priority queue implementation can trigger crashes or code execution in compiled applications, affecting build ecosystems.",
+        "reason_en": "Use-after-free vulnerability in GCC libstdc++ priority queue implementation can trigger crashes or code execution in compiled applications, affecting build ecosystems.",
+        "reason_zh": "GCC libstdc++ 优先队列实现中的释放后使用漏洞可在编译后的应用程序中触发崩溃或代码执行，影响构建生态系统。"
+      },
+      {
+        "id": "CVE-2026-136629",
+        "reason": "Argument injection in Nektos act runner allows malicious repositories to bypass security flag allowlists, enabling unauthorized CI/CD pipeline modifications.",
+        "reason_en": "Argument injection in Nektos act runner allows malicious repositories to bypass security flag allowlists, enabling unauthorized CI/CD pipeline modifications.",
+        "reason_zh": "Nektos act runner 中的参数注入漏洞允许恶意仓库绕过安全标志白名单，从而实现未经授权的 CI/CD 流水线修改。"
+      }
+    ]
+  },
+  "summary": "Today's vulnerability landscape is dominated by widespread remote code execution and command injection flaws across web applications, cloud infrastructure, and network equipment, with significant impacts on IoT routers, enterprise networking gear, and major cloud platforms. Authentication and authorization bypasses remain prevalent, affecting critical systems like Kubernetes clusters, virtualization managers, and database middleware, while deserialization and buffer overflow vulnerabilities continue to enable memory corruption and privilege escalation across desktop and industrial control environments. Notable targets include consumer routers from D-Link and Tenda, enterprise solutions from Red Hat and Juniper, and widely used web frameworks, underscoring a broad attack surface spanning automated deployment pipelines, AI model workflows, and traditional IT infrastructure.",
+  "summary_en": "Today's vulnerability landscape is dominated by widespread remote code execution and command injection flaws across web applications, cloud infrastructure, and network equipment, with significant impacts on IoT routers, enterprise networking gear, and major cloud platforms. Authentication and authorization bypasses remain prevalent, affecting critical systems like Kubernetes clusters, virtualization managers, and database middleware, while deserialization and buffer overflow vulnerabilities continue to enable memory corruption and privilege escalation across desktop and industrial control environments. Notable targets include consumer routers from D-Link and Tenda, enterprise solutions from Red Hat and Juniper, and widely used web frameworks, underscoring a broad attack surface spanning automated deployment pipelines, AI model workflows, and traditional IT infrastructure.",
+  "summary_zh": "当前的漏洞态势以跨 Web 应用、云基础设施和网络设备的广泛远程代码执行与命令注入缺陷为主导，对物联网路由器、企业网络设备以及主流云平台造成重大影响。身份验证与授权绕过问题依然普遍，波及 Kubernetes 集群、虚拟化管理器及数据库中间件等关键系统；同时，反序列化与缓冲区溢出漏洞持续导致桌面及工业控制系统环境中的内存损坏与提权风险。主要目标包括 D-Link 和 Tenda 的消费级路由器、Red Hat 和 Juniper 的企业级解决方案以及广泛使用的 Web 框架，凸显了覆盖自动化部署流水线、AI 模型工作流与传统 IT 基础设施的广阔攻击面。"
+}
