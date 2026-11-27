@@ -1,0 +1,622 @@
+{
+  "analysis_date": "2026-11-27",
+  "total_analyzed": 501,
+  "model": "qwen3.7-flash",
+  "categories": {
+    "Desktop OS": [
+      {
+        "id": "CVE-2026-137457",
+        "reason": "FreeRDP's missing authentication in shadow server fast-path input handlers allows unauthenticated attackers to inject keystrokes and mouse events before session activation, severely compromising remote desktop security.",
+        "reason_en": "FreeRDP's missing authentication in shadow server fast-path input handlers allows unauthenticated attackers to inject keystrokes and mouse events before session activation, severely compromising remote desktop security.",
+        "reason_zh": "FreeRDP 的阴影服务器快速路径输入处理程序缺少身份验证，允许未经身份验证的攻击者在会话激活前注入键盘和鼠标事件，严重损害远程桌面安全。"
+      },
+      {
+        "id": "CVE-2025-62229",
+        "reason": "Improper error handling in the X.Org Xserver X11 Present extension leaves dangling pointers that trigger use-after-free conditions during notification creation, potentially enabling local privilege escalation or system crashes.",
+        "reason_en": "Improper error handling in the X.Org Xserver X11 Present extension leaves dangling pointers that trigger use-after-free conditions during notification creation, potentially enabling local privilege escalation or system crashes.",
+        "reason_zh": "X.Org Xserver X11 Present 扩展中的错误处理不当会留下悬空指针，在创建通知时触发释放后使用漏洞，可能导致本地权限提升或系统崩溃。"
+      },
+      {
+        "id": "CVE-2026-132150",
+        "reason": "GIMP's XMC plugin processes unvalidated comment subtypes as array indices, triggering out-of-bounds reads and use-after-free vulnerabilities that can crash the application or leak memory.",
+        "reason_en": "GIMP's XMC plugin processes unvalidated comment subtypes as array indices, triggering out-of-bounds reads and use-after-free vulnerabilities that can crash the application or leak memory.",
+        "reason_zh": "GIMP 的 XMC 插件将未经验证的注释子类型作为数组索引进行处理，触发越界读取和释放后使用漏洞，可能导致应用程序崩溃或内存泄露。"
+      },
+      {
+        "id": "CVE-2026-34001",
+        "reason": "A use-after-free flaw in the X.Org X server's fence triggering logic allows local attackers to destabilize the display environment or escalate privileges without user interaction.",
+        "reason_en": "A use-after-free flaw in the X.Org X server's fence triggering logic allows local attackers to destabilize the display environment or escalate privileges without user interaction.",
+        "reason_zh": "X.Org X 服务器的栅栏触发逻辑中存在释放后使用漏洞，允许本地攻击者在无需用户交互的情况下导致显示环境不稳定或提升权限。"
+      },
+      {
+        "id": "CVE-2026-80",
+        "reason": "The privileged gvfsd-admin daemon uses link-following chown() on user-controlled directories, enabling local privilege escalation through time-of-check-to-time-of-use race conditions.",
+        "reason_en": "The privileged gvfsd-admin daemon uses link-following chown() on user-controlled directories, enabling local privilege escalation through time-of-check-to-time-of-use race conditions.",
+        "reason_zh": "具有特权的 gvfsd-admin 守护进程对用户控制的目录使用跟随链接的 chown() 操作，通过检查与使用时竞争条件实现本地权限提升。"
+      },
+      {
+        "id": "CVE-2026-50264",
+        "reason": "Out-of-bounds heap write in the X.Org X server allows local attackers to crash the display server or potentially escalate privileges by manipulating DRI2 buffer attachments.",
+        "reason_en": "Out-of-bounds heap write in the X.Org X server allows local attackers to crash the display server or potentially escalate privileges by manipulating DRI2 buffer attachments.",
+        "reason_zh": "X.Org X 服务器中存在堆越界写入漏洞，本地攻击者可通过操纵 DRI2 缓冲区附件使显示服务器崩溃或潜在地提升权限。"
+      },
+      {
+        "id": "CVE-2026-12856",
+        "reason": "The vscode-java extension blindly trusts Markdown content in JavaDoc hovers, enabling attackers to execute hidden commands when developers interact with maliciously crafted source files.",
+        "reason_en": "The vscode-java extension blindly trusts Markdown content in JavaDoc hovers, enabling attackers to execute hidden commands when developers interact with maliciously crafted source files.",
+        "reason_zh": "vscode-java 扩展盲目信任 JavaDoc 悬停提示中的 Markdown 内容，当开发者与恶意构造的源文件交互时，攻击者可执行隐藏命令。"
+      },
+      {
+        "id": "CVE-2025-49180",
+        "reason": "Integer overflow in the X.org RandR extension's property change function allows client applications to bypass size checks, leading to memory corruption and potential graphical subsystem exploitation.",
+        "reason_en": "Integer overflow in the X.org RandR extension's property change function allows client applications to bypass size checks, leading to memory corruption and potential graphical subsystem exploitation.",
+        "reason_zh": "X.org RandR 扩展的属性更改函数中存在整数溢出漏洞，允许客户端应用程序绕过大小检查，导致内存损坏及潜在的图形子系统利用。"
+      },
+      {
+        "id": "CVE-2023-5633",
+        "reason": "Local unprivileged users can exploit a use-after-free in VMware guest 3D acceleration to crash the system or escalate privileges in desktop virtualization environments.",
+        "reason_en": "Local unprivileged users can exploit a use-after-free in VMware guest 3D acceleration to crash the system or escalate privileges in desktop virtualization environments.",
+        "reason_zh": "本地非特权用户可利用 VMware 客户机 3D 加速中的释放后使用漏洞，在桌面虚拟化环境中导致系统崩溃或提升权限。"
+      },
+      {
+        "id": "CVE-2026-136760",
+        "reason": "Panorama Suite HMI desktop interfaces allow LDAP injection bypasses, compromising authentication and granting unauthorized access to business logic areas.",
+        "reason_en": "Panorama Suite HMI desktop interfaces allow LDAP injection bypasses, compromising authentication and granting unauthorized access to business logic areas.",
+        "reason_zh": "Panorama Suite HMI 桌面接口存在 LDAP 注入漏洞，可绕过身份验证机制，破坏认证安全性并授予对业务逻辑区域的未授权访问。"
+      },
+      {
+        "id": "CVE-2026-50610",
+        "reason": "Local privilege escalation via insufficient access controls in Acer's NitroSense service allows unauthorized registry modifications by authenticated users.",
+        "reason_en": "Local privilege escalation via insufficient access controls in Acer's NitroSense service allows unauthorized registry modifications by authenticated users.",
+        "reason_zh": "Acer NitroSense 服务中访问控制不足可导致本地权限提升，允许已认证用户进行未授权的注册表修改。"
+      },
+      {
+        "id": "CVE-2026-109832",
+        "reason": "Unhandled retryable TLS states cause an unbounded busy loop, enabling remote denial-of-service against enabled GNOME Remote Desktop VNC sessions.",
+        "reason_en": "Unhandled retryable TLS states cause an unbounded busy loop, enabling remote denial-of-service against enabled GNOME Remote Desktop VNC sessions.",
+        "reason_zh": "未处理的 TLS 重试状态会导致无界忙等待循环，从而对已启用的 GNOME Remote Desktop VNC 会话实施远程拒绝服务攻击。"
+      },
+      {
+        "id": "CVE-2026-136950",
+        "reason": "Improper handling of OSC 8 escape sequences in the terminal emulator allows remote attackers to inject malicious hyperlinks and manipulate terminal state.",
+        "reason_en": "Improper handling of OSC 8 escape sequences in the terminal emulator allows remote attackers to inject malicious hyperlinks and manipulate terminal state.",
+        "reason_zh": "终端模拟器中 OSC 8 转义序列处理不当，允许远程攻击者注入恶意超链接并操纵终端状态。"
+      }
+    ],
+    "Mobile Security": [
+      {
+        "id": "CVE-2026-118076",
+        "reason": "Frisbii Pay Android application embeds static API credentials in the APK, enabling attackers to forge requests and bypass authentication mechanisms.",
+        "reason_en": "Frisbii Pay Android application embeds static API credentials in the APK, enabling attackers to forge requests and bypass authentication mechanisms.",
+        "reason_zh": "Frisbii Pay Android 应用程序在 APK 中硬编码了静态 API 凭据，使攻击者能够伪造请求并绕过身份验证机制。"
+      },
+      {
+        "id": "CVE-2026-127041",
+        "reason": "Bizum Pay for Android hardcodes cryptographic signing values, allowing attackers to extract secrets and manipulate payment transactions without proper verification.",
+        "reason_en": "Bizum Pay for Android hardcodes cryptographic signing values, allowing attackers to extract secrets and manipulate payment transactions without proper verification.",
+        "reason_zh": "Bizum Pay Android 版硬编码了加密签名值，允许攻击者在缺乏适当验证的情况下提取密钥并篡改支付交易。"
+      },
+      {
+        "id": "CVE-2026-49188",
+        "reason": "The ai_cmd utility runs with root privileges and passes unsanitized socket data directly to popen(), enabling unauthenticated remote command execution.",
+        "reason_en": "The ai_cmd utility runs with root privileges and passes unsanitized socket data directly to popen(), enabling unauthenticated remote command execution.",
+        "reason_zh": "ai_cmd 实用程序以 root 权限运行，并将未过滤的套接字数据直接传递给 popen()，从而导致未经身份验证的远程命令执行。"
+      },
+      {
+        "id": "CVE-2026-49186",
+        "reason": "Lack of topic-level ACLs in the local MQTT broker allows any client to subscribe via wildcards, facilitating network device enumeration and rogue command publication.",
+        "reason_en": "Lack of topic-level ACLs in the local MQTT broker allows any client to subscribe via wildcards, facilitating network device enumeration and rogue command publication.",
+        "reason_zh": "本地 MQTT 代理缺乏主题级访问控制列表（ACL），允许任何客户端通过通配符订阅，从而便于网络设备枚举和恶意命令发布。"
+      }
+    ],
+    "IoT Security": [
+      {
+        "id": "CVE-2026-0980",
+        "reason": "A flaw in the rubyipmi gem used by Red Hat Satellite's BMC component allows authenticated attackers to craft malicious usernames that trigger remote code execution on baseboard management controllers, compromising hardware-level infrastructure access.",
+        "reason_en": "A flaw in the rubyipmi gem used by Red Hat Satellite's BMC component allows authenticated attackers to craft malicious usernames that trigger remote code execution on baseboard management controllers, compromising hardware-level infrastructure access.",
+        "reason_zh": "Red Hat Satellite 的 BMC 组件所使用的 rubyipmi gem 存在缺陷，允许已认证攻击者构造恶意用户名，从而在基板管理控制器上触发远程代码执行，危及硬件级基础设施访问权限。"
+      },
+      {
+        "id": "CVE-2026-124284",
+        "reason": "Critical authentication bypasses in Genetec Security Center's OIDC, SAML, and AD FS integrations directly compromise physical access control and surveillance infrastructure.",
+        "reason_en": "Critical authentication bypasses in Genetec Security Center's OIDC, SAML, and AD FS integrations directly compromise physical access control and surveillance infrastructure.",
+        "reason_zh": "Genetec Security Center 的 OIDC、SAML 和 AD FS 集成中存在关键的身份验证绕过漏洞，直接破坏了物理访问控制和监控基础设施的安全。"
+      },
+      {
+        "id": "CVE-2026-137587",
+        "reason": "Trusting attacker-controlled length fields in LIVE555's Vorbis/Theora configuration parser triggers heap out-of-bounds reads, risking information leakage or denial of service in RTSP/NVR deployments.",
+        "reason_en": "Trusting attacker-controlled length fields in LIVE555's Vorbis/Theora configuration parser triggers heap out-of-bounds reads, risking information leakage or denial of service in RTSP/NVR deployments.",
+        "reason_zh": "LIVE555 的 Vorbis/Theora 配置解析器盲目信任攻击者控制的长度字段，会触发堆越界读取，在 RTSP/NVR 部署中可能导致信息泄露或拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-50211",
+        "reason": "Exposed factory diagnostic interfaces on retail hardware grant malicious applications direct write access to critical NVRAM registers, compromising device integrity.",
+        "reason_en": "Exposed factory diagnostic interfaces on retail hardware grant malicious applications direct write access to critical NVRAM registers, compromising device integrity.",
+        "reason_zh": "零售硬件上暴露的出厂诊断接口允许恶意应用直接写入关键的 NVRAM 寄存器，破坏设备完整性。"
+      },
+      {
+        "id": "CVE-2026-50209",
+        "reason": "Maliciously triggered broadcast events can overwrite the device's MDM endpoint, effectively hijacking administrative control and shifting ownership to attackers.",
+        "reason_en": "Maliciously triggered broadcast events can overwrite the device's MDM endpoint, effectively hijacking administrative control and shifting ownership to attackers.",
+        "reason_zh": "恶意触发的广播事件可覆盖设备的 MDM 端点，实质上劫持管理控制权并将所有权转移给攻击者。"
+      },
+      {
+        "id": "CVE-2026-128796",
+        "reason": "An overly permissive system service allows any installed application to send arbitrary AT commands to the baseband modem, exposing sensitive identifiers like IMEI and IMSI.",
+        "reason_en": "An overly permissive system service allows any installed application to send arbitrary AT commands to the baseband modem, exposing sensitive identifiers like IMEI and IMSI.",
+        "reason_zh": "权限过宽的系统服务允许任何已安装的应用向基带调制解调器发送任意 AT 指令，从而暴露 IMEI 和 IMSI 等敏感标识符。"
+      }
+    ],
+    "Cloud Security": [
+      {
+        "id": "CVE-2026-135384",
+        "reason": "Canonical LXD's improper OIDC bearer token verification allows remote attackers holding valid identity provider tokens to authenticate to the LXD API, gaining unauthorized container control or user impersonation capabilities.",
+        "reason_en": "Canonical LXD's improper OIDC bearer token verification allows remote attackers holding valid identity provider tokens to authenticate to the LXD API, gaining unauthorized container control or user impersonation capabilities.",
+        "reason_zh": "Canonical LXD 的 OIDC Bearer Token 验证不当，允许持有有效身份提供商令牌的远程攻击者向 LXD API 进行身份验证，从而获得未授权的容器控制权或用户冒充能力。"
+      },
+      {
+        "id": "CVE-2026-136976",
+        "reason": "LXD's recursive file pull feature suffers from improper link resolution on case-insensitive filesystems, enabling authenticated users to escape container boundaries and write arbitrary files to the host system.",
+        "reason_en": "LXD's recursive file pull feature suffers from improper link resolution on case-insensitive filesystems, enabling authenticated users to escape container boundaries and write arbitrary files to the host system.",
+        "reason_zh": "LXD 的递归文件拉取功能在不区分大小写的文件系统上存在符号链接解析不当的问题，允许已认证用户突破容器边界并向宿主机系统写入任意文件。"
+      },
+      {
+        "id": "CVE-2026-75885",
+        "reason": "Unauthenticated access to OpenShift console devfile endpoints can be exploited for SSRF against internal cluster services, potentially exposing sensitive workloads.",
+        "reason_en": "Unauthenticated access to OpenShift console devfile endpoints can be exploited for SSRF against internal cluster services, potentially exposing sensitive workloads.",
+        "reason_zh": "对 OpenShift 控制台 devfile 端点的未授权访问可被用于针对内部集群服务的 SSRF 攻击，可能导致敏感工作负载暴露。"
+      },
+      {
+        "id": "CVE-2026-66794",
+        "reason": "URL path manipulation in the cluster-proxy-addon bypasses authentication and authorization checks, granting unauthorized access to internal management routes.",
+        "reason_en": "URL path manipulation in the cluster-proxy-addon bypasses authentication and authorization checks, granting unauthorized access to internal management routes.",
+        "reason_zh": "cluster-proxy-addon 中的 URL 路径操纵可绕过身份验证和授权检查，授予对内部管理路由的未授权访问。"
+      },
+      {
+        "id": "CVE-2026-137499",
+        "reason": "Budibase's OIDC account linking flaw allows unauthenticated attackers to hijack global builder accounts by asserting email_verified=false at trusted identity providers.",
+        "reason_en": "Budibase's OIDC account linking flaw allows unauthenticated attackers to hijack global builder accounts by asserting email_verified=false at trusted identity providers.",
+        "reason_zh": "Budibase 的 OIDC 账户关联缺陷允许未经身份验证的攻击者在受信任的身份提供商处声明 email_verified=false，从而劫持全局构建者账户。"
+      },
+      {
+        "id": "CVE-2026-75887",
+        "reason": "Path traversal via query parameters in the OpenShift console leaks sensitive pod filesystem files, including configuration secrets and deployment manifests.",
+        "reason_en": "Path traversal via query parameters in the OpenShift console leaks sensitive pod filesystem files, including configuration secrets and deployment manifests.",
+        "reason_zh": "OpenShift 控制台中通过查询参数实现的目录遍历漏洞会泄露敏感的 Pod 文件系统文件，包括配置密钥和部署清单。"
+      },
+      {
+        "id": "CVE-2026-16242",
+        "reason": "Missing cluster CA certificate and token validation in the Konnectivity proxy allows unauthenticated remote attackers to intercept or manipulate control plane traffic, compromising Kubernetes security.",
+        "reason_en": "Missing cluster CA certificate and token validation in the Konnectivity proxy allows unauthenticated remote attackers to intercept or manipulate control plane traffic, compromising Kubernetes security.",
+        "reason_zh": "Konnectivity 代理中缺失集群 CA 证书和令牌验证，允许未经身份验证的远程攻击者拦截或篡改控制平面流量，危及 Kubernetes 安全性。"
+      },
+      {
+        "id": "CVE-2026-15416",
+        "reason": "Argo CD's repo-server exposes an unauthenticated remote code execution vector that could allow attackers to deploy malicious applications directly into GitOps-managed clusters.",
+        "reason_en": "Argo CD's repo-server exposes an unauthenticated remote code execution vector that could allow attackers to deploy malicious applications directly into GitOps-managed clusters.",
+        "reason_zh": "Argo CD 的 repo-server 暴露了一个未认证的远程代码执行途径，攻击者可借此将恶意应用直接部署至由 GitOps 管理的集群中。"
+      },
+      {
+        "id": "CVE-2026-10059",
+        "reason": "Namespace-scoped tenant administrators can exploit the ClusterCurator controller to mint privileged tokens, effectively escalating from namespace limits to full cluster administration.",
+        "reason_en": "Namespace-scoped tenant administrators can exploit the ClusterCurator controller to mint privileged tokens, effectively escalating from namespace limits to full cluster administration.",
+        "reason_zh": "命名空间范围的租户管理员可利用 ClusterCurator 控制器签发特权令牌，从而有效突破命名空间限制，实现向完整集群管理权限的提升。"
+      },
+      {
+        "id": "CVE-2026-15378",
+        "reason": "Blind SSRF in the guardrails-detectors component enables remote attackers to exfiltrate sensitive cloud credentials and internal metadata by injecting crafted XML Schema strings.",
+        "reason_en": "Blind SSRF in the guardrails-detectors component enables remote attackers to exfiltrate sensitive cloud credentials and internal metadata by injecting crafted XML Schema strings.",
+        "reason_zh": "guardrails-detectors 组件中的盲 SSRF 漏洞使远程攻击者能够通过注入构造的 XML Schema 字符串，窃取敏感云凭证和内部元数据。"
+      },
+      {
+        "id": "CVE-2024-11218",
+        "reason": "Podman Build race conditions enable container breakout and host filesystem enumeration, directly threatening containerized workload isolation.",
+        "reason_en": "Podman Build race conditions enable container breakout and host filesystem enumeration, directly threatening containerized workload isolation.",
+        "reason_zh": "Podman Build 的竞争条件可导致容器逃逸及主机文件系统枚举，直接威胁容器化工作负载的隔离性。"
+      },
+      {
+        "id": "CVE-2024-5154",
+        "reason": "cri-o directory traversal allows malicious containers to read and write arbitrary host files, breaking fundamental container security boundaries.",
+        "reason_en": "cri-o directory traversal allows malicious containers to read and write arbitrary host files, breaking fundamental container security boundaries.",
+        "reason_zh": "cri-o 的路径遍历漏洞允许恶意容器读取和写入任意主机文件，破坏了基础的容器安全边界。"
+      },
+      {
+        "id": "CVE-2026-123911",
+        "reason": "VMware ESXi I/O filter service use-after-free can lead to critical hypervisor compromise and virtual machine escape in cloud infrastructures.",
+        "reason_en": "VMware ESXi I/O filter service use-after-free can lead to critical hypervisor compromise and virtual machine escape in cloud infrastructures.",
+        "reason_zh": "VMware ESXi I/O filter 服务的释放后使用（UAF）漏洞可能导致关键虚拟机监控程序被攻破，并在云基础设施中引发虚拟机逃逸。"
+      },
+      {
+        "id": "CVE-2026-137566",
+        "reason": "Argo Workflows path traversal in artifact drivers allows attackers to overwrite sensitive files across connected cloud storage buckets.",
+        "reason_en": "Argo Workflows path traversal in artifact drivers allows attackers to overwrite sensitive files across connected cloud storage buckets.",
+        "reason_zh": "Argo Workflows 工件驱动中的路径遍历漏洞允许攻击者覆盖已连接云存储桶中的敏感文件。"
+      },
+      {
+        "id": "CVE-2025-12548",
+        "reason": "An exposed JSON-RPC API permits unauthenticated attackers to execute arbitrary commands and exfiltrate secrets from isolated developer workspaces.",
+        "reason_en": "An exposed JSON-RPC API permits unauthenticated attackers to execute arbitrary commands and exfiltrate secrets from isolated developer workspaces.",
+        "reason_zh": "暴露的 JSON-RPC API 允许未认证的攻击者执行任意命令，并从隔离的开发工作空间中窃取密钥信息。"
+      },
+      {
+        "id": "CVE-2026-133469",
+        "reason": "Flawed REST cookie parsing bypasses authentication checks, allowing unauthenticated attackers to gain administrative control over XCP-ng virtualization infrastructure.",
+        "reason_en": "Flawed REST cookie parsing bypasses authentication checks, allowing unauthenticated attackers to gain administrative control over XCP-ng virtualization infrastructure.",
+        "reason_zh": "有缺陷的 REST Cookie 解析机制绕过了身份验证检查，使未认证的攻击者能够获取 XCP-ng 虚拟化基础设施的管理控制权。"
+      },
+      {
+        "id": "CVE-2026-115576",
+        "reason": "The unauthenticated local gRPC control interface enables local processes to manipulate zero-trust network configurations, risking lateral movement and policy bypass.",
+        "reason_en": "The unauthenticated local gRPC control interface enables local processes to manipulate zero-trust network configurations, risking lateral movement and policy bypass.",
+        "reason_zh": "未认证的本地 gRPC 控制接口允许本地进程操纵零信任网络配置，带来横向移动和策略绕过风险。"
+      },
+      {
+        "id": "CVE-2026-66784",
+        "reason": "CVSS 8.7 highlights a critical flaw in Submariner's default PSK configuration, enabling attackers to forge cluster identities and potentially hijack multi-cluster Kubernetes communications.",
+        "reason_en": "CVSS 8.7 highlights a critical flaw in Submariner's default PSK configuration, enabling attackers to forge cluster identities and potentially hijack multi-cluster Kubernetes communications.",
+        "reason_zh": "CVSS 评分 8.7 凸显了 Submariner 默认 PSK 配置的关键缺陷，攻击者可借此伪造集群身份，并可能劫持多集群 Kubernetes 通信。"
+      }
+    ],
+    "Network Devices": [
+      {
+        "id": "CVE-2023-3961",
+        "reason": "Samba's path traversal vulnerability in Unix domain socket pipe name processing allows attackers to write arbitrary files within private directories, potentially compromising SMB/CIFS services and associated RPC daemons.",
+        "reason_en": "Samba's path traversal vulnerability in Unix domain socket pipe name processing allows attackers to write arbitrary files within private directories, potentially compromising SMB/CIFS services and associated RPC daemons.",
+        "reason_zh": "Samba 在处理 Unix 域套接字管道名称时存在路径遍历漏洞，允许攻击者在私有目录内写入任意文件，进而可能危及 SMB/CIFS 服务及相关 RPC 守护进程。"
+      },
+      {
+        "id": "CVE-2026-35091",
+        "reason": "Corosync's membership commit token sanity check flaw allows unauthenticated remote attackers to trigger out-of-bounds reads via crafted UDP packets, causing cluster service crashes and denial of service.",
+        "reason_en": "Corosync's membership commit token sanity check flaw allows unauthenticated remote attackers to trigger out-of-bounds reads via crafted UDP packets, causing cluster service crashes and denial of service.",
+        "reason_zh": "Corosync 的成员提交令牌健全性检查缺陷允许未认证的远程攻击者通过构造的 UDP 数据包触发越界读取，导致集群服务崩溃及拒绝服务。"
+      },
+      {
+        "id": "CVE-2026-137481",
+        "reason": "Traefik's sanitizePath option fails to resolve dot-segments, allowing attackers to bypass router matching rules and apply unauthorized middlewares to traffic.",
+        "reason_en": "Traefik's sanitizePath option fails to resolve dot-segments, allowing attackers to bypass router matching rules and apply unauthorized middlewares to traffic.",
+        "reason_zh": "Traefik 的 sanitizePath 选项未能正确解析点号段，攻击者可借此绕过路由匹配规则，并向流量注入未授权的中间件。"
+      },
+      {
+        "id": "CVE-2026-93491",
+        "reason": "Netty's HttpServerCodec lacks read enforcement during HTTP pipelining, causing unbounded queue growth that exhausts heap memory and triggers service disruption.",
+        "reason_en": "Netty's HttpServerCodec lacks read enforcement during HTTP pipelining, causing unbounded queue growth that exhausts heap memory and triggers service disruption.",
+        "reason_zh": "Netty 的 HttpServerCodec 在 HTTP 流水线处理期间缺乏读取限制，导致队列无限增长并耗尽堆内存，进而引发服务中断。"
+      },
+      {
+        "id": "CVE-2026-82",
+        "reason": "Corosync's Totem message reassembly omits runtime bounds checks in release builds, exposing multicast clustering protocols to heap corruption and potential remote code execution.",
+        "reason_en": "Corosync's Totem message reassembly omits runtime bounds checks in release builds, exposing multicast clustering protocols to heap corruption and potential remote code execution.",
+        "reason_zh": "Corosync 的 Totem 消息重组在发布版本中省略了运行时边界检查，使组播集群协议面临堆损坏及潜在远程代码执行风险。"
+      },
+      {
+        "id": "CVE-2026-4480",
+        "reason": "Samba's printing subsystem passes unescaped job descriptions to shell commands, allowing remote attackers to achieve arbitrary command execution via specially crafted print requests.",
+        "reason_en": "Samba's printing subsystem passes unescaped job descriptions to shell commands, allowing remote attackers to achieve arbitrary command execution via specially crafted print requests.",
+        "reason_zh": "Samba 打印子系统将未转义的任务描述传递给 Shell 命令，远程攻击者可通过特制的打印请求实现任意命令执行。"
+      },
+      {
+        "id": "CVE-2026-4408",
+        "reason": "Misconfigured password scripts using the %u substitution character pass unescaped usernames to shell contexts, granting remote attackers direct command execution capabilities on domain controllers.",
+        "reason_en": "Misconfigured password scripts using the %u substitution character pass unescaped usernames to shell contexts, granting remote attackers direct command execution capabilities on domain controllers.",
+        "reason_zh": "错误配置的密码脚本在使用 %u 替换符时会将未转义的用户名传入 Shell 上下文，赋予远程攻击者在域控制器上直接执行命令的能力。"
+      },
+      {
+        "id": "CVE-2026-1933",
+        "reason": "Missing SMB-layer access checks on NTFS-style reparse points allow authenticated users to bypass read-only share restrictions, enabling unauthorized metadata modification.",
+        "reason_en": "Missing SMB-layer access checks on NTFS-style reparse points allow authenticated users to bypass read-only share restrictions, enabling unauthorized metadata modification.",
+        "reason_zh": "NTFS 风格重解析点在 SMB 层缺失访问检查，允许已认证用户绕过只读共享限制，从而实现未经授权的元数据修改。"
+      },
+      {
+        "id": "CVE-2023-5178",
+        "reason": "Linux kernel NVMe/TCP subsystem logical bug causes use-after-free, potentially permitting remote code execution on network-attached storage controllers.",
+        "reason_en": "Linux kernel NVMe/TCP subsystem logical bug causes use-after-free, potentially permitting remote code execution on network-attached storage controllers.",
+        "reason_zh": "Linux 内核 NVMe/TCP 子系统的逻辑缺陷会导致释放后使用漏洞，可能允许在网络附加存储控制器上执行远程代码。"
+      },
+      {
+        "id": "CVE-2023-4147",
+        "reason": "Linux kernel Netfilter use-after-free when adding chain rules allows local privilege escalation or system crashes in network filtering stacks.",
+        "reason_en": "Linux kernel Netfilter use-after-free when adding chain rules allows local privilege escalation or system crashes in network filtering stacks.",
+        "reason_zh": "Linux 内核 Netfilter 在添加链规则时存在释放后使用漏洞，可在网络过滤栈中导致本地提权或系统崩溃。"
+      },
+      {
+        "id": "CVE-2023-4387",
+        "reason": "VMware vmxnet3 NIC driver double-free vulnerability can crash the host system or escalate privileges in virtualized network environments.",
+        "reason_en": "VMware vmxnet3 NIC driver double-free vulnerability can crash the host system or escalate privileges in virtualized network environments.",
+        "reason_zh": "VMware vmxnet3 网卡驱动的双释放漏洞可导致宿主机系统崩溃或在虚拟化网络环境中提升权限。"
+      },
+      {
+        "id": "CVE-2026-103406",
+        "reason": "Insufficient validation of the salt minion ID in the provisioning component allows remote attackers to achieve root-level command execution on network controllers.",
+        "reason_en": "Insufficient validation of the salt minion ID in the provisioning component allows remote attackers to achieve root-level command execution on network controllers.",
+        "reason_zh": "配置组件中对 Salt minion ID 的验证不足，允许远程攻击者在网络控制器上实现 Root 级命令执行。"
+      },
+      {
+        "id": "CVE-2026-133323",
+        "reason": "Unsanitized parameters in the conferencing component enable blind command injection, allowing unauthenticated attackers to fully compromise the underlying server.",
+        "reason_en": "Unsanitized parameters in the conferencing component enable blind command injection, allowing unauthenticated attackers to fully compromise the underlying server.",
+        "reason_zh": "会议组件中存在未过滤的参数，可触发盲命令注入，使未认证的攻击者能够完全控制底层服务器。"
+      },
+      {
+        "id": "CVE-2026-133993",
+        "reason": "A remotely exploitable stack-based buffer overflow in the GENA subscription handler can lead to complete device compromise and network disruption.",
+        "reason_en": "A remotely exploitable stack-based buffer overflow in the GENA subscription handler can lead to complete device compromise and network disruption.",
+        "reason_zh": "GENA 订阅处理器中存在可远程利用的基于栈的缓冲区溢出漏洞，可能导致设备被完全接管及网络中断。"
+      }
+    ],
+    "Industrial Control": [
+      {
+        "id": "CVE-2023-25915",
+        "reason": "Critical input validation flaws in the industrial controller allow authenticated attackers to execute arbitrary system commands, jeopardizing operational technology environments.",
+        "reason_en": "Critical input validation flaws in the industrial controller allow authenticated attackers to execute arbitrary system commands, jeopardizing operational technology environments.",
+        "reason_zh": "工业控制器中存在关键输入验证缺陷，允许已认证的攻击者执行任意系统命令，危及运营技术环境。"
+      },
+      {
+        "id": "CVE-2025-41450",
+        "reason": "Weak authentication mechanisms in the industrial control series permit unauthorized access, potentially allowing attackers to manipulate critical manufacturing processes.",
+        "reason_en": "Weak authentication mechanisms in the industrial control series permit unauthorized access, potentially allowing attackers to manipulate critical manufacturing processes.",
+        "reason_zh": "工控系列产品的弱认证机制允许未授权访问，攻击者可能借此篡改关键制造流程。"
+      }
+    ],
+    "Web Security": [
+      {
+        "id": "CVE-2026-117691",
+        "reason": "Keycloak's SAML HTTP-Redirect binding processes percent-encoded parameter names while signature verification checks literals, allowing attackers to forge responses and bypass authentication mechanisms entirely.",
+        "reason_en": "Keycloak's SAML HTTP-Redirect binding processes percent-encoded parameter names while signature verification checks literals, allowing attackers to forge responses and bypass authentication mechanisms entirely.",
+        "reason_zh": "Keycloak 的 SAML HTTP-Redirect 绑定在处理百分号编码的参数名时，签名验证却检查原始字面量，攻击者可借此伪造响应并完全绕过身份验证机制。"
+      },
+      {
+        "id": "CVE-2026-89058",
+        "reason": "RESTEasy's CorsFilter misconfiguration reflects Origin headers alongside credentials when wildcard origins are permitted, facilitating cross-origin credential theft and malicious site interactions.",
+        "reason_en": "RESTEasy's CorsFilter misconfiguration reflects Origin headers alongside credentials when wildcard origins are permitted, facilitating cross-origin credential theft and malicious site interactions.",
+        "reason_zh": "RESTEasy 的 CorsFilter 配置不当会在允许通配符源时将 Origin 头与凭据一同反射回响应中，助长跨域凭据窃取及恶意站点交互。"
+      },
+      {
+        "id": "CVE-2026-137470",
+        "reason": "Stored XSS in SiYuan allows attackers to inject DOM event handlers via shared Markdown files, enabling arbitrary script execution in victim browsers without interaction.",
+        "reason_en": "Stored XSS in SiYuan allows attackers to inject DOM event handlers via shared Markdown files, enabling arbitrary script execution in victim browsers without interaction.",
+        "reason_zh": "SiYuan 中存在存储型 XSS 漏洞，攻击者可通过共享的 Markdown 文件注入 DOM 事件处理器，无需交互即可在受害者浏览器中执行任意脚本。"
+      },
+      {
+        "id": "CVE-2026-137494",
+        "reason": "Budibase's broken object-level authorization lets authenticated users reference and modify other tenants' files, posing a severe risk of cross-tenant data exfiltration.",
+        "reason_en": "Budibase's broken object-level authorization lets authenticated users reference and modify other tenants' files, posing a severe risk of cross-tenant data exfiltration.",
+        "reason_zh": "Budibase 的对象级授权缺陷允许已认证用户访问并修改其他租户的文件，存在严重的跨租户数据外泄风险。"
+      },
+      {
+        "id": "CVE-2026-76075",
+        "reason": "The WordPress Warehouse Cargo theme permits arbitrary file uploads via an unverified AJAX handler, allowing unauthenticated attackers to achieve remote code execution on vulnerable sites.",
+        "reason_en": "The WordPress Warehouse Cargo theme permits arbitrary file uploads via an unverified AJAX handler, allowing unauthenticated attackers to achieve remote code execution on vulnerable sites.",
+        "reason_zh": "WordPress Warehouse Cargo 主题通过未经验证的 AJAX 处理器允许任意文件上传，致使未认证攻击者可在受影响站点上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-137478",
+        "reason": "Traefik's ForwardAuth middleware fails to validate Proxy-Authorization headers alongside Authorization, enabling unauthenticated bypass of NTLM and Negotiate protections.",
+        "reason_en": "Traefik's ForwardAuth middleware fails to validate Proxy-Authorization headers alongside Authorization, enabling unauthenticated bypass of NTLM and Negotiate protections.",
+        "reason_zh": "Traefik 的 ForwardAuth 中间件未能同步验证 Proxy-Authorization 与 Authorization 请求头，致使未认证攻击者可绕过 NTLM 和 Negotiate 身份验证机制。"
+      },
+      {
+        "id": "CVE-2026-104998",
+        "reason": "Missing file type validation in the WooCommerce Product Input Fields plugin permits unauthenticated attackers to upload arbitrary executable files, facilitating immediate web shell deployment.",
+        "reason_en": "Missing file type validation in the WooCommerce Product Input Fields plugin permits unauthenticated attackers to upload arbitrary executable files, facilitating immediate web shell deployment.",
+        "reason_zh": "WooCommerce Product Input Fields 插件缺失文件类型校验，允许未认证攻击者上传任意可执行文件，从而快速部署 Web Shell。"
+      },
+      {
+        "id": "CVE-2026-135641",
+        "reason": "A flawed non-empty guard condition in the WP Job Portal constructor bypasses authentication checks, allowing unauthenticated attackers to perform account takeovers and gain administrative access.",
+        "reason_en": "A flawed non-empty guard condition in the WP Job Portal constructor bypasses authentication checks, allowing unauthenticated attackers to perform account takeovers and gain administrative access.",
+        "reason_zh": "WP Job Portal 构造函数中存在缺陷的非空守卫条件绕过了身份验证检查，致使未认证攻击者可实施账户接管并获取管理员权限。"
+      },
+      {
+        "id": "CVE-2026-136240",
+        "reason": "Insecure deserialization of untrusted input in the PDF Invoice plugin enables unauthenticated PHP Object Injection, providing a direct path to remote code execution on vulnerable sites.",
+        "reason_en": "Insecure deserialization of untrusted input in the PDF Invoice plugin enables unauthenticated PHP Object Injection, providing a direct path to remote code execution on vulnerable sites.",
+        "reason_zh": "PDF Invoice 插件对不可信输入进行不安全的反序列化操作，导致未认证攻击者可发起 PHP 对象注入，进而直接在受影响站点上实现远程代码执行。"
+      },
+      {
+        "id": "CVE-2026-133951",
+        "reason": "Generation of the site-wide signing secret using PHP's non-cryptographic uniqid() function severely weakens authentication mechanisms, leading to widespread privilege escalation across WordPress installations.",
+        "reason_en": "Generation of the site-wide signing secret using PHP's non-cryptographic uniqid() function severely weakens authentication mechanisms, leading to widespread privilege escalation across WordPress installations.",
+        "reason_zh": "使用 PHP 非密码学安全的 uniqid() 函数生成全局签名密钥，严重削弱了身份验证机制，导致 WordPress 实例中普遍发生权限提升。"
+      },
+      {
+        "id": "CVE-2025-12543",
+        "reason": "Undertow HTTP server fails to properly validate Host headers, enabling cache poisoning and authentication bypass attacks against web applications.",
+        "reason_en": "Undertow HTTP server fails to properly validate Host headers, enabling cache poisoning and authentication bypass attacks against web applications.",
+        "reason_zh": "Undertow HTTP 服务器未能正确校验 Host 请求头，致使攻击者可对 Web 应用实施缓存投毒及身份验证绕过攻击。"
+      },
+      {
+        "id": "CVE-2024-2419",
+        "reason": "Keycloak redirect_uri validation flaw allows OAuth token theft and user impersonation across enterprise identity and access management systems.",
+        "reason_en": "Keycloak redirect_uri validation flaw allows OAuth token theft and user impersonation across enterprise identity and access management systems.",
+        "reason_zh": "Keycloak 的 redirect_uri 验证缺陷可导致企业身份与访问管理系统中的 OAuth 令牌窃取及用户冒充攻击。"
+      },
+      {
+        "id": "CVE-2026-130637",
+        "reason": "SEPPMAIL Secure Email Gateway suffers from pre-authentication SSTI, allowing unauthenticated attackers to disclose sensitive data and take over accounts.",
+        "reason_en": "SEPPMAIL Secure Email Gateway suffers from pre-authentication SSTI, allowing unauthenticated attackers to disclose sensitive data and take over accounts.",
+        "reason_zh": "SEPPMAIL Secure Email Gateway 存在认证前服务端模板注入（SSTI）漏洞，致使未认证攻击者可泄露敏感数据并接管账户。"
+      },
+      {
+        "id": "CVE-2026-133336",
+        "reason": "ChronoForms extension allows unauthenticated arbitrary file uploads due to flawed extension checks, leading to immediate remote code execution on web servers.",
+        "reason_en": "ChronoForms extension allows unauthenticated arbitrary file uploads due to flawed extension checks, leading to immediate remote code execution on web servers.",
+        "reason_zh": "ChronoForms 扩展因校验逻辑缺陷允许未认证任意文件上传，致使 Web 服务器面临即时的远程代码执行风险。"
+      },
+      {
+        "id": "CVE-2026-129411",
+        "reason": "Unsanitized frontend filter parameters enable unauthenticated SQL injection, allowing attackers to extract or modify sensitive database records.",
+        "reason_en": "Unsanitized frontend filter parameters enable unauthenticated SQL injection, allowing attackers to extract or modify sensitive database records.",
+        "reason_zh": "前端过滤参数未经过清洗，导致未认证攻击者可发起 SQL 注入，从而提取或篡改敏感数据库记录。"
+      },
+      {
+        "id": "CVE-2026-15369",
+        "reason": "The unauthenticated Store API accepts manipulated role parameters, enabling privilege escalation attacks that grant unauthorized administrative access to WordPress sites.",
+        "reason_en": "The unauthenticated Store API accepts manipulated role parameters, enabling privilege escalation attacks that grant unauthorized administrative access to WordPress sites.",
+        "reason_zh": "未认证的 Store API 接受被篡改的角色参数，致使攻击者可利用该缺陷实施权限提升，非法获取 WordPress 站点的管理员权限。"
+      },
+      {
+        "id": "CVE-2026-137305",
+        "reason": "Unchecked file upload destinations allow attackers to place malicious Twig templates in executable directories, resulting in arbitrary server-side code execution.",
+        "reason_en": "Unchecked file upload destinations allow attackers to place malicious Twig templates in executable directories, resulting in arbitrary server-side code execution.",
+        "reason_zh": "文件上传路径缺乏校验，致使攻击者可将恶意 Twig 模板写入可执行目录，进而实现任意服务端代码执行。"
+      }
+    ],
+    "Databases & Middleware": [
+      {
+        "id": "CVE-2023-39417",
+        "reason": "PostgreSQL extension scripts containing vulnerable quoting constructs are susceptible to SQL injection, allowing attackers with database access to execute arbitrary commands and exfiltrate sensitive data.",
+        "reason_en": "PostgreSQL extension scripts containing vulnerable quoting constructs are susceptible to SQL injection, allowing attackers with database access to execute arbitrary commands and exfiltrate sensitive data.",
+        "reason_zh": "包含不安全引号处理的 PostgreSQL 扩展脚本易受 SQL 注入攻击，致使拥有数据库访问权限的攻击者可执行任意命令并外泄敏感数据。"
+      },
+      {
+        "id": "CVE-2026-11770",
+        "reason": "389 Directory Server's CleanAllRUV replication operation allows unauthenticated LDAP search filter injection, exploiting elevated replication privileges to manipulate directory state and bypass security controls.",
+        "reason_en": "389 Directory Server's CleanAllRUV replication operation allows unauthenticated LDAP search filter injection, exploiting elevated replication privileges to manipulate directory state and bypass security controls.",
+        "reason_zh": "389 Directory Server 的 CleanAllRUV 复制操作允许未认证 LDAP 搜索过滤器注入，攻击者可利用高权限复制功能篡改目录状态并绕过安全管控。"
+      },
+      {
+        "id": "CVE-2026-137490",
+        "reason": "SurrealDB's JavaScript bridge bypasses query capability gates, allowing restricted subjects to execute arbitrary database commands and escape sandbox restrictions.",
+        "reason_en": "SurrealDB's JavaScript bridge bypasses query capability gates, allowing restricted subjects to execute arbitrary database commands and escape sandbox restrictions.",
+        "reason_zh": "SurrealDB 的 JavaScript 桥接模块绕过了查询权限管控，致使受限用户可执行任意数据库命令并突破沙箱隔离限制。"
+      },
+      {
+        "id": "CVE-2026-93569",
+        "reason": "Netty's HTTP/1 to HTTP/2 conversion incorrectly prioritizes conflicting Host headers over absolute-form targets, facilitating request smuggling and cache poisoning attacks.",
+        "reason_en": "Netty's HTTP/1 to HTTP/2 conversion incorrectly prioritizes conflicting Host headers over absolute-form targets, facilitating request smuggling and cache poisoning attacks.",
+        "reason_zh": "Netty 在 HTTP/1 至 HTTP/2 协议转换时错误地优先处理冲突的 Host 请求头而非绝对路径目标，致使攻击者可实施请求走私及缓存投毒攻击。"
+      },
+      {
+        "id": "CVE-2026-9086",
+        "reason": "Keycloak's client URI validation bypass enables registration of malicious redirect endpoints, which can be leveraged for credential phishing and session hijacking.",
+        "reason_en": "Keycloak's client URI validation bypass enables registration of malicious redirect endpoints, which can be leveraged for credential phishing and session hijacking.",
+        "reason_zh": "Keycloak 的客户端 URI 验证绕过漏洞允许注册恶意重定向端点，进而被用于凭证钓鱼与会话劫持攻击。"
+      },
+      {
+        "id": "CVE-2026-60",
+        "reason": "389 Directory Server's LDAP bind-rule evaluator incorrectly matches anonymous clients against empty stored attributes, granting unauthorized access to restricted directories.",
+        "reason_en": "389 Directory Server's LDAP bind-rule evaluator incorrectly matches anonymous clients against empty stored attributes, granting unauthorized access to restricted directories.",
+        "reason_zh": "389 Directory Server 的 LDAP 绑定规则评估器错误地将匿名用户与空存储属性进行匹配，致使攻击者可越权访问受限目录。"
+      },
+      {
+        "id": "CVE-2026-18922",
+        "reason": "Stale Cyrus SASL auxiliary properties carry forward failed bind identities onto new connections, allowing attackers to bypass authentication mechanisms and impersonate other users in 389 Directory Server.",
+        "reason_en": "Stale Cyrus SASL auxiliary properties carry forward failed bind identities onto new connections, allowing attackers to bypass authentication mechanisms and impersonate other users in 389 Directory Server.",
+        "reason_zh": "389 Directory Server 中残留的 Cyrus SASL 辅助属性会将失败的绑定身份传递至新连接，致使攻击者可绕过身份验证机制并冒充其他用户。"
+      },
+      {
+        "id": "CVE-2026-15555",
+        "reason": "JBoss Marshalling deserializes cluster session replication data without class filtering, enabling unauthenticated remote attackers to execute arbitrary code via standard gadget chains.",
+        "reason_en": "JBoss Marshalling deserializes cluster session replication data without class filtering, enabling unauthenticated remote attackers to execute arbitrary code via standard gadget chains.",
+        "reason_zh": "JBoss Marshalling 在未进行类白名单过滤的情况下反序列化集群会话复制数据，致使未认证远程攻击者可利用标准 Gadget 链执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-10579",
+        "reason": "The Picketlink SAML handler accepts unsolicited responses without proper validation, permitting attackers to forge assertions and authenticate as any principal with unrestricted roles.",
+        "reason_en": "The Picketlink SAML handler accepts unsolicited responses without proper validation, permitting attackers to forge assertions and authenticate as any principal with unrestricted roles.",
+        "reason_zh": "Picketlink SAML 处理器未经验证即接受非预期响应，致使攻击者可伪造断言（Assertion）并伪装成任意主体以获取无限制角色权限。"
+      },
+      {
+        "id": "CVE-2026-0603",
+        "reason": "Second-order SQL injection in Hibernate's InlineIdsOrClauseBuilder allows low-privileged users to inject unsanitized characters into ID columns, extracting sensitive database contents.",
+        "reason_en": "Second-order SQL injection in Hibernate's InlineIdsOrClauseBuilder allows low-privileged users to inject unsanitized characters into ID columns, extracting sensitive database contents.",
+        "reason_zh": "Hibernate 的 InlineIdsOrClauseBuilder 存在二次 SQL 注入漏洞，低权限用户可将未过滤字符注入 ID 字段，从而窃取敏感数据库内容。"
+      },
+      {
+        "id": "CVE-2023-5869",
+        "reason": "PostgreSQL integer overflow during array modification permits authenticated users to execute arbitrary code within the database engine itself.",
+        "reason_en": "PostgreSQL integer overflow during array modification permits authenticated users to execute arbitrary code within the database engine itself.",
+        "reason_zh": "PostgreSQL 在处理数组修改时发生整数溢出，致使已认证攻击者可在数据库引擎内部执行任意代码。"
+      },
+      {
+        "id": "CVE-2026-135203",
+        "reason": "Eclipse Ditto executes untrusted JavaScript mapping scripts without sandboxing, enabling full Java object injection and remote code execution.",
+        "reason_en": "Eclipse Ditto executes untrusted JavaScript mapping scripts without sandboxing, enabling full Java object injection and remote code execution.",
+        "reason_zh": "Eclipse Ditto 在未启用沙箱隔离的情况下执行不可信的 JavaScript 映射脚本，导致完整的 Java 对象注入及远程代码执行。"
+      },
+      {
+        "id": "CVE-2024-1488",
+        "reason": "Unbound DNS resolver misconfigures default permissions, allowing local processes to tamper with runtime configuration and disrupt DNS resolution services.",
+        "reason_en": "Unbound DNS resolver misconfigures default permissions, allowing local processes to tamper with runtime configuration and disrupt DNS resolution services.",
+        "reason_zh": "Unbound DNS 解析器默认权限配置不当，致使本地进程可篡改运行时配置并干扰 DNS 解析服务。"
+      },
+      {
+        "id": "CVE-2026-86345",
+        "reason": "Failure to clear buffered plaintext during StartTLS negotiation enables on-path attackers to inject malicious LDAP commands after encryption is established.",
+        "reason_en": "Failure to clear buffered plaintext during StartTLS negotiation enables on-path attackers to inject malicious LDAP commands after encryption is established.",
+        "reason_zh": "StartTLS 协商过程中未能清空缓冲区内的明文数据，致使中间人攻击者可在加密通道建立后注入恶意 LDAP 命令。"
+      },
+      {
+        "id": "CVE-2020-25720",
+        "reason": "Inadequate permission scoping allows delegated administrators to overwrite security-sensitive Active Directory attributes, undermining directory integrity and access controls.",
+        "reason_en": "Inadequate permission scoping allows delegated administrators to overwrite security-sensitive Active Directory attributes, undermining directory integrity and access controls.",
+        "reason_zh": "权限作用域划分不当，致使委派管理员可覆写安全敏感的 Active Directory 属性，破坏目录完整性与访问控制策略。"
+      }
+    ],
+    "Other": [
+      {
+        "id": "CVE-2026-102010",
+        "reason": "GCC's libstdc++ priority queue erase_if function fails to update internal pointers after reallocation, creating a use-after-free condition exploitable by applications relying on standard C++ libraries for memory corruption.",
+        "reason_en": "GCC's libstdc++ priority queue erase_if function fails to update internal pointers after reallocation, creating a use-after-free condition exploitable by applications relying on standard C++ libraries for memory corruption.",
+        "reason_zh": "GCC libstdc++ 的优先级队列 erase_if 函数在内存重分配后未更新内部指针，引发释放后使用（Use-After-Free）漏洞，可被利用导致内存损坏。"
+      },
+      {
+        "id": "CVE-2024-0562",
+        "reason": "The Linux kernel's bdi_unregister race condition during disk removal schedules bandwidth estimation work after cleanup completes, leading to use-after-free scenarios that can crash the system or leak kernel memory.",
+        "reason_en": "The Linux kernel's bdi_unregister race condition during disk removal schedules bandwidth estimation work after cleanup completes, leading to use-after-free scenarios that can crash the system or leak kernel memory.",
+        "reason_zh": "Linux内核的bdi_unregister在磁盘移除期间存在竞态条件，会在清理完成后调度带宽估算工作，导致释放后使用场景，可能引发系统崩溃或内核内存泄漏。"
+      },
+      {
+        "id": "CVE-2023-39191",
+        "reason": "Inadequate validation of dynamic pointers in user-supplied eBPF programs allows attackers with CAP_BPF privileges to bypass safety checks and escalate to full system root access.",
+        "reason_en": "Inadequate validation of dynamic pointers in user-supplied eBPF programs allows attackers with CAP_BPF privileges to bypass safety checks and escalate to full system root access.",
+        "reason_zh": "对用户提供的eBPF程序中动态指针验证不足，使拥有CAP_BPF权限的攻击者能够绕过安全检查并提升权限至完整的系统root访问权限。"
+      },
+      {
+        "id": "CVE-2026-13622",
+        "reason": "KubeVirt's live migration proxy dials Unix sockets via /proc paths without symlink protection, creating a container escape risk during virtual machine migrations.",
+        "reason_en": "KubeVirt's live migration proxy dials Unix sockets via /proc paths without symlink protection, creating a container escape risk during virtual machine migrations.",
+        "reason_zh": "KubeVirt的实时迁移代理通过/proc路径连接Unix套接字且缺乏符号链接保护，在虚拟机迁移过程中存在容器逃逸风险。"
+      },
+      {
+        "id": "CVE-2024-4467",
+        "reason": "Crafting a malicious QEMU disk image with a json:{} block device descriptor triggers excessive resource consumption or code execution on the host system via the qemu-img utility.",
+        "reason_en": "Crafting a malicious QEMU disk image with a json:{} block device descriptor triggers excessive resource consumption or code execution on the host system via the qemu-img utility.",
+        "reason_zh": "构造包含json:{}块设备描述符的恶意QEMU磁盘镜像，可通过qemu-img工具在宿主机上触发资源过度消耗或代码执行。"
+      },
+      {
+        "id": "CVE-2026-137567",
+        "reason": "llama.cpp RPC server contains an out-of-bounds write via zero-element tensors, allowing unauthenticated heap corruption and potential RCE in AI inference services.",
+        "reason_en": "llama.cpp RPC server contains an out-of-bounds write via zero-element tensors, allowing unauthenticated heap corruption and potential RCE in AI inference services.",
+        "reason_zh": "llama.cpp RPC服务器存在通过零元素张量触发的越界写入漏洞，允许未授权堆损坏及AI推理服务中的潜在远程代码执行。"
+      },
+      {
+        "id": "CVE-2024-52336",
+        "reason": "Red Hat Tuned package allows unauthenticated local users to inject and execute arbitrary scripts via D-Bus, escalating to root privileges on the host.",
+        "reason_en": "Red Hat Tuned package allows unauthenticated local users to inject and execute arbitrary scripts via D-Bus, escalating to root privileges on the host.",
+        "reason_zh": "Red Hat Tuned软件包允许未经认证的本地用户通过D-Bus注入并执行任意脚本，从而在宿主机上提升权限至root。"
+      },
+      {
+        "id": "CVE-2024-5651",
+        "reason": "Fence Agents Remediation operator exposes an RCE primitive through unsanitized SSH/telnet path arguments, impacting cluster management and orchestration workflows.",
+        "reason_en": "Fence Agents Remediation operator exposes an RCE primitive through unsanitized SSH/telnet path arguments, impacting cluster management and orchestration workflows.",
+        "reason_zh": "Fence Agents Remediation操作器因未过滤SSH/telnet路径参数而暴露出远程代码执行漏洞，影响集群管理与编排工作流。"
+      },
+      {
+        "id": "CVE-2026-130336",
+        "reason": "Eval injection in the framework's custom method dispatcher allows attackers to execute arbitrary code within the penetration testing environment, potentially compromising host systems.",
+        "reason_en": "Eval injection in the framework's custom method dispatcher allows attackers to execute arbitrary code within the penetration testing environment, potentially compromising host systems.",
+        "reason_zh": "框架自定义方法分发器中存在Eval注入漏洞，攻击者可借此在渗透测试环境中执行任意代码，进而可能危及宿主机系统。"
+      },
+      {
+        "id": "CVE-2026-137308",
+        "reason": "Weak URL validation logic in the MCP tool enables SSRF attacks using obfuscated IP formats, facilitating unauthorized access to internal network resources.",
+        "reason_en": "Weak URL validation logic in the MCP tool enables SSRF attacks using obfuscated IP formats, facilitating unauthorized access to internal network resources.",
+        "reason_zh": "MCP工具的URL验证逻辑薄弱，可利用混淆的IP格式发起SSRF攻击，从而获取内部网络资源的未授权访问权限。"
+      }
+    ]
+  },
+  "summary": "Today's curated vulnerabilities emphasize critical security gaps in cloud infrastructure, web services, and network equipment, where remote code execution and authentication bypasses represent the most prevalent attack methods. High-profile products including Keycloak, Traefik, and Samba suffer from flaws enabling credential forgery and command injection, while extensive memory corruption bugs in the Linux kernel and desktop components continue to drive local privilege escalation and denial-of-service conditions. Cloud environments face distinct dangers through container breakout vulnerabilities in LXD and Kubernetes ecosystems, alongside hypervisor weaknesses in VMware ESXi that risk full infrastructure takeover. The report also identifies significant risks in industrial control and IoT sectors stemming from hardcoded secrets and insufficient input validation, reflecting a broad trend of misconfigurations and logic errors across enterprise software.",
+  "summary_en": "Today's curated vulnerabilities emphasize critical security gaps in cloud infrastructure, web services, and network equipment, where remote code execution and authentication bypasses represent the most prevalent attack methods. High-profile products including Keycloak, Traefik, and Samba suffer from flaws enabling credential forgery and command injection, while extensive memory corruption bugs in the Linux kernel and desktop components continue to drive local privilege escalation and denial-of-service conditions. Cloud environments face distinct dangers through container breakout vulnerabilities in LXD and Kubernetes ecosystems, alongside hypervisor weaknesses in VMware ESXi that risk full infrastructure takeover. The report also identifies significant risks in industrial control and IoT sectors stemming from hardcoded secrets and insufficient input validation, reflecting a broad trend of misconfigurations and logic errors across enterprise software.",
+  "summary_zh": "今日精选漏洞凸显了云基础设施、Web服务和网络设备中的关键安全缺口，其中远程代码执行和身份验证绕过是最常见的攻击方式。Keycloak、Traefik和Samba等知名产品存在凭证伪造和命令注入缺陷；Linux内核及桌面组件中广泛存在的内存破坏漏洞持续导致本地权限提升和拒绝服务问题。云环境面临LXD和Kubernetes生态中的容器逃逸漏洞，以及VMware ESXi虚拟化层弱点带来的全面接管风险。报告还指出工业控制与物联网领域因硬编码密钥和输入验证不足引发的重大风险，反映出企业软件中配置错误与逻辑缺陷的普遍趋势。"
+}
